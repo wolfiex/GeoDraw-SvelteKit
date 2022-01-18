@@ -70,14 +70,14 @@
 				console.log(key, value);
 				if ($mapobject.getSource(key)) $mapobject.removeSource(key);
 				// if (value.hasOwnProperty('data')) value.data = await value.data; // for async loads
-				$mapobject.addSource(key, value);
+				if (!$mapobject.getSource(key)) $mapobject.addSource(key, value); // as it may nto be removable
 			}
 		});
 
 		maplayer.subscribe( () => {
 			// set the layers
 			for (const value of $maplayer) {
-				console.log('layer',value);
+				// console.log('layer',value);
 				if ($mapobject.getLayer(value.id)) $mapobject.removeLayer(value.id);
 				$mapobject.addLayer(value);
 			}
@@ -93,6 +93,12 @@
 			padding: 20
 		});
 
+	}
+
+
+
+export function change_data(layer,data) {
+		$mapobject.getSource(layer).setData(data);
 	}
 
 	/// main

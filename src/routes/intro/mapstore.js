@@ -24,4 +24,4 @@ export let location = {
     bounds: [[-5.816, 49.864], [1.863, 55.872]], // England & Wales bounding box
 };
 export let maxbounds = null;[[-9, 47], [5, 57]];
-export const mapstyle = "https://bothness.github.io/ons-basemaps/data/style-omt.json";
+export const mapstyle = '/style-omt.json'//"https://bothness.github.io/ons-basemaps/data/style-omt.json";

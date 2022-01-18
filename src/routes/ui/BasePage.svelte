@@ -79,7 +79,7 @@
 </div>
 
 <style lang="scss">
-  @import "./../../node_modules/@ons/design-system/scss/vars/_index.scss";
+  // @import "./../../node_modules/@ons/design-system/scss/vars/_index.scss";
   .ons-page .ons-container {
     max-width: 100%;
   }

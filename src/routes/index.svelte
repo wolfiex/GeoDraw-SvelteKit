@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+
 </script>
 
 <svelte:head>
@@ -12,7 +12,7 @@
 
 <section>
 	<h1>
- Go to <a href="/info">INFO/a>
+ Go to <a href="/intro">INFO</a>
 	</h1>
 </section>
 

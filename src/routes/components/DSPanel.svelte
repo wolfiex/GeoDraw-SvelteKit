@@ -4,7 +4,7 @@
 	// import { InlineNotification } from 'carbon-components-svelte';
 
 	import { onMount } from 'svelte';
-	import { Accordion, AccordionItem ,ProgressIndicator,ProgressStep} from 'carbon-components-svelte';
+	import { Accordion, AccordionItem ,ProgressIndicator,ProgressStep,ProgressBar} from 'carbon-components-svelte';
 	import Header from '../ui/Header.svelte';
 	import { loop_guard } from 'svelte/internal';
 	import 'carbon-components-svelte/css/g10.css';
@@ -16,6 +16,7 @@
 	export let movable = false;
 	export let open = 's1';
 	export let itemtitles = {};
+	export let loaded = true
 
 	let panel;
 	let acc;
@@ -81,6 +82,7 @@
 		: 9};display:inline-block;overflow-y:scroll;height:{height}!important;"
 >
 
+
 <slot name='title'>
 	{#if title || subtitle}
 		<div class="ONSvisual-design-system-header">
@@ -90,22 +92,12 @@
 	{/if}
 </slot>
 
+
+{#if !loaded}
+				<ProgressBar  helperText="Loading..." />
+{:else}
 	<div class="ONSvisual-design-system-component-panel" style="">
-		<ProgressIndicator currentIndex={1}>
-			<ProgressStep
-			label="First step"
-			description="Step 1: Getting started with Carbon Design System"
-		  />
-		  <ProgressStep
-          label="First step"
-          description="Step 1: Getting started with Carbon Design System"
-        />
-		<ProgressStep
-          label="First step"
-          description="Step 1: Getting started with Carbon Design System"
-        />
 		
-		</ProgressIndicator>
 		<Accordion on:click={highlander}>
 			{#if $$slots.s1}
 				<AccordionItem title={itemtitles['s1'] || ''} id="s1" open={open === 's1'}>
@@ -136,9 +128,10 @@
 
 			<slot />
 
-			
+	
 		</Accordion>
 	</div>
+	{/if}
 </main>
 
 <style>
