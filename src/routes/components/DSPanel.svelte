@@ -69,15 +69,17 @@
 		// open=id
 	});
 
-	function highlander(ele) {
-		open = ele.srcElement.parentElement.parentElement.id || ele.srcElement.parentElement.id;
-	}
+	// function highlander(ele) {
+	// 	open = ele.srcElement.parentElement.parentElement.id || ele.srcElement.parentElement.id;
+	// }
 </script>
 
 <main
 	bind:this={panel}
 	class="ONSvisual-design-system-panel"
-	style="width:{width}!important;z-index:{movable
+	style="bottom{movable
+		? 'auto'
+		: '0px'}width:{width}!important;z-index:{movable
 		? 100
 		: 9};display:inline-block;overflow-y:scroll;height:{height}!important;"
 >
@@ -98,7 +100,7 @@
 {:else}
 	<div class="ONSvisual-design-system-component-panel" style="">
 		
-		<Accordion on:click={highlander}>
+		<!-- <Accordion on:click={highlander}>
 			{#if $$slots.s1}
 				<AccordionItem title={itemtitles['s1'] || ''} id="s1" open={open === 's1'}>
 					<slot name="s1" />
@@ -129,7 +131,8 @@
 			<slot />
 
 	
-		</Accordion>
+		</Accordion> -->
+		<slot />
 	</div>
 	{/if}
 </main>

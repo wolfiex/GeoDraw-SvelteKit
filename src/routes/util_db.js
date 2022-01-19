@@ -67,7 +67,7 @@ export function multiquery(query,table,dbs) {
 
 function featurify(res){
     var g = new Float32Array(res[1].buffer);
-    return { "type": "Feature", "properties": { "id": res[0]}, "geometry": { "type": "Polygon", "coordinates": [chunk(Array.from(g))] }}
+    return { "type": "Feature", "properties": { "id": ''+res[0]}, "geometry": { "type": "Polygon", "coordinates": [chunk(Array.from(g))] }}
 
 }
 

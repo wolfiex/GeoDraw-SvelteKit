@@ -67,7 +67,7 @@
 		mapsource.subscribe(async () => {
 			// set the sources
 			for (const [key, value] of Object.entries($mapsource)) {
-				console.log(key, value);
+				// console.log(key, value);
 				if ($mapobject.getSource(key)) $mapobject.removeSource(key);
 				// if (value.hasOwnProperty('data')) value.data = await value.data; // for async loads
 				if (!$mapobject.getSource(key)) $mapobject.addSource(key, value); // as it may nto be removable
@@ -82,11 +82,16 @@
 				$mapobject.addLayer(value);
 			}
 		});
-
-		for (const e of $mapfunctions) {
-			$mapobject.off(e.event, e.layer, e.callback);
-			$mapobject.on(e.event, e.layer, e.callback);
-		}
+		mapfunctions.subscribe( () => {
+			// console.warn('fnreload',$mapfunctions)
+			// set the functions
+			for (const e of $mapfunctions) {
+				// $mapobject.off(e.event, e.layer, e.callback);
+				if (!e.off)
+				console.log('adding',e.event, e.layer);
+				$mapobject.on(e.event, e.layer, e.callback);
+			}
+		})
 
 		// move mapobject to location
 		$mapobject.fitBounds(location.bounds, {
