@@ -17,7 +17,8 @@
 		location,
 		maxbounds,
 		level,
-		zoomed
+		zoomed,
+		//init_draw,
 	} from './mapstore.js';
 
 	//styling
@@ -25,6 +26,8 @@
 	import '../css/mapbox-gl.css';
 
 	let webgl_canvas;
+
+	
 	export let width = '100vw';
 	export let height = '100vh';
 	
@@ -50,6 +53,8 @@
 		);
 		$mapobject.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 		
+		// $mapobject = await init_draw($mapobject);
+
 
 		$mapobject.doubleClickZoom.disable();
 

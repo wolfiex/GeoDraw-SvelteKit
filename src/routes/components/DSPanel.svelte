@@ -5,7 +5,7 @@
 
 	import { onMount } from 'svelte';
 	import { Accordion, AccordionItem ,ProgressIndicator,ProgressStep,ProgressBar} from 'carbon-components-svelte';
-	import Header from '../ui/Header.svelte';
+	// import Header from '../ui/Header.svelte';
 	import { loop_guard } from 'svelte/internal';
 	import 'carbon-components-svelte/css/g10.css';
 
@@ -85,53 +85,15 @@
 >
 
 
-<slot name='title'>
-	{#if title || subtitle}
-		<div class="ONSvisual-design-system-header">
-			<!-- <h3 class='ONSvisual-design-system-header'>{title}</h3>    -->
-			<Header serviceTitle={title} description={subtitle} />
-		</div>
-	{/if}
-</slot>
+
 
 
 {#if !loaded}
 				<ProgressBar  helperText="Loading..." />
 {:else}
 	<div class="ONSvisual-design-system-component-panel" style="">
-		
-		<!-- <Accordion on:click={highlander}>
-			{#if $$slots.s1}
-				<AccordionItem title={itemtitles['s1'] || ''} id="s1" open={open === 's1'}>
-					<slot name="s1" />
-					
-				</AccordionItem>
-			{/if}
 
-			{#if $$slots.s2}
-				<AccordionItem title={itemtitles['s2'] || ''} id="s2" open={open === 's2'}>
-				
-					<slot name="s2" />
-
-				</AccordionItem>
-			{/if}
-
-			{#if $$slots.s3}
-				<AccordionItem title={itemtitles['s3'] || ''} id="s3" open={open === 's3'}>
-					<slot name="s3" />
-				</AccordionItem>
-			{/if}
-
-			{#if $$slots.s4}
-				<AccordionItem title={itemtitles['s4'] || ''} id="s4" open={open === 's4'}>
-					<slot name="s4" />
-				</AccordionItem>
-			{/if}
-
-			<slot />
-
-	
-		</Accordion> -->
+		<slot name='title' style='width:{width}'></slot>
 		<slot />
 	</div>
 	{/if}

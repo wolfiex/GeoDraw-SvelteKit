@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import { default as AreaMap } from "./AreaMap.svelte";
+	import {get} from "svelte/store";
 	import {
 		select,
 		mapsource,
@@ -11,9 +12,12 @@
 		level,
 		zoomed,
 		mapfunctions,
+		c2bbox,
 		store1,
 		store2,
 	} from "./mapstore.js";
+	import "./mapbox-gl-draw-geodesic.min.js";
+
 	import {
 		areatype,
 		areaselect,
@@ -21,9 +25,7 @@
 		geodb,
 		individual,
 	} from "./store.js";
-	// import Loader from "../components/Loader.svelte";
-	// import { get } from "svelte/store";
-	import "carbon-components-svelte/css/white.css";
+	import("carbon-components-svelte/css/white.css");
 	//white,g10,g80,g100
 	import {
 		FormGroup,
@@ -42,14 +44,23 @@
 	} from "carbon-components-svelte";
 
 	import {
-    StructuredList,
-    StructuredListHead,
-    StructuredListRow,
-    StructuredListCell,
-    StructuredListBody,
-    StructuredListInput,
-  } from "carbon-components-svelte";
-  import CheckmarkFilled16 from "../../../node_modules/carbon-icons-svelte/lib/CheckmarkFilled16";
+		StructuredList,
+		StructuredListHead,
+		StructuredListRow,
+		StructuredListCell,
+		StructuredListBody,
+		StructuredListInput,
+	} from "carbon-components-svelte";
+
+	// icons
+	import { ContentSwitcher } from "carbon-components-svelte";
+	import { TooltipIcon } from "carbon-components-svelte";
+	import CheckmarkFilled16 from "../../../node_modules/carbon-icons-svelte/lib/CheckmarkFilled16";
+	import LassoPolygon16 from "carbon-icons-svelte/lib/LassoPolygon16";
+	import Location16 from "carbon-icons-svelte/lib/Location16";
+	import NewTab16 from "carbon-icons-svelte/lib/NewTab16";
+	import Cursor_216 from "carbon-icons-svelte/lib/Cursor_216";
+	// import SmoothingCursor16 from "carbon-icons-svelte/lib/SmoothingCursor16";
 
 	import { default as DSPanel } from "../components/DSPanel.svelte";
 	import {
@@ -60,33 +71,24 @@
 		blob32,
 		geojsn,
 	} from "../util_db.js";
-	// import Header from '../ui/Header.svelte';
+	import("../css/normalize.css");
 
-	import "../css/normalize.css";
-
-	// import Panel from "../components/Panel.svelte";
 	// import { loop_guard } from "svelte/internal";
 	// import AreaMap ,{ draw_type } from ".s/AreaMap";
 
+	// Variables le global
 	let alert_notify = false;
 	let loaded = false;
-	let open = "s1";
+	let toggled = true;
 	let currentIndex = 1;
 
 	let areas = [
-		['OA',"Output_Areas", 'The largest of the selection. There are ....'],
-		['MSOA',"Middle_Layer_Super_Output_Areas",'These ... '],
-		['LSOA',"Lower_Layer_Super_Output_Areas",'Something here'],
+		["OA", "Output_Areas", "The ..... of the selection. There are ...."],
+		["MSOA", "Middle_Layer_Super_Output_Areas", "These ... "],
+		["LSOA", "Lower_Layer_Super_Output_Areas", "Something here"],
 	];
 
-	async function init() {
-		loaded = true;
-		$draw_type = "simple_select";
-		await init_db();
-		console.log("started");
-	}
-
-	// initial map data
+	// map setup and vars
 	$mapsource = {
 		selector: {
 			type: "geojson",
@@ -96,10 +98,8 @@
 	};
 
 	$maplayer = [];
-
-	//add function variables here
+	//add map function variables here
 	let hoveredStateId = [null, null];
-
 	$mapfunctions = [
 		{
 			event: "click",
@@ -109,32 +109,32 @@
 		{
 			event: "mousemove",
 			layer: "select_layer",
-			callback: mousemove_callback("selector", "s1", 0),
+			callback: mousemove_callback("selector", 1, 0),
 		},
 		{
 			event: "mouseleave",
 			layer: "select_layer",
-			callback: mouseleave_callback("selector", "s1", 0),
+			callback: mouseleave_callback("selector", 1, 0),
 		},
 	];
 
-
-	function debounce(cd,ci=undefined) {
+	function debounce(ci) {
 		return () =>
 			setTimeout(() => {
-				open = cd;
-				if (ci) currentIndex = ci;
+				// open = cd;
+				// if (ci)
+				currentIndex = ci;
 			}, 300);
 	}
 
-	$: open,
+	$: currentIndex,
 		(async () => {
 			if (!loaded) return 0;
 			/// the changer function for each slide accordion
-			console.log('∆',open);
-			switch (open) {
-				case "s1":
-					currentIndex = 1
+			console.log("∆", currentIndex);
+			switch (currentIndex) {
+				case 1:
+					$draw_type= undefined
 					alert_notify = false;
 					$maplayer = [
 						{
@@ -160,7 +160,7 @@
 										false,
 									],
 									"red",
-									"green",
+									"steelblue",
 								],
 								"fill-color": [
 									"match",
@@ -173,14 +173,14 @@
 						},
 					];
 					break;
-				case "s2":
-					currentIndex = 2
+				case 2:
+					$draw_type= undefined
 					var nlen = $areaselect.length;
 
 					// check we have selected something
 					if (nlen < 1) {
 						alert_notify = "No Areas Selected";
-						open = "s1";
+						currentIndex = 1; 
 					}
 
 					// document.getElementById("nareas").innerText = nlen;
@@ -188,72 +188,118 @@
 					console.log($areaselect);
 					break;
 
-				case "s3":
+				case 3:
 					// alert($areatype,'3', $areaselect);
-					if (!areatype) {
-						alert_notify = "Please select an area type!";
-						return (open = "s2");
-					}
-					loaded = false;
-					$geodb = new SQL.Database();
-
-					var promises = $areaselect.map(async (en) => {
-						// get each db.
-						if ($areastore[en] == undefined)
-							$areastore[en] = await load_db(
-								`${$areatype}/data/${en}.db`
-							);
-
-						// query_db(
-						// 	$areastore[en],
-						// 	"SELECT * FROM geography LIMIT 1; "
-						// );
-
-						return { id: en, filename: $areastore[en].filename };
-					});
-
-					await Promise.all(promises).then((values) => {
-						console.log(values);
-
-						// Attach dbs
-						values.forEach((v) => {
-							$geodb.run(
-								`ATTACH DATABASE '${v.filename}' AS ${v.id};`
-							);
-							//BEGIN; insert into geography select * from ${v.id}.geography;END; DETACH DATABASE ${v.id}`);
-						});
-					});
-
-					update_areas(geojsn($geodb, $areaselect));
-
-					loaded = true;
 
 					break;
 			}
 		})().then(() => {});
-
-
-	
 
 	onMount(init);
 
 	////////////////////////////////
 	//////// Functions /////////////
 	////////////////////////////////
-	function set_areatype(item) {
-		return ()=>{
-		$areatype = item
-		console.log($areatype, "selected");
-		open = "s3";
-		currentIndex = 3
-		}
-		
+
+	async function init() {
+		loaded = true;
+		// $draw_type = "simple_select";
+		Promise.all([init_db(), init_draw()]);
+		console.log("started");
+
+		// $draw_type = "draw_polygon";
+
+		// draw_circle: modes.draw_circle,
+		// draw_polygon: modes.draw_polygon,
+		// draw_rectangle: DrawRectangle,
+		// static: modes.static,
+		// simple_select: modes.simple_select,
 	}
 
+	function btn(fn, arglist) {
+		return () => {
+			console.log(fn, arglist);
+			fn(...arglist);
+		};
+	}
+
+	function set_areatype(item) {
+		return async () => {
+			$areatype = item;
+			console.log($areatype, "selected");
+			currentIndex = 3;
+
+			loaded = false;
+			$geodb = new SQL.Database();
+
+			var promises = $areaselect.map(async (en) => {
+				// get each db.
+				if ($areastore[en] == undefined)
+					$areastore[en] = await load_db(
+						`${$areatype}/data/${en}.db`
+					);
+
+				// query_db(
+				// 	$areastore[en],
+				// 	"SELECT * FROM geography LIMIT 1; "
+				// );
+
+				return { id: en, filename: $areastore[en].filename };
+			});
+
+			// promises.push((async function movemap() {
+			// 	var polygons = $mapobject.querySourceFeatures("selector", {
+			// 		sourceLayer: "select_layer",
+			// 		filter: [
+			// 			"match",
+			// 			["get", "CTYUA20CD"],
+			// 			["literal", ...$areaselect],
+			// 			true,
+			// 			false
+			// 		],
+			// 	});
+
+			// 	var lat = []
+			// 	var lon = []
+			// 	polygons.forEach(element => {
+			// 		console.log('eeeeee',element.geometry)
+			// 		element.geometry.coordinates.forEach(mcoord => {
+			// 			mcoord[0].forEach(coord => {
+			// 			lat.push(coord[1])
+			// 			lon.push(coord[0])
+			// 		})})
+			// 	});
+
+			// 	c2bbox
+			// 	console.error('aaaa',c2bbox(lat,lon),lat,lon)
+
+			// 	$mapobject.fitBounds(c2bbox(lat,lon));
+
+			// 	return 1;
+
+			// })());
+
+			console.log(promises);
+			await Promise.all(promises).then((values) => {
+				console.log("pval", values);
+
+				// Attach dbs
+				values.forEach((v) => {
+					// if (!v) return 0; // if a function
+					$geodb.run(`ATTACH DATABASE '${v.filename}' AS ${v.id};`);
+					//BEGIN; insert into geography select * from ${v.id}.geography;END; DETACH DATABASE ${v.id}`);
+				});
+			});
+
+			update_areas(geojsn($geodb, $areaselect));
+
+			loaded = true;
+		};
+	}
 
 	function select_callback(e) {
 		// only work on first tab
-		if (open != "s1") return false;
+		if (currentIndex != 1) return false;
 
 		var d = $mapobject.queryRenderedFeatures(e.point, {
 			layers: ["select_layer"],
@@ -287,8 +333,8 @@
 	function area_callback(e) {
 		// only work on first tab
 
-		console.log(e);
-		if (open != "s4") return false;
+		console.log('area click',e, get(draw_type));
+		if (currentIndex != 3 || $draw_type != undefined) return false;
 
 		var d = $mapobject.queryRenderedFeatures(e.point, {
 			layers: ["area_layer"],
@@ -323,7 +369,7 @@
 
 	function mousemove_callback(src, level, hid) {
 		return (e) => {
-			if (open != level) return false;
+			if (currentIndex != level) return false;
 			if (e.features.length > 0) {
 				if (hoveredStateId[hid] !== null) {
 					$mapobject.setFeatureState(
@@ -336,14 +382,14 @@
 					{ source: src, id: hoveredStateId[hid] },
 					{ hover: true }
 				);
-				console.log(hoveredStateId);
+				// console.log(hoveredStateId);
 			}
 		};
 	}
 
 	function mouseleave_callback(src, level, hid) {
 		return () => {
-			if (open != level) return false;
+			if (currentIndex != level) return false;
 			if (hoveredStateId[hid] !== null) {
 				$mapobject.setFeatureState(
 					{ source: src, id: hoveredStateId[hid] },
@@ -365,7 +411,7 @@
 		$mapsource["areas"] = {
 			type: "geojson",
 			data: data,
-			generateId: true,// for hilight only - not needed for selection
+			generateId: true, // for hilight only - not needed for selection
 		};
 
 		$mapobject.setPaintProperty("select_layer", "fill-opacity", 0.5);
@@ -425,67 +471,171 @@
 			{
 				event: "mousemove",
 				layer: "area_layer",
-				callback: mousemove_callback("areas", "s4", 1),
+				callback: mousemove_callback("areas", 3, 1),
 			},
 			{
 				event: "mouseleave",
 				layer: "area_layer",
-				callback: mouseleave_callback("areas", "s4", 1),
+				callback: mouseleave_callback("areas", 3, 1),
 			},
 		];
-		open = "s4";
-		console.error(open);
+		currentIndex = 3;
+	}
+
+	////////////////////////////
+	//// Draw Functions ////////
+	////////////////////////////
+
+	import MapboxDraw from "@mapbox/mapbox-gl-draw";
+	// import  './mapbox-gl-draw-geodesic.min.js';
+	import DrawRectangle from "mapbox-gl-draw-rectangle-mode";
+	import { GlyphCircleStrokeGlyph } from "carbon-icons-svelte";
+
+	var polyselect=[];
+	var draw;
+	export async function init_draw() {
+		let modes = MapboxDrawGeodesic.enable(MapboxDraw.modes);
+		console.warn("draws", modes);
+
+		draw = new MapboxDraw({
+			displayControlsDefault: true,
+			controls: {
+				trash: false,
+			},
+			// defaultMode: 'draw_polygon',
+			modes: Object.assign(MapboxDraw.modes, {
+				draw_circle: modes.draw_circle,
+				draw_polygon: modes.draw_polygon,
+				draw_rectangle: DrawRectangle,
+				static: modes.static,
+				simple_select: modes.simple_select,
+			}),
+		});
+		// mapobject.addControl(draw, 'top-left')
+
+		$mapobject.on("draw.modechange", (event) => {
+			console.log("modechange", event.mode);
+		});
+
+		["draw.create", "draw.update", "draw.delete"].forEach((event) => {
+			$mapobject.on(event, change);
+		});
+
+		// draw_type.subscribe(update_draw)
+	}
+
+	function update_draw(newtype) {
+		console.log("udraw", newtype);
+		$draw_type = newtype;
+		if (newtype === undefined) {
+			try {
+				$mapobject.removeControl(draw, "top-right");
+				$mapobject.setPaintProperty($level, "fill-color", "#206095");
+			} catch (e) {}
+		} else {
+			try {
+				$mapobject.removeControl(draw, "top-right");
+			} catch (e) {}
+			$mapobject.addControl(draw, "top-right");
+			draw.changeMode(newtype);
+		}
+	}
+
+	function change(event) {
+		const geojson = event.features[0];
+      	console.log("update", event.action, geojson);
+
+      if (MapboxDrawGeodesic.isCircle(geojson)) {
+        const center = MapboxDrawGeodesic.getCircleCenter(geojson);
+        const radius = MapboxDrawGeodesic.getCircleRadius(geojson) / 100; // must divide by 100 to get accurate results
+        console.log("circle", "center", center, "radius", radius);
+
+        // lets space points around the centre to create a polygon
+
+        var numberOfPoints = 20;
+        var theta = (2.0 * Math.PI) / numberOfPoints;
+
+        geojson.geometry.coordinates[0] = [];
+
+        for (var i = 1; i <= numberOfPoints; i++) {
+          geojson.geometry.coordinates[0].push([
+            radius * Math.cos(theta * i) + center[0],
+            radius * Math.sin(theta * i) + center[1],
+          ]);
+        }
+      }
+
+      const coords = geojson.geometry.coordinates[0]
+	
+      
+      var lat = coords.map((p) => p[1]);
+      var lng = coords.map((p) => p[0]);
+
+      var min_coords = [Math.min.apply(null, lng), Math.min.apply(null, lat)];
+      var max_coords = [Math.max.apply(null, lng), Math.max.apply(null, lat)];
+
+      const bboxosm = [min_coords, max_coords];
+	}
+
+	/// a function to transfer the temporary selection array to permanent.
+	function store_selection() {
+		console.log($individual);
+		// click selector should be first! Revert to this
+		document.querySelector(".bx--content-switcher-btn").click();
 	}
 </script>
 
 <!-- 
-	<!-- 
-		<!-- 
-			<!-- 
-				<!--  -->
---> --> --> -->
+/////////////////////
+/////////////////////
+/////////////////////
+/////////////////////
+/////////////////////
+ -->
 <main>
 	<!-- <div style="left:0;position:absolute;margin-left=0;margin=1"> -->
 
 	<div class="bx--grid">
 		<div class="bx--row">
-			<div class="bx--col-md-4" style="float:left;">
+			<div class="bx--col-md-4" style="float:left;position:absolute;right:auto;,margin-top:10px; display:block;z-index=990;margin-left:auto;margin-top:auto">
 				<DSPanel
 					title=""
-					movable=false
-					width="70vw"
+					movable="false"
+					width="50vw"
 					subtitle="______"
-					bind:loading={loaded}
 				>
 					{#if !loaded}
 						<ProgressBar slot="loading" helperText="Loading..." />
-					{/if}
+					{:else}
 
 					{#if currentIndex}
 						<ProgressIndicator spaceEqually>
 							<ProgressStep
-								on:click={debounce('s1')}
-								complete={1 < currentIndex}
+								on:click={debounce(1)}
+								complete={1 <= currentIndex}
+								current={currentIndex === 1}
 								label="Select Explatory Areas"
 								description="The progress indicator will listen for clicks on the steps"
 							/>
 							<ProgressStep
-								on:click={debounce('s2')}
-								current={2 < currentIndex}
+								on:click={debounce(2)}
+								current={2 <= currentIndex}
 								complete={2 < currentIndex}
 								label="Pick an Area Type"
 								description="The progress indicator will listen for clicks on the steps"
 							/>
 							<ProgressStep
-								on:click={debounce('s3')}
-								current={3 < currentIndex}
-								complete={3 < currentIndex}
+								on:click={debounce(3)}
+								current={ currentIndex === 3 }
+								complete={ 3 < currentIndex}
 								label="Draw your own Geometry."
 								description="The progress indicator will listen for clicks on the steps"
 							/>
 							<ProgressStep
+								on:click={debounce(4)}
 								current={4 < currentIndex}
 								complete={4 < currentIndex}
+								label="View Data"
 								description="The progress indicator will listen for clicks on the steps"
 							/>
 						</ProgressIndicator>
@@ -502,7 +652,7 @@
 							</Button> -->
 						</div>
 
-						<h3>Current index: {currentIndex} open = {open}</h3>
+						<!-- <h3>Current index: {currentIndex}</h3> -->
 					{/if}
 
 					<br /><br /> <br /><br />
@@ -523,27 +673,31 @@
 					{/if}
 
 					<!-- <p slot="s1"> -->
-					{#if open == "s1"}
+					{#if currentIndex == 1}
+					<p>
 						Drag or Zoom the map to navigate. Locate areas of
 						interest and <b>select them by clicking on the map</b>.
 						Once done, press the button below.
+					</p>
 						<br /><br />
 						<Button
 							size="field"
 							kind="secondary"
-							on:click={debounce("s2")}
+							on:click={debounce(2)}
 							disabled={alert_notify}>Next</Button
 						>
-						<!-- </p> -->
-					
-					{:else if open == "s2"}
-						<!-- <div
-							class="design-system-component-panel"
-							style="padding-right:1%!important;width:auto;margin:0;padding:2px;display:inline-block"
-						> -->
+
+											
+				<!-- 
+					///////////////////////
+					// 	AREA TYPE    	 //
+					///////////////////////
+
+				 -->
+					{:else if currentIndex == 2}
 						<br /><br />
 
-						<p>Groups Selected = <span id="nareas" /></p>
+						<p>Groups Selected = <span id="nareas" />{$areaselect.length}</p>
 
 						<br />
 
@@ -568,26 +722,8 @@
 							</div>
 						</Tooltip>
 
-						<!-- <RadioButtonGroup
-									defaultSelected={areas[0]}
-									legend="Group Legend"
-									name="radio-button-group"
-									valueSelected={areas[0]}
-									orientation="vertical"
-									on:click={postprocess}
-								>
-									{#each areas as ar}
-										<RadioButton
-											id={ar}
-											labelText={ar.replaceAll("_", " ")}
-											value={ar}
-										/>
-									{/each}
-								</RadioButtonGroup>
-							</FormGroup> -->
-
-						<StructuredList selection flush >
-						<!-- selected={$areatype}> -->
+						<StructuredList selection flush>
+							<!-- selected={$areatype}> -->
 							<StructuredListHead>
 								<StructuredListRow head>
 									<StructuredListCell head
@@ -643,51 +779,121 @@
 								{/each}
 							</StructuredListBody>
 						</StructuredList>
-					{/if}
-					{#if open == "s3"}
+		
+					<!-- {#if currentIndex == 2.5}
 						LOADING
-					{/if}
-					{#if open == "s4"}
+					{/if} -->
+
+					
+				<!-- 
+					///////////////////////
+					// 	DRAW	     	 //
+					///////////////////////
+
+				 -->
+
+
+					{:else if currentIndex == 3}
 						fdsafdsafdsafdsa
 
 						<Toggle
 							aria-label="Select / Deselect"
 							defaultToggled
+							bind:toggled
 							id="add"
-							labelText="Add Areas"
+							labelText={toggled
+								? "Select Mode"
+								: "Deselect Mode"}
 						/>
 
-						<Dropdown
-							ariaLabel="Drawing Dropdown"
-							id="drawing_dropdown_ele"
-							items={[
-								{
-									id: "poly",
-									text: "Draw Polygon",
-									active: true,
-								},
-								{ id: "box", text: "Select Rectangle" },
-								{ id: "circle", text: "Select Radius" },
-								{ id: "click", text: "Mouse Select/Deselect" },
-								{ id: "clear", text: "Clear All" },
-							]}
-							label="Please Select a Tool"
-							titleText="Select Drawing Tool"
-							light="true"
-							disabled={alert_notify}
-						/>
+						<br />
+						<p>
+							Select your editing tool and outline an area. Once
+							you are happy with the end result click the 'Store
+							Selection' button.
+						</p>
+
+						<br />
+
+						<ContentSwitcher>
+							<Switch on:click={btn(update_draw, [undefined])}>
+								<div
+									style="display: flex; align-items: center;"
+								>
+									<Cursor_216 style="margin-right: 0.5rem;" />
+									Click Tool
+								</div>
+							</Switch>
+							<Switch
+								on:click={btn(update_draw, ["draw_polygon"])}
+
+							>
+								<div
+									style="display: flex; align-items: center;"
+								>
+									<LassoPolygon16
+										style="margin-right: 0.5rem;"
+									/>
+									Draw Polygon
+								</div>
+							</Switch>
+							<Switch on:click={btn(update_draw, ["draw_circle"])}>
+								<div
+									style="display: flex; align-items: center;"
+								>
+									<NewTab16 style="margin-right: 0.5rem;" />
+									Radial Select
+								</div>
+							</Switch>
+							<Switch
+								on:click={btn(update_draw, ["draw_rectangle"])}
+							>
+								<div
+									style="display: flex; align-items: center;"
+								>
+									<NewTab16 style="margin-right: 0.5rem;" />
+									Bounding Box
+								</div>
+							</Switch>
+						</ContentSwitcher>
+						<br />
+						<Button size="medium" on:click={store_selection}
+							>Store Selection</Button
+						>
+						<!-- <Button size="medium" kind='tertiary'>Clear</Button> -->
+						<Button size="medium" kind="secondary">Get Data</Button>
+					{:else if currentIndex == 4}
+						{#if $areaselect.length > 0}
+							<p>
+								You have selected {$areaselect.length} super areas.
+								<br>
+								{$areaselect}
+							</p>
+							{#if $individual.length}
+							<br><br>
+							<p>
+								You have selected {$individual.length} areas with short ids:
+								<br>
+
+								{$individual}
+							</p>
+							{:else}
+							No individual selected
+							{/if}
+						{:else}
+						No Super Areas Selected. Please go back
+						{/if}
+
+
+					{/if}
 					{/if}
 				</DSPanel>
 				<!-- </td><td> -->
 			</div>
-
-			<AreaMap width="calc(60vw*.85)" height="70vh" />
+			
 		</div>
-		<!-- </div> -->
 	</div>
-
-	<!-- </span> -->
-	<!-- </BasePage> -->
+	<AreaMap width="100vw" height="70vh" />
 </main>
 
 <style lang="scss">
@@ -709,13 +915,6 @@
 	main {
 		left: 0;
 		padding: 1px max-width 90vw;
-	}
-
-	.design-system-component-panel {
-		background-color: rgb(255, 255, 255);
-		border-radius: 0.4rem;
-		padding: 0.5rem;
-		margin-bottom: 1rem;
 	}
 
 	.blink {
