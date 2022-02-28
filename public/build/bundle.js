@@ -17620,7 +17620,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (228:3) {#if $draw_type}
+    // (218:3) {#if $draw_type}
     function create_if_block_2(ctx) {
     	let buttonset;
     	let current;
@@ -17628,7 +17628,7 @@ var app = (function () {
     	buttonset = new ButtonSet$1({
     			props: {
     				id: "drawsave",
-    				$$slots: { default: [create_default_slot_7] },
+    				$$slots: { default: [create_default_slot_3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17645,7 +17645,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const buttonset_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 4194304) {
     				buttonset_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17669,15 +17669,15 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(228:3) {#if $draw_type}",
+    		source: "(218:3) {#if $draw_type}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (230:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
-    function create_default_slot_9(ctx) {
+    // (220:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
+    function create_default_slot_5(ctx) {
     	let t;
 
     	const block = {
@@ -17694,17 +17694,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_9.name,
+    		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(230:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
+    		source: "(220:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (233:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
-    function create_default_slot_8(ctx) {
+    // (223:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
+    function create_default_slot_4(ctx) {
     	let t;
 
     	const block = {
@@ -17721,17 +17721,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_8.name,
+    		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(233:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
+    		source: "(223:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (229:4) <ButtonSet id="drawsave">
-    function create_default_slot_7(ctx) {
+    // (219:4) <ButtonSet id="drawsave">
+    function create_default_slot_3(ctx) {
     	let button0;
     	let t;
     	let button1;
@@ -17740,7 +17740,7 @@ var app = (function () {
     	button0 = new Button$1({
     			props: {
     				icon: Add16$1,
-    				$$slots: { default: [create_default_slot_9] },
+    				$$slots: { default: [create_default_slot_5] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17752,7 +17752,7 @@ var app = (function () {
     			props: {
     				icon: Subtract16$1,
     				kind: "secondary",
-    				$$slots: { default: [create_default_slot_8] },
+    				$$slots: { default: [create_default_slot_4] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17775,14 +17775,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 4194304) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 4194304) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17808,433 +17808,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_7.name,
-    		type: "slot",
-    		source: "(229:4) <ButtonSet id=\\\"drawsave\\\">",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (248:4) <HeaderNavMenu text="Menu">
-    function create_default_slot_6(ctx) {
-    	let headernavitem0;
-    	let t0;
-    	let headernavitem1;
-    	let t1;
-    	let headernavitem2;
-    	let current;
-
-    	headernavitem0 = new HeaderNavItem$1({
-    			props: { href: "/", text: "Link 1" },
-    			$$inline: true
-    		});
-
-    	headernavitem1 = new HeaderNavItem$1({
-    			props: { href: "/", text: "Link 2" },
-    			$$inline: true
-    		});
-
-    	headernavitem2 = new HeaderNavItem$1({
-    			props: { href: "/", text: "Link 3" },
-    			$$inline: true
-    		});
-
-    	const block = {
-    		c: function create() {
-    			create_component(headernavitem0.$$.fragment);
-    			t0 = space();
-    			create_component(headernavitem1.$$.fragment);
-    			t1 = space();
-    			create_component(headernavitem2.$$.fragment);
-    		},
-    		m: function mount(target, anchor) {
-    			mount_component(headernavitem0, target, anchor);
-    			insert_dev(target, t0, anchor);
-    			mount_component(headernavitem1, target, anchor);
-    			insert_dev(target, t1, anchor);
-    			mount_component(headernavitem2, target, anchor);
-    			current = true;
-    		},
-    		p: noop,
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(headernavitem0.$$.fragment, local);
-    			transition_in(headernavitem1.$$.fragment, local);
-    			transition_in(headernavitem2.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(headernavitem0.$$.fragment, local);
-    			transition_out(headernavitem1.$$.fragment, local);
-    			transition_out(headernavitem2.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			destroy_component(headernavitem0, detaching);
-    			if (detaching) detach_dev(t0);
-    			destroy_component(headernavitem1, detaching);
-    			if (detaching) detach_dev(t1);
-    			destroy_component(headernavitem2, detaching);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_6.name,
-    		type: "slot",
-    		source: "(248:4) <HeaderNavMenu text=\\\"Menu\\\">",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (259:5) <SideNavMenu text="Menu">
-    function create_default_slot_5(ctx) {
-    	let sidenavmenuitem0;
-    	let t0;
-    	let sidenavmenuitem1;
-    	let t1;
-    	let sidenavmenuitem2;
-    	let current;
-
-    	sidenavmenuitem0 = new SideNavMenuItem$1({
-    			props: { href: "/", text: "Link 1" },
-    			$$inline: true
-    		});
-
-    	sidenavmenuitem1 = new SideNavMenuItem$1({
-    			props: { href: "/", text: "Link 2" },
-    			$$inline: true
-    		});
-
-    	sidenavmenuitem2 = new SideNavMenuItem$1({
-    			props: { href: "/", text: "Link 3" },
-    			$$inline: true
-    		});
-
-    	const block = {
-    		c: function create() {
-    			create_component(sidenavmenuitem0.$$.fragment);
-    			t0 = space();
-    			create_component(sidenavmenuitem1.$$.fragment);
-    			t1 = space();
-    			create_component(sidenavmenuitem2.$$.fragment);
-    		},
-    		m: function mount(target, anchor) {
-    			mount_component(sidenavmenuitem0, target, anchor);
-    			insert_dev(target, t0, anchor);
-    			mount_component(sidenavmenuitem1, target, anchor);
-    			insert_dev(target, t1, anchor);
-    			mount_component(sidenavmenuitem2, target, anchor);
-    			current = true;
-    		},
-    		p: noop,
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(sidenavmenuitem0.$$.fragment, local);
-    			transition_in(sidenavmenuitem1.$$.fragment, local);
-    			transition_in(sidenavmenuitem2.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(sidenavmenuitem0.$$.fragment, local);
-    			transition_out(sidenavmenuitem1.$$.fragment, local);
-    			transition_out(sidenavmenuitem2.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			destroy_component(sidenavmenuitem0, detaching);
-    			if (detaching) detach_dev(t0);
-    			destroy_component(sidenavmenuitem1, detaching);
-    			if (detaching) detach_dev(t1);
-    			destroy_component(sidenavmenuitem2, detaching);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_5.name,
-    		type: "slot",
-    		source: "(259:5) <SideNavMenu text=\\\"Menu\\\">",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (255:4) <SideNavItems>
-    function create_default_slot_4(ctx) {
-    	let sidenavlink0;
-    	let t0;
-    	let sidenavlink1;
-    	let t1;
-    	let sidenavlink2;
-    	let t2;
-    	let sidenavmenu;
-    	let t3;
-    	let sidenavdivider;
-    	let t4;
-    	let sidenavlink3;
-    	let current;
-
-    	sidenavlink0 = new SideNavLink$1({
-    			props: { text: "Link 1" },
-    			$$inline: true
-    		});
-
-    	sidenavlink1 = new SideNavLink$1({
-    			props: { text: "Link 2" },
-    			$$inline: true
-    		});
-
-    	sidenavlink2 = new SideNavLink$1({
-    			props: { text: "Link 3" },
-    			$$inline: true
-    		});
-
-    	sidenavmenu = new SideNavMenu$1({
-    			props: {
-    				text: "Menu",
-    				$$slots: { default: [create_default_slot_5] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	sidenavdivider = new SideNavDivider$1({ $$inline: true });
-
-    	sidenavlink3 = new SideNavLink$1({
-    			props: { text: "Link 4" },
-    			$$inline: true
-    		});
-
-    	const block = {
-    		c: function create() {
-    			create_component(sidenavlink0.$$.fragment);
-    			t0 = space();
-    			create_component(sidenavlink1.$$.fragment);
-    			t1 = space();
-    			create_component(sidenavlink2.$$.fragment);
-    			t2 = space();
-    			create_component(sidenavmenu.$$.fragment);
-    			t3 = space();
-    			create_component(sidenavdivider.$$.fragment);
-    			t4 = space();
-    			create_component(sidenavlink3.$$.fragment);
-    		},
-    		m: function mount(target, anchor) {
-    			mount_component(sidenavlink0, target, anchor);
-    			insert_dev(target, t0, anchor);
-    			mount_component(sidenavlink1, target, anchor);
-    			insert_dev(target, t1, anchor);
-    			mount_component(sidenavlink2, target, anchor);
-    			insert_dev(target, t2, anchor);
-    			mount_component(sidenavmenu, target, anchor);
-    			insert_dev(target, t3, anchor);
-    			mount_component(sidenavdivider, target, anchor);
-    			insert_dev(target, t4, anchor);
-    			mount_component(sidenavlink3, target, anchor);
-    			current = true;
-    		},
-    		p: function update(ctx, dirty) {
-    			const sidenavmenu_changes = {};
-
-    			if (dirty & /*$$scope*/ 8388608) {
-    				sidenavmenu_changes.$$scope = { dirty, ctx };
-    			}
-
-    			sidenavmenu.$set(sidenavmenu_changes);
-    		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(sidenavlink0.$$.fragment, local);
-    			transition_in(sidenavlink1.$$.fragment, local);
-    			transition_in(sidenavlink2.$$.fragment, local);
-    			transition_in(sidenavmenu.$$.fragment, local);
-    			transition_in(sidenavdivider.$$.fragment, local);
-    			transition_in(sidenavlink3.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(sidenavlink0.$$.fragment, local);
-    			transition_out(sidenavlink1.$$.fragment, local);
-    			transition_out(sidenavlink2.$$.fragment, local);
-    			transition_out(sidenavmenu.$$.fragment, local);
-    			transition_out(sidenavdivider.$$.fragment, local);
-    			transition_out(sidenavlink3.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			destroy_component(sidenavlink0, detaching);
-    			if (detaching) detach_dev(t0);
-    			destroy_component(sidenavlink1, detaching);
-    			if (detaching) detach_dev(t1);
-    			destroy_component(sidenavlink2, detaching);
-    			if (detaching) detach_dev(t2);
-    			destroy_component(sidenavmenu, detaching);
-    			if (detaching) detach_dev(t3);
-    			destroy_component(sidenavdivider, detaching);
-    			if (detaching) detach_dev(t4);
-    			destroy_component(sidenavlink3, detaching);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_4.name,
-    		type: "slot",
-    		source: "(255:4) <SideNavItems>",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (244:3) <SideNav bind:isOpen={isSideNavOpen}>
-    function create_default_slot_3(ctx) {
-    	let headernavitem0;
-    	let t0;
-    	let headernavitem1;
-    	let t1;
-    	let headernavitem2;
-    	let t2;
-    	let headernavmenu;
-    	let t3;
-    	let headernavitem3;
-    	let t4;
-    	let sidenavitems;
-    	let current;
-
-    	headernavitem0 = new HeaderNavItem$1({
-    			props: { href: "/", text: "Link 1" },
-    			$$inline: true
-    		});
-
-    	headernavitem1 = new HeaderNavItem$1({
-    			props: { href: "/", text: "Link 2" },
-    			$$inline: true
-    		});
-
-    	headernavitem2 = new HeaderNavItem$1({
-    			props: { href: "/", text: "Link 3" },
-    			$$inline: true
-    		});
-
-    	headernavmenu = new HeaderNavMenu$1({
-    			props: {
-    				text: "Menu",
-    				$$slots: { default: [create_default_slot_6] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	headernavitem3 = new HeaderNavItem$1({
-    			props: { href: "/", text: "Link 4" },
-    			$$inline: true
-    		});
-
-    	sidenavitems = new SideNavItems$1({
-    			props: {
-    				$$slots: { default: [create_default_slot_4] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	const block = {
-    		c: function create() {
-    			create_component(headernavitem0.$$.fragment);
-    			t0 = space();
-    			create_component(headernavitem1.$$.fragment);
-    			t1 = space();
-    			create_component(headernavitem2.$$.fragment);
-    			t2 = space();
-    			create_component(headernavmenu.$$.fragment);
-    			t3 = space();
-    			create_component(headernavitem3.$$.fragment);
-    			t4 = space();
-    			create_component(sidenavitems.$$.fragment);
-    		},
-    		m: function mount(target, anchor) {
-    			mount_component(headernavitem0, target, anchor);
-    			insert_dev(target, t0, anchor);
-    			mount_component(headernavitem1, target, anchor);
-    			insert_dev(target, t1, anchor);
-    			mount_component(headernavitem2, target, anchor);
-    			insert_dev(target, t2, anchor);
-    			mount_component(headernavmenu, target, anchor);
-    			insert_dev(target, t3, anchor);
-    			mount_component(headernavitem3, target, anchor);
-    			insert_dev(target, t4, anchor);
-    			mount_component(sidenavitems, target, anchor);
-    			current = true;
-    		},
-    		p: function update(ctx, dirty) {
-    			const headernavmenu_changes = {};
-
-    			if (dirty & /*$$scope*/ 8388608) {
-    				headernavmenu_changes.$$scope = { dirty, ctx };
-    			}
-
-    			headernavmenu.$set(headernavmenu_changes);
-    			const sidenavitems_changes = {};
-
-    			if (dirty & /*$$scope*/ 8388608) {
-    				sidenavitems_changes.$$scope = { dirty, ctx };
-    			}
-
-    			sidenavitems.$set(sidenavitems_changes);
-    		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(headernavitem0.$$.fragment, local);
-    			transition_in(headernavitem1.$$.fragment, local);
-    			transition_in(headernavitem2.$$.fragment, local);
-    			transition_in(headernavmenu.$$.fragment, local);
-    			transition_in(headernavitem3.$$.fragment, local);
-    			transition_in(sidenavitems.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(headernavitem0.$$.fragment, local);
-    			transition_out(headernavitem1.$$.fragment, local);
-    			transition_out(headernavitem2.$$.fragment, local);
-    			transition_out(headernavmenu.$$.fragment, local);
-    			transition_out(headernavitem3.$$.fragment, local);
-    			transition_out(sidenavitems.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			destroy_component(headernavitem0, detaching);
-    			if (detaching) detach_dev(t0);
-    			destroy_component(headernavitem1, detaching);
-    			if (detaching) detach_dev(t1);
-    			destroy_component(headernavitem2, detaching);
-    			if (detaching) detach_dev(t2);
-    			destroy_component(headernavmenu, detaching);
-    			if (detaching) detach_dev(t3);
-    			destroy_component(headernavitem3, detaching);
-    			if (detaching) detach_dev(t4);
-    			destroy_component(sidenavitems, detaching);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(244:3) <SideNav bind:isOpen={isSideNavOpen}>",
+    		source: "(219:4) <ButtonSet id=\\\"drawsave\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (273:4) <HeaderNavMenu text="Menu">
+    // (263:4) <HeaderNavMenu text="Menu">
     function create_default_slot_2(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18301,14 +17884,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(273:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		source: "(263:4) <HeaderNavMenu text=\\\"Menu\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (269:3) <HeaderNav>
+    // (259:3) <HeaderNav>
     function create_default_slot_1(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18377,7 +17960,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const headernavmenu_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 4194304) {
     				headernavmenu_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18417,14 +18000,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(269:3) <HeaderNav>",
+    		source: "(259:3) <HeaderNav>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (222:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
+    // (212:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
     function create_default_slot(ctx) {
     	let br0;
     	let t0;
@@ -18432,28 +18015,9 @@ var app = (function () {
     	let br1;
     	let br2;
     	let t2;
-    	let sidenav;
-    	let updating_isOpen;
-    	let t3;
     	let headernav;
     	let current;
     	let if_block = /*$draw_type*/ ctx[2] && create_if_block_2(ctx);
-
-    	function sidenav_isOpen_binding(value) {
-    		/*sidenav_isOpen_binding*/ ctx[9](value);
-    	}
-
-    	let sidenav_props = {
-    		$$slots: { default: [create_default_slot_3] },
-    		$$scope: { ctx }
-    	};
-
-    	if (/*isSideNavOpen*/ ctx[0] !== void 0) {
-    		sidenav_props.isOpen = /*isSideNavOpen*/ ctx[0];
-    	}
-
-    	sidenav = new SideNav$1({ props: sidenav_props, $$inline: true });
-    	binding_callbacks.push(() => bind(sidenav, 'isOpen', sidenav_isOpen_binding));
 
     	headernav = new HeaderNav$1({
     			props: {
@@ -18472,12 +18036,10 @@ var app = (function () {
     			br1 = element("br");
     			br2 = element("br");
     			t2 = space();
-    			create_component(sidenav.$$.fragment);
-    			t3 = space();
     			create_component(headernav.$$.fragment);
-    			add_location(br0, file, 226, 3, 4584);
-    			add_location(br1, file, 241, 3, 4971);
-    			add_location(br2, file, 241, 9, 4977);
+    			add_location(br0, file, 216, 3, 4630);
+    			add_location(br1, file, 231, 3, 5017);
+    			add_location(br2, file, 231, 9, 5023);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br0, anchor);
@@ -18487,8 +18049,6 @@ var app = (function () {
     			insert_dev(target, br1, anchor);
     			insert_dev(target, br2, anchor);
     			insert_dev(target, t2, anchor);
-    			mount_component(sidenav, target, anchor);
-    			insert_dev(target, t3, anchor);
     			mount_component(headernav, target, anchor);
     			current = true;
     		},
@@ -18516,22 +18076,9 @@ var app = (function () {
     				check_outros();
     			}
 
-    			const sidenav_changes = {};
-
-    			if (dirty & /*$$scope*/ 8388608) {
-    				sidenav_changes.$$scope = { dirty, ctx };
-    			}
-
-    			if (!updating_isOpen && dirty & /*isSideNavOpen*/ 1) {
-    				updating_isOpen = true;
-    				sidenav_changes.isOpen = /*isSideNavOpen*/ ctx[0];
-    				add_flush_callback(() => updating_isOpen = false);
-    			}
-
-    			sidenav.$set(sidenav_changes);
     			const headernav_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 4194304) {
     				headernav_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18540,13 +18087,11 @@ var app = (function () {
     		i: function intro(local) {
     			if (current) return;
     			transition_in(if_block);
-    			transition_in(sidenav.$$.fragment, local);
     			transition_in(headernav.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(if_block);
-    			transition_out(sidenav.$$.fragment, local);
     			transition_out(headernav.$$.fragment, local);
     			current = false;
     		},
@@ -18558,8 +18103,6 @@ var app = (function () {
     			if (detaching) detach_dev(br1);
     			if (detaching) detach_dev(br2);
     			if (detaching) detach_dev(t2);
-    			destroy_component(sidenav, detaching);
-    			if (detaching) detach_dev(t3);
     			destroy_component(headernav, detaching);
     		}
     	};
@@ -18568,14 +18111,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(222:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
+    		source: "(212:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (310:36) 
+    // (299:37) 
     function create_if_block_1(ctx) {
     	let p;
 
@@ -18583,7 +18126,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Polygon Selection Tool";
-    			add_location(p, file, 310, 3, 6835);
+    			add_location(p, file, 299, 4, 6908);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -18600,21 +18143,21 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(310:36) ",
+    		source: "(299:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (301:2) {#if $draw_type == "radius"}
+    // (290:3) {#if $draw_type == "radius"}
     function create_if_block(ctx) {
     	let slider;
     	let updating_value;
     	let current;
 
     	function slider_value_binding(value) {
-    		/*slider_value_binding*/ ctx[12](value);
+    		/*slider_value_binding*/ ctx[11](value);
     	}
 
     	let slider_props = {
@@ -18668,7 +18211,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(301:2) {#if $draw_type == \\\"radius\\\"}",
+    		source: "(290:3) {#if $draw_type == \\\"radius\\\"}",
     		ctx
     	});
 
@@ -18677,7 +18220,7 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let main;
-    	let div0;
+    	let div1;
     	let header;
     	let updating_isSideNavOpen;
     	let t0;
@@ -18685,19 +18228,19 @@ var app = (function () {
     	let br1;
     	let br2;
     	let t1;
-    	let p;
+    	let div0;
     	let dropdown;
     	let updating_selectedId;
     	let t2;
     	let current_block_type_index;
     	let if_block;
     	let t3;
-    	let div1;
+    	let div2;
     	let areamap;
     	let current;
 
     	function header_isSideNavOpen_binding(value) {
-    		/*header_isSideNavOpen_binding*/ ctx[10](value);
+    		/*header_isSideNavOpen_binding*/ ctx[9](value);
     	}
 
     	let header_props = {
@@ -18715,7 +18258,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(header, 'isSideNavOpen', header_isSideNavOpen_binding));
 
     	function dropdown_selectedId_binding(value) {
-    		/*dropdown_selectedId_binding*/ ctx[11](value);
+    		/*dropdown_selectedId_binding*/ ctx[10](value);
     	}
 
     	let dropdown_props = {
@@ -18765,46 +18308,47 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
-    			div0 = element("div");
+    			div1 = element("div");
     			create_component(header.$$.fragment);
     			t0 = space();
     			br0 = element("br");
     			br1 = element("br");
     			br2 = element("br");
     			t1 = space();
-    			p = element("p");
+    			div0 = element("div");
     			create_component(dropdown.$$.fragment);
     			t2 = space();
     			if (if_block) if_block.c();
     			t3 = space();
-    			div1 = element("div");
+    			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 283, 2, 6259);
-    			add_location(br1, file, 283, 8, 6265);
-    			add_location(br2, file, 283, 14, 6271);
-    			add_location(p, file, 285, 2, 6281);
-    			attr_dev(div0, "id", "header");
-    			add_location(div0, file, 220, 1, 4417);
-    			attr_dev(div1, "id", "map");
-    			attr_dev(div1, "class", "svelte-15r2lyj");
-    			add_location(div1, file, 313, 1, 6882);
-    			attr_dev(main, "class", "svelte-15r2lyj");
-    			add_location(main, file, 219, 0, 4409);
+    			add_location(br0, file, 273, 2, 6314);
+    			add_location(br1, file, 273, 8, 6320);
+    			add_location(br2, file, 273, 14, 6326);
+    			attr_dev(div0, "class", "menu");
+    			add_location(div0, file, 275, 2, 6336);
+    			attr_dev(div1, "id", "header");
+    			add_location(div1, file, 210, 1, 4463);
+    			attr_dev(div2, "id", "map");
+    			attr_dev(div2, "class", "svelte-prxn02");
+    			add_location(div2, file, 303, 1, 6965);
+    			attr_dev(main, "class", "svelte-prxn02");
+    			add_location(main, file, 209, 0, 4455);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, div0);
-    			mount_component(header, div0, null);
-    			append_dev(div0, t0);
-    			append_dev(div0, br0);
-    			append_dev(div0, br1);
-    			append_dev(div0, br2);
-    			append_dev(div0, t1);
-    			append_dev(div0, p);
-    			mount_component(dropdown, p, null);
+    			append_dev(main, div1);
+    			mount_component(header, div1, null);
+    			append_dev(div1, t0);
+    			append_dev(div1, br0);
+    			append_dev(div1, br1);
+    			append_dev(div1, br2);
+    			append_dev(div1, t1);
+    			append_dev(div1, div0);
+    			mount_component(dropdown, div0, null);
     			append_dev(div0, t2);
 
     			if (~current_block_type_index) {
@@ -18812,14 +18356,14 @@ var app = (function () {
     			}
 
     			append_dev(main, t3);
-    			append_dev(main, div1);
-    			mount_component(areamap, div1, null);
+    			append_dev(main, div2);
+    			mount_component(areamap, div2, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
     			const header_changes = {};
 
-    			if (dirty & /*$$scope, isSideNavOpen, $draw_type*/ 8388613) {
+    			if (dirty & /*$$scope, $draw_type*/ 4194308) {
     				header_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18927,13 +18471,13 @@ var app = (function () {
     	validate_store(draw_type, 'draw_type');
     	component_subscribe($$self, draw_type, $$value => $$invalidate(2, $draw_type = $$value));
     	validate_store(mapobject, 'mapobject');
-    	component_subscribe($$self, mapobject, $$value => $$invalidate(16, $mapobject = $$value));
+    	component_subscribe($$self, mapobject, $$value => $$invalidate(15, $mapobject = $$value));
     	validate_store(mapfunctions, 'mapfunctions');
-    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(17, $mapfunctions = $$value));
+    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(16, $mapfunctions = $$value));
     	validate_store(maplayer, 'maplayer');
-    	component_subscribe($$self, maplayer, $$value => $$invalidate(18, $maplayer = $$value));
+    	component_subscribe($$self, maplayer, $$value => $$invalidate(17, $maplayer = $$value));
     	validate_store(mapsource, 'mapsource');
-    	component_subscribe($$self, mapsource, $$value => $$invalidate(19, $mapsource = $$value));
+    	component_subscribe($$self, mapsource, $$value => $$invalidate(18, $mapsource = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
     	let webgl_canvas;
@@ -19019,14 +18563,14 @@ var app = (function () {
     	} //endinit
 
     	function recolour() {
-    		console.warn('recolour', ...pending);
+    		console.warn("recolour", ...pending);
 
     		$mapobject.setPaintProperty("bounds", "fill-color", [
     			"match",
     			["get", areatype],
     			["literal", ...pending],
     			"orange",
-    			["match", ["get", areatype], ["literal", ...selected], 'red', "transparent"]
+    			["match", ["get", areatype], ["literal", ...selected], "red", "transparent"]
     		]);
     	}
 
@@ -19077,11 +18621,6 @@ var app = (function () {
 
     	const click_handler = () => update_selection(true);
     	const click_handler_1 = () => update_selection(false);
-
-    	function sidenav_isOpen_binding(value) {
-    		isSideNavOpen = value;
-    		$$invalidate(0, isSideNavOpen);
-    	}
 
     	function header_isSideNavOpen_binding(value) {
     		isSideNavOpen = value;
@@ -19191,7 +18730,6 @@ var app = (function () {
     		height,
     		click_handler,
     		click_handler_1,
-    		sidenav_isOpen_binding,
     		header_isSideNavOpen_binding,
     		dropdown_selectedId_binding,
     		slider_value_binding

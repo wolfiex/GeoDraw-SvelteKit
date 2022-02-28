@@ -140,38 +140,30 @@
 		// correct error - ignore 403 missing tiles
 
 		$draw_type = "radius";
+	} //endinit
 
+	function recolour() {
+		console.warn("recolour", ...pending);
+		$mapobject.setPaintProperty("bounds", "fill-color", [
+			"match",
+			["get", areatype],
+			["literal", ...pending],
+			"orange",
+			[
+				"match",
+				["get", areatype],
+				["literal", ...selected],
+				"red",
+				"transparent",
+			],
+		]);
+	}
 
-
-	
-	
-
-}//endinit
-
-
-
-function recolour() {
-
-console.warn('recolour',...pending);
-$mapobject.setPaintProperty("bounds", "fill-color", [
-	"match",
-	["get", areatype],
-	["literal", ...pending],
-	"orange",
-	["match",
-	["get", areatype],
-	["literal", ...selected],
-	'red',
-	"transparent"]
-]);
-}
-
-
-function update_area(callback) {
+	function update_area(callback) {
 		// if (!coordinates) return;
 		var query;
-		coordinates = callback.detail.code
-		console.error(callback)
+		coordinates = callback.detail.code;
+		console.error(callback);
 		switch ($draw_type) {
 			case "radius":
 				query = `location=${coordinates.lng},${
@@ -184,21 +176,21 @@ function update_area(callback) {
 				pending = new Set(
 					coordinates.map((q) => q.properties[areatype])
 				);
-				recolour()
+				recolour();
 		}
 
 		if (query)
 			csv(
 				`http://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`
-			).then((d) => {
-				pending = new Set(d.map((e) => e.geography_code));
-			}).then(recolour)
+			)
+				.then((d) => {
+					pending = new Set(d.map((e) => e.geography_code));
+				})
+				.then(recolour);
 
 		console.log(pending, "PENDING");
-		
 	}
-////////////
-
+	////////////
 
 	/// Append to the selected list
 	function update_selection(direction) {
@@ -208,11 +200,9 @@ function update_area(callback) {
 			: new Set([...selected].filter((x) => !pending.has(x)));
 
 		console.log(selected);
-		pending=new Set([]);
+		pending = new Set([]);
 		recolour();
 	}
-
-
 
 	onMount(init);
 </script>
@@ -241,7 +231,7 @@ function update_area(callback) {
 
 			<br /><br />
 
-			<SideNav bind:isOpen={isSideNavOpen}>
+			<!-- <SideNav bind:isOpen={isSideNavOpen}>
 				<HeaderNavItem href="/" text="Link 1" />
 				<HeaderNavItem href="/" text="Link 2" />
 				<HeaderNavItem href="/" text="Link 3" />
@@ -264,7 +254,7 @@ function update_area(callback) {
 					<SideNavDivider />
 					<SideNavLink text="Link 4" />
 				</SideNavItems>
-			</SideNav>
+			</SideNav> -->
 
 			<HeaderNav>
 				<HeaderNavItem href="/" text="Link 1" />
@@ -283,7 +273,7 @@ function update_area(callback) {
 
 		<br /><br /><br />
 
-		<p>
+		<div class="menu">
 			<Dropdown
 				type="inline"
 				size="xl"
@@ -291,27 +281,29 @@ function update_area(callback) {
 				bind:selectedId={$draw_type}
 				id="draw_dropdown"
 				items={[
-					{ id: "radius", text: "Radius Selection Tool" },
+					{ id: "radius", text: "Radius Selection Tool"},
 					{ id: "polygon", text: "Polygion Selection Tool" },
 					{ id: "click", text: "Click Selection " },
 				]}
 			/>
-		</p>
 
-		{#if $draw_type == "radius"}
-			<!-- <p> Radius Selection Tool</p> -->
-			<Slider
-				labelText="Select Distance (km)"
-				min={2}
-				max={20}
-				bind:value={$radiusInKm}
-				hideTextInput
-			/>
-		{:else if $draw_type == "polygon"}
-			<p>Polygon Selection Tool</p>
-		{/if}
+			{#if $draw_type == "radius"}
+				<!-- <p> Radius Selection Tool</p> -->
+				<Slider
+					labelText="Select Distance (km)"
+					min={2}
+					max={20}
+					bind:value={$radiusInKm}
+					hideTextInput
+				/>
+			{:else if $draw_type == "polygon"}
+				<p>Polygon Selection Tool</p>
+			{/if}
+		</div>
 	</div>
-	<div id="map"><AreaMap drawing_tools={true} on:coordinate_change={update_area} /></div>
+	<div id="map">
+		<AreaMap drawing_tools={true} on:coordinate_change={update_area} />
+	</div>
 </main>
 
 <style>
@@ -342,6 +334,13 @@ function update_area(callback) {
 		}
 	}
 
+	:global(.bx--form-item label,.bx--slider-container) {
+		justify-content: space-around;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		/* background-color: red; */
+	}
 	:global(#drawsave) {
 		display: flex;
 		justify-content: flex-end;
@@ -355,6 +354,8 @@ function update_area(callback) {
 		font-weight: 400;
 		line-height: 1.5;
 		letter-spacing: 0;
-		margin: auto;
+		justify-content: space-around;
+		margin-left: auto;
+		margin-right: auto;
 	}
 </style>
