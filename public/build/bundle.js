@@ -17628,7 +17628,7 @@ var app = (function () {
     	buttonset = new ButtonSet$1({
     			props: {
     				id: "drawsave",
-    				$$slots: { default: [create_default_slot_3] },
+    				$$slots: { default: [create_default_slot_6] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17645,7 +17645,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const buttonset_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				buttonset_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17677,7 +17677,7 @@ var app = (function () {
     }
 
     // (220:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
-    function create_default_slot_5(ctx) {
+    function create_default_slot_8(ctx) {
     	let t;
 
     	const block = {
@@ -17694,7 +17694,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_5.name,
+    		id: create_default_slot_8.name,
     		type: "slot",
     		source: "(220:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
     		ctx
@@ -17704,7 +17704,7 @@ var app = (function () {
     }
 
     // (223:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
-    function create_default_slot_4(ctx) {
+    function create_default_slot_7(ctx) {
     	let t;
 
     	const block = {
@@ -17721,7 +17721,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_4.name,
+    		id: create_default_slot_7.name,
     		type: "slot",
     		source: "(223:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
     		ctx
@@ -17731,7 +17731,7 @@ var app = (function () {
     }
 
     // (219:4) <ButtonSet id="drawsave">
-    function create_default_slot_3(ctx) {
+    function create_default_slot_6(ctx) {
     	let button0;
     	let t;
     	let button1;
@@ -17740,7 +17740,7 @@ var app = (function () {
     	button0 = new Button$1({
     			props: {
     				icon: Add16$1,
-    				$$slots: { default: [create_default_slot_5] },
+    				$$slots: { default: [create_default_slot_8] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17752,7 +17752,7 @@ var app = (function () {
     			props: {
     				icon: Subtract16$1,
     				kind: "secondary",
-    				$$slots: { default: [create_default_slot_4] },
+    				$$slots: { default: [create_default_slot_7] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17775,14 +17775,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17808,9 +17808,211 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_3.name,
+    		id: create_default_slot_6.name,
     		type: "slot",
     		source: "(219:4) <ButtonSet id=\\\"drawsave\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (238:4) <HeaderNavMenu text="Menu">
+    function create_default_slot_5(ctx) {
+    	let headernavitem0;
+    	let t0;
+    	let headernavitem1;
+    	let t1;
+    	let headernavitem2;
+    	let current;
+
+    	headernavitem0 = new HeaderNavItem$1({
+    			props: { href: "/", text: "Link 1" },
+    			$$inline: true
+    		});
+
+    	headernavitem1 = new HeaderNavItem$1({
+    			props: { href: "/", text: "Link 2" },
+    			$$inline: true
+    		});
+
+    	headernavitem2 = new HeaderNavItem$1({
+    			props: { href: "/", text: "Link 3" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(headernavitem0.$$.fragment);
+    			t0 = space();
+    			create_component(headernavitem1.$$.fragment);
+    			t1 = space();
+    			create_component(headernavitem2.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(headernavitem0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(headernavitem1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(headernavitem2, target, anchor);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(headernavitem0.$$.fragment, local);
+    			transition_in(headernavitem1.$$.fragment, local);
+    			transition_in(headernavitem2.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(headernavitem0.$$.fragment, local);
+    			transition_out(headernavitem1.$$.fragment, local);
+    			transition_out(headernavitem2.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(headernavitem0, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(headernavitem1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(headernavitem2, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_5.name,
+    		type: "slot",
+    		source: "(238:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (234:4) <SideNav bind:isOpen={isSideNavOpen}>
+    function create_default_slot_3(ctx) {
+    	let headernavitem0;
+    	let t0;
+    	let headernavitem1;
+    	let t1;
+    	let headernavitem2;
+    	let t2;
+    	let headernavmenu;
+    	let t3;
+    	let headernavitem3;
+    	let t4;
+    	let sidenavitems;
+    	let current;
+
+    	headernavitem0 = new HeaderNavItem$1({
+    			props: { href: "/", text: "Link 1" },
+    			$$inline: true
+    		});
+
+    	headernavitem1 = new HeaderNavItem$1({
+    			props: { href: "/", text: "Link 2" },
+    			$$inline: true
+    		});
+
+    	headernavitem2 = new HeaderNavItem$1({
+    			props: { href: "/", text: "Link 3" },
+    			$$inline: true
+    		});
+
+    	headernavmenu = new HeaderNavMenu$1({
+    			props: {
+    				text: "Menu",
+    				$$slots: { default: [create_default_slot_5] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	headernavitem3 = new HeaderNavItem$1({
+    			props: { href: "/", text: "Link 4" },
+    			$$inline: true
+    		});
+
+    	sidenavitems = new SideNavItems$1({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(headernavitem0.$$.fragment);
+    			t0 = space();
+    			create_component(headernavitem1.$$.fragment);
+    			t1 = space();
+    			create_component(headernavitem2.$$.fragment);
+    			t2 = space();
+    			create_component(headernavmenu.$$.fragment);
+    			t3 = space();
+    			create_component(headernavitem3.$$.fragment);
+    			t4 = space();
+    			create_component(sidenavitems.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(headernavitem0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(headernavitem1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(headernavitem2, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			mount_component(headernavmenu, target, anchor);
+    			insert_dev(target, t3, anchor);
+    			mount_component(headernavitem3, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(sidenavitems, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const headernavmenu_changes = {};
+
+    			if (dirty & /*$$scope*/ 8388608) {
+    				headernavmenu_changes.$$scope = { dirty, ctx };
+    			}
+
+    			headernavmenu.$set(headernavmenu_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(headernavitem0.$$.fragment, local);
+    			transition_in(headernavitem1.$$.fragment, local);
+    			transition_in(headernavitem2.$$.fragment, local);
+    			transition_in(headernavmenu.$$.fragment, local);
+    			transition_in(headernavitem3.$$.fragment, local);
+    			transition_in(sidenavitems.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(headernavitem0.$$.fragment, local);
+    			transition_out(headernavitem1.$$.fragment, local);
+    			transition_out(headernavitem2.$$.fragment, local);
+    			transition_out(headernavmenu.$$.fragment, local);
+    			transition_out(headernavitem3.$$.fragment, local);
+    			transition_out(sidenavitems.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(headernavitem0, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(headernavitem1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(headernavitem2, detaching);
+    			if (detaching) detach_dev(t2);
+    			destroy_component(headernavmenu, detaching);
+    			if (detaching) detach_dev(t3);
+    			destroy_component(headernavitem3, detaching);
+    			if (detaching) detach_dev(t4);
+    			destroy_component(sidenavitems, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_3.name,
+    		type: "slot",
+    		source: "(234:4) <SideNav bind:isOpen={isSideNavOpen}>",
     		ctx
     	});
 
@@ -17960,7 +18162,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const headernavmenu_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				headernavmenu_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18015,9 +18217,28 @@ var app = (function () {
     	let br1;
     	let br2;
     	let t2;
+    	let sidenav;
+    	let updating_isOpen;
+    	let t3;
     	let headernav;
     	let current;
     	let if_block = /*$draw_type*/ ctx[2] && create_if_block_2(ctx);
+
+    	function sidenav_isOpen_binding(value) {
+    		/*sidenav_isOpen_binding*/ ctx[9](value);
+    	}
+
+    	let sidenav_props = {
+    		$$slots: { default: [create_default_slot_3] },
+    		$$scope: { ctx }
+    	};
+
+    	if (/*isSideNavOpen*/ ctx[0] !== void 0) {
+    		sidenav_props.isOpen = /*isSideNavOpen*/ ctx[0];
+    	}
+
+    	sidenav = new SideNav$1({ props: sidenav_props, $$inline: true });
+    	binding_callbacks.push(() => bind(sidenav, 'isOpen', sidenav_isOpen_binding));
 
     	headernav = new HeaderNav$1({
     			props: {
@@ -18036,6 +18257,8 @@ var app = (function () {
     			br1 = element("br");
     			br2 = element("br");
     			t2 = space();
+    			create_component(sidenav.$$.fragment);
+    			t3 = space();
     			create_component(headernav.$$.fragment);
     			add_location(br0, file, 216, 3, 4630);
     			add_location(br1, file, 231, 3, 5017);
@@ -18049,6 +18272,8 @@ var app = (function () {
     			insert_dev(target, br1, anchor);
     			insert_dev(target, br2, anchor);
     			insert_dev(target, t2, anchor);
+    			mount_component(sidenav, target, anchor);
+    			insert_dev(target, t3, anchor);
     			mount_component(headernav, target, anchor);
     			current = true;
     		},
@@ -18076,9 +18301,22 @@ var app = (function () {
     				check_outros();
     			}
 
+    			const sidenav_changes = {};
+
+    			if (dirty & /*$$scope*/ 8388608) {
+    				sidenav_changes.$$scope = { dirty, ctx };
+    			}
+
+    			if (!updating_isOpen && dirty & /*isSideNavOpen*/ 1) {
+    				updating_isOpen = true;
+    				sidenav_changes.isOpen = /*isSideNavOpen*/ ctx[0];
+    				add_flush_callback(() => updating_isOpen = false);
+    			}
+
+    			sidenav.$set(sidenav_changes);
     			const headernav_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				headernav_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18087,11 +18325,13 @@ var app = (function () {
     		i: function intro(local) {
     			if (current) return;
     			transition_in(if_block);
+    			transition_in(sidenav.$$.fragment, local);
     			transition_in(headernav.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(if_block);
+    			transition_out(sidenav.$$.fragment, local);
     			transition_out(headernav.$$.fragment, local);
     			current = false;
     		},
@@ -18103,6 +18343,8 @@ var app = (function () {
     			if (detaching) detach_dev(br1);
     			if (detaching) detach_dev(br2);
     			if (detaching) detach_dev(t2);
+    			destroy_component(sidenav, detaching);
+    			if (detaching) detach_dev(t3);
     			destroy_component(headernav, detaching);
     		}
     	};
@@ -18126,7 +18368,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Polygon Selection Tool";
-    			add_location(p, file, 299, 4, 6908);
+    			add_location(p, file, 299, 4, 6910);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -18157,7 +18399,7 @@ var app = (function () {
     	let current;
 
     	function slider_value_binding(value) {
-    		/*slider_value_binding*/ ctx[11](value);
+    		/*slider_value_binding*/ ctx[12](value);
     	}
 
     	let slider_props = {
@@ -18240,7 +18482,7 @@ var app = (function () {
     	let current;
 
     	function header_isSideNavOpen_binding(value) {
-    		/*header_isSideNavOpen_binding*/ ctx[9](value);
+    		/*header_isSideNavOpen_binding*/ ctx[10](value);
     	}
 
     	let header_props = {
@@ -18258,7 +18500,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(header, 'isSideNavOpen', header_isSideNavOpen_binding));
 
     	function dropdown_selectedId_binding(value) {
-    		/*dropdown_selectedId_binding*/ ctx[10](value);
+    		/*dropdown_selectedId_binding*/ ctx[11](value);
     	}
 
     	let dropdown_props = {
@@ -18322,16 +18564,16 @@ var app = (function () {
     			t3 = space();
     			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 273, 2, 6314);
-    			add_location(br1, file, 273, 8, 6320);
-    			add_location(br2, file, 273, 14, 6326);
+    			add_location(br0, file, 273, 2, 6316);
+    			add_location(br1, file, 273, 8, 6322);
+    			add_location(br2, file, 273, 14, 6328);
     			attr_dev(div0, "class", "menu");
-    			add_location(div0, file, 275, 2, 6336);
+    			add_location(div0, file, 275, 2, 6338);
     			attr_dev(div1, "id", "header");
     			add_location(div1, file, 210, 1, 4463);
     			attr_dev(div2, "id", "map");
     			attr_dev(div2, "class", "svelte-prxn02");
-    			add_location(div2, file, 303, 1, 6965);
+    			add_location(div2, file, 303, 1, 6967);
     			attr_dev(main, "class", "svelte-prxn02");
     			add_location(main, file, 209, 0, 4455);
     		},
@@ -18363,7 +18605,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const header_changes = {};
 
-    			if (dirty & /*$$scope, $draw_type*/ 4194308) {
+    			if (dirty & /*$$scope, isSideNavOpen, $draw_type*/ 8388613) {
     				header_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18471,13 +18713,13 @@ var app = (function () {
     	validate_store(draw_type, 'draw_type');
     	component_subscribe($$self, draw_type, $$value => $$invalidate(2, $draw_type = $$value));
     	validate_store(mapobject, 'mapobject');
-    	component_subscribe($$self, mapobject, $$value => $$invalidate(15, $mapobject = $$value));
+    	component_subscribe($$self, mapobject, $$value => $$invalidate(16, $mapobject = $$value));
     	validate_store(mapfunctions, 'mapfunctions');
-    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(16, $mapfunctions = $$value));
+    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(17, $mapfunctions = $$value));
     	validate_store(maplayer, 'maplayer');
-    	component_subscribe($$self, maplayer, $$value => $$invalidate(17, $maplayer = $$value));
+    	component_subscribe($$self, maplayer, $$value => $$invalidate(18, $maplayer = $$value));
     	validate_store(mapsource, 'mapsource');
-    	component_subscribe($$self, mapsource, $$value => $$invalidate(18, $mapsource = $$value));
+    	component_subscribe($$self, mapsource, $$value => $$invalidate(19, $mapsource = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
     	let webgl_canvas;
@@ -18622,6 +18864,11 @@ var app = (function () {
     	const click_handler = () => update_selection(true);
     	const click_handler_1 = () => update_selection(false);
 
+    	function sidenav_isOpen_binding(value) {
+    		isSideNavOpen = value;
+    		$$invalidate(0, isSideNavOpen);
+    	}
+
     	function header_isSideNavOpen_binding(value) {
     		isSideNavOpen = value;
     		$$invalidate(0, isSideNavOpen);
@@ -18730,6 +18977,7 @@ var app = (function () {
     		height,
     		click_handler,
     		click_handler_1,
+    		sidenav_isOpen_binding,
     		header_isSideNavOpen_binding,
     		dropdown_selectedId_binding,
     		slider_value_binding

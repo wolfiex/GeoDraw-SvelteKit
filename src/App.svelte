@@ -231,7 +231,7 @@
 
 			<br /><br />
 
-			<!-- <SideNav bind:isOpen={isSideNavOpen}>
+			 <SideNav bind:isOpen={isSideNavOpen}>
 				<HeaderNavItem href="/" text="Link 1" />
 				<HeaderNavItem href="/" text="Link 2" />
 				<HeaderNavItem href="/" text="Link 3" />
@@ -243,7 +243,7 @@
 				<HeaderNavItem href="/" text="Link 4" />
 
 				<SideNavItems>
-					<SideNavLink text="Link 1" />
+					<!-- <SideNavLink text="Link 1" />
 					<SideNavLink text="Link 2" />
 					<SideNavLink text="Link 3" />
 					<SideNavMenu text="Menu">
@@ -252,9 +252,9 @@
 						<SideNavMenuItem href="/" text="Link 3" />
 					</SideNavMenu>
 					<SideNavDivider />
-					<SideNavLink text="Link 4" />
+					<SideNavLink text="Link 4" /> -->
 				</SideNavItems>
-			</SideNav> -->
+			</SideNav> 
 
 			<HeaderNav>
 				<HeaderNavItem href="/" text="Link 1" />
