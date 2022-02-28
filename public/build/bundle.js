@@ -17645,7 +17645,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const buttonset_changes = {};
 
-    			if (dirty & /*$$scope*/ 16777216) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				buttonset_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17775,14 +17775,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 16777216) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 16777216) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17968,7 +17968,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const headernavmenu_changes = {};
 
-    			if (dirty & /*$$scope*/ 16777216) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				headernavmenu_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18162,7 +18162,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const headernavmenu_changes = {};
 
-    			if (dirty & /*$$scope*/ 16777216) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				headernavmenu_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18260,9 +18260,9 @@ var app = (function () {
     			create_component(sidenav.$$.fragment);
     			t3 = space();
     			create_component(headernav.$$.fragment);
-    			add_location(br0, file, 220, 3, 4722);
-    			add_location(br1, file, 235, 3, 5109);
-    			add_location(br2, file, 235, 9, 5115);
+    			add_location(br0, file, 220, 3, 4731);
+    			add_location(br1, file, 235, 3, 5118);
+    			add_location(br2, file, 235, 9, 5124);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br0, anchor);
@@ -18303,7 +18303,7 @@ var app = (function () {
 
     			const sidenav_changes = {};
 
-    			if (dirty & /*$$scope*/ 16777216) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				sidenav_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18316,7 +18316,7 @@ var app = (function () {
     			sidenav.$set(sidenav_changes);
     			const headernav_changes = {};
 
-    			if (dirty & /*$$scope*/ 16777216) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				headernav_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18368,7 +18368,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Polygon Selection Tool";
-    			add_location(p, file, 303, 4, 7002);
+    			add_location(p, file, 303, 4, 7011);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -18564,18 +18564,18 @@ var app = (function () {
     			t3 = space();
     			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 277, 2, 6408);
-    			add_location(br1, file, 277, 8, 6414);
-    			add_location(br2, file, 277, 14, 6420);
+    			add_location(br0, file, 277, 2, 6417);
+    			add_location(br1, file, 277, 8, 6423);
+    			add_location(br2, file, 277, 14, 6429);
     			attr_dev(div0, "class", "menu");
-    			add_location(div0, file, 279, 2, 6430);
+    			add_location(div0, file, 279, 2, 6439);
     			attr_dev(div1, "id", "header");
-    			add_location(div1, file, 214, 1, 4555);
+    			add_location(div1, file, 214, 1, 4564);
     			attr_dev(div2, "id", "map");
     			attr_dev(div2, "class", "svelte-prxn02");
-    			add_location(div2, file, 307, 1, 7059);
+    			add_location(div2, file, 307, 1, 7068);
     			attr_dev(main, "class", "svelte-prxn02");
-    			add_location(main, file, 213, 0, 4547);
+    			add_location(main, file, 213, 0, 4556);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18605,7 +18605,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const header_changes = {};
 
-    			if (dirty & /*$$scope, isSideNavOpen, $draw_type*/ 16777221) {
+    			if (dirty & /*$$scope, isSideNavOpen, $draw_type*/ 8388613) {
     				header_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18713,13 +18713,13 @@ var app = (function () {
     	validate_store(draw_type, 'draw_type');
     	component_subscribe($$self, draw_type, $$value => $$invalidate(2, $draw_type = $$value));
     	validate_store(mapobject, 'mapobject');
-    	component_subscribe($$self, mapobject, $$value => $$invalidate(17, $mapobject = $$value));
+    	component_subscribe($$self, mapobject, $$value => $$invalidate(16, $mapobject = $$value));
     	validate_store(mapfunctions, 'mapfunctions');
-    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(18, $mapfunctions = $$value));
+    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(17, $mapfunctions = $$value));
     	validate_store(maplayer, 'maplayer');
-    	component_subscribe($$self, maplayer, $$value => $$invalidate(19, $maplayer = $$value));
+    	component_subscribe($$self, maplayer, $$value => $$invalidate(18, $maplayer = $$value));
     	validate_store(mapsource, 'mapsource');
-    	component_subscribe($$self, mapsource, $$value => $$invalidate(20, $mapsource = $$value));
+    	component_subscribe($$self, mapsource, $$value => $$invalidate(19, $mapsource = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
     	let webgl_canvas;
@@ -18735,15 +18735,13 @@ var app = (function () {
     	//////////// header ///////////////
     	console.log("mapboxgl", mapboxGl);
 
-    	// strava does not load on localhost
-    	var needcors = "";
-
-    	if (window.location.host.split(":")[0] != "localhost") {
-    		needcors = "https://cors-anywhere.herokuapp.com/";
-    		window.open("https://cors-anywhere.herokuapp.com/", "_blank");
-    		alert('Go to ' + "https://cors-anywhere.herokuapp.com/" + ' and click "Add CORS Anywhere"');
-    	}
-
+    	// // strava does not load on localhost
+    	// var needcors = "";
+    	// if (window.location.host.split(":")[0] != "localhost") {
+    	// 	needcors = "https://cors-anywhere.herokuapp.com/";
+    	// 	window.open("https://cors-anywhere.herokuapp.com/", "_blank");
+    	// 	alert('Go to '+"https://cors-anywhere.herokuapp.com/"+' and click "Add CORS Anywhere"');
+    	// }
     	async function init() {
     		console.warn(webgl_canvas);
     		console.log("---" + window.location.host.split(":")[0] + "---");
@@ -18836,7 +18834,7 @@ var app = (function () {
     				recolour();
     		}
 
-    		if (query) csv(needcors + `https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
+    		if (query) csv(`http://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
     			pending = new Set(d.map(e => e.geography_code));
     		}).then(recolour);
 
@@ -18943,7 +18941,6 @@ var app = (function () {
     		AreaCustom32: AreaCustom32$1,
     		isSideNavOpen,
     		areatype,
-    		needcors,
     		init,
     		recolour,
     		update_area,
@@ -18964,7 +18961,6 @@ var app = (function () {
     		if ('pending' in $$props) pending = $$props.pending;
     		if ('coordinates' in $$props) coordinates = $$props.coordinates;
     		if ('isSideNavOpen' in $$props) $$invalidate(0, isSideNavOpen = $$props.isSideNavOpen);
-    		if ('needcors' in $$props) needcors = $$props.needcors;
     	};
 
     	if ($$props && "$$inject" in $$props) {
