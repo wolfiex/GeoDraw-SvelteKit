@@ -183,7 +183,7 @@
 
 		if (query)
 			csv(
-				needcors+`http://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`
+				needcors+`https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`
 			)
 				.then((d) => {
 					pending = new Set(d.map((e) => e.geography_code));
