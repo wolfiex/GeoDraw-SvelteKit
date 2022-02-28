@@ -79,12 +79,12 @@
 
 
 		//strava does not load on localhost
-		var needcors = "";
-		if (window.location.host.split(":")[0] != "localhost") {
-			needcors = "https://cors-anywhere.herokuapp.com/";
-			window.open("https://cors-anywhere.herokuapp.com/", "_blank");
-			alert('Go to '+"https://cors-anywhere.herokuapp.com/"+' and click "Add CORS Anywhere"');
-		}
+		// var needcors = "";
+		// if (window.location.host.split(":")[0] != "localhost") {
+		// 	needcors = "https://cors-anywhere.herokuapp.com/";
+		// 	window.open("https://cors-anywhere.herokuapp.com/", "_blank");
+		// 	alert('Go to '+"https://cors-anywhere.herokuapp.com/"+' and click "Add CORS Anywhere"');
+		// }
 
 		console.log("---" + window.location.host.split(":")[0] + "---");
 
@@ -183,7 +183,7 @@
 
 		if (query)
 			csv(
-				needcors + `https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`
+				`https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`
 			)
 				.then((d) => {
 					pending = new Set(d.map((e) => e.geography_code));

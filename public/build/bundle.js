@@ -18260,9 +18260,9 @@ var app = (function () {
     			create_component(sidenav.$$.fragment);
     			t3 = space();
     			create_component(headernav.$$.fragment);
-    			add_location(br0, file, 218, 3, 4719);
-    			add_location(br1, file, 233, 3, 5106);
-    			add_location(br2, file, 233, 9, 5112);
+    			add_location(br0, file, 218, 3, 4726);
+    			add_location(br1, file, 233, 3, 5113);
+    			add_location(br2, file, 233, 9, 5119);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br0, anchor);
@@ -18368,7 +18368,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Polygon Selection Tool";
-    			add_location(p, file, 301, 4, 6999);
+    			add_location(p, file, 301, 4, 7006);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -18564,18 +18564,18 @@ var app = (function () {
     			t3 = space();
     			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 275, 2, 6405);
-    			add_location(br1, file, 275, 8, 6411);
-    			add_location(br2, file, 275, 14, 6417);
+    			add_location(br0, file, 275, 2, 6412);
+    			add_location(br1, file, 275, 8, 6418);
+    			add_location(br2, file, 275, 14, 6424);
     			attr_dev(div0, "class", "menu");
-    			add_location(div0, file, 277, 2, 6427);
+    			add_location(div0, file, 277, 2, 6434);
     			attr_dev(div1, "id", "header");
-    			add_location(div1, file, 212, 1, 4552);
+    			add_location(div1, file, 212, 1, 4559);
     			attr_dev(div2, "id", "map");
     			attr_dev(div2, "class", "svelte-prxn02");
-    			add_location(div2, file, 305, 1, 7056);
+    			add_location(div2, file, 305, 1, 7063);
     			attr_dev(main, "class", "svelte-prxn02");
-    			add_location(main, file, 211, 0, 4544);
+    			add_location(main, file, 211, 0, 4551);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18738,11 +18738,13 @@ var app = (function () {
     	async function init() {
     		console.warn(webgl_canvas);
 
-    		if (window.location.host.split(":")[0] != "localhost") {
-    			window.open("https://cors-anywhere.herokuapp.com/", "_blank");
-    			alert('Go to ' + "https://cors-anywhere.herokuapp.com/" + ' and click "Add CORS Anywhere"');
-    		}
-
+    		//strava does not load on localhost
+    		// var needcors = "";
+    		// if (window.location.host.split(":")[0] != "localhost") {
+    		// 	needcors = "https://cors-anywhere.herokuapp.com/";
+    		// 	window.open("https://cors-anywhere.herokuapp.com/", "_blank");
+    		// 	alert('Go to '+"https://cors-anywhere.herokuapp.com/"+' and click "Add CORS Anywhere"');
+    		// }
     		console.log("---" + window.location.host.split(":")[0] + "---");
 
     		// map setup and vars
@@ -18833,7 +18835,7 @@ var app = (function () {
     				recolour();
     		}
 
-    		if (query) csv(needcors + `https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
+    		if (query) csv(`https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
     			pending = new Set(d.map(e => e.geography_code));
     		}).then(recolour);
 
