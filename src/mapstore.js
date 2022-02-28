@@ -42,7 +42,7 @@ export let maxbounds = null;
     [-9, 47],
     [5, 57]
 ];
-export const mapstyle = '../css/style-omt.json' //"https://bothness.github.io/ons-basemaps/data/style-omt.json";
+export const mapstyle ='./css/style-omt.json' //"https://bothness.github.io/ons-basemaps/data/style-omt.json";
 
 export function c2bbox(lat, lng) {
 
