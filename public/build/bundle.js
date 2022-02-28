@@ -17620,7 +17620,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (222:3) {#if $draw_type}
+    // (224:3) {#if $draw_type}
     function create_if_block_2(ctx) {
     	let buttonset;
     	let current;
@@ -17669,14 +17669,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(222:3) {#if $draw_type}",
+    		source: "(224:3) {#if $draw_type}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (224:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
+    // (226:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
     function create_default_slot_8(ctx) {
     	let t;
 
@@ -17696,14 +17696,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(224:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
+    		source: "(226:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (227:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
+    // (229:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
     function create_default_slot_7(ctx) {
     	let t;
 
@@ -17723,14 +17723,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(227:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
+    		source: "(229:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (223:4) <ButtonSet id="drawsave">
+    // (225:4) <ButtonSet id="drawsave">
     function create_default_slot_6(ctx) {
     	let button0;
     	let t;
@@ -17810,14 +17810,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(223:4) <ButtonSet id=\\\"drawsave\\\">",
+    		source: "(225:4) <ButtonSet id=\\\"drawsave\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (242:4) <HeaderNavMenu text="Menu">
+    // (244:4) <HeaderNavMenu text="Menu">
     function create_default_slot_5(ctx) {
     	let headernavitem0;
     	let t0;
@@ -17884,14 +17884,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(242:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		source: "(244:4) <HeaderNavMenu text=\\\"Menu\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (238:4) <SideNav bind:isOpen={isSideNavOpen}>
+    // (240:4) <SideNav bind:isOpen={isSideNavOpen}>
     function create_default_slot_3(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18012,14 +18012,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(238:4) <SideNav bind:isOpen={isSideNavOpen}>",
+    		source: "(240:4) <SideNav bind:isOpen={isSideNavOpen}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (267:4) <HeaderNavMenu text="Menu">
+    // (269:4) <HeaderNavMenu text="Menu">
     function create_default_slot_2(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18086,14 +18086,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(267:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		source: "(269:4) <HeaderNavMenu text=\\\"Menu\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (263:3) <HeaderNav>
+    // (265:3) <HeaderNav>
     function create_default_slot_1(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18202,14 +18202,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(263:3) <HeaderNav>",
+    		source: "(265:3) <HeaderNav>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (216:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
+    // (218:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
     function create_default_slot(ctx) {
     	let br0;
     	let t0;
@@ -18260,9 +18260,9 @@ var app = (function () {
     			create_component(sidenav.$$.fragment);
     			t3 = space();
     			create_component(headernav.$$.fragment);
-    			add_location(br0, file, 220, 3, 4731);
-    			add_location(br1, file, 235, 3, 5118);
-    			add_location(br2, file, 235, 9, 5124);
+    			add_location(br0, file, 222, 3, 4882);
+    			add_location(br1, file, 237, 3, 5269);
+    			add_location(br2, file, 237, 9, 5275);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br0, anchor);
@@ -18353,14 +18353,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(216:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
+    		source: "(218:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (303:37) 
+    // (305:37) 
     function create_if_block_1(ctx) {
     	let p;
 
@@ -18368,7 +18368,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Polygon Selection Tool";
-    			add_location(p, file, 303, 4, 7011);
+    			add_location(p, file, 305, 4, 7162);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -18385,14 +18385,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(303:37) ",
+    		source: "(305:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (294:3) {#if $draw_type == "radius"}
+    // (296:3) {#if $draw_type == "radius"}
     function create_if_block(ctx) {
     	let slider;
     	let updating_value;
@@ -18453,7 +18453,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(294:3) {#if $draw_type == \\\"radius\\\"}",
+    		source: "(296:3) {#if $draw_type == \\\"radius\\\"}",
     		ctx
     	});
 
@@ -18564,18 +18564,18 @@ var app = (function () {
     			t3 = space();
     			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 277, 2, 6417);
-    			add_location(br1, file, 277, 8, 6423);
-    			add_location(br2, file, 277, 14, 6429);
+    			add_location(br0, file, 279, 2, 6568);
+    			add_location(br1, file, 279, 8, 6574);
+    			add_location(br2, file, 279, 14, 6580);
     			attr_dev(div0, "class", "menu");
-    			add_location(div0, file, 279, 2, 6439);
+    			add_location(div0, file, 281, 2, 6590);
     			attr_dev(div1, "id", "header");
-    			add_location(div1, file, 214, 1, 4564);
+    			add_location(div1, file, 216, 1, 4715);
     			attr_dev(div2, "id", "map");
     			attr_dev(div2, "class", "svelte-prxn02");
-    			add_location(div2, file, 307, 1, 7068);
+    			add_location(div2, file, 309, 1, 7219);
     			attr_dev(main, "class", "svelte-prxn02");
-    			add_location(main, file, 213, 0, 4556);
+    			add_location(main, file, 215, 0, 4707);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18734,6 +18734,10 @@ var app = (function () {
 
     	//////////// header ///////////////
     	console.log("mapboxgl", mapboxGl);
+
+    	if (window.innerWidth > 1000) {
+    		alert('Please use a smaller screen for this demo (<1000px wide). Full max screen reactiveness is a work in progress.');
+    	}
 
     	// // strava does not load on localhost
     	// var needcors = "";

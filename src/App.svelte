@@ -74,6 +74,8 @@
 
 	console.log("mapboxgl", mapboxgl);
 
+	if (window.innerWidth>1000) {alert('Please use a smaller screen for this demo (<1000px wide). Full max screen reactiveness is a work in progress.')}
+
 		// // strava does not load on localhost
 		// var needcors = "";
 		// if (window.location.host.split(":")[0] != "localhost") {
