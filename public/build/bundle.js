@@ -17620,7 +17620,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (220:3) {#if $draw_type}
+    // (222:3) {#if $draw_type}
     function create_if_block_2(ctx) {
     	let buttonset;
     	let current;
@@ -17645,7 +17645,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const buttonset_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 16777216) {
     				buttonset_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17669,14 +17669,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(220:3) {#if $draw_type}",
+    		source: "(222:3) {#if $draw_type}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (222:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
+    // (224:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
     function create_default_slot_8(ctx) {
     	let t;
 
@@ -17696,14 +17696,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(222:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
+    		source: "(224:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (225:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
+    // (227:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
     function create_default_slot_7(ctx) {
     	let t;
 
@@ -17723,14 +17723,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(225:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
+    		source: "(227:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (221:4) <ButtonSet id="drawsave">
+    // (223:4) <ButtonSet id="drawsave">
     function create_default_slot_6(ctx) {
     	let button0;
     	let t;
@@ -17775,14 +17775,14 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 16777216) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 16777216) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17810,14 +17810,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(221:4) <ButtonSet id=\\\"drawsave\\\">",
+    		source: "(223:4) <ButtonSet id=\\\"drawsave\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (240:4) <HeaderNavMenu text="Menu">
+    // (242:4) <HeaderNavMenu text="Menu">
     function create_default_slot_5(ctx) {
     	let headernavitem0;
     	let t0;
@@ -17884,14 +17884,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(240:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		source: "(242:4) <HeaderNavMenu text=\\\"Menu\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (236:4) <SideNav bind:isOpen={isSideNavOpen}>
+    // (238:4) <SideNav bind:isOpen={isSideNavOpen}>
     function create_default_slot_3(ctx) {
     	let headernavitem0;
     	let t0;
@@ -17968,7 +17968,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const headernavmenu_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 16777216) {
     				headernavmenu_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18012,14 +18012,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(236:4) <SideNav bind:isOpen={isSideNavOpen}>",
+    		source: "(238:4) <SideNav bind:isOpen={isSideNavOpen}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (265:4) <HeaderNavMenu text="Menu">
+    // (267:4) <HeaderNavMenu text="Menu">
     function create_default_slot_2(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18086,14 +18086,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(265:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		source: "(267:4) <HeaderNavMenu text=\\\"Menu\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (261:3) <HeaderNav>
+    // (263:3) <HeaderNav>
     function create_default_slot_1(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18162,7 +18162,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const headernavmenu_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 16777216) {
     				headernavmenu_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18202,14 +18202,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(261:3) <HeaderNav>",
+    		source: "(263:3) <HeaderNav>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (214:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
+    // (216:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
     function create_default_slot(ctx) {
     	let br0;
     	let t0;
@@ -18260,9 +18260,9 @@ var app = (function () {
     			create_component(sidenav.$$.fragment);
     			t3 = space();
     			create_component(headernav.$$.fragment);
-    			add_location(br0, file, 218, 3, 4726);
-    			add_location(br1, file, 233, 3, 5113);
-    			add_location(br2, file, 233, 9, 5119);
+    			add_location(br0, file, 220, 3, 4722);
+    			add_location(br1, file, 235, 3, 5109);
+    			add_location(br2, file, 235, 9, 5115);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br0, anchor);
@@ -18303,7 +18303,7 @@ var app = (function () {
 
     			const sidenav_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 16777216) {
     				sidenav_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18316,7 +18316,7 @@ var app = (function () {
     			sidenav.$set(sidenav_changes);
     			const headernav_changes = {};
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 16777216) {
     				headernav_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18353,14 +18353,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(214:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
+    		source: "(216:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (301:37) 
+    // (303:37) 
     function create_if_block_1(ctx) {
     	let p;
 
@@ -18368,7 +18368,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Polygon Selection Tool";
-    			add_location(p, file, 301, 4, 7006);
+    			add_location(p, file, 303, 4, 7002);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -18385,14 +18385,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(301:37) ",
+    		source: "(303:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (292:3) {#if $draw_type == "radius"}
+    // (294:3) {#if $draw_type == "radius"}
     function create_if_block(ctx) {
     	let slider;
     	let updating_value;
@@ -18453,7 +18453,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(292:3) {#if $draw_type == \\\"radius\\\"}",
+    		source: "(294:3) {#if $draw_type == \\\"radius\\\"}",
     		ctx
     	});
 
@@ -18564,18 +18564,18 @@ var app = (function () {
     			t3 = space();
     			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 275, 2, 6412);
-    			add_location(br1, file, 275, 8, 6418);
-    			add_location(br2, file, 275, 14, 6424);
+    			add_location(br0, file, 277, 2, 6408);
+    			add_location(br1, file, 277, 8, 6414);
+    			add_location(br2, file, 277, 14, 6420);
     			attr_dev(div0, "class", "menu");
-    			add_location(div0, file, 277, 2, 6434);
+    			add_location(div0, file, 279, 2, 6430);
     			attr_dev(div1, "id", "header");
-    			add_location(div1, file, 212, 1, 4559);
+    			add_location(div1, file, 214, 1, 4555);
     			attr_dev(div2, "id", "map");
     			attr_dev(div2, "class", "svelte-prxn02");
-    			add_location(div2, file, 305, 1, 7063);
+    			add_location(div2, file, 307, 1, 7059);
     			attr_dev(main, "class", "svelte-prxn02");
-    			add_location(main, file, 211, 0, 4551);
+    			add_location(main, file, 213, 0, 4547);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18605,7 +18605,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const header_changes = {};
 
-    			if (dirty & /*$$scope, isSideNavOpen, $draw_type*/ 8388613) {
+    			if (dirty & /*$$scope, isSideNavOpen, $draw_type*/ 16777221) {
     				header_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18713,13 +18713,13 @@ var app = (function () {
     	validate_store(draw_type, 'draw_type');
     	component_subscribe($$self, draw_type, $$value => $$invalidate(2, $draw_type = $$value));
     	validate_store(mapobject, 'mapobject');
-    	component_subscribe($$self, mapobject, $$value => $$invalidate(16, $mapobject = $$value));
+    	component_subscribe($$self, mapobject, $$value => $$invalidate(17, $mapobject = $$value));
     	validate_store(mapfunctions, 'mapfunctions');
-    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(17, $mapfunctions = $$value));
+    	component_subscribe($$self, mapfunctions, $$value => $$invalidate(18, $mapfunctions = $$value));
     	validate_store(maplayer, 'maplayer');
-    	component_subscribe($$self, maplayer, $$value => $$invalidate(18, $maplayer = $$value));
+    	component_subscribe($$self, maplayer, $$value => $$invalidate(19, $maplayer = $$value));
     	validate_store(mapsource, 'mapsource');
-    	component_subscribe($$self, mapsource, $$value => $$invalidate(19, $mapsource = $$value));
+    	component_subscribe($$self, mapsource, $$value => $$invalidate(20, $mapsource = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
     	let webgl_canvas;
@@ -18735,16 +18735,17 @@ var app = (function () {
     	//////////// header ///////////////
     	console.log("mapboxgl", mapboxGl);
 
+    	// strava does not load on localhost
+    	var needcors = "";
+
+    	if (window.location.host.split(":")[0] != "localhost") {
+    		needcors = "https://cors-anywhere.herokuapp.com/";
+    		window.open("https://cors-anywhere.herokuapp.com/", "_blank");
+    		alert('Go to ' + "https://cors-anywhere.herokuapp.com/" + ' and click "Add CORS Anywhere"');
+    	}
+
     	async function init() {
     		console.warn(webgl_canvas);
-
-    		//strava does not load on localhost
-    		// var needcors = "";
-    		// if (window.location.host.split(":")[0] != "localhost") {
-    		// 	needcors = "https://cors-anywhere.herokuapp.com/";
-    		// 	window.open("https://cors-anywhere.herokuapp.com/", "_blank");
-    		// 	alert('Go to '+"https://cors-anywhere.herokuapp.com/"+' and click "Add CORS Anywhere"');
-    		// }
     		console.log("---" + window.location.host.split(":")[0] + "---");
 
     		// map setup and vars
@@ -18835,7 +18836,7 @@ var app = (function () {
     				recolour();
     		}
 
-    		if (query) csv(`https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
+    		if (query) csv(needcors + `https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
     			pending = new Set(d.map(e => e.geography_code));
     		}).then(recolour);
 
@@ -18942,6 +18943,7 @@ var app = (function () {
     		AreaCustom32: AreaCustom32$1,
     		isSideNavOpen,
     		areatype,
+    		needcors,
     		init,
     		recolour,
     		update_area,
@@ -18962,6 +18964,7 @@ var app = (function () {
     		if ('pending' in $$props) pending = $$props.pending;
     		if ('coordinates' in $$props) coordinates = $$props.coordinates;
     		if ('isSideNavOpen' in $$props) $$invalidate(0, isSideNavOpen = $$props.isSideNavOpen);
+    		if ('needcors' in $$props) needcors = $$props.needcors;
     	};
 
     	if ($$props && "$$inject" in $$props) {
