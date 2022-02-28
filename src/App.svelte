@@ -78,7 +78,7 @@
 		console.warn(webgl_canvas);
 
 
-		strava does not load on localhost
+		//strava does not load on localhost
 		var needcors = "";
 		if (window.location.host.split(":")[0] != "localhost") {
 			needcors = "https://cors-anywhere.herokuapp.com/";

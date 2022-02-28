@@ -17620,7 +17620,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (218:3) {#if $draw_type}
+    // (220:3) {#if $draw_type}
     function create_if_block_2(ctx) {
     	let buttonset;
     	let current;
@@ -17669,14 +17669,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(218:3) {#if $draw_type}",
+    		source: "(220:3) {#if $draw_type}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (220:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
+    // (222:5) <Button icon={Add16} on:click={() => update_selection(true)}       >
     function create_default_slot_8(ctx) {
     	let t;
 
@@ -17696,14 +17696,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(220:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
+    		source: "(222:5) <Button icon={Add16} on:click={() => update_selection(true)}       >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (223:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
+    // (225:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind="secondary">
     function create_default_slot_7(ctx) {
     	let t;
 
@@ -17723,14 +17723,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(223:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
+    		source: "(225:5) <Button       icon={Subtract16}       on:click={() => update_selection(false)}       kind=\\\"secondary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (219:4) <ButtonSet id="drawsave">
+    // (221:4) <ButtonSet id="drawsave">
     function create_default_slot_6(ctx) {
     	let button0;
     	let t;
@@ -17810,14 +17810,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(219:4) <ButtonSet id=\\\"drawsave\\\">",
+    		source: "(221:4) <ButtonSet id=\\\"drawsave\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (238:4) <HeaderNavMenu text="Menu">
+    // (240:4) <HeaderNavMenu text="Menu">
     function create_default_slot_5(ctx) {
     	let headernavitem0;
     	let t0;
@@ -17884,14 +17884,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(238:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		source: "(240:4) <HeaderNavMenu text=\\\"Menu\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (234:4) <SideNav bind:isOpen={isSideNavOpen}>
+    // (236:4) <SideNav bind:isOpen={isSideNavOpen}>
     function create_default_slot_3(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18012,14 +18012,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(234:4) <SideNav bind:isOpen={isSideNavOpen}>",
+    		source: "(236:4) <SideNav bind:isOpen={isSideNavOpen}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (263:4) <HeaderNavMenu text="Menu">
+    // (265:4) <HeaderNavMenu text="Menu">
     function create_default_slot_2(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18086,14 +18086,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(263:4) <HeaderNavMenu text=\\\"Menu\\\">",
+    		source: "(265:4) <HeaderNavMenu text=\\\"Menu\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (259:3) <HeaderNav>
+    // (261:3) <HeaderNav>
     function create_default_slot_1(ctx) {
     	let headernavitem0;
     	let t0;
@@ -18202,14 +18202,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(259:3) <HeaderNav>",
+    		source: "(261:3) <HeaderNav>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (212:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
+    // (214:2) <Header company="ONS" platformName="Custom Data" bind:isSideNavOpen>
     function create_default_slot(ctx) {
     	let br0;
     	let t0;
@@ -18260,9 +18260,9 @@ var app = (function () {
     			create_component(sidenav.$$.fragment);
     			t3 = space();
     			create_component(headernav.$$.fragment);
-    			add_location(br0, file, 216, 3, 4630);
-    			add_location(br1, file, 231, 3, 5017);
-    			add_location(br2, file, 231, 9, 5023);
+    			add_location(br0, file, 218, 3, 4719);
+    			add_location(br1, file, 233, 3, 5106);
+    			add_location(br2, file, 233, 9, 5112);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, br0, anchor);
@@ -18353,14 +18353,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(212:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
+    		source: "(214:2) <Header company=\\\"ONS\\\" platformName=\\\"Custom Data\\\" bind:isSideNavOpen>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (299:37) 
+    // (301:37) 
     function create_if_block_1(ctx) {
     	let p;
 
@@ -18368,7 +18368,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Polygon Selection Tool";
-    			add_location(p, file, 299, 4, 6910);
+    			add_location(p, file, 301, 4, 6999);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -18385,14 +18385,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(299:37) ",
+    		source: "(301:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (290:3) {#if $draw_type == "radius"}
+    // (292:3) {#if $draw_type == "radius"}
     function create_if_block(ctx) {
     	let slider;
     	let updating_value;
@@ -18453,7 +18453,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(290:3) {#if $draw_type == \\\"radius\\\"}",
+    		source: "(292:3) {#if $draw_type == \\\"radius\\\"}",
     		ctx
     	});
 
@@ -18564,18 +18564,18 @@ var app = (function () {
     			t3 = space();
     			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 273, 2, 6316);
-    			add_location(br1, file, 273, 8, 6322);
-    			add_location(br2, file, 273, 14, 6328);
+    			add_location(br0, file, 275, 2, 6405);
+    			add_location(br1, file, 275, 8, 6411);
+    			add_location(br2, file, 275, 14, 6417);
     			attr_dev(div0, "class", "menu");
-    			add_location(div0, file, 275, 2, 6338);
+    			add_location(div0, file, 277, 2, 6427);
     			attr_dev(div1, "id", "header");
-    			add_location(div1, file, 210, 1, 4463);
+    			add_location(div1, file, 212, 1, 4552);
     			attr_dev(div2, "id", "map");
     			attr_dev(div2, "class", "svelte-prxn02");
-    			add_location(div2, file, 303, 1, 6967);
+    			add_location(div2, file, 305, 1, 7056);
     			attr_dev(main, "class", "svelte-prxn02");
-    			add_location(main, file, 209, 0, 4455);
+    			add_location(main, file, 211, 0, 4544);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18738,12 +18738,11 @@ var app = (function () {
     	async function init() {
     		console.warn(webgl_canvas);
 
-    		// strava does not load on localhost
-    		// var needcors = "";
-    		// if (window.location.host.split(":")[0] == "localhost") {
-    		// 	needcors = "https://cors-anywhere.herokuapp.com/";
-    		// 	window.open("https://cors-anywhere.herokuapp.com/", "_blank");
-    		// }
+    		if (window.location.host.split(":")[0] != "localhost") {
+    			window.open("https://cors-anywhere.herokuapp.com/", "_blank");
+    			alert('Go to ' + "https://cors-anywhere.herokuapp.com/" + ' and click "Add CORS Anywhere"');
+    		}
+
     		console.log("---" + window.location.host.split(":")[0] + "---");
 
     		// map setup and vars
@@ -18834,7 +18833,7 @@ var app = (function () {
     				recolour();
     		}
 
-    		if (query) csv(`http://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
+    		if (query) csv(needcors + `https://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`).then(d => {
     			pending = new Set(d.map(e => e.geography_code));
     		}).then(recolour);
 
