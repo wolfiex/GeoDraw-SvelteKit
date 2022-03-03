@@ -1,6 +1,8 @@
 <script>
 	// imports
 	import mapboxgl, { Popup } from "mapbox-gl";
+	import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
+	import MapboxDraw from "@mapbox/mapbox-gl-draw";
 	// import { default as mapboxgl } from "./mapbox-gl.js";
 	import { createEventDispatcher, onMount } from "svelte";
 	import { writable, get } from "svelte/store";
@@ -34,6 +36,7 @@
 	export let width = "100vw";
 	export let height = "100vh";
 	let coordinates = [];
+	let draw;
 
 	/// MAP creation
 	async function init() {
@@ -44,7 +47,7 @@
 			minZoom: minzoom,
 			maxZoom: maxzoom,
 			maxBounds: maxbounds,
-			pitch:10,// 30,
+			pitch: 10, // 30,
 			center: [0, 52],
 			zoom: 4,
 		});
@@ -117,9 +120,9 @@
 
 	///DRAWING
 
-	radiusInKm.subscribe( () => {
+	radiusInKm.subscribe(() => {
 		// this is only visible on radial draw
-		console.log('radius',get(radiusInKm),coordinates,coordinates.length)
+		console.log("radius", get(radiusInKm), coordinates, coordinates.length);
 		if ($mapobject) draw_radius(coordinates);
 	});
 
@@ -133,8 +136,6 @@
 		};
 
 		coordinates = center;
-
-
 
 		var km = $radiusInKm;
 
@@ -160,14 +161,11 @@
 			},
 		};
 
-
-
 		change_data("drawsrc", geo);
 
-		dispatch('coordinate_change', {
+		dispatch("coordinate_change", {
 			code: center,
 		});
-
 
 		// $mapobject.getSource("drawsrc").setData(geo);
 		$mapobject.panTo(center);
@@ -190,22 +188,16 @@
 			[e.point.x + 4, e.point.y + 4],
 		];
 
-
 		const selectedFeatures = $mapobject.queryRenderedFeatures(bbox, {
 			layers: ["bounds"],
 		});
 
 		console.log(selectedFeatures);
 
-		dispatch('coordinate_change', {
-			code: selectedFeatures
+		dispatch("coordinate_change", {
+			code: selectedFeatures,
 		});
-
-		
 	}
-
-
-
 
 	async function init_draw() {
 		// console.log("init_draw", get(mapobject));
@@ -232,20 +224,56 @@
 			},
 		});
 
-		$mapobject.on("click", 'bounds', function clicked(e) {
+		$mapobject.on("click", "bounds", function clicked(e) {
 			console.log(e.lngLat, $draw_type);
 			switch ($draw_type) {
 				case "radius":
 					draw_radius(e.lngLat);
 					break;
-				case "polygon":
-					draw_polygon(e.lngLat);
-					break;
+				// case "polygon":
+				// 	draw_polygon(e.lngLat);
+				// 	break;
 				case "click":
 					draw_point(e);
 					break;
 			}
 		});
+
+		draw = new MapboxDraw({
+			displayControlsDefault: false,
+			controls: {
+				polygon: true,
+				trash: true,
+			},
+			// Set mapbox-gl-draw to draw by default.
+			// The user does not have to click the polygon control button first.
+			defaultMode: "draw_polygon",
+		});
+
+		$mapobject.addControl(draw, "top-right");
+		// draw.deleteAll()
+		draw_type.subscribe(() => {
+			console.warn("------dt-------", $draw_type);
+			if (draw) {
+				clean();
+				try {
+					$mapobject.removeControl(draw);
+				} catch (e) {}
+
+				if ($draw_type === "polygon") {
+					$mapobject.addControl(draw);
+				}
+			}
+		});
+
+		// on polygon change
+		function drawchange(e) {
+			dispatch("coordinate_change", {
+				code: e.features,
+			});
+		}
+		$mapobject.on("draw.create",drawchange );
+		$mapobject.on("draw.update",drawchange );
 
 		// we only need to initialise the drawing tools once
 		drawing_tools = false;
@@ -269,7 +297,7 @@
 
 <style lang="scss">
 	main {
-		position: relative;
+		position: absolute;
 		top: 0;
 		left: 0;
 		margin: auto;

@@ -9,6 +9,7 @@
 	let selected = new Set([]);
 	let pending = new Set([]);
 	let coordinates;
+	let speak=false
 
 	// import { default as mapboxgl } from "./mapbox-gl.js";
 	import { default as AreaMap } from "./AreaMap.svelte";
@@ -61,6 +62,8 @@
 		Dropdown,
 		ButtonSet,
 		Button,
+		Toggle,
+		Tooltip
 	} from "carbon-components-svelte";
 
 	import Add16 from "carbon-icons-svelte/lib/Add16";
@@ -127,7 +130,29 @@
 			},
 		];
 
-		$mapfunctions = [];
+
+		if ('SpeechSynthesisUtterance' in window) {
+			var msg = new SpeechSynthesisUtterance();
+			console.error('speech tools enabled - "context menu". Use two finger click on mac trackpad to trigger');
+		}
+		$mapfunctions = [{event:'contextmenu',layer:'bounds',callback:(e)=>{
+			if (speak){
+			console.log(e.features[0].properties)
+			var props = e.features[0].properties
+			msg.text=props.LSOA
+
+			if (!window.speechSynthesis.speaking) {
+				window.speechSynthesis.speak(msg);
+			}
+			
+			}
+
+		}
+
+		}
+		];
+
+		
 
 		// osm: {
 		//     type: 'raster',
@@ -145,7 +170,7 @@
 
 		// correct error - ignore 403 missing tiles
 
-		$draw_type = "radius";
+		$draw_type = "polygon";
 	} //endinit
 
 	function recolour() {
@@ -172,11 +197,14 @@
 		console.error(callback);
 		switch ($draw_type) {
 			case "radius":
-				query = `location=${coordinates.lng},${
-					coordinates.lat
+				query = `location=${coordinates.lng.toFixed(4)},${
+					coordinates.lat.toFixed(4)
 				}&radius=${$radiusInKm * 1000}`;
 				break;
 			case "polygon":
+				coordinates = coordinates[0].geometry.coordinates.flat(2)
+				var flat = coordinates.map(d=>d.toFixed(4)).join(',')
+				query = `polygon=${flat}`
 				break;
 			case "click":
 				pending = new Set(
@@ -186,8 +214,14 @@
 		}
 
 		if (query)
+			// console.log(`https://cep5lmkia0.execute-api.eu-west-1.amazonaws.com:25252/dev/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`);
+
+			
+			// console.log(`http://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`)
+
 			csv(
-				`http://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`
+				// `https://cep5lmkia0.execute-api.eu-west-1.amazonaws.com:25252/dev/query/2011?${query}&cols=geography_code,KS102EW0001&geotype=${areatype}`
+				`http://ec2-18-193-78-190.eu-central-1.compute.amazonaws.com:25252/query/2011?${query}&cols=geography_code,QS101EW0001&geotype=${areatype}` // swaggerui - metadata
 			)
 				.then((d) => {
 					pending = new Set(d.map((e) => e.geography_code));
@@ -219,6 +253,9 @@
 			<!-- <div slot="skip-to-content">
 			  <SkipToContent />
 			</div> -->
+{#if 'speechSynthesis' in window}
+			<Toggle size="sm" labelText="AudioDescribe" labelA="Off" labelB="On" bind:toggled={speak} />
+{/if}
 
 			<br />
 			{#if $draw_type}
@@ -238,7 +275,7 @@
 			<br /><br />
 
 			 <SideNav bind:isOpen={isSideNavOpen}>
-				<HeaderNavItem href="/" text="Link 1" />
+				<!-- <HeaderNavItem href="/" text="Link 1" />
 				<HeaderNavItem href="/" text="Link 2" />
 				<HeaderNavItem href="/" text="Link 3" />
 				<HeaderNavMenu text="Menu">
@@ -249,7 +286,7 @@
 				<HeaderNavItem href="/" text="Link 4" />
 
 				<SideNavItems>
-					<!-- <SideNavLink text="Link 1" />
+					<SideNavLink text="Link 1" />
 					<SideNavLink text="Link 2" />
 					<SideNavLink text="Link 3" />
 					<SideNavMenu text="Menu">
@@ -258,12 +295,12 @@
 						<SideNavMenuItem href="/" text="Link 3" />
 					</SideNavMenu>
 					<SideNavDivider />
-					<SideNavLink text="Link 4" /> -->
-				</SideNavItems>
+					<SideNavLink text="Link 4" />
+				</SideNavItems> -->
 			</SideNav> 
 
 			<HeaderNav>
-				<HeaderNavItem href="/" text="Link 1" />
+				<!-- <HeaderNavItem href="/" text="Link 1" />
 				<HeaderNavItem href="/" text="Link 2" />
 				<HeaderNavItem href="/" text="Link 3" />
 				<HeaderNavMenu text="Menu">
@@ -271,7 +308,7 @@
 					<HeaderNavItem href="/" text="Link 2" />
 					<HeaderNavItem href="/" text="Link 3" />
 				</HeaderNavMenu>
-				<HeaderNavItem href="/" text="Link 4" />
+				<HeaderNavItem href="/" text="Link 4" /> -->
 			</HeaderNav>
 		</Header>
 
@@ -280,6 +317,7 @@
 		<br /><br /><br />
 
 		<div class="menu">
+			
 			<Dropdown
 				type="inline"
 				size="xl"
@@ -288,13 +326,15 @@
 				id="draw_dropdown"
 				items={[
 					{ id: "radius", text: "Radius Selection Tool"},
-					{ id: "polygon", text: "Polygion Selection Tool" },
+					{ id: "polygon", text: "Polygon Selection Tool" },
 					{ id: "click", text: "Click Selection " },
 				]}
 			/>
 
 			{#if $draw_type == "radius"}
 				<!-- <p> Radius Selection Tool</p> -->
+				
+
 				<Slider
 					labelText="Select Distance (km)"
 					min={2}
@@ -302,8 +342,32 @@
 					bind:value={$radiusInKm}
 					hideTextInput
 				/>
+
+				<Tooltip tooltipBodyId="tooltip-body" direction='bottom' align='center' open=true>
+					<p id="tooltip-body">
+					  Move the slider to select a radius distance in km, and then click on your area of interest. 
+					</p>
+				  </Tooltip>
+
+
 			{:else if $draw_type == "polygon"}
-				<p>Polygon Selection Tool</p>
+				<!-- <p>Polygon Selection Tool</p>
+				<Button> Clear Polygon</Button> -->
+				<Tooltip tooltipBodyId="tooltip-body" direction='bottom' align='center' open=true>
+					<p id="tooltip-body">
+					  Click on the screen to add polygon points. To finish the polygon, click on the first point or press the Enter key.
+					</p>
+				  </Tooltip>
+
+			{:else if $draw_type == "click"}
+				<!-- <p>Click Selection Tool</p> -->
+				<Tooltip tooltipBodyId="tooltip-body" direction='bottom' align='center' open=true>
+					<p id="tooltip-body">
+					  Click on the screen to select a region. You may need to zoom in for more precission. 
+					</p>
+				  </Tooltip>
+
+
 			{/if}
 		</div>
 	</div>
@@ -327,12 +391,12 @@
 		margin: 0 auto;
 	}
 
-	h1 {
+	/* h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
-	}
+	} */
 
 	@media (min-width: 640px) {
 		main {
@@ -363,5 +427,12 @@
 		justify-content: space-around;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	:global(.bx--toggle-input__label .bx--toggle__switch) {
+		margin-top: auto!important;
+	}
+	:global(.bx--tooltip[data-floating-menu-direction=bottom]) {
+		margin-left: 49vw!important;
 	}
 </style>
