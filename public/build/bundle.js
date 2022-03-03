@@ -19530,9 +19530,9 @@ var app = (function () {
     			create_component(sidenav.$$.fragment);
     			t4 = space();
     			create_component(headernav.$$.fragment);
-    			add_location(br0, file, 259, 3, 6210);
-    			add_location(br1, file, 274, 3, 6597);
-    			add_location(br2, file, 274, 9, 6603);
+    			add_location(br0, file, 259, 3, 6209);
+    			add_location(br1, file, 274, 3, 6596);
+    			add_location(br2, file, 274, 9, 6602);
     		},
     		m: function mount(target, anchor) {
     			if (if_block0) if_block0.m(target, anchor);
@@ -19851,7 +19851,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Click on the screen to select a region. You may need to zoom in for more precission.";
     			attr_dev(p, "id", "tooltip-body");
-    			add_location(p, file, 364, 5, 9260);
+    			add_location(p, file, 364, 5, 9259);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -19881,7 +19881,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Click on the screen to add polygon points. To finish the polygon, click on the first point or press the Enter key.";
     			attr_dev(p, "id", "tooltip-body");
-    			add_location(p, file, 356, 5, 8919);
+    			add_location(p, file, 356, 5, 8918);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -19911,7 +19911,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Move the slider to select a radius distance in km, and then click on your area of interest.";
     			attr_dev(p, "id", "tooltip-body");
-    			add_location(p, file, 346, 5, 8559);
+    			add_location(p, file, 346, 5, 8558);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -20037,18 +20037,18 @@ var app = (function () {
     			t3 = space();
     			div2 = element("div");
     			create_component(areamap.$$.fragment);
-    			add_location(br0, file, 316, 2, 7905);
-    			add_location(br1, file, 316, 8, 7911);
-    			add_location(br2, file, 316, 14, 7917);
+    			add_location(br0, file, 316, 2, 7904);
+    			add_location(br1, file, 316, 8, 7910);
+    			add_location(br2, file, 316, 14, 7916);
     			attr_dev(div0, "class", "menu");
-    			add_location(div0, file, 318, 2, 7927);
+    			add_location(div0, file, 318, 2, 7926);
     			attr_dev(div1, "id", "header");
-    			add_location(div1, file, 250, 1, 5907);
+    			add_location(div1, file, 250, 1, 5906);
     			attr_dev(div2, "id", "map");
     			attr_dev(div2, "class", "svelte-squgug");
-    			add_location(div2, file, 373, 1, 9431);
+    			add_location(div2, file, 373, 1, 9430);
     			attr_dev(main, "class", "svelte-squgug");
-    			add_location(main, file, 249, 0, 5899);
+    			add_location(main, file, 249, 0, 5898);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20304,7 +20304,7 @@ var app = (function () {
     		// $mapobject.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     		// $mapobject.doubleClickZoom.disable();
     		// correct error - ignore 403 missing tiles
-    		set_store_value(draw_type, $draw_type = "polygon", $draw_type);
+    		set_store_value(draw_type, $draw_type = "radius", $draw_type);
     	} //endinit
 
     	function recolour() {

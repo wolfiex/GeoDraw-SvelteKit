@@ -170,7 +170,7 @@
 
 		// correct error - ignore 403 missing tiles
 
-		$draw_type = "polygon";
+		$draw_type = "radius";
 	} //endinit
 
 	function recolour() {
