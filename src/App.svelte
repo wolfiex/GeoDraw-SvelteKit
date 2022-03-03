@@ -139,7 +139,7 @@
 			if (speak){
 			console.log(e.features[0].properties)
 			var props = e.features[0].properties
-			msg.text=props.LSOA
+			msg.text=props.name
 
 			if (!window.speechSynthesis.speaking) {
 				window.speechSynthesis.speak(msg);
