@@ -33,19 +33,15 @@
 	});
 </script>
 
-{#if components[1]}
-	<svelte:component this={components[0]} {...(props_0 || {})}>
-		{#if components[2]}
-			<svelte:component this={components[1]} {...(props_1 || {})}>
+<svelte:component this={components[0]} {...(props_0 || {})}>
+	{#if components[1]}
+		<svelte:component this={components[1]} {...(props_1 || {})}>
+			{#if components[2]}
 				<svelte:component this={components[2]} {...(props_2 || {})}/>
-			</svelte:component>
-		{:else}
-			<svelte:component this={components[1]} {...(props_1 || {})} />
-		{/if}
-	</svelte:component>
-{:else}
-	<svelte:component this={components[0]} {...(props_0 || {})} />
-{/if}
+			{/if}
+		</svelte:component>
+	{/if}
+</svelte:component>
 
 {#if mounted}
 	<div id="svelte-announcer" aria-live="assertive" aria-atomic="true">
