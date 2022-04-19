@@ -9,10 +9,10 @@
     BreadcrumbItem,
   } from 'carbon-components-svelte';
   import {Slider} from 'carbon-components-svelte';
-  import DrawButtons from './DrawButtons.svelte';
-  import EditButtons from './EditButtons.svelte';
-  import ProgressButtons from './ProgressButtons.svelte';
-  import InfoBox from './InfoBox.svelte';
+  import DrawButtons from './Toolbar/DrawButtons.svelte';
+  import EditButtons from './Toolbar/EditButtons.svelte';
+  import ProgressButtons from './Toolbar/ProgressButtons.svelte';
+  import InfoBox from './Toolbar/InfoBox.svelte';
 
   let add_mode = true;
 
@@ -20,8 +20,7 @@
   let webgl_canvas;
   export let width = '100%';
   export let height = '100%';
-  let selected = new Set([]);
-  let pending = new Set([]);
+//   let pending = new Set([]);
   let coordinates;
   let speak = false;
   // import { default as mapboxgl } from "./mapbox-gl.js";
@@ -36,19 +35,22 @@
     maplayer,
     mapfunctions,
     mapobject,
-    datalayers,
     mapstyle,
     minzoom,
     maxzoom,
     location,
     maxbounds,
     draw_type,
+radiusInKm,
+selected,
     // level,
     // zoomed,
 
   } from './mapstore.js';
 
   async function init() {
+
+    console.clear();
     console.warn(webgl_canvas);
 
     console.log('---' + window.location.host.split(':')[0] + '---');
@@ -80,6 +82,17 @@
           'fill-outline-color': 'steelblue',
         },
       },
+      {
+        id: 'centroids',
+        source: 'area',
+        'source-layer': 'centroids',
+        type:'circle',//background?/
+        paint: {
+      'circle-radius': .5,
+      'circle-color': 'red',
+      'circle-opacity': 0.5,
+    },
+      },
     ];
     if ('SpeechSynthesisUtterance' in window) {
       var msg = new SpeechSynthesisUtterance();
@@ -105,16 +118,39 @@
     ];
 
     
+	function recolour() {
+        const items = $selected[$selected.length-1]
+		console.warn("---recolour", ...items.oa);
+		$mapobject.setPaintProperty("bounds", "fill-color", [
+			"match",
+			["get", 'oa'],
+			["literal", ...items.oa],
+			"orange",
+			// [
+			// 	"match",
+			// 	["get", areatype],
+			// 	["literal", ...$selected],
+			// 	"green",
+			// 	"transparent",
+			// ],
+            "transparent",
+		]);
+	}
+
+    selected.subscribe(recolour);
+
+
+
   } //endinit
 
   
 
   onMount(init);
 </script>
-
+<!-- on:coordinate_change={update_area} /> -->
 <main class="w-screen min-h-screen flex flex-col">
   <div id="map">
-    <AreaMap drawing_tools={true} on:coordinate_change={update_area} />
+    <AreaMap drawing_tools={true} />
   </div>
   <header>
     <Grid>
@@ -154,11 +190,15 @@
         ariaLabelInput="Radius Selection (km)"
         id="slider"
         labelText="Radius Selection (km)"
-        max={20}
+        max={30}
         min={0.2}
         step={0.2}
         stepMuliplier={4}
         value={5}
+        on:change={function(value) {
+          console.log('slider value', value.detail);
+          $radiusInKm = value.detail;
+        }}
       />
     </InfoBox>
   </header>

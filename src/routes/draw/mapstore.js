@@ -5,7 +5,7 @@ import {
 
 // global variables shared between units. 
 export const draw_type = writable(undefined); // drawing tool type
-export const datalayers = writable(); // which layers contain data e.g. ['centroids']
+export const selected = writable([{oa:new Set(),msoa:new Set()}]); // which layers contain data e.g. ['centroids']
 // export const select = writable([]); // selected areacodes
 
 export const mapsource = writable({}); // source dictionary
@@ -13,6 +13,7 @@ export const maplayer = writable([]); // layer list
 export const mapfunctions = writable([]);
 export const mapobject = writable(undefined); // the mapbox 'map' object
 
+//export const coordinates = writable({});
 export const radiusInKm = writable(5);
 // export const selected = writable(new Set([]))
 
@@ -42,7 +43,8 @@ export let maxbounds = null;
     [-9, 47],
     [5, 57]
 ];
-export const mapstyle = `https://bothness.github.io/ons-basemaps/data/style-omt.json`
+export const mapstyle = `/css/style-omt.json`
+// `https://bothness.github.io/ons-basemaps/data/style-omt.json`
 //'https://api.mapbox.com/styles/v1/carbondesignsystem/ck7c8ce1y05h61ipb2fixfe76?access_token=pk.eyJ1IjoibWJvc3RvY2siLCJhIjoiY2s5ZWRqb2w1MDBnYjNmbzcxb2xxaGZjeSJ9.ZOeAUq-8dsbN7zqgG7vkdQ'
 //"https://bothness.github.io/ons-basemaps/data/style-omt.json";
 

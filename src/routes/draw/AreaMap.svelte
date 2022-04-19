@@ -1,12 +1,9 @@
 <script>
 	// imports
-	import mapboxgl, { Popup } from "mapbox-gl";
-	// console.log(mapboxgl)
-	// import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
-	// import MapboxDraw from "@mapbox/mapbox-gl-draw";
-	// import { default as mapboxgl } from "./mapbox-gl.js";
+	import maplibregl from "maplibre-gl";
 	import { createEventDispatcher, onMount } from "svelte";
 	import { writable, get } from "svelte/store";
+	import {init_draw} from "./MapDraw.js";
 	const dispatch = createEventDispatcher();
 	import {
 		// select,
@@ -21,12 +18,15 @@
 		maxzoom,
 		location,
 		maxbounds,
+		selected
 		
 		// level,
 		// zoomed,
 		//init_draw,
 	} from "./mapstore.js";
-
+	
+	
+	const mapboxgl = maplibregl;
 	//styling
 	// import 'mapbox-gl/dist/mapbox-gl-draw.css'
 	import "./css/mapbox-gl.css";
@@ -36,7 +36,7 @@
 	export let drawing_tools = false;
 	export let width = "100vw";
 	export let height = "100vh";
-	let coordinates = [];
+	
 	let draw;
 
 	/// MAP creation
@@ -68,10 +68,11 @@
 		$mapobject.doubleClickZoom.disable();
 		$mapobject.dragRotate.disable();
 
-		// correct error - ignore 403 missing tiles
+		// // correct error - ignore 403 missing tiles
 		$mapobject.on("error", (e) => {
 			if (e.error.status != 403 && e.error.message != 'Failed to fetch' && !/CORS/.test(e.error.message)) {
 				console.error(e.error.status, e.error.message);
+				return e
 		}});
 
 		$mapobject.on("load", SetLayers);
@@ -131,125 +132,8 @@
 	///DRAWING
 
 
-	export function draw_radius(center, points = 20) {
-		// if(!points) points = 64;
-		// console.log(center);
 
-		var coords = {
-			latitude: center.lat,
-			longitude: center.lng,
-		};
-
-		coordinates = center;
-
-		var km = $radiusInKm;
-
-		var ret = [];
-		var distanceX =
-			km / (111.32 * Math.cos((coords.latitude * Math.PI) / 180));
-		var distanceY = km / 110.574;
-
-		var theta, x, y;
-		for (var i = 0; i < points; i++) {
-			theta = (i / points) * (2 * Math.PI);
-			x = distanceX * Math.cos(theta);
-			y = distanceY * Math.sin(theta);
-			ret.push([coords.longitude + x, coords.latitude + y]);
-		}
-		ret.push(ret[0]);
-
-		
-
-		var geo = {
-			type: "Feature",
-			geometry: {
-				type: "Polygon",
-				coordinates: [ret],
-			},
-		};
-
-		change_data("drawsrc", geo);
-
-		dispatch("coordinate_change", {
-			code: center,
-		});
-
-		// $mapobject.getSource("drawsrc").setData(geo);
-		$mapobject.panTo(center);
-	}
-
-	function clean() {
-		change_data("drawsrc", {
-			type: "Feature",
-			geometry: {
-				type: "Polygon",
-				coordinates: [],
-			},
-		});
-	}
-
-	function draw_point(e) {
-		// console.log(e);
-		const bbox = [
-			[e.point.x - 4, e.point.y - 4],
-			[e.point.x + 4, e.point.y + 4],
-		];
-
-		const selectedFeatures = $mapobject.queryRenderedFeatures(bbox, {
-			layers: ["bounds"],
-		});
-
-		console.log(selectedFeatures);
-
-		dispatch("coordinate_change", {
-			code: selectedFeatures,
-		});
-	}
-
-	async function init_draw() {
-		// console.log("init_draw", get(mapobject));
-
-		$mapobject.addSource("drawsrc", {
-			type: "geojson",
-			data: {
-				type: "Feature",
-				geometry: {
-					type: "Polygon",
-					coordinates: [],
-				},
-			},
-		});
-
-		$mapobject.addLayer({
-			id: "draw_layer",
-			type: "line",
-			source: "drawsrc",
-			paint: {
-				"line-color": "#222",
-				"line-width": 5,
-				"line-dasharray": [2, 1],
-			},
-		});
-
-		$mapobject.on("click", "bounds", function clicked(e) {
-			console.log(e.lngLat, $draw_type);
-
-			// const features = 4//$mapobject.queryRenderedFeatures(e.lngLat,'bounds');
-			console.warn(e.features[0].properties);
-
-			switch ($draw_type) {
-				case "radius":
-					draw_radius(e.lngLat);
-					break;
-				// case "polygon":
-				// 	draw_polygon(e.lngLat);
-				// 	break;
-				case "click":
-					draw_point(e);
-					break;
-			}
-		});
-
+	
 		
 		draw_type.subscribe(() => {
 			console.warn("------dt-------", $draw_type);
@@ -264,28 +148,17 @@
 					map[handler].disable();
 					}
 
-				// try {
-				// 	$mapobject.removeControl(draw);
-				// } catch (e) {}
-
-				// if ($draw_type === "polygon") {
-				// 	$mapobject.addControl(draw);
-				// }
+	
 			}
 		});
 
 		// on polygon change
-		function drawchange(e) {
-			dispatch("coordinate_change", {
-				code: e.features,
-			});
-		}
-		// $mapobject.on("draw.create",drawchange );
-		// $mapobject.on("draw.update",drawchange );
-
-		// we only need to initialise the drawing tools once
-		drawing_tools = false;
-	}
+		// function drawchange(e) {
+		// 	dispatch("coordinate_change", {
+		// 		code: e.features,
+		// 	});
+		// }
+	
 
 	/// main
 	onMount(init);

@@ -1,6 +1,6 @@
 <script>
   import {Button, Grid, Column, Row} from 'carbon-components-svelte';
-  import {draw_type} from './mapstore.js';
+  import {draw_type} from '../mapstore.js';
   import {onMount} from 'svelte';
 
   // export let selected = 'Move';
@@ -11,6 +11,7 @@
     return function() {
       console.warn(e);
       draw_type.set(e);
+      console.warn($draw_type)
     };
   }
 
