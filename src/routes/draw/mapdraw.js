@@ -1,7 +1,19 @@
 import {onDestroy} from 'svelte';
 import {get} from 'svelte/store';
-import {mapobject, radiusInKm, draw_type, selected} from './mapstore.js';
+import {
+  mapobject,
+  radiusInKm,
+  draw_type,
+  selected,
+  add_mode,
+  draw_enabled,
+} from './mapstore.js';
+import {extent} from 'd3-array';
+import {bboxToTile} from '@mapbox/tilebelt';
 
+var simplify = {};
+
+// import {LngLatBounds} from "maplibre-gl";
 export let coordinates = [];
 
 ////////////////////
@@ -27,6 +39,7 @@ export async function init_draw () {
       'line-color': '#222',
       'line-width': 5,
       'line-dasharray': [2, 1],
+
     },
   });
 
@@ -44,17 +57,24 @@ export async function init_draw () {
     },
   });
 
+  
+  // clear coordinates each time we change
+  draw_type.subscribe (() => {coordinates = [];
+  circle_paint(clear=get(draw_type)!='radius') 
+  });
   // set default
-  draw_type.set ('click');
-  // clear coordinates each time we change 
-  draw_type.subscribe(()=> coordinates=[]);
+  draw_type.set ('radius');
   // update circle tool each radius change
   radiusInKm.subscribe (circle_paint);
 
-  get (mapobject).on ('click', 'bounds', function clicked (e) {
+  get (mapobject).on ('click', 'bounds', function boundclick (e) {
+    // console.warn(get(mapobject).querySourceFeatures(e.lngLat,'msoa'))
+
+    // if (get(draw_enabled)===false) {alert('Drawing disabled: Please zoom in a bit. ');return null};
+
     console.log (e.lngLat, get (draw_type));
     // const features = get(mapobject).queryRenderedFeatures(e.lngLat,'bounds');
-    console.warn (e.features[0].properties);
+    // console.warn (e.features[0].properties);
     // // const features = get(mapobject).querySourceFeatures('centroids')
     // console.log(get(mapobject).queryRenderedFeatures,'dfdf', get(mapobject).querySourceFeatures)
     // // const features = get(mapobject).queryRenderedFeatures({geometry:'circle'},'centroids')
@@ -66,12 +86,16 @@ export async function init_draw () {
         // circle_fast (e.lngLat);
         break;
       case 'poly':
-        draw_polygon(e);
+        draw_polygon (e.lngLat);
         break;
       case 'click':
-        draw_point(e);
+        draw_point (e);
         break;
     }
+  });
+
+  get (mapobject).on ('zoomend', function () {
+    draw_enabled.set (get (mapobject).getZoom () < 10);
   });
 
   // on move events
@@ -83,12 +107,10 @@ export async function init_draw () {
         circle_fast (e.lngLat);
         break;
       case 'poly':
-        polygon_fast(e.lngLat);
+        polygon_fast (e.lngLat);
         break;
-      case 'click':
-        // draw_point(e);
-        click_select(e)
-        break;
+      // case 'click':
+      // break;
     }
   });
 }
@@ -106,7 +128,8 @@ function clear () {
     geometry: {
       type: 'Polygon',
       coordinates: [],
-    }})
+    },
+  });
 }
 
 export function change_data (layer, data) {
@@ -118,89 +141,79 @@ export function change_data (layer, data) {
 ////////////////////
 
 
-function point_click(e,layers=['bounds'],buff=4){
-  console.warn(e,layers,buff)
-  const bbox = [[e.point.x - buff, e.point.y - buff], [e.point.x + buff, e.point.y + buff]];
-  var features = get(mapobject).queryRenderedFeatures (bbox, {
-    layers: layers//['layers'],
-  });
-  // features.sort()
-  return features
-}
-
-
-// window.g = get(mapobject);
-
-function draw_point (e) {
-  // const selectedFeatures = point_click(e,['centroids'])
-  // conso
-  clicked(new Set(e.features.map(d=>d.properties.oa)))
-
-  console.warn('--clickadd',get(selected))
-
- 
-}
-
-function click_select(e){
-
-//   var buff = 4
-//   var area = [[e.point.x - buff, e.point.y - buff],[e.point.x + buff, e.point.y - buff], [e.point.x + buff, e.point.y + buff],[e.point.x - buff, e.point.y + buff]];
-//   var geo = {
-//     type: 'Feature',
-//     geometry: {
-//       type: 'Polygon',
-//       coordinates: [area],
-//     }
-// };
-
-// change_data ('drawsrc', geo);
-
-
-}
 
 
 ////////////////////
 // Matching Utilities
 ////////////////////
 
-function update(oa=[],msoa=[],add=true){
-  // update the selection 
-  var current = get(selected);
-  var last = new Set(current[current.length - 1]);
-  if (add){
-    current.push({oa:new Set([...last.oa,...oa]),msoa:new Set([...last.msoa,...msoa])});
-  }else{
-    current.push({oa:new Set([...last.oa].filter(x => !new Set(oa).has(x))),msoa:new Set([...last.msoa].filter(x => !new Set(msoa).has(x)))});
+function update (coordinates) {
+  // update the selection
+
+  const bbox = getbbox (coordinates);
+
+  // get (mapobject).fitBounds (bbox);
+
+  const features = get (mapobject).queryRenderedFeatures (
+    bbox.map (d => get (mapobject).project (d)),
+    {layers: ['centroids']}
+  );
+
+  const oa = features
+    .filter (i => inPolygon (coordinates, i.geometry.coordinates))
+    .map (d => d.properties.id);
+
+  var current = get (selected);
+  var last = current[current.length - 1];
+
+  bbox.map (d => {
+    last.lat.push (d[1]);
+    last.lng.push (d[0]);
+  });
+
+  if (get (add_mode)) {
+    current.push ({
+      oa: new Set ([...last.oa, ...oa]),
+      lng: extent (last.lng),
+      lat: extent (last.lat),
+    });
+  } else {
+    current.push ({
+      oa: new Set ([...last.oa].filter (x => !new Set (oa).has (x))),
+      lng: extent (last.lng),
+      lat: extent (last.lat),
+    });
   }
 
-  selected.set(current);
-  console.warn('updated---',get(selected))
+  selected.set (current);
+  console.warn ('updated---', get (selected), get (add_mode));
 }
 
-function clicked(oalist){
-  // add remove clicked oa
-  const current = get(selected);
-  console.log('ccc',current,oalist,current[current.length - 1],current.oa);
-  var last = Object.assign({},current[current.length - 1]);
-  // var last = JSON.parse(JSON.stringify(current[current.length - 1]));
-  // last = {oa:new Set([...last.oa]),msoa:new Set([...last.msoa])};
+function draw_point (e) {
+  const oalist = new Set (e.features.map (d => d.properties.oa));
+  const current = get (selected);
+  var last = Object.assign ({}, current[current.length - 1]);
 
-  last = {oa:new Set(last.oa),msoa:new Set(last.msoa)};
+  last.lat.push (e.lngLat.lat);
+  last.lng.push (e.lngLat.lng);
+  last = {
+    oa: new Set (last.oa),
+    lat: extent (last.lat),
+    lng: extent (last.lng),
+  };
 
-  console.log('--clicked',oalist,last);
-  [...oalist].forEach(oa=>last.oa.has(oa)? last.oa.delete(oa):last.oa.add(oa))
+  // console.log('--clicked',oalist,last);
+  [...oalist].forEach (
+    oa => (last.oa.has (oa) ? last.oa.delete (oa) : last.oa.add (oa))
+  );
 
-  console.log(last.oa)
-  current.push(last);
-  selected.set(current)
-  
-
+  current.push (last);
+  selected.set (current);
 }
-
-
 
 function inPolygon (polygon, point) {
-  // check if existing 
+  // check if existing
+  if (!polygon.length) return false;
   var n = polygon.length,
     p = polygon[n - 1],
     [x, y] = point,
@@ -219,6 +232,23 @@ function inPolygon (polygon, point) {
   return inside;
 }
 
+function geomean (c1, c2, thresh = 30) {
+  c1 = get (mapobject).project (c1);
+  c2 = get (mapobject).project (c2);
+
+  return Math.sqrt ((c1.x - c2.x) ** 2 + (c1.y - c2.y) ** 2) < thresh;
+}
+
+function getbbox (coords) {
+  var lat = coords.map (p => p[1]);
+  var lng = coords.map (p => p[0]);
+
+  var min_coords = [Math.min.apply (null, lng), Math.min.apply (null, lat)];
+  var max_coords = [Math.max.apply (null, lng), Math.max.apply (null, lat)];
+
+  return [min_coords, max_coords];
+}
+
 ////////////////////
 // Circle Tools
 ////////////////////
@@ -230,11 +260,11 @@ function draw_radius (center, points = 20) {
     longitude: center.lng,
   };
 
-  clear ();
+  // clear ();
 
-  var km = get (radiusInKm);
+  var km = get (radiusInKm) / 2;
 
-  var ret = [];
+  var coordinates = [];
   var distanceX = km / (111.32 * Math.cos (coords.latitude * Math.PI / 180));
   var distanceY = km / 110.574;
 
@@ -243,28 +273,11 @@ function draw_radius (center, points = 20) {
     theta = i / points * (2 * Math.PI);
     x = distanceX * Math.cos (theta);
     y = distanceY * Math.sin (theta);
-    ret.push ([coords.longitude + x, coords.latitude + y]);
+    coordinates.push ([coords.longitude + x, coords.latitude + y]);
   }
-  ret.push (ret[0]);
-
-  // var geo = {
-  //   type: 'Feature',
-  //   geometry: {
-  //     type: 'Polygon',
-  //     coordinates: [ret],
-  //   },
-  // };
-  // change_data ('drawsrc', geo);
-
-  // dispatch ('coordinate_change', {
-  //   code: center,
-  // });
-
-  // $mapobject.getSource("drawsrc").setData(geo);
-  get (mapobject).panTo (center);
+  coordinates.push (coordinates[0]);
+  update (coordinates);
 }
-
-
 
 /// Fast Circle on-move Function
 function circle_fast (center) {
@@ -280,8 +293,14 @@ function circle_fast (center) {
 }
 
 /// Scale Calulation Function.
-function circle_paint () {
+function circle_paint (clear=false) {
+  console.warn('-circle',clear)
   if (mapobject) {
+
+    if (clear==true){
+      return get (mapobject).setPaintProperty ('circle_layer', 'circle-radius', 5);
+    }
+
     const m2p = (meters, latitude) =>
       meters / 0.075 / Math.cos (latitude * Math.PI / 180);
 
@@ -295,49 +314,111 @@ function circle_paint () {
   }
 }
 
-
-
 ////////////////////
 // Polygon
 ////////////////////
 
-function draw_polygon(e){
+function draw_polygon (e) {
+  if (coordinates.length) {
+    if (geomean (coordinates[0], [e.lng, e.lat])) {
+      // if we close the polygon
+      coordinates.push (coordinates[0]);
 
-  var existing = point_click(e,['circle_layer']);
-  console.error('eeee',existing)
+      update (coordinates);
 
+      console.log ('--saving polygon', get (selected));
 
+      coordinates = [];
+      clear ();
+      return 1;
+    }
+  }
 
+  coordinates.push ([e.lng, e.lat]);
 
-  e = e.lngLat
-  coordinates.push([e.lng, e.lat])
-  console.log(coordinates)
-  //coordinates.push([e.lng, e.lat]);
   var geo = {
-      type: 'Feature',
-      geometry: {
-        type: 'Polygon',
-        coordinates: [coordinates],
-      }
+    type: 'Feature',
+    geometry: {
+      type: 'Polygon',
+      coordinates: [coordinates],
+    },
   };
-  console.error(geo);
+  console.error (geo);
   change_data ('drawsrc', geo);
-
-  
 }
-    
-function polygon_fast(e){
-  var temp = [...coordinates,[e.lng, e.lat]]
+
+function polygon_fast (e) {
+  var temp = [...coordinates, [e.lng, e.lat]];
   var geo = {
     type: 'Feature',
     geometry: {
       type: 'Polygon',
       coordinates: [temp],
-    }
+    },
   };
   change_data ('drawsrc', geo);
 }
 
+////////////////////
+// Query
+////////////////////
 
+export async function simplify_query () {
+  /* A function using the bounding box to query the database and return the simplified polygons */
 
+  const last = get (selected)[get (selected).length - 1];
+  // get parent tile from drawing bounding box
+  const bbox = [last.lng[0], last.lat[0], last.lng[1], last.lat[1]];
+  const [x, y, z] = bboxToTile (bbox);
+  if (z === 28) return null;
 
+  var tile = `${z}/${x}/${y}`;
+
+  if (z < 7)
+    return {
+      error_title: 'Total area selected exceeds allowed limit. Please use the undo button to reduce area size.',
+      error: `Parent Data Tile ${tile}`,
+    };
+
+  // get the data from the tile
+  if (simplify[tile]) {
+    var simple = simplify[tile];
+  } else {
+    var simple = await fetch (
+      `http://localhost:7113/encoding/${tile}.json`
+    ).then (d => d.json ());
+    simple.lsoa = simple.lsoa.map (d => {
+      d[1] = new Set (d[1]);
+      return d;
+    });
+    simple.msoa = simple.msoa.map (d => {
+      d[1] = new Set (d[1]);
+      return d;
+    });
+    simplify[tile] = simple;
+  }
+
+  // simplify the query
+  var rm = [];
+  var oa = last.oa;
+  var lsoa = simple.lsoa.filter (
+    d => ![...d[1]].filter (x => !oa.has (x)).length
+  );
+  lsoa = new Set (
+    lsoa.map (e => {
+      rm.push ([...e[1]]);
+      return e[0];
+    })
+  );
+  var msoa = simple.msoa.filter (
+    d => ![...d[1]].filter (x => !lsoa.has (x)).length
+  );
+  rm = new Set (rm.flat ());
+  var rmlsoa = new Set (msoa.map (d => d[1]).flat ());
+  oa = [...oa].filter (e => !rm.has (e));
+  lsoa = [...lsoa].filter (e => !rmlsoa.has (e));
+  msoa = msoa.map (d => d[0]);
+  // console.warn('lsoa',{tile,msoa,oa,lsoa,original:last.oa.length})
+
+  return {tile, msoa, oa, lsoa, original: [...last.oa].length};
+}

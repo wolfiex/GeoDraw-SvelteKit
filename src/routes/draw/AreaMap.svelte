@@ -1,186 +1,172 @@
 <script>
-	// imports
-	import maplibregl from "maplibre-gl";
-	import { createEventDispatcher, onMount } from "svelte";
-	import { writable, get } from "svelte/store";
-	import {init_draw} from "./MapDraw.js";
-	const dispatch = createEventDispatcher();
-	import {
-		// select,
-		mapsource,
-		maplayer,
-		mapfunctions,
-		mapobject,
-		draw_type,
-		// datalayers,
-		mapstyle,
-		minzoom,
-		maxzoom,
-		location,
-		maxbounds,
-		selected
-		
-		// level,
-		// zoomed,
-		//init_draw,
-	} from "./mapstore.js";
-	
-	
-	const mapboxgl = maplibregl;
-	//styling
-	// import 'mapbox-gl/dist/mapbox-gl-draw.css'
-	import "./css/mapbox-gl.css";
+  // imports
+  import maplibregl from 'maplibre-gl';
+  import {createEventDispatcher, onMount} from 'svelte';
+  import {writable, get} from 'svelte/store';
+  import {init_draw} from './MapDraw.js';
+  const dispatch = createEventDispatcher();
+  import {
+    // select,
+    mapsource,
+    maplayer,
+    mapfunctions,
+    mapobject,
+    draw_type,
+    // datalayers,
+    mapstyle,
+    minzoom,
+    maxzoom,
+    location,
+    maxbounds,
+    selected,
+    draw_enabled,
 
-	let webgl_canvas;
+    // level,
+    // zoomed,
+    //init_draw,
+  } from './mapstore.js';
 
-	export let drawing_tools = false;
-	export let width = "100vw";
-	export let height = "100vh";
-	
-	let draw;
+  var loading = true;
+  const mapboxgl = maplibregl;
+  //styling
+  // import 'mapbox-gl/dist/mapbox-gl-draw.css'
+  import './css/mapbox-gl.css';
 
-	/// MAP creation
-	async function init() {
-		console.warn(webgl_canvas);
+  let webgl_canvas;
 
-		$mapobject = new mapboxgl.Map({
-			container: "mapcontainer",
-			style: mapstyle,
-			minZoom: minzoom,
-			maxZoom: maxzoom,
-			maxBounds: maxbounds,
-			pitch: 10, // 30,
-			center: [0, 52],
-			zoom: 4,
-		});
+  export let drawing_tools = false;
+  export let width = '100vw';
+  export let height = '100vh';
 
-		// scale bar
-		$mapobject.addControl(
-			new mapboxgl.ScaleControl({
-				position: 'bottom-left'
-			})
-		);
+  let draw;
 
-		// navigation
-		$mapobject.addControl(new mapboxgl.NavigationControl(), "bottom-right");
+  /// MAP creation
+  async function init() {
+    console.warn(webgl_canvas);
 
-		//disable double click and rotation
-		$mapobject.doubleClickZoom.disable();
-		$mapobject.dragRotate.disable();
+    $mapobject = new mapboxgl.Map({
+      container: 'mapcontainer',
+      style: mapstyle,
+      minZoom: minzoom,
+      maxZoom: maxzoom,
+      maxBounds: maxbounds,
+      pitch: 10, // 30,
+      center: [0, 52],
+      zoom: 4,
+      hash: true, // set options in hash string
+    });
 
-		// // correct error - ignore 403 missing tiles
-		$mapobject.on("error", (e) => {
-			if (e.error.status != 403 && e.error.message != 'Failed to fetch' && !/CORS/.test(e.error.message)) {
-				console.error(e.error.status, e.error.message);
-				return e
-		}});
+    // scale bar
+    $mapobject.addControl(
+      new mapboxgl.ScaleControl({
+        position: 'bottom-left',
+      })
+    );
 
-		$mapobject.on("load", SetLayers);
-	}
+    // navigation
+    $mapobject.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
+    //disable double click and rotation
+    $mapobject.doubleClickZoom.disable();
+    $mapobject.dragRotate.disable();
+
+    // // correct error - ignore 403 missing tiles
+    $mapobject.on('error', (e) => {
+      if (
+        e.error.status != 403 &&
+        e.error.message != 'Failed to fetch' &&
+        !/CORS/.test(e.error.message)
+      ) {
+        console.error('--', e.error.status, e.error.message);
+        return e;
+      }
+    });
+
+    $mapobject.on('load', SetLayers);
+  }
+
+  /// Set all Mapbox Parameters ///
+  export async function SetLayers() {
+    // set mapbox layers
+    console.log('set layers');
+
+    mapsource.subscribe(async () => {
+      // set the sources
+      for (const [key, value] of Object.entries($mapsource)) {
+        if ($mapobject.getSource(key)) $mapobject.removeSource(key);
+        // if (value.hasOwnProperty('data')) value.data = await value.data; // for async loads
+        if (!$mapobject.getSource(key)) $mapobject.addSource(key, value); // as it may nto be removable
+      }
+    });
+
+    maplayer.subscribe(async () => {
+      // set the layers
+      for (const value of $maplayer) {
+        console.log('layer', value);
+        if ($mapobject.getLayer(value.id)) $mapobject.removeLayer(value.id);
+        $mapobject.addLayer(value);
+      }
+    });
+
+    mapfunctions.subscribe(async () => {
+      // console.warn('fnreload',$mapfunctions)
+      // set the functions
+      for (const e of $mapfunctions) {
+        // $mapobject.off(e.event, e.layer, e.callback);
+        if (!e.off) console.log('adding', e.event, e.layer);
+        $mapobject.on(e.event, e.layer, e.callback);
+      }
+    });
+
+    if (drawing_tools) await init_draw();
+
+    // move mapobject to location
+    $mapobject.fitBounds(location.bounds, {
+      padding: 20,
+    });
+  
+
+  draw_type.subscribe(() => {
+    console.warn('------dt-------', $draw_type);
+    if (draw) {
+      clean();
+
+      if (e.target.checked) {
+        map[handler].enable();
+      } else {
+        map[handler].disable();
+      }
+    }
+  });
 
 
-	/// Set all Mapbox Parameters ///
-	export async function SetLayers() {
-		// set mapbox layers
-		console.log("set layers");
 
-		mapsource.subscribe(async () => {
-			// set the sources
-			for (const [key, value] of Object.entries($mapsource)) {
-				if ($mapobject.getSource(key)) $mapobject.removeSource(key);
-				// if (value.hasOwnProperty('data')) value.data = await value.data; // for async loads
-				if (!$mapobject.getSource(key))
-					$mapobject.addSource(key, value); // as it may nto be removable
-			}
-		});
-
-		maplayer.subscribe(async () => {
-			// set the layers
-			for (const value of $maplayer) {
-				console.log("layer", value);
-				if ($mapobject.getLayer(value.id))
-					$mapobject.removeLayer(value.id);
-				$mapobject.addLayer(value);
-			}
-		});
-
-		mapfunctions.subscribe(async () => {
-			// console.warn('fnreload',$mapfunctions)
-			// set the functions
-			for (const e of $mapfunctions) {
-				// $mapobject.off(e.event, e.layer, e.callback);
-				if (!e.off) console.log("adding", e.event, e.layer);
-				$mapobject.on(e.event, e.layer, e.callback);
-			}
-		});
+  loading=false
+  console.warn('---loaded---');
+  }
 
 
-
-
-		if (drawing_tools) await init_draw();
-
-
-		// move mapobject to location
-		$mapobject.fitBounds(location.bounds, {
-			padding: 20,
-		});
-	}
-
-
-
-
-	///DRAWING
-
-
-
-	
-		
-		draw_type.subscribe(() => {
-			console.warn("------dt-------", $draw_type);
-			if (draw) {
-
-
-				clean();
-
-				if (e.target.checked) {
-					map[handler].enable();
-					} else {
-					map[handler].disable();
-					}
-
-	
-			}
-		});
-
-		// on polygon change
-		// function drawchange(e) {
-		// 	dispatch("coordinate_change", {
-		// 		code: e.features,
-		// 	});
-		// }
-	
-
-	/// main
-	onMount(init);
+  /// main
+  onMount(init);
 </script>
 
 <!-- Script autogenerated by Svelte-Jinja (author: Dan Ellis) -->
 <main>
-	<div
-		class="mapboxgl-canvas"
-		tabindex="0"
-		aria-label="Map"
-		id="mapcontainer"
-		style="width: {width}; height: {height}; "
-		bind:this={webgl_canvas}
-	/>
+  <div
+    class="mapboxgl-canvas"
+    tabindex="0"
+    aria-label="Map"
+    id="mapcontainer"
+    style="width: {width}; height: {height}; opacity:{loading?0.4:1} "
+    bind:this={webgl_canvas}
+  />
 </main>
 
 <style lang="scss">
-	main {
-		position: absolute;
-		top: 0;
-		left: 0;
-		margin: auto;
-	}
+  main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+  }
 </style>

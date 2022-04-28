@@ -1,4 +1,7 @@
 import node from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-static';
+const production = process.env.NODE_ENV === 'production';
+
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -7,7 +10,6 @@ const config = {
 
 	// an array of file extensions that should be treated as Svelte components
 	extensions: ['.svelte'],
-
 	kit: {
 		adapter: node(),
 		amp: false,
@@ -28,9 +30,12 @@ const config = {
 		},
 		prerender: {
 			crawl: true,
-			enabled: true,
+			// enabled: true,
 			force: false,
-			pages: [process.cwd()+'/src/*']
+			pages: [process.cwd()+'/src/*'],
+			// default: true,
+			enabled: production,
+			// onError: 'continue'
 		},
 		router: true,
 		ssr: true,
@@ -40,6 +45,11 @@ const config = {
 				 }}
 			})
 		},
+
+		// paths: {
+		// 	base: production ? '/custom_area' : ''
+		// },
+		// trailingSlash: 'always',
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
 	preprocess: null

@@ -3,27 +3,23 @@
 
     export let title = 'Custom Profile (Info)'
     export let text = 'Welcome to the custom drawing tool. \n To begin drawing, click on the map and zoom in, or use the search bar below to locate area of interest. ';
+    export let subtitle = ' '
+    export let open = true
 
     
 
 </script>
 
 <Accordion class='info'>
-    <AccordionItem title="{title}">
+    <AccordionItem open={open}>
+      <svelte:fragment slot="title">
+      <h4>{title}</h4>
+      <h6>{subtitle}</h6>
+      </svelte:fragment>
         
         <p>{text}</p>
     
-
-<Search
-closeButtonLabelText="Clear search input"
-defaultValue="A default value"
-autocomplete='on'
-id="search-1"
-labelText="Search Postcode or Name"
-onChange={function noRefCheck(x){return [1,2,3]}}
-onKeyDown={function noRefCheck(x){return [1,2,3]}}
-size="lg"
-/>
+<!--  -->
     
     </AccordionItem>
     <slot></slot>

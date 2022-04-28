@@ -1,6 +1,6 @@
 <script>
   import {Button, Grid, Column, Row} from 'carbon-components-svelte';
-  import {draw_type} from '../mapstore.js';
+  import {draw_type,draw_enabled} from '../mapstore.js';
   import {onMount} from 'svelte';
 
   // export let selected = 'Move';
@@ -71,6 +71,7 @@
         <Button
           id = 'poly'
           style="margin-left:0px"
+          disabled = {$draw_enabled}
           on:click={buttonclick('poly')}
           class="bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon drawbtn"
         >
@@ -92,6 +93,7 @@
         <Button
           id='radius'
           on:click={buttonclick('radius')}
+          disabled = {$draw_enabled}
           class="bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon drawbtn"
         >
           <span class="bx--assistive-text">Select a Radius</span>
@@ -119,6 +121,7 @@
         <Button
           id='click'
           on:click={buttonclick('click')}
+          disabled = {$draw_enabled}
           class="bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon drawbtn"
         >
           <span class="bx--assistive-text">Click Select</span>

@@ -7,12 +7,15 @@
     Column,
     Breadcrumb,
     BreadcrumbItem,
+    ToastNotification,
   } from 'carbon-components-svelte';
   import {Slider} from 'carbon-components-svelte';
   import DrawButtons from './Toolbar/DrawButtons.svelte';
   import EditButtons from './Toolbar/EditButtons.svelte';
   import ProgressButtons from './Toolbar/ProgressButtons.svelte';
   import InfoBox from './Toolbar/InfoBox.svelte';
+  import PostcodeSearch from './Toolbar/PostcodeSearch.svelte';
+  import ItemAccordion from './Toolbar/ItemAccordion.svelte';
 
   let add_mode = true;
 
@@ -20,15 +23,16 @@
   let webgl_canvas;
   export let width = '100%';
   export let height = '100%';
-//   let pending = new Set([]);
-  let coordinates;
+  //   let pending = new Set([]);
+  let error = false;
   let speak = false;
+
   // import { default as mapboxgl } from "./mapbox-gl.js";
   import {default as AreaMap} from './AreaMap.svelte';
-  import mapboxgl, {Popup} from 'mapbox-gl';
+  // import mapboxgl, {Popup} from 'mapbox-gl';
   import {onMount} from 'svelte';
-  import {writable, get} from 'svelte/store';
-  import {csv} from 'd3-fetch';
+  // import {writable, get} from 'svelte/store';
+  // import {csv} from 'd3-fetch';
   import {
     // select,
     mapsource,
@@ -41,15 +45,17 @@
     location,
     maxbounds,
     draw_type,
-radiusInKm,
-selected,
+    draw_enabled,
+    radiusInKm,
+    selected,
+    query,
     // level,
     // zoomed,
-
   } from './mapstore.js';
+  import {simplify_query} from './MapDraw.js';
+  // import { ZoomHistory } from 'maplibre-gl';
 
   async function init() {
-
     console.clear();
     console.warn(webgl_canvas);
 
@@ -86,20 +92,23 @@ selected,
         id: 'centroids',
         source: 'area',
         'source-layer': 'centroids',
-        type:'circle',//background?/
+        type: 'circle', //background?/
         paint: {
-      'circle-radius': .5,
-      'circle-color': 'red',
-      'circle-opacity': 0.5,
-    },
+          'circle-radius': 0.6,
+          'circle-color': 'red',
+
+          'circle-opacity': 0.8,
+        },
       },
     ];
+
     if ('SpeechSynthesisUtterance' in window) {
       var msg = new SpeechSynthesisUtterance();
       console.error(
         'speech tools enabled - "context menu". Use two finger click on mac trackpad to trigger'
       );
     }
+
     $mapfunctions = [
       {
         event: 'contextmenu',
@@ -117,36 +126,37 @@ selected,
       },
     ];
 
-    
-	function recolour() {
-        const items = $selected[$selected.length-1]
-		console.warn("---recolour", ...items.oa);
-		$mapobject.setPaintProperty("bounds", "fill-color", [
-			"match",
-			["get", 'oa'],
-			["literal", ...items.oa],
-			"orange",
-			// [
-			// 	"match",
-			// 	["get", areatype],
-			// 	["literal", ...$selected],
-			// 	"green",
-			// 	"transparent",
-			// ],
-            "transparent",
-		]);
-	}
+    function recolour() {
+      query.set(simplify_query()); // this is a promise
 
-    selected.subscribe(recolour);
+      const items = $selected[$selected.length - 1];
 
+      console.warn('---recolour', ...items.oa);
+      $mapobject.setPaintProperty('bounds', 'fill-color', [
+        'match',
+        ['get', 'oa'],
+        ['literal', ...items.oa],
+        'orange',
+        // [
+        // 	"match",
+        // 	["get", areatype],
+        // 	["literal", ...$selected],
+        // 	"green",
+        // 	"transparent",
+        // ],
+        'transparent',
+      ]);
+    }
 
-
+    // wait until the data has loaded
+    $mapobject.on('load', () => {
+      selected.subscribe(recolour);
+    });
   } //endinit
-
-  
 
   onMount(init);
 </script>
+
 <!-- on:coordinate_change={update_area} /> -->
 <main class="w-screen min-h-screen flex flex-col">
   <div id="map">
@@ -174,32 +184,87 @@ selected,
       <Row
         style="background-color:#13518d;height:calc(.085*var(--header-1-height));margin-bottom:0px;"
       />
+
       <Row id="head2">
+        <!-- <Column></Column> -->
         <Column>
           <DrawButtons />
         </Column><Column>
           <EditButtons />
         </Column><Column>
+          <PostcodeSearch />
+          <!-- </Column><Column> -->
           <ProgressButtons />
         </Column>
       </Row>
     </Grid>
 
-    <InfoBox>
-      <Slider
-        ariaLabelInput="Radius Selection (km)"
-        id="slider"
-        labelText="Radius Selection (km)"
-        max={30}
-        min={0.2}
-        step={0.2}
-        stepMuliplier={4}
-        value={5}
-        on:change={function(value) {
-          console.log('slider value', value.detail);
-          $radiusInKm = value.detail;
-        }}
-      />
+    <InfoBox open={$selected.length < 2}>
+      {#if $draw_enabled}
+        <ToastNotification
+          style="width:100%"
+          hideCloseButton
+          kind="warning"
+          title="Zoom in to begin drawing. "
+          subtitle="The map needs to be at least on zoom level 9 to begin drawing. "
+          caption=""
+        />
+      {:else if $draw_type === 'radius'}
+        <ItemAccordion title="Draw Area" subtitle="Distance Selection Tool">
+          <Slider
+            ariaLabelInput="Radius Selection (km)"
+            id="slider"
+            labelText="Radius Selection (km)"
+            max={30}
+            min={0.2}
+            step={0.2}
+            stepMuliplier={4}
+            value={5}
+            on:change={function (value) {
+              console.log('slider value', value.detail);
+              $radiusInKm = value.detail;
+            }}
+          />
+
+          <p>
+            Move the slider below to select the radius you are interested in,
+            and then click to select an area.
+          </p>
+          <br />
+        </ItemAccordion>
+      {:else if $draw_type === 'click'}
+        <ItemAccordion title="Draw Area" subtitle="Click Selection">
+          <p>Click on any areas you are interested in.</p>
+        </ItemAccordion>
+      {:else if $draw_type === 'poly'}
+        <ItemAccordion title="Draw Area" subtitle="Polygon Selection">
+          <p>
+            Click on each corner of the shape you want to build, and then back
+            onto the first vertex to select.
+          </p>
+        </ItemAccordion>
+      {/if}
+
+      {#await $query then value}
+        {#if value.error != null}
+          <ToastNotification
+            style="width:100%"
+            hideCloseButton
+            kind="error"
+            subtitle={value.error_title}
+            caption={value.error}
+          />
+        {:else if value.oa}
+          <ItemAccordion title="" subtitle="Compressed Selection">
+            <small>
+              <b> MSOA: </b> <span>{value.msoa.length}</span> <br />
+              <b> LSOA: </b> <span>{value.lsoa.length}</span> <br />
+              <b> OA: </b> <span>{value.oa.length}</span> <br />
+              parent tile: {value.tile}; # original output areas {value.original}
+            </small>
+          </ItemAccordion>
+        {/if}
+      {/await}
     </InfoBox>
   </header>
 </main>
@@ -247,7 +312,10 @@ selected,
   :global(#head2) {
     left: 0;
     right: 0;
-    padding-left: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 0px;
+    padding-right: 30px;
     width: 100%;
     /* height: var(--header-2-height) !important; */
     background-color: var(--bar);
@@ -271,6 +339,10 @@ selected,
     justify-content: space-between;
   }
 
+  :global(small) {
+    font: revert;
+    font-size: revert;
+  }
   :global(.bx--btn--secondary) {
     background-color: var(--bar);
     filter: brightness(0.85);
