@@ -13,9 +13,9 @@ const config = {
 	extensions: ['.svelte'],
 	kit: {
 		adapter: adapter(),
-		amp: false,
-		edge: false,
-		split: true,
+		// amp: false,
+		// edge: false,
+		// split: true,
 		appDir: '_app',
 		files: {
 			assets: 'static',
@@ -26,22 +26,22 @@ const config = {
 			template: 'src/app.html'
 		},
 		floc: true,
-		hydrate: true,
+		// hydrate: true,
 		paths: {
 			assets: '',
 			base: ''
 		},
-		prerender: {
-			crawl: true,
-			// enabled: true,
-			force: false,
-			pages: [process.cwd()+'/src/*'],
-			// default: true,
-			enabled: production,
-			// onError: 'continue'
-		},
-		router: true,
-		ssr: true,
+		// prerender: {
+		// 	crawl: true,
+		// 	// enabled: true,
+		// 	force: false,
+		// 	pages: [process.cwd()+'/src/*'],
+		// 	// default: true,
+		// 	enabled: production,
+		// 	// onError: 'continue'
+		// },
+		// router: true,
+		// ssr: true,
 		vite: () => ({server: {
 			watch: {
 				   ignored: ['**/static/**']		// undocumented in vite
