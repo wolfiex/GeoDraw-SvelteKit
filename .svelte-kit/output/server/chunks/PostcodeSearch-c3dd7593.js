@@ -1,6 +1,5 @@
 import { c as create_ssr_component, d as spread, f as escape_attribute_value, e as escape_object, h as escape, b as compute_rest_props, k as add_classes, p as createEventDispatcher, v as validate_component, j as add_attribute, m as missing_component, o as subscribe } from "./index-092899d0.js";
-import "./HeaderSearch.svelte_svelte_type_style_lang-1e6107db.js";
-import "flatpickr";
+import "./HeaderSearch.svelte_svelte_type_style_lang-01832d64.js";
 import { R as Row, C as Column } from "./Column-3c16437e.js";
 import { mapobject } from "../entries/endpoints/draw/mapstore.js";
 const Close16 = create_ssr_component(($$result, $$props, $$bindings, slots) => {

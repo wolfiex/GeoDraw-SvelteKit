@@ -1,9 +1,8 @@
 import { c as create_ssr_component, b as compute_rest_props, d as spread, e as escape_object, r as each, k as add_classes, v as validate_component, j as add_attribute, m as missing_component, f as escape_attribute_value, l as compute_slots, s as setContext, h as escape, p as createEventDispatcher, o as subscribe, t as is_promise, n as noop } from "../../../chunks/index-092899d0.js";
 import { G as Grid } from "../../../chunks/Grid-79c680c5.js";
-import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-1e6107db.js";
-import "flatpickr";
+import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-01832d64.js";
 import { R as Row, C as Column } from "../../../chunks/Column-3c16437e.js";
-import { C as Close20, P as PostcodeSearch } from "../../../chunks/PostcodeSearch-f538c78c.js";
+import { C as Close20, P as PostcodeSearch } from "../../../chunks/PostcodeSearch-c3dd7593.js";
 import DrawButtons from "./Toolbar/DrawButtons.svelte.js";
 import EditButtons from "./Toolbar/EditButtons.svelte.js";
 import ProgressButtons from "./Toolbar/ProgressButtons.svelte.js";

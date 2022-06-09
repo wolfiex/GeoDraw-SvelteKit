@@ -1,7 +1,6 @@
 import { c as create_ssr_component, v as validate_component, h as escape } from "../../../../chunks/index-092899d0.js";
 import { A as AccordionItem } from "../../../../chunks/AccordionItem-7eda311d.js";
-import "../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-1e6107db.js";
-import "flatpickr";
+import "../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-01832d64.js";
 import "../../../../chunks/index-cc46cb38.js";
 var ItemAccordion_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n.bx--accordion__content p{\n  width:100%\n}\n\n/* purgecss end ignore */")();
 const css = {
