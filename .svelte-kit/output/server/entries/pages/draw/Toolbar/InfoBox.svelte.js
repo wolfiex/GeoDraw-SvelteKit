@@ -1,7 +1,8 @@
 import { c as create_ssr_component, b as compute_rest_props, d as spread, e as escape_object, r as each, h as escape, k as add_classes, v as validate_component, s as setContext } from "../../../../chunks/index-092899d0.js";
 import { w as writable } from "../../../../chunks/index-cc46cb38.js";
 import { C as ChevronRight16, A as AccordionItem } from "../../../../chunks/AccordionItem-7eda311d.js";
-import "../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-01832d64.js";
+import "../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-1e6107db.js";
+import "flatpickr";
 const SkeletonText = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let rows;
   let widthNum;

@@ -28,7 +28,7 @@ const manifest = {
   assets: /* @__PURE__ */ new Set([".DS_Store", "css/.DS_Store", "css/style-omt.json", "data/nomis_tables.json", "favicon.ico", "nest/.DS_Store", "nest/robot.txt", "robots.txt"]),
   mimeTypes: { ".json": "application/json", ".ico": "image/vnd.microsoft.icon", ".txt": "text/plain" },
   _: {
-    entry: { "file": "start-7d27f49f.js", "js": ["start-7d27f49f.js", "chunks/index-369e6074.js", "chunks/index-3ae34efe.js"], "css": [] },
+    entry: { "file": "start-6ec2c9dd.js", "js": ["start-6ec2c9dd.js", "chunks/index-369e6074.js", "chunks/index-3ae34efe.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
