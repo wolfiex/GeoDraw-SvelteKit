@@ -347,4 +347,8 @@
     background-color: var(--bar);
     filter: brightness(0.85);
   }
+
+  :global(header){
+    height: 100px;
+  }
 </style>

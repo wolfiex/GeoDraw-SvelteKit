@@ -1,5 +1,6 @@
-import node from '@sveltejs/adapter-node';
-import adapter from '@sveltejs/adapter-static';
+// import node from '@sveltejs/adapter-node';
+// import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-netlify';
 const production = process.env.NODE_ENV === 'production';
 
 
@@ -11,8 +12,10 @@ const config = {
 	// an array of file extensions that should be treated as Svelte components
 	extensions: ['.svelte'],
 	kit: {
-		adapter: node(),
+		adapter: adapter(),
 		amp: false,
+		edge: false,
+		split: true,
 		appDir: '_app',
 		files: {
 			assets: 'static',
