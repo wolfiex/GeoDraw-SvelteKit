@@ -35,7 +35,6 @@ var import_InfoBox_svelte = __toESM(require("./Toolbar/InfoBox.svelte.js"));
 var import_ItemAccordion_svelte = __toESM(require("./Toolbar/ItemAccordion.svelte.js"));
 var import_AreaMap_svelte = __toESM(require("./AreaMap.svelte.js"));
 var import_mapstore = require("../../endpoints/draw/mapstore.js");
-var import_d3_array = require("d3-array");
 var import_tilebelt = require("@mapbox/tilebelt");
 var import_index_cc46cb38 = require("../../../chunks/index-cc46cb38.js");
 var import_Button_1959039d = require("../../../chunks/Button-1959039d.js");

@@ -26,7 +26,6 @@
 		"@types/geojson": "^7946.0.8",
 		"@types/maplibre-gl": "^1.14.0",
 		"carbon-components-svelte": "^0.62.3",
-		"d3-array": "^3.1.6",
 		"d3-fetch": "^3.0.1",
 		"mapbox-gl": "^1.13.1",
 		"maplibre-gl": "^2.1.9",

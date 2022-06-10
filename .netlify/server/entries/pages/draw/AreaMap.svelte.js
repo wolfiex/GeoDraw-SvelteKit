@@ -24,7 +24,6 @@ var import_index_092899d0 = require("../../../chunks/index-092899d0.js");
 var import_maplibre_gl = require("maplibre-gl");
 var import_MapDraw = require("../../endpoints/draw/MapDraw.js");
 var import_mapstore = require("../../endpoints/draw/mapstore.js");
-var import_d3_array = require("d3-array");
 var import_tilebelt = require("@mapbox/tilebelt");
 var import_index_cc46cb38 = require("../../../chunks/index-cc46cb38.js");
 var mapboxGl = /* @__PURE__ */ (() => `/* purgecss start ignore */

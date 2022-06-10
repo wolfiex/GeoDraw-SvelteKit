@@ -25,7 +25,6 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var import_index_092899d0 = require("../../../chunks/index-092899d0.js");
 var import_mapstore = require("./mapstore.js");
-var import_d3_array = require("d3-array");
 var import_tilebelt = require("@mapbox/tilebelt");
 var import_index_cc46cb38 = require("../../../chunks/index-cc46cb38.js");
 var simplify = {};
@@ -123,14 +122,14 @@ function update(coordinates2) {
   if ((0, import_index_092899d0.g)(import_mapstore.add_mode)) {
     current.push({
       oa: /* @__PURE__ */ new Set([...last.oa, ...oa]),
-      lng: (0, import_d3_array.extent)(last.lng),
-      lat: (0, import_d3_array.extent)(last.lat)
+      lng: extent(last.lng),
+      lat: extent(last.lat)
     });
   } else {
     current.push({
       oa: new Set([...last.oa].filter((x) => !new Set(oa).has(x))),
-      lng: (0, import_d3_array.extent)(last.lng),
-      lat: (0, import_d3_array.extent)(last.lat)
+      lng: extent(last.lng),
+      lat: extent(last.lat)
     });
   }
   import_mapstore.selected.set(current);
@@ -144,8 +143,8 @@ function draw_point(e) {
   last.lng.push(e.lngLat.lng);
   last = {
     oa: new Set(last.oa),
-    lat: (0, import_d3_array.extent)(last.lat),
-    lng: (0, import_d3_array.extent)(last.lng)
+    lat: extent(last.lat),
+    lng: extent(last.lng)
   };
   [...oalist].forEach((oa) => last.oa.has(oa) ? last.oa.delete(oa) : last.oa.add(oa));
   current.push(last);
@@ -294,4 +293,39 @@ async function simplify_query() {
   lsoa = [...lsoa].filter((e) => !rmlsoa.has(e));
   msoa = msoa.map((d) => d[0]);
   return { tile, msoa, oa, lsoa, original: [...last.oa].length };
+}
+function extent(values, valueof) {
+  let min;
+  let max;
+  if (valueof === void 0) {
+    for (const value of values) {
+      if (value != null) {
+        if (min === void 0) {
+          if (value >= value)
+            min = max = value;
+        } else {
+          if (min > value)
+            min = value;
+          if (max < value)
+            max = value;
+        }
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null) {
+        if (min === void 0) {
+          if (value >= value)
+            min = max = value;
+        } else {
+          if (min > value)
+            min = value;
+          if (max < value)
+            max = value;
+        }
+      }
+    }
+  }
+  return [min, max];
 }

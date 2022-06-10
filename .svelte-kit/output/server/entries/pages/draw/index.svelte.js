@@ -10,7 +10,6 @@ import InfoBox from "./Toolbar/InfoBox.svelte.js";
 import ItemAccordion from "./Toolbar/ItemAccordion.svelte.js";
 import AreaMap from "./AreaMap.svelte.js";
 import { mapobject, selected, mapfunctions, maplayer, mapsource, draw_enabled, draw_type, radiusInKm, query } from "../../endpoints/draw/mapstore.js";
-import "d3-array";
 import "@mapbox/tilebelt";
 import "../../../chunks/index-cc46cb38.js";
 import "../../../chunks/Button-1959039d.js";

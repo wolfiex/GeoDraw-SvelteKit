@@ -1,6 +1,5 @@
 import { g as get_store_value } from "../../../chunks/index-092899d0.js";
 import { draw_type, radiusInKm, draw_enabled, selected, mapobject, add_mode } from "./mapstore.js";
-import { extent } from "d3-array";
 import { bboxToTile } from "@mapbox/tilebelt";
 import "../../../chunks/index-cc46cb38.js";
 var simplify = {};
@@ -269,5 +268,40 @@ async function simplify_query() {
   lsoa = [...lsoa].filter((e) => !rmlsoa.has(e));
   msoa = msoa.map((d) => d[0]);
   return { tile, msoa, oa, lsoa, original: [...last.oa].length };
+}
+function extent(values, valueof) {
+  let min;
+  let max;
+  if (valueof === void 0) {
+    for (const value of values) {
+      if (value != null) {
+        if (min === void 0) {
+          if (value >= value)
+            min = max = value;
+        } else {
+          if (min > value)
+            min = value;
+          if (max < value)
+            max = value;
+        }
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null) {
+        if (min === void 0) {
+          if (value >= value)
+            min = max = value;
+        } else {
+          if (min > value)
+            min = value;
+          if (max < value)
+            max = value;
+        }
+      }
+    }
+  }
+  return [min, max];
 }
 export { change_data, coordinates, init_draw, simplify_query };

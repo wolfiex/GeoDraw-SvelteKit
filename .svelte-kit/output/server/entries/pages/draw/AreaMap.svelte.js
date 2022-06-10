@@ -2,7 +2,6 @@ import { c as create_ssr_component, o as subscribe, p as createEventDispatcher, 
 import "maplibre-gl";
 import { init_draw } from "../../endpoints/draw/MapDraw.js";
 import { draw_type, mapobject, mapfunctions, maplayer, mapsource, location } from "../../endpoints/draw/mapstore.js";
-import "d3-array";
 import "@mapbox/tilebelt";
 import "../../../chunks/index-cc46cb38.js";
 var mapboxGl = /* @__PURE__ */ (() => `/* purgecss start ignore */
