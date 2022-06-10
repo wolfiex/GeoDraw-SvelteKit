@@ -8,7 +8,7 @@ import {
   add_mode,
   draw_enabled,
 } from './mapstore.js';
-import {extent} from 'd3-array';
+// import {extent} from 'd3-array';
 import {bboxToTile} from '@mapbox/tilebelt';
 
 var simplify = {};
@@ -421,4 +421,35 @@ export async function simplify_query () {
   // console.warn('lsoa',{tile,msoa,oa,lsoa,original:last.oa.length})
 
   return {tile, msoa, oa, lsoa, original: [...last.oa].length};
+}
+
+
+function extent(values, valueof) {
+  let min;
+  let max;
+  if (valueof === undefined) {
+    for (const value of values) {
+      if (value != null) {
+        if (min === undefined) {
+          if (value >= value) min = max = value;
+        } else {
+          if (min > value) min = value;
+          if (max < value) max = value;
+        }
+      }
+    }
+  } else {
+    let index = -1;
+    for (let value of values) {
+      if ((value = valueof(value, ++index, values)) != null) {
+        if (min === undefined) {
+          if (value >= value) min = max = value;
+        } else {
+          if (min > value) min = value;
+          if (max < value) max = value;
+        }
+      }
+    }
+  }
+  return [min, max];
 }
