@@ -10,6 +10,9 @@ import {
 } from './mapstore.js';
 // import {extent} from 'd3-array';
 import {bboxToTile} from '@mapbox/tilebelt';
+import { LngLat, LngLatBounds} from 'maplibre-gl';
+import {union,simplify as tsimplify} from 'turf';
+
 
 var simplify = {};
 
@@ -418,9 +421,25 @@ export async function simplify_query () {
   oa = [...oa].filter (e => !rm.has (e));
   lsoa = [...lsoa].filter (e => !rmlsoa.has (e));
   msoa = msoa.map (d => d[0]);
-  // console.warn('lsoa',{tile,msoa,oa,lsoa,original:last.oa.length})
+  
+  console.warn('lsoa',tile,msoa,oa,lsoa,last.oa)
 
-  return {tile, msoa, oa, lsoa, original: [...last.oa].length};
+
+  // return the simplified query - it would be quicker to not do this each change, but hey. 
+  get(mapobject).fitBounds(bbox)  
+  const oalist = [...last.oa]
+  const features = get(mapobject).queryRenderedFeatures({
+    layers: ['bounds'],
+    }).filter(d=>oalist.includes(d.properties.oa))//.map(d=>d.properties.oa)
+
+  let merge = union(...features)
+
+  merge.properties = {tile, msoa, oa, lsoa, original:oalist.length}
+  console.log('---merge---',merge)
+
+
+
+  return merge||{} 
 }
 
 

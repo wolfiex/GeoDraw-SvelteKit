@@ -1,4 +1,5 @@
 <script>
+  // ONS CensusDraw Tilegen 
   // import './css/style.css';
   import 'carbon-components-svelte/css/g10.css';
   import {
@@ -152,6 +153,9 @@
     $mapobject.on('load', () => {
       selected.subscribe(recolour);
     });
+
+    console.clear()
+    console.log('cleared console from index.init()')
   } //endinit
 
   onMount(init);
@@ -176,7 +180,7 @@
         <Column style="float:right;margin-right:2px">
           <Breadcrumb>
             <BreadcrumbItem href="/draw">Draw Area</BreadcrumbItem>
-            <BreadcrumbItem href="/">Save + Load Area</BreadcrumbItem>
+            <BreadcrumbItem href="/" >Save + Load Area</BreadcrumbItem>
             <BreadcrumbItem href="/">Build Profile</BreadcrumbItem>
           </Breadcrumb>
         </Column>
@@ -198,6 +202,10 @@
         </Column>
       </Row>
     </Grid>
+
+
+
+
 
     <InfoBox open={$selected.length < 2}>
       {#if $draw_enabled}
@@ -257,10 +265,10 @@
         {:else if value.oa}
           <ItemAccordion title="" subtitle="Compressed Selection">
             <small>
-              <b> MSOA: </b> <span>{value.msoa.length}</span> <br />
-              <b> LSOA: </b> <span>{value.lsoa.length}</span> <br />
-              <b> OA: </b> <span>{value.oa.length}</span> <br />
-              parent tile: {value.tile}; # original output areas {value.original}
+              <b> MSOA: </b> <span>{value.properties.msoa.length}</span> <br />
+              <b> LSOA: </b> <span>{value.properties.lsoa.length}</span> <br />
+              <b> OA: </b> <span>{value.properties.oa.length}</span> <br />
+              parent tile: {value.properties.tile}; # original output areas {value.properties.original}
             </small>
           </ItemAccordion>
         {/if}

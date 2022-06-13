@@ -16,6 +16,7 @@ export let add_mode = writable(true);
 export let draw_enabled = writable(false);
 export let query = writable({error:false});
 
+
 //export const coordinates = writable({});
 export const radiusInKm = writable(5);
 // export const selected = writable(new Set([]))
