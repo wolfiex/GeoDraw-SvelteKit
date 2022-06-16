@@ -42,7 +42,8 @@ __export(stdin_exports, {
   override: () => override
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_12fa369c = require("./chunks/index-12fa369c.js");
+var import_index_f909a211 = require("./chunks/index-f909a211.js");
+var import_paths_396f020f = require("./chunks/paths-396f020f.js");
 var _use_hashes, _dev, _script_needs_csp, _style_needs_csp, _directives, _script_src, _style_src;
 var __defProp2 = Object.defineProperty;
 var __defProps = Object.defineProperties;
@@ -77,14 +78,15 @@ var __objRest = (source, exclude) => {
 };
 function afterUpdate() {
 }
-const Root = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots) => {
+const Root = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
   let { stores } = $$props;
   let { page } = $$props;
   let { components } = $$props;
   let { props_0 = null } = $$props;
   let { props_1 = null } = $$props;
   let { props_2 = null } = $$props;
-  (0, import_index_12fa369c.s)("__svelte__", stores);
+  let { props_3 = null } = $$props;
+  (0, import_index_f909a211.s)("__svelte__", stores);
   afterUpdate(stores.page.notify);
   if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
     $$bindings.stores(stores);
@@ -98,21 +100,27 @@ const Root = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots)
     $$bindings.props_1(props_1);
   if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
     $$bindings.props_2(props_2);
+  if ($$props.props_3 === void 0 && $$bindings.props_3 && props_3 !== void 0)
+    $$bindings.props_3(props_3);
   {
     stores.page.set(page);
   }
   return `
 
 
-${components[1] ? `${(0, import_index_12fa369c.v)(components[0] || import_index_12fa369c.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
+${components[1] ? `${(0, import_index_f909a211.v)(components[0] || import_index_f909a211.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
     default: () => {
-      return `${components[2] ? `${(0, import_index_12fa369c.v)(components[1] || import_index_12fa369c.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
+      return `${components[2] ? `${(0, import_index_f909a211.v)(components[1] || import_index_f909a211.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
         default: () => {
-          return `${(0, import_index_12fa369c.v)(components[2] || import_index_12fa369c.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
+          return `${components[3] ? `${(0, import_index_f909a211.v)(components[2] || import_index_f909a211.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {
+            default: () => {
+              return `${(0, import_index_f909a211.v)(components[3] || import_index_f909a211.m, "svelte:component").$$render($$result, Object.assign(props_3 || {}), {}, {})}`;
+            }
+          })}` : `${(0, import_index_f909a211.v)(components[2] || import_index_f909a211.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`}`;
         }
-      })}` : `${(0, import_index_12fa369c.v)(components[1] || import_index_12fa369c.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
+      })}` : `${(0, import_index_f909a211.v)(components[1] || import_index_f909a211.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
     }
-  })}` : `${(0, import_index_12fa369c.v)(components[0] || import_index_12fa369c.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
+  })}` : `${(0, import_index_f909a211.v)(components[0] || import_index_f909a211.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
 
 ${``}`;
 });
@@ -2288,21 +2296,15 @@ async function respond(request, options, state) {
     }
   }
 }
-let base = "";
-let assets = "";
-function set_paths(paths) {
-  base = paths.base;
-  assets = paths.assets || base;
-}
 function set_prerendering(value) {
 }
 const template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="/favicon.ico" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + '\n	</head>\n	<body>\n		<div id="svelte">' + body + "</div>\n	</body>\n</html>\n";
 let read = null;
-set_paths({ "base": "", "assets": "" });
+(0, import_paths_396f020f.s)({ "base": "", "assets": "" });
 let default_protocol = "https";
 function override(settings) {
   default_protocol = settings.protocol || default_protocol;
-  set_paths(settings.paths);
+  (0, import_paths_396f020f.s)(settings.paths);
   set_prerendering(settings.prerendering);
   read = settings.read;
 }
@@ -2327,8 +2329,8 @@ class Server {
       hydrate: true,
       manifest,
       method_override: { "parameter": "_method", "allowed": [] },
-      paths: { base, assets },
-      prefix: assets + "/_app/immutable/",
+      paths: { base: import_paths_396f020f.b, assets: import_paths_396f020f.a },
+      prefix: import_paths_396f020f.a + "/_app/immutable/",
       prerender: {
         default: false,
         enabled: true

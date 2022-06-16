@@ -4,7 +4,8 @@
     "src": ".svelte-kit/build/index.js",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js",
+      "_paths-396f020f.js"
     ],
     "dynamicImports": [
       ".svelte-kit/build/hooks.js"
@@ -35,8 +36,8 @@
     "src": "src/routes/draw/mapstore.js",
     "isEntry": true,
     "imports": [
-      "_index-34c40784.js",
-      "_index-12fa369c.js"
+      "_index-1ceaa7e2.js",
+      "_index-f909a211.js"
     ]
   },
   "src/routes/draw/MapDraw.js": {
@@ -44,22 +45,22 @@
     "src": "src/routes/draw/MapDraw.js",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
+      "_index-f909a211.js",
       "src/routes/draw/mapstore.js",
-      "_index-34c40784.js"
+      "_index-1ceaa7e2.js"
     ]
   },
-  "src/routes/test2/[z]-[x]-[y].pbf.js": {
-    "file": "entries/endpoints/test2/_z_-_x_-_y_.pbf.js",
-    "src": "src/routes/test2/[z]-[x]-[y].pbf.js",
+  "src/routes/archive/test2/[z]-[x]-[y].pbf.js": {
+    "file": "entries/endpoints/archive/test2/_z_-_x_-_y_.pbf.js",
+    "src": "src/routes/archive/test2/[z]-[x]-[y].pbf.js",
     "isEntry": true
   },
-  "src/routes/test/[...path].js": {
-    "file": "entries/endpoints/test/_...path_.js",
-    "src": "src/routes/test/[...path].js",
+  "src/routes/archive/test/[...path].js": {
+    "file": "entries/endpoints/archive/test/_...path_.js",
+    "src": "src/routes/archive/test/[...path].js",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/cors_endpoint/[...tile].js": {
@@ -72,15 +73,12 @@
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_Grid-5e1041d9.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_Button-fdcb5c4f.js",
-      "_Column-5653abb6.js",
-      "_index-34c40784.js"
+      "_index-f909a211.js",
+      "_paths-396f020f.js",
+      "_ONSFooter-222593b3.js"
     ],
     "css": [
-      "assets/entries/pages/__layout.svelte-e0897de1.css"
+      "assets/app-3e485dfa.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
@@ -88,29 +86,75 @@
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
-  "src/routes/profile/__layout-profile.svelte": {
-    "file": "entries/pages/profile/__layout-profile.svelte.js",
-    "src": "src/routes/profile/__layout-profile.svelte",
+  "src/routes/__layout-reset.svelte": {
+    "file": "entries/pages/__layout-reset.svelte.js",
+    "src": "src/routes/__layout-reset.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
-      "assets/entries/pages/profile/__layout-profile.svelte-6d69cb9c.css"
+      "assets/entries/pages/__layout-reset.svelte-daf555d1.css"
     ]
   },
-  "src/routes/tables/__layout-tables.svelte": {
-    "file": "entries/pages/tables/__layout-tables.svelte.js",
-    "src": "src/routes/tables/__layout-tables.svelte",
+  "src/routes/build/__layout@reset.svelte": {
+    "file": "entries/pages/build/__layout@reset.svelte.js",
+    "src": "src/routes/build/__layout@reset.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js",
+      "_paths-396f020f.js",
+      "_ONSFooter-222593b3.js"
+    ]
+  },
+  "src/routes/draw/__layout@reset.svelte": {
+    "file": "entries/pages/draw/__layout@reset.svelte.js",
+    "src": "src/routes/draw/__layout@reset.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_index-1ceaa7e2.js"
     ],
     "css": [
-      "assets/entries/pages/profile/__layout-profile.svelte-6d69cb9c.css"
+      "assets/entries/pages/draw/__layout@reset.svelte-c6247afb.css",
+      "assets/style-f5bb1b14.css",
+      "assets/g10-b1d5bffd.css"
+    ]
+  },
+  "src/routes/tables/__layout@reset.svelte": {
+    "file": "entries/pages/tables/__layout@reset.svelte.js",
+    "src": "src/routes/tables/__layout@reset.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-f909a211.js"
+    ]
+  },
+  "src/routes/archive/IconBtn.svelte": {
+    "file": "entries/pages/archive/IconBtn.svelte.js",
+    "src": "src/routes/archive/IconBtn.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_Button-28b43d3f.js",
+      "_index-1ceaa7e2.js"
+    ]
+  },
+  "src/routes/build/index.svelte": {
+    "file": "entries/pages/build/index.svelte.js",
+    "src": "src/routes/build/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-f909a211.js",
+      "_paths-396f020f.js"
+    ],
+    "css": [
+      "assets/entries/pages/build/index.svelte-d217b4f1.css",
+      "assets/app-3e485dfa.css"
     ]
   },
   "src/routes/draw/AreaMap.svelte": {
@@ -118,10 +162,10 @@
     "src": "src/routes/draw/AreaMap.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
+      "_index-f909a211.js",
       "src/routes/draw/MapDraw.js",
       "src/routes/draw/mapstore.js",
-      "_index-34c40784.js"
+      "_index-1ceaa7e2.js"
     ],
     "css": [
       "assets/entries/pages/draw/AreaMap.svelte-7c0a9172.css"
@@ -132,12 +176,12 @@
     "src": "src/routes/draw/Toolbar/DrawButtons.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_Button-fdcb5c4f.js",
-      "_Column-5653abb6.js",
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_Button-28b43d3f.js",
+      "_Column-c0d99b3f.js",
       "src/routes/draw/mapstore.js",
-      "_index-34c40784.js"
+      "_index-1ceaa7e2.js"
     ],
     "css": [
       "assets/entries/pages/draw/Toolbar/DrawButtons.svelte-419459e4.css"
@@ -148,12 +192,12 @@
     "src": "src/routes/draw/Toolbar/EditButtons.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_Button-fdcb5c4f.js",
-      "_Column-5653abb6.js",
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_Button-28b43d3f.js",
+      "_Column-c0d99b3f.js",
       "src/routes/draw/mapstore.js",
-      "_index-34c40784.js"
+      "_index-1ceaa7e2.js"
     ]
   },
   "src/routes/draw/Toolbar/InfoBox.svelte": {
@@ -161,10 +205,10 @@
     "src": "src/routes/draw/Toolbar/InfoBox.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_index-34c40784.js",
-      "_AccordionItem-28d6e2a6.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js"
+      "_index-f909a211.js",
+      "_index-1ceaa7e2.js",
+      "_AccordionItem-80204f4c.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js"
     ],
     "css": [
       "assets/entries/pages/draw/Toolbar/InfoBox.svelte-541344bf.css"
@@ -175,10 +219,10 @@
     "src": "src/routes/draw/Toolbar/ItemAccordion.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_AccordionItem-28d6e2a6.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_index-34c40784.js"
+      "_index-f909a211.js",
+      "_AccordionItem-80204f4c.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_index-1ceaa7e2.js"
     ],
     "css": [
       "assets/entries/pages/draw/Toolbar/ItemAccordion.svelte-68f029a5.css"
@@ -189,12 +233,13 @@
     "src": "src/routes/draw/Toolbar/ProgressButtons.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_Button-fdcb5c4f.js",
-      "_Column-5653abb6.js",
-      "src/routes/draw/mapstore.js",
-      "_index-34c40784.js"
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_Button-28b43d3f.js",
+      "_Column-c0d99b3f.js",
+      "_PostcodeSearch-760d5c5a.js",
+      "_index-1ceaa7e2.js",
+      "src/routes/draw/mapstore.js"
     ]
   },
   "src/routes/draw/index.svelte": {
@@ -202,25 +247,44 @@
     "src": "src/routes/draw/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_Grid-5e1041d9.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_Column-5653abb6.js",
-      "_PostcodeSearch-fa081eca.js",
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_Button-28b43d3f.js",
+      "_Grid-6d898cfb.js",
+      "_Column-c0d99b3f.js",
+      "_PostcodeSearch-760d5c5a.js",
       "src/routes/draw/Toolbar/DrawButtons.svelte",
       "src/routes/draw/Toolbar/EditButtons.svelte",
       "src/routes/draw/Toolbar/ProgressButtons.svelte",
       "src/routes/draw/Toolbar/InfoBox.svelte",
+      "src/routes/draw/mapstore.js",
       "src/routes/draw/Toolbar/ItemAccordion.svelte",
       "src/routes/draw/AreaMap.svelte",
-      "src/routes/draw/mapstore.js",
-      "_index-34c40784.js",
-      "_Button-fdcb5c4f.js",
-      "_AccordionItem-28d6e2a6.js",
+      "_index-1ceaa7e2.js",
+      "_AccordionItem-80204f4c.js",
       "src/routes/draw/MapDraw.js"
     ],
     "css": [
-      "assets/entries/pages/draw/index.svelte-8f9be591.css"
+      "assets/entries/pages/draw/index.svelte-6f25d8cf.css",
+      "assets/g10-b1d5bffd.css"
+    ]
+  },
+  "src/routes/draw/old_layout.svelte": {
+    "file": "entries/pages/draw/old_layout.svelte.js",
+    "src": "src/routes/draw/old_layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_Button-28b43d3f.js",
+      "_Grid-6d898cfb.js",
+      "_Column-c0d99b3f.js",
+      "_index-1ceaa7e2.js"
+    ],
+    "css": [
+      "assets/entries/pages/draw/old_layout.svelte-83d9b69d.css",
+      "assets/style-f5bb1b14.css",
+      "assets/g10-b1d5bffd.css"
     ]
   },
   "src/routes/index.svelte": {
@@ -228,7 +292,13 @@
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_Button-28b43d3f.js",
+      "_index-1ceaa7e2.js"
+    ],
+    "css": [
+      "assets/entries/pages/index.svelte-b0550895.css"
     ]
   },
   "src/routes/lib/chart/BarChart.svelte": {
@@ -236,7 +306,7 @@
     "src": "src/routes/lib/chart/BarChart.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/chart/BarChart.svelte-bfe100d4.css"
@@ -247,7 +317,7 @@
     "src": "src/routes/lib/chart/MapStatic.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/chart/MapStatic.svelte-1be29810.css"
@@ -258,7 +328,7 @@
     "src": "src/routes/lib/chart/NumBlock.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/chart/NumBlock.svelte-b307e327.css"
@@ -269,7 +339,7 @@
     "src": "src/routes/lib/chart/ProfileChart.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/chart/ProfileChart.svelte-91104d4b.css"
@@ -280,7 +350,7 @@
     "src": "src/routes/lib/layout/Article.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/Banner.svelte": {
@@ -288,7 +358,7 @@
     "src": "src/routes/lib/layout/Banner.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/Cards.svelte": {
@@ -296,8 +366,8 @@
     "src": "src/routes/lib/layout/Cards.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_index-34c40784.js"
+      "_index-f909a211.js",
+      "_index-1ceaa7e2.js"
     ],
     "css": [
       "assets/entries/pages/lib/layout/Cards.svelte-042d0067.css"
@@ -308,7 +378,7 @@
     "src": "src/routes/lib/layout/Content.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/Linkbox.svelte": {
@@ -316,7 +386,7 @@
     "src": "src/routes/lib/layout/Linkbox.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/ONSFooter.svelte": {
@@ -324,7 +394,7 @@
     "src": "src/routes/lib/layout/ONSFooter.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/ONSHeader.svelte": {
@@ -332,7 +402,7 @@
     "src": "src/routes/lib/layout/ONSHeader.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/Section.svelte": {
@@ -340,7 +410,7 @@
     "src": "src/routes/lib/layout/Section.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/Titleblock.svelte": {
@@ -348,7 +418,7 @@
     "src": "src/routes/lib/layout/Titleblock.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
+      "_index-f909a211.js",
       "src/routes/lib/layout/partial/Breadcrumb.svelte",
       "src/routes/lib/layout/partial/Highlighted.svelte",
       "src/routes/lib/layout/partial/Navbox.svelte",
@@ -360,7 +430,7 @@
     "src": "src/routes/lib/layout/partial/Breadcrumb.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/partial/Highlighted.svelte": {
@@ -368,7 +438,7 @@
     "src": "src/routes/lib/layout/partial/Highlighted.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/partial/Navbox.svelte": {
@@ -376,7 +446,7 @@
     "src": "src/routes/lib/layout/partial/Navbox.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/layout/partial/Navbox.svelte-541c62b2.css"
@@ -387,7 +457,7 @@
     "src": "src/routes/lib/layout/partial/Meta.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/layout/partial/Card.svelte": {
@@ -395,7 +465,7 @@
     "src": "src/routes/lib/layout/partial/Card.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/layout/partial/Card.svelte-4f0f556f.css"
@@ -406,7 +476,7 @@
     "src": "src/routes/lib/layout/partial/CardFeature.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/layout/partial/CardFeature.svelte-9ac20696.css"
@@ -417,7 +487,7 @@
     "src": "src/routes/lib/layout/partial/CardSection.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/layout/partial/CardSection.svelte-f0870f37.css"
@@ -428,7 +498,7 @@
     "src": "src/routes/lib/layout/partial/Figure.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/layout/partial/Figure.svelte-20b84c24.css"
@@ -439,7 +509,7 @@
     "src": "src/routes/lib/layout/partial/Headline.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/layout/partial/Headline.svelte-7169df31.css"
@@ -450,7 +520,7 @@
     "src": "src/routes/lib/layout/partial/Subhead.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/ui/ButtonLink.svelte": {
@@ -458,7 +528,7 @@
     "src": "src/routes/lib/ui/ButtonLink.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
   "src/routes/lib/ui/Em.svelte": {
@@ -466,7 +536,7 @@
     "src": "src/routes/lib/ui/Em.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/ui/Em.svelte-263e9538.css"
@@ -477,7 +547,7 @@
     "src": "src/routes/lib/ui/Icon.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/ui/Icon.svelte-509697ca.css"
@@ -488,7 +558,7 @@
     "src": "src/routes/lib/ui/Select.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/ui/Select.svelte-66342f64.css"
@@ -499,7 +569,7 @@
     "src": "src/routes/lib/ui/Toggle.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/ui/Toggle.svelte-d385ec20.css"
@@ -510,10 +580,10 @@
     "src": "src/routes/lib/ui/Warning.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
-      "assets/entries/pages/lib/ui/Warning.svelte-884343fb.css"
+      "assets/ONSFooter-d31590ce.css"
     ]
   },
   "src/routes/pbf_viewer.svelte": {
@@ -521,22 +591,10 @@
     "src": "src/routes/pbf_viewer.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/pbf_viewer.svelte-90d18e7f.css"
-    ]
-  },
-  "src/routes/profile/index.svelte": {
-    "file": "entries/pages/profile/index.svelte.js",
-    "src": "src/routes/profile/index.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-12fa369c.js"
-    ],
-    "css": [
-      "assets/entries/pages/profile/index.svelte-b7c0799c.css",
-      "assets/ProfileChart.svelte_svelte_type_style_lang-c43c0395.css"
     ]
   },
   "src/routes/tables/BarChart.svelte": {
@@ -544,10 +602,21 @@
     "src": "src/routes/tables/BarChart.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
       "assets/entries/pages/lib/chart/BarChart.svelte-bfe100d4.css"
+    ]
+  },
+  "src/routes/tables/MapAreas.svelte": {
+    "file": "entries/pages/tables/MapAreas.svelte.js",
+    "src": "src/routes/tables/MapAreas.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-f909a211.js"
+    ],
+    "css": [
+      "assets/entries/pages/tables/MapAreas.svelte-e740c628.css"
     ]
   },
   "src/routes/tables/index.svelte": {
@@ -555,13 +624,14 @@
     "src": "src/routes/tables/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_index-34c40784.js",
-      "src/routes/tables/BarChart.svelte"
+      "_index-f909a211.js",
+      "_index-1ceaa7e2.js",
+      "src/routes/tables/BarChart.svelte",
+      "src/routes/tables/MapAreas.svelte"
     ],
     "css": [
-      "assets/entries/pages/tables/index.svelte-c6541cdd.css",
-      "assets/ProfileChart.svelte_svelte_type_style_lang-c43c0395.css"
+      "assets/entries/pages/tables/index.svelte-29a85d98.css",
+      "assets/app-3e485dfa.css"
     ]
   },
   "src/routes/draw/Toolbar/PostcodeSearch.svelte": {
@@ -569,66 +639,73 @@
     "src": "src/routes/draw/Toolbar/PostcodeSearch.svelte",
     "isEntry": true,
     "imports": [
-      "_index-12fa369c.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_PostcodeSearch-fa081eca.js",
-      "_Column-5653abb6.js",
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
+      "_PostcodeSearch-760d5c5a.js",
       "src/routes/draw/mapstore.js",
-      "_index-34c40784.js"
+      "_index-1ceaa7e2.js"
     ]
   },
-  "_index-12fa369c.js": {
-    "file": "chunks/index-12fa369c.js"
+  "_paths-396f020f.js": {
+    "file": "chunks/paths-396f020f.js"
   },
-  "_index-34c40784.js": {
-    "file": "chunks/index-34c40784.js",
+  "_index-f909a211.js": {
+    "file": "chunks/index-f909a211.js"
+  },
+  "_index-1ceaa7e2.js": {
+    "file": "chunks/index-1ceaa7e2.js",
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
-  "_Grid-5e1041d9.js": {
-    "file": "chunks/Grid-5e1041d9.js",
+  "_ONSFooter-222593b3.js": {
+    "file": "chunks/ONSFooter-222593b3.js",
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ],
     "css": [
-      "assets/Grid-0d0c97a9.css"
+      "assets/ONSFooter-d31590ce.css"
     ]
   },
-  "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js": {
-    "file": "chunks/HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
+  "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js": {
+    "file": "chunks/HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
     "imports": [
-      "_index-34c40784.js"
+      "_index-1ceaa7e2.js"
     ],
     "css": [
       "assets/HeaderSearch.svelte_svelte_type_style_lang-0491fceb.css"
     ]
   },
-  "_Button-fdcb5c4f.js": {
-    "file": "chunks/Button-fdcb5c4f.js",
+  "_Button-28b43d3f.js": {
+    "file": "chunks/Button-28b43d3f.js",
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
-  "_Column-5653abb6.js": {
-    "file": "chunks/Column-5653abb6.js",
+  "_Column-c0d99b3f.js": {
+    "file": "chunks/Column-c0d99b3f.js",
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
-  "_AccordionItem-28d6e2a6.js": {
-    "file": "chunks/AccordionItem-28d6e2a6.js",
+  "_AccordionItem-80204f4c.js": {
+    "file": "chunks/AccordionItem-80204f4c.js",
     "imports": [
-      "_index-12fa369c.js"
+      "_index-f909a211.js"
     ]
   },
-  "_PostcodeSearch-fa081eca.js": {
-    "file": "chunks/PostcodeSearch-fa081eca.js",
+  "_PostcodeSearch-760d5c5a.js": {
+    "file": "chunks/PostcodeSearch-760d5c5a.js",
     "imports": [
-      "_index-12fa369c.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-a240f088.js",
-      "_Column-5653abb6.js",
+      "_index-f909a211.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js",
       "src/routes/draw/mapstore.js"
+    ]
+  },
+  "_Grid-6d898cfb.js": {
+    "file": "chunks/Grid-6d898cfb.js",
+    "imports": [
+      "_index-f909a211.js"
     ]
   },
   ".svelte-kit/build/hooks.js": {

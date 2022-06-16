@@ -1,7 +1,9 @@
-import { c as create_ssr_component, s as setContext, h as escape, u as add_styles, i as getContext, o as subscribe, w as null_to_empty, r as each, j as add_attribute, v as validate_component } from "../../../chunks/index-12fa369c.js";
-import { w as writable } from "../../../chunks/index-34c40784.js";
-/* empty css                                                                   */import "danfojs";
+import { c as create_ssr_component, s as setContext, e as escape, f as add_styles, d as getContext, b as subscribe, r as null_to_empty, i as each, h as add_attribute, v as validate_component, w as is_promise, n as noop } from "../../../chunks/index-f909a211.js";
+/* empty css                            */import { w as writable } from "../../../chunks/index-1ceaa7e2.js";
+import * as dfd from "danfojs";
 import BarChart from "./BarChart.svelte.js";
+import MapAreas from "./MapAreas.svelte.js";
+var Cards_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nh2.svelte-4xzjby{\n  display:inline-block\n}\n\n.tiles-grid.svelte-4xzjby{\n  display:grid;\n  width:100%;\n  justify-content:stretch;\n  grid-auto-flow:row dense;\n  margin:8px 0\n}\n\n/* purgecss end ignore */")();
 const css$2 = {
   code: "h2.svelte-4xzjby{display:inline-block}.tiles-grid.svelte-4xzjby{display:grid;width:100%;justify-content:stretch;grid-auto-flow:row dense;margin:8px 0}",
   map: null
@@ -38,6 +40,7 @@ const Cards = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   })}>${slots.default ? slots.default({}) : ``}</div>
 </div>`;
 });
+var Card_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nh3.svelte-1krn9ab{\n  font-size:1.3rem;\n  font-weight:bold\n}\n\n.blank.svelte-1krn9ab{\n  padding:0;\n  line-height:1\n}\n\n.tile.svelte-1krn9ab,.blank.svelte-1krn9ab{\n  color:black;\n  margin:4px 0 0 !important\n}\n\n/* purgecss end ignore */")();
 const css$1 = {
   code: "h3.svelte-1krn9ab{font-size:1.3rem;font-weight:bold}.blank.svelte-1krn9ab{padding:0;line-height:1}.tile.svelte-1krn9ab,.blank.svelte-1krn9ab{color:black;margin:4px 0 0 !important}",
   map: null
@@ -77,41 +80,119 @@ const Card = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   })}</div>` : ``}
 </article>`;
 });
-var index_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nh1.svelte-1o0h2sq{\n  font-size:1.8rem;\n  margin:0 0 -12px 0;\n  font-weight:bold\n}\n\n/* purgecss end ignore */")();
+var index_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nh1.svelte-nzgl4g{\n  font-size:1.8rem;\n  margin:0 0 -12px 0;\n  font-weight:bold\n}\n\ncodes.svelte-nzgl4g{\n  inline-size:150px;\n  overflow-wrap:break-word\n}\n\nb.svelte-nzgl4g{\n  font-weight:bold\n}\n\n/* purgecss end ignore */")();
 const css = {
-  code: "h1.svelte-1o0h2sq{font-size:1.8rem;margin:0 0 -12px 0;font-weight:bold}",
+  code: "h1.svelte-nzgl4g{font-size:1.8rem;margin:0 0 -12px 0;font-weight:bold}codes.svelte-nzgl4g{inline-size:150px;overflow-wrap:break-word}b.svelte-nzgl4g{font-weight:bold}",
   map: null
 };
 const name = "Custom Area Tables";
 const Tables = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  var tables = [];
+  let cache = {};
+  let areas = "";
+  var newdata = { tables: [] };
+  var coordinates = [];
+  var compressed = [];
+  const items = (object) => Object.keys(object).map((key) => [key, object[key]]);
+  async function get_data(data) {
+    var tbls = data.tables.map(async function(table) {
+      if (table.code in cache) {
+        return cache[table.code];
+      } else {
+        return await dfd.readCSV(`${table.download}?date=latest&geography=MAKE|MyCustomArea|${areas},K04000001&rural_urban=0&measures=20100&select=geography_name,cell_name,obs_value`).then((d) => d.setIndex({ column: "geography" })).then((de) => {
+          var mappings = {};
+          var cols = de.columns.filter((d) => d.includes(":"));
+          cols.forEach((d, i) => {
+            mappings[d] = /:(.+);/.exec(d)[1];
+          });
+          return de.loc({
+            rows: de.index.filter((d) => d),
+            columns: cols
+          }).rename(mappings, { inplace: false });
+        }).then((df) => {
+          var cols = df.$columns.filter((d) => !(d.includes("count") || d.includes("All usual") || (d.match(/\;/g) || []).length === 1 || d.includes("sum")));
+          df = df.loc({ columns: cols });
+          var pc = df.div(df.sum(), { axis: 0 });
+          var lists = [];
+          dfd.toJSON(pc, { format: "columns" }).forEach((dict, i) => {
+            for (var key in dict) {
+              lists.push({
+                z: ["CustomArea", "England and Wales"][i],
+                pc: dict[key],
+                column: key
+              });
+            }
+          });
+          cache[table.code] = { name: table.name, data: lists };
+          return cache[table.code];
+        });
+      }
+    });
+    return Promise.all(tbls);
+  }
   $$result.css.add(css);
-  return `
-<h1 class="${"svelte-1o0h2sq"}">${escape(name)}</h1>
+  {
+    console.log(newdata);
+  }
+  return `<h1 class="${"svelte-nzgl4g"}">${escape(name)}</h1>
 ${validate_component(Cards, "Cards").$$render($$result, {}, {}, {
     default: () => {
       return `${validate_component(Card, "Card").$$render($$result, { title: "Area map" }, {}, {
         default: () => {
-          return `<div${add_styles({ "height": `230px`, "width": `100%` })}></div>`;
+          return `${validate_component(MapAreas, "MapAreas").$$render($$result, { minimap: coordinates }, {}, {})}`;
         }
       })}
-  ${each(tables, (tab) => {
-        return `${validate_component(Card, "Card").$$render($$result, { title: tab.name }, {}, {
-          default: () => {
-            return `
 
-      ${validate_component(BarChart, "BarChart").$$render($$result, {
-              xKey: "pc",
-              yKey: "column",
-              zKey: "z",
-              data: tab.data
-            }, {}, {})}
-    `;
-          }
-        })}`;
-      })}`;
+  ${validate_component(Card, "Card").$$render($$result, { title: "Selected Areas" }, {}, {
+        default: () => {
+          return `This section outlines all the different areas codes which have been combined
+    to produce the following report.
+    <br><br>
+    ${each(items(compressed), (item) => {
+            return `<h4 style="${"display:inline"}"><b class="${"svelte-nzgl4g"}">${escape(item[0].toUpperCase())}</b>:</h4>
+      <codes class="${"svelte-nzgl4g"}">${escape(item[1].join(", "))}</codes>
+      <br><br>`;
+          })}`;
+        }
+      })}
+
+
+
+  ${function(__value) {
+        if (is_promise(__value)) {
+          __value.then(null, noop);
+          return ``;
+        }
+        return function(tables) {
+          return `
+
+  ${validate_component(Card, "Card").$$render($$result, { title: "Embed Url" }, {}, {
+            default: () => {
+              return `<code>Click here to copy the embed url to your clipboard: <br>
+      ${escape(JSON.stringify(tables).length)}</code>`;
+            }
+          })}
+    ${each(tables, (tab) => {
+            return `${validate_component(Card, "Card").$$render($$result, { title: tab.name }, {}, {
+              default: () => {
+                return `
+
+        ${validate_component(BarChart, "BarChart").$$render($$result, {
+                  xKey: "pc",
+                  yKey: "column",
+                  zKey: "z",
+                  data: tab.data
+                }, {}, {})}
+      `;
+              }
+            })}`;
+          })}
+  `;
+        }(__value);
+      }(get_data(newdata))}
+  <br>`;
     }
   })}
+
 
 
 `;

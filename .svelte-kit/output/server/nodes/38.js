@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/ui/Icon.svelte.js';
+import * as module from '../entries/pages/lib/layout/partial/Meta.svelte.js';
 
 export { module };
 export const index = 38;
-export const entry = 'pages/lib/ui/Icon.svelte-36c3066e.js';
-export const js = ["pages/lib/ui/Icon.svelte-36c3066e.js","chunks/index-319e1e25.js"];
-export const css = ["assets/pages/lib/ui/Icon.svelte-08257b53.css"];
+export const entry = 'pages/lib/layout/partial/Meta.svelte-aef44f67.js';
+export const js = ["pages/lib/layout/partial/Meta.svelte-aef44f67.js","chunks/index-02c5aad5.js"];
+export const css = [];

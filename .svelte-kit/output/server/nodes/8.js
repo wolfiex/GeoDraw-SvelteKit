@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/draw/Toolbar/ItemAccordion.svelte.js';
+import * as module from '../entries/pages/draw/AreaMap.svelte.js';
 
 export { module };
 export const index = 8;
-export const entry = 'pages/draw/Toolbar/ItemAccordion.svelte-b4a916ad.js';
-export const js = ["pages/draw/Toolbar/ItemAccordion.svelte-b4a916ad.js","chunks/index-319e1e25.js","chunks/AccordionItem-adeb3b85.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js","chunks/index-40cf8ab4.js"];
-export const css = ["assets/pages/draw/Toolbar/ItemAccordion.svelte-2ce14288.css","assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+export const entry = 'pages/draw/AreaMap.svelte-91f22e81.js';
+export const js = ["pages/draw/AreaMap.svelte-91f22e81.js","chunks/index-02c5aad5.js","chunks/AreaMap-d363a238.js","chunks/_commonjsHelpers-db6d3250.js","chunks/mapstore-e417bad7.js","chunks/index-24963876.js"];
+export const css = ["assets/AreaMap-f456b717.css"];

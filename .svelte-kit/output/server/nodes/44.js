@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/tables/BarChart.svelte.js';
+import * as module from '../entries/pages/lib/ui/Select.svelte.js';
 
 export { module };
 export const index = 44;
-export const entry = 'pages/tables/BarChart.svelte-9b5d792e.js';
-export const js = ["pages/tables/BarChart.svelte-9b5d792e.js","chunks/index-319e1e25.js"];
-export const css = ["assets/pages/lib/chart/BarChart.svelte-0b676b41.css"];
+export const entry = 'pages/lib/ui/Select.svelte-02f1ae5a.js';
+export const js = ["pages/lib/ui/Select.svelte-02f1ae5a.js","chunks/index-02c5aad5.js"];
+export const css = ["assets/pages/lib/ui/Select.svelte-087185fb.css"];

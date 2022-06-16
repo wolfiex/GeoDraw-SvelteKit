@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/draw/AreaMap.svelte.js';
+import * as module from '../entries/pages/draw/__layout@reset.svelte.js';
 
 export { module };
 export const index = 4;
-export const entry = 'pages/draw/AreaMap.svelte-cf470eb5.js';
-export const js = ["pages/draw/AreaMap.svelte-cf470eb5.js","chunks/index-319e1e25.js","chunks/AreaMap-bc117a47.js","chunks/_commonjsHelpers-db6d3250.js","chunks/mapstore-800f66a3.js","chunks/index-40cf8ab4.js"];
-export const css = ["assets/AreaMap-f456b717.css"];
+export const entry = 'pages/draw/__layout@reset.svelte-0957c120.js';
+export const js = ["pages/draw/__layout@reset.svelte-0957c120.js","chunks/index-02c5aad5.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-e39308b2.js","chunks/index-24963876.js"];
+export const css = ["assets/pages/draw/__layout@reset.svelte-8f5ac660.css","assets/style-69f0818d.css","assets/g10-6c42276b.css","assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

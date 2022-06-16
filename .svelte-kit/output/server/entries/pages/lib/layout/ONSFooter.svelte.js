@@ -1,4 +1,4 @@
-import { c as create_ssr_component, h as escape } from "../../../../chunks/index-12fa369c.js";
+import { c as create_ssr_component, e as escape } from "../../../../chunks/index-f909a211.js";
 const ONSFooter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { lang = "en" } = $$props;
   let { baseurl = "//www.ons.gov.uk" } = $$props;

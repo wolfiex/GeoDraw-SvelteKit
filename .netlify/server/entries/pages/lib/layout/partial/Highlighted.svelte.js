@@ -20,17 +20,17 @@ __export(stdin_exports, {
   default: () => Highlighted
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_12fa369c = require("../../../../../chunks/index-12fa369c.js");
-const Highlighted = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_f909a211 = require("../../../../../chunks/index-f909a211.js");
+const Highlighted = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
   let { title = "Highlighted content" } = $$props;
   let { links = [] } = $$props;
   if ($$props.title === void 0 && $$bindings.title && title !== void 0)
     $$bindings.title(title);
   if ($$props.links === void 0 && $$bindings.links && links !== void 0)
     $$bindings.links(links);
-  return `<div class="${"nav-secondary--border-left-lg col col--md-47 col--lg-19 col--lg-offset-2 padding-left margin-top-lg--3"}"><h2 class="${"margin-top-lg--1"}">${(0, import_index_12fa369c.h)(title)}</h2>
-	<ul class="${"list--neutral margin-top--negative-one-fix"}">${(0, import_index_12fa369c.r)(links, (link) => {
-    return `<li><a${(0, import_index_12fa369c.j)("href", link.url, 0)}${(0, import_index_12fa369c.j)("data-gtm-title", link.label, 0)} data-gtm-type="${"highlighted-links"}">${(0, import_index_12fa369c.h)(link.label)}</a>
+  return `<div class="${"nav-secondary--border-left-lg col col--md-47 col--lg-19 col--lg-offset-2 padding-left margin-top-lg--3"}"><h2 class="${"margin-top-lg--1"}">${(0, import_index_f909a211.e)(title)}</h2>
+	<ul class="${"list--neutral margin-top--negative-one-fix"}">${(0, import_index_f909a211.i)(links, (link) => {
+    return `<li><a${(0, import_index_f909a211.h)("href", link.url, 0)}${(0, import_index_f909a211.h)("data-gtm-title", link.label, 0)} data-gtm-type="${"highlighted-links"}">${(0, import_index_f909a211.e)(link.label)}</a>
 		</li>`;
   })}</ul></div>`;
 });

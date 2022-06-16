@@ -20,65 +20,59 @@ __export(stdin_exports, {
   default: () => EditButtons
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_12fa369c = require("../../../../chunks/index-12fa369c.js");
-var import_HeaderSearch_svelte_svelte_type_style_lang_a240f088 = require("../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-a240f088.js");
-var import_Button_fdcb5c4f = require("../../../../chunks/Button-fdcb5c4f.js");
+var import_index_f909a211 = require("../../../../chunks/index-f909a211.js");
+var import_HeaderSearch_svelte_svelte_type_style_lang_c0700dd8 = require("../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js");
+var import_Button_28b43d3f = require("../../../../chunks/Button-28b43d3f.js");
 var import_flatpickr = require("flatpickr");
-var import_Column_5653abb6 = require("../../../../chunks/Column-5653abb6.js");
+var import_Column_c0d99b3f = require("../../../../chunks/Column-c0d99b3f.js");
 var import_mapstore = require("../../../endpoints/draw/mapstore.js");
-var import_index_34c40784 = require("../../../../chunks/index-34c40784.js");
-const EditButtons = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_1ceaa7e2 = require("../../../../chunks/index-1ceaa7e2.js");
+const EditButtons = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
   let $$unsubscribe_add_mode;
   let $selected, $$unsubscribe_selected;
-  $$unsubscribe_add_mode = (0, import_index_12fa369c.o)(import_mapstore.add_mode, (value) => value);
-  $$unsubscribe_selected = (0, import_index_12fa369c.o)(import_mapstore.selected, (value) => $selected = value);
+  $$unsubscribe_add_mode = (0, import_index_f909a211.b)(import_mapstore.add_mode, (value) => value);
+  $$unsubscribe_selected = (0, import_index_f909a211.b)(import_mapstore.selected, (value) => $selected = value);
   let disabled = "false";
   function init() {
     import_mapstore.draw_type.subscribe((e) => {
       disabled = e === "click";
     });
   }
-  (0, import_index_12fa369c.q)(init);
+  (0, import_index_f909a211.u)(init);
   $$unsubscribe_add_mode();
   $$unsubscribe_selected();
-  return `<main><div>${(0, import_index_12fa369c.v)(import_Column_5653abb6.R, "Row").$$render($$result, {}, {}, {
+  return `<main><div>${(0, import_index_f909a211.v)(import_Column_c0d99b3f.R, "Row").$$render($$result, {}, {}, {
     default: () => {
-      return `${(0, import_index_12fa369c.v)(import_Column_5653abb6.C, "Column").$$render($$result, {}, {}, {
+      return `${(0, import_index_f909a211.v)(import_Column_c0d99b3f.C, "Column").$$render($$result, {}, {}, {
         default: () => {
-          return `${(0, import_index_12fa369c.v)(import_Button_fdcb5c4f.B, "Button").$$render($$result, {
+          return `${(0, import_index_f909a211.v)(import_Button_28b43d3f.B, "Button").$$render($$result, {
             style: "margin-left:0px",
             disabled,
             class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
           }, {}, {
             default: () => {
               return `${`<span class="${"bx--assistive-text"}">Additive Selection</span>
-            <svg xmlns="${"http://www.w3.org/2000/svg"}" id="${"icon"}" width="${"32"}" height="${"32"}" viewBox="${"0 0 32 32"}"><defs><style>.cls-1 {
-                    fill: none;
-                  }
-                </style></defs><path d="${"M28,10H22V4a2.0025,2.0025,0,0,0-2-2H4A2.0025,2.0025,0,0,0,2,4V20a2.0025,2.0025,0,0,0,2,2h6v6a2.0025,2.0025,0,0,0,2,2H28a2.0025,2.0025,0,0,0,2-2V12A2.0025,2.0025,0,0,0,28,10ZM4,20V4H20v6H12a2.0025,2.0025,0,0,0-2,2v8Zm8,8V22h8a2.0025,2.0025,0,0,0,2-2V12h6V28Z"}"></path><rect id="${"_Transparent_Rectangle_"}" data-name="${"<Transparent Rectangle>"}" class="${"cls-1"}" width="${"32"}" height="${"32"}"></rect></svg>`}`;
+            <svg width="${"24"}" height="${"24"}" viewBox="${"0 0 48 48"}" fill="${"whitesmoke"}" xmlns="${"http://www.w3.org/2000/svg"}"><path d="${"m34.7925 38.8834 4.3438-4.3438c.3187-.3187.8637-.093.8637.3577v4.3438c0 .2794-.2265.5059-.506.5059h-4.3437c-.4508 0-.6765-.5449-.3578-.8636ZM17.7889 27.2885c.4179 0 .7635-.1366 1.0368-.4098.2732-.2733.4099-.6189.4099-1.0368v-6.5581h6.6545c.3858 0 .7153-.1366.9886-.4099.2732-.2732.4098-.6188.4098-1.0367 0-.418-.1366-.7636-.4098-1.0368-.2733-.2733-.6189-.4099-1.0368-.4099h-6.6063V9.39842c0-.38577-.1367-.71528-.4099-.98854C18.5524 8.13663 18.2068 8 17.7889 8c-.4179 0-.7635.13663-1.0367.40988-.2733.27326-.4099.61884-.4099 1.03676v6.94386H9.39842c-.38577 0-.71528.1366-.98854.4099C8.13663 17.0736 8 17.4192 8 17.8372c0 .4179.13663.7635.40988 1.0367.27326.2733.61884.4099 1.03676.4099h6.89566v6.6063c0 .3858.1366.7153.4099.9886.2732.2732.6188.4098 1.0367.4098Z"}" fill="${"#000"}"></path></svg>`}`;
             }
           })}
 
-        ${(0, import_index_12fa369c.v)(import_Button_fdcb5c4f.B, "Button").$$render($$result, {
+        ${(0, import_index_f909a211.v)(import_Button_28b43d3f.B, "Button").$$render($$result, {
             disabled: $selected.length < 2,
             style: "margin-left:0px",
             class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
           }, {}, {
             default: () => {
               return `<span class="${"bx--assistive-text"}">Undo</span>
-          <svg xmlns="${"http://www.w3.org/2000/svg"}" id="${"icon"}" viewBox="${"0 0 32 32"}"><defs><style>.cls-1 {
-                  fill: none;
-                }
-              </style></defs><title>reset</title><path d="${"M18,28A12,12,0,1,0,6,16v6.2L2.4,18.6,1,20l6,6,6-6-1.4-1.4L8,22.2V16H8A10,10,0,1,1,18,26Z"}"></path><rect id="${"_Transparent_Rectangle_"}" data-name="${"<Transparent Rectangle>"}" class="${"cls-1"}" width="${"32"}" height="${"32"}"></rect></svg>`;
+          <svg xmlns="${"http://www.w3.org/2000/svg"}" xmlns:xlink="${"http://www.w3.org/1999/xlink"}" version="${"1.1"}" id="${"mdi-undo-variant"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}"><path d="${"M13.5,7A6.5,6.5 0 0,1 20,13.5A6.5,6.5 0 0,1 13.5,20H10V18H13.5C16,18 18,16 18,13.5C18,11 16,9 13.5,9H7.83L10.91,12.09L9.5,13.5L4,8L9.5,2.5L10.92,3.91L7.83,7H13.5M6,18H8V20H6V18Z"}"></path></svg>`;
             }
           })}`;
         }
       })}`;
     }
   })}
-    ${(0, import_index_12fa369c.v)(import_Column_5653abb6.R, "Row").$$render($$result, {}, {}, {
+    ${(0, import_index_f909a211.v)(import_Column_c0d99b3f.R, "Row").$$render($$result, {}, {}, {
     default: () => {
-      return `${(0, import_index_12fa369c.v)(import_Column_5653abb6.C, "Column").$$render($$result, {}, {}, {
+      return `${(0, import_index_f909a211.v)(import_Column_c0d99b3f.C, "Column").$$render($$result, {}, {}, {
         default: () => {
           return `Edit Selection`;
         }

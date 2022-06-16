@@ -1,3 +1,6 @@
+./sk-build-profile
+./sk-build-profile/*
+
 # Logs
 logs
 *.log

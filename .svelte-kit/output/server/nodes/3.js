@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/tables/__layout-tables.svelte.js';
+import * as module from '../entries/pages/build/__layout@reset.svelte.js';
 
 export { module };
 export const index = 3;
-export const entry = 'pages/tables/__layout-tables.svelte-9195caef.js';
-export const js = ["pages/tables/__layout-tables.svelte-9195caef.js","chunks/index-319e1e25.js"];
-export const css = ["assets/pages/profile/__layout-profile.svelte-2d183a43.css"];
+export const entry = 'pages/build/__layout@reset.svelte-ed55f17d.js';
+export const js = ["pages/build/__layout@reset.svelte-ed55f17d.js","chunks/index-02c5aad5.js","chunks/paths-c0fc83a9.js","chunks/ONSFooter-3cd04a19.js"];
+export const css = ["assets/ONSFooter-87ea6b05.css"];

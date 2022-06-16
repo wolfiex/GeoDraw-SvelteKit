@@ -20,13 +20,14 @@ __export(stdin_exports, {
   default: () => AreaMap
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_12fa369c = require("../../../chunks/index-12fa369c.js");
+var import_index_f909a211 = require("../../../chunks/index-f909a211.js");
 var import_maplibre_gl = require("maplibre-gl");
 var import_MapDraw = require("../../endpoints/draw/MapDraw.js");
 var import_mapstore = require("../../endpoints/draw/mapstore.js");
 var import_tilebelt = require("@mapbox/tilebelt");
 var import_union = require("@turf/union");
-var import_index_34c40784 = require("../../../chunks/index-34c40784.js");
+var import_dissolve = require("@turf/dissolve");
+var import_index_1ceaa7e2 = require("../../../chunks/index-1ceaa7e2.js");
 var mapboxGl = /* @__PURE__ */ (() => `/* purgecss start ignore */
 
 .mapboxgl-map{
@@ -781,18 +782,18 @@ const css = {
   code: "main.svelte-2r8wq7{position:absolute;top:0;left:0;margin:auto}",
   map: null
 };
-const AreaMap = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots) => {
+const AreaMap = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
   let $draw_type, $$unsubscribe_draw_type;
   let $mapobject, $$unsubscribe_mapobject;
   let $mapfunctions, $$unsubscribe_mapfunctions;
   let $maplayer, $$unsubscribe_maplayer;
   let $mapsource, $$unsubscribe_mapsource;
-  $$unsubscribe_draw_type = (0, import_index_12fa369c.o)(import_mapstore.draw_type, (value) => $draw_type = value);
-  $$unsubscribe_mapobject = (0, import_index_12fa369c.o)(import_mapstore.mapobject, (value) => $mapobject = value);
-  $$unsubscribe_mapfunctions = (0, import_index_12fa369c.o)(import_mapstore.mapfunctions, (value) => $mapfunctions = value);
-  $$unsubscribe_maplayer = (0, import_index_12fa369c.o)(import_mapstore.maplayer, (value) => $maplayer = value);
-  $$unsubscribe_mapsource = (0, import_index_12fa369c.o)(import_mapstore.mapsource, (value) => $mapsource = value);
-  (0, import_index_12fa369c.p)();
+  $$unsubscribe_draw_type = (0, import_index_f909a211.b)(import_mapstore.draw_type, (value) => $draw_type = value);
+  $$unsubscribe_mapobject = (0, import_index_f909a211.b)(import_mapstore.mapobject, (value) => $mapobject = value);
+  $$unsubscribe_mapfunctions = (0, import_index_f909a211.b)(import_mapstore.mapfunctions, (value) => $mapfunctions = value);
+  $$unsubscribe_maplayer = (0, import_index_f909a211.b)(import_mapstore.maplayer, (value) => $maplayer = value);
+  $$unsubscribe_mapsource = (0, import_index_f909a211.b)(import_mapstore.mapsource, (value) => $mapsource = value);
+  (0, import_index_f909a211.t)();
   var loading = true;
   let webgl_canvas;
   let { drawing_tools = false } = $$props;
@@ -825,7 +826,6 @@ const AreaMap = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slo
     });
     if (drawing_tools)
       await (0, import_MapDraw.init_draw)();
-    $mapobject.fitBounds(import_mapstore.location.bounds, { padding: 20 });
     import_mapstore.draw_type.subscribe(() => {
       console.warn("------dt-------", $draw_type);
     });
@@ -847,6 +847,6 @@ const AreaMap = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slo
   $$unsubscribe_maplayer();
   $$unsubscribe_mapsource();
   return `
-<main class="${"svelte-2r8wq7"}"><div class="${"mapboxgl-canvas"}" tabindex="${"0"}" aria-label="${"Map"}" id="${"mapcontainer"}" style="${"width: " + (0, import_index_12fa369c.h)(width) + "; height: " + (0, import_index_12fa369c.h)(height) + "; opacity:" + (0, import_index_12fa369c.h)(loading ? 0.4 : 1)}"${(0, import_index_12fa369c.j)("this", webgl_canvas, 0)}></div>
+<main class="${"svelte-2r8wq7"}"><div class="${"mapboxgl-canvas"}" tabindex="${"0"}" aria-label="${"Map"}" id="${"mapcontainer"}" style="${"width: " + (0, import_index_f909a211.e)(width) + "; height: " + (0, import_index_f909a211.e)(height) + "; opacity:" + (0, import_index_f909a211.e)(loading ? 0.4 : 1)}"${(0, import_index_f909a211.h)("this", webgl_canvas, 0)}></div>
 </main>`;
 });

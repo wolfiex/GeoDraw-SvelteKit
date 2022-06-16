@@ -26,16 +26,17 @@ __export(stdin_exports, {
   simplify_query: () => simplify_query
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_12fa369c = require("../../../chunks/index-12fa369c.js");
+var import_index_f909a211 = require("../../../chunks/index-f909a211.js");
 var import_mapstore = require("./mapstore.js");
 var import_tilebelt = require("@mapbox/tilebelt");
 var import_maplibre_gl = require("maplibre-gl");
 var import_union = __toESM(require("@turf/union"));
-var import_index_34c40784 = require("../../../chunks/index-34c40784.js");
+var import_dissolve = require("@turf/dissolve");
+var import_index_1ceaa7e2 = require("../../../chunks/index-1ceaa7e2.js");
 var simplify = {};
 let coordinates = [];
 async function init_draw() {
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).addSource("drawsrc", {
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).addSource("drawsrc", {
     type: "geojson",
     data: {
       type: "Feature",
@@ -45,7 +46,7 @@ async function init_draw() {
       }
     }
   });
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).addLayer({
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).addLayer({
     id: "draw_layer",
     type: "line",
     source: "drawsrc",
@@ -55,7 +56,7 @@ async function init_draw() {
       "line-dasharray": [2, 1]
     }
   });
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).addLayer({
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).addLayer({
     id: "circle_layer",
     type: "circle",
     source: "drawsrc",
@@ -70,13 +71,13 @@ async function init_draw() {
   });
   import_mapstore.draw_type.subscribe(() => {
     coordinates = [];
-    circle_paint(clear = (0, import_index_12fa369c.g)(import_mapstore.draw_type) != "radius");
+    circle_paint((0, import_index_f909a211.g)(import_mapstore.draw_type) != "radius");
   });
   import_mapstore.draw_type.set("radius");
   import_mapstore.radiusInKm.subscribe(circle_paint);
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).on("click", "bounds", function boundclick(e) {
-    console.log(e.lngLat, (0, import_index_12fa369c.g)(import_mapstore.draw_type));
-    switch ((0, import_index_12fa369c.g)(import_mapstore.draw_type)) {
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).on("click", "bounds", function boundclick(e) {
+    console.log(e.lngLat, (0, import_index_f909a211.g)(import_mapstore.draw_type));
+    switch ((0, import_index_f909a211.g)(import_mapstore.draw_type)) {
       case "radius":
         draw_radius(e.lngLat);
         break;
@@ -88,11 +89,11 @@ async function init_draw() {
         break;
     }
   });
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).on("zoomend", function() {
-    import_mapstore.draw_enabled.set((0, import_index_12fa369c.g)(import_mapstore.mapobject).getZoom() < 10);
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).on("zoomend", function() {
+    import_mapstore.draw_enabled.set((0, import_index_f909a211.g)(import_mapstore.mapobject).getZoom() < 10);
   });
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).on("mousemove", "bounds", function move(e) {
-    switch ((0, import_index_12fa369c.g)(import_mapstore.draw_type)) {
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).on("mousemove", "bounds", function move(e) {
+    switch ((0, import_index_f909a211.g)(import_mapstore.draw_type)) {
       case "radius":
         circle_fast(e.lngLat);
         break;
@@ -102,29 +103,20 @@ async function init_draw() {
     }
   });
 }
-function clear() {
-  change_data("drawsrc", {
-    type: "Feature",
-    geometry: {
-      type: "Polygon",
-      coordinates: []
-    }
-  });
-}
 function change_data(layer, data) {
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).getSource(layer).setData(data);
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).getSource(layer).setData(data);
 }
 function update(coordinates2) {
   const bbox = getbbox(coordinates2);
-  const features = (0, import_index_12fa369c.g)(import_mapstore.mapobject).queryRenderedFeatures(bbox.map((d) => (0, import_index_12fa369c.g)(import_mapstore.mapobject).project(d)), { layers: ["centroids"] });
+  const features = (0, import_index_f909a211.g)(import_mapstore.mapobject).queryRenderedFeatures(bbox.map((d) => (0, import_index_f909a211.g)(import_mapstore.mapobject).project(d)), { layers: ["centroids"] });
   const oa = features.filter((i) => inPolygon(coordinates2, i.geometry.coordinates)).map((d) => d.properties.id);
-  var current = (0, import_index_12fa369c.g)(import_mapstore.selected);
+  var current = (0, import_index_f909a211.g)(import_mapstore.selected);
   var last = current[current.length - 1];
   bbox.map((d) => {
     last.lat.push(d[1]);
     last.lng.push(d[0]);
   });
-  if ((0, import_index_12fa369c.g)(import_mapstore.add_mode)) {
+  if ((0, import_index_f909a211.g)(import_mapstore.add_mode)) {
     current.push({
       oa: /* @__PURE__ */ new Set([...last.oa, ...oa]),
       lng: extent(last.lng),
@@ -138,11 +130,11 @@ function update(coordinates2) {
     });
   }
   import_mapstore.selected.set(current);
-  console.warn("updated---", (0, import_index_12fa369c.g)(import_mapstore.selected), (0, import_index_12fa369c.g)(import_mapstore.add_mode));
+  console.warn("updated---", (0, import_index_f909a211.g)(import_mapstore.selected), (0, import_index_f909a211.g)(import_mapstore.add_mode));
 }
 function draw_point(e) {
   const oalist = new Set(e.features.map((d) => d.properties.oa));
-  const current = (0, import_index_12fa369c.g)(import_mapstore.selected);
+  const current = (0, import_index_f909a211.g)(import_mapstore.selected);
   var last = Object.assign({}, current[current.length - 1]);
   last.lat.push(e.lngLat.lat);
   last.lng.push(e.lngLat.lng);
@@ -168,8 +160,8 @@ function inPolygon(polygon, point) {
   return inside;
 }
 function geomean(c1, c2, thresh = 30) {
-  c1 = (0, import_index_12fa369c.g)(import_mapstore.mapobject).project(c1);
-  c2 = (0, import_index_12fa369c.g)(import_mapstore.mapobject).project(c2);
+  c1 = (0, import_index_f909a211.g)(import_mapstore.mapobject).project(c1);
+  c2 = (0, import_index_f909a211.g)(import_mapstore.mapobject).project(c2);
   return Math.sqrt((c1.x - c2.x) ** 2 + (c1.y - c2.y) ** 2) < thresh;
 }
 function getbbox(coords) {
@@ -184,7 +176,7 @@ function draw_radius(center, points = 20) {
     latitude: center.lat,
     longitude: center.lng
   };
-  var km = (0, import_index_12fa369c.g)(import_mapstore.radiusInKm) / 2;
+  var km = (0, import_index_f909a211.g)(import_mapstore.radiusInKm) / 2;
   var coordinates2 = [];
   var distanceX = km / (111.32 * Math.cos(coords.latitude * Math.PI / 180));
   var distanceY = km / 110.574;
@@ -209,18 +201,18 @@ function circle_fast(center) {
   change_data("drawsrc", geo);
   return geo;
 }
-function circle_paint(clear2 = false) {
-  console.warn("-circle", clear2);
+function circle_paint(clear = false) {
+  console.warn("-circle", clear);
   if (import_mapstore.mapobject) {
-    if (clear2 == true) {
-      return (0, import_index_12fa369c.g)(import_mapstore.mapobject).setPaintProperty("circle_layer", "circle-radius", 5);
+    if (clear == true) {
+      return (0, import_index_f909a211.g)(import_mapstore.mapobject).setPaintProperty("circle_layer", "circle-radius", 5);
     }
     const m2p = (meters, latitude) => meters / 0.075 / Math.cos(latitude * Math.PI / 180);
-    (0, import_index_12fa369c.g)(import_mapstore.mapobject).setPaintProperty("circle_layer", "circle-radius", {
+    (0, import_index_f909a211.g)(import_mapstore.mapobject).setPaintProperty("circle_layer", "circle-radius", {
       base: 2,
       stops: [
         [0, 0],
-        [22, m2p((0, import_index_12fa369c.g)(import_mapstore.radiusInKm) * 2e3, (0, import_index_12fa369c.g)(import_mapstore.mapobject).getCenter().lat)]
+        [22, m2p((0, import_index_f909a211.g)(import_mapstore.radiusInKm) * 2e3, (0, import_index_f909a211.g)(import_mapstore.mapobject).getCenter().lat)]
       ]
     });
   }
@@ -230,9 +222,8 @@ function draw_polygon(e) {
     if (geomean(coordinates[0], [e.lng, e.lat])) {
       coordinates.push(coordinates[0]);
       update(coordinates);
-      console.log("--saving polygon", (0, import_index_12fa369c.g)(import_mapstore.selected));
+      console.log("--saving polygon", (0, import_index_f909a211.g)(import_mapstore.selected));
       coordinates = [];
-      clear();
       return 1;
     }
   }
@@ -259,7 +250,7 @@ function polygon_fast(e) {
   change_data("drawsrc", geo);
 }
 async function simplify_query() {
-  const last = (0, import_index_12fa369c.g)(import_mapstore.selected)[(0, import_index_12fa369c.g)(import_mapstore.selected).length - 1];
+  const last = (0, import_index_f909a211.g)(import_mapstore.selected)[(0, import_index_f909a211.g)(import_mapstore.selected).length - 1];
   const bbox = [last.lng[0], last.lat[0], last.lng[1], last.lat[1]];
   const [x, y, z] = (0, import_tilebelt.bboxToTile)(bbox);
   if (z === 28)
@@ -298,15 +289,25 @@ async function simplify_query() {
   lsoa = [...lsoa].filter((e) => !rmlsoa.has(e));
   msoa = msoa.map((d) => d[0]);
   console.warn("lsoa", tile, msoa, oa, lsoa, last.oa);
-  (0, import_index_12fa369c.g)(import_mapstore.mapobject).fitBounds(bbox);
+  (0, import_index_f909a211.g)(import_mapstore.mapobject).fitBounds(bbox, { padding: 200, animation: false, linear: true, duration: 200 });
   const oalist = [...last.oa];
-  const features = (0, import_index_12fa369c.g)(import_mapstore.mapobject).queryRenderedFeatures({
+  await new Promise((res) => setTimeout(res, 500));
+  const features = (0, import_index_f909a211.g)(import_mapstore.mapobject).queryRenderedFeatures({
     layers: ["bounds"]
   }).filter((d) => oalist.includes(d.properties.oa));
-  let merge = (0, import_union.default)(...features);
+  console.warn("features", features, (0, import_index_f909a211.g)(import_mapstore.mapobject).queryRenderedFeatures({
+    layers: ["bounds"]
+  }));
+  if (!features.length) {
+    return false;
+  }
+  let merge = features[0];
+  for (let i = 1; i < features.length; i++) {
+    merge = (0, import_union.default)(merge, features[i]);
+  }
   merge.properties = { tile, msoa, oa, lsoa, original: oalist.length };
   console.log("---merge---", merge);
-  return merge || {};
+  return merge;
 }
 function extent(values, valueof) {
   let min;

@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/layout/partial/CardSection.svelte.js';
+import * as module from '../entries/pages/lib/layout/Section.svelte.js';
 
 export { module };
 export const index = 29;
-export const entry = 'pages/lib/layout/partial/CardSection.svelte-cb6584bc.js';
-export const js = ["pages/lib/layout/partial/CardSection.svelte-cb6584bc.js","chunks/index-319e1e25.js"];
-export const css = ["assets/pages/lib/layout/partial/CardSection.svelte-174b69c8.css"];
+export const entry = 'pages/lib/layout/Section.svelte-e63cf8de.js';
+export const js = ["pages/lib/layout/Section.svelte-e63cf8de.js","chunks/index-02c5aad5.js"];
+export const css = [];

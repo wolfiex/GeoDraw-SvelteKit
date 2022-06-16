@@ -1,4 +1,4 @@
-import { c as create_ssr_component, j as add_attribute, h as escape } from "../../../../chunks/index-12fa369c.js";
+import { c as create_ssr_component, h as add_attribute, e as escape } from "../../../../chunks/index-f909a211.js";
 const Banner = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { title = "Banner title" } = $$props;
   let { label = "This is a description of the link" } = $$props;

@@ -1,10 +1,11 @@
-import { c as create_ssr_component, o as subscribe, p as createEventDispatcher, h as escape, j as add_attribute } from "../../../chunks/index-12fa369c.js";
+import { c as create_ssr_component, b as subscribe, t as createEventDispatcher, e as escape, h as add_attribute } from "../../../chunks/index-f909a211.js";
 import "maplibre-gl";
 import { init_draw } from "../../endpoints/draw/MapDraw.js";
-import { draw_type, mapobject, mapfunctions, maplayer, mapsource, location } from "../../endpoints/draw/mapstore.js";
+import { draw_type, mapobject, mapfunctions, maplayer, mapsource } from "../../endpoints/draw/mapstore.js";
 import "@mapbox/tilebelt";
 import "@turf/union";
-import "../../../chunks/index-34c40784.js";
+import "@turf/dissolve";
+import "../../../chunks/index-1ceaa7e2.js";
 var mapboxGl = /* @__PURE__ */ (() => `/* purgecss start ignore */
 
 .mapboxgl-map{
@@ -803,7 +804,6 @@ const AreaMap = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     });
     if (drawing_tools)
       await init_draw();
-    $mapobject.fitBounds(location.bounds, { padding: 20 });
     draw_type.subscribe(() => {
       console.warn("------dt-------", $draw_type);
     });

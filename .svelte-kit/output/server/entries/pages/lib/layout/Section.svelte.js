@@ -1,4 +1,4 @@
-import { c as create_ssr_component, j as add_attribute } from "../../../../chunks/index-12fa369c.js";
+import { c as create_ssr_component, h as add_attribute } from "../../../../chunks/index-f909a211.js";
 const Section = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { backlink = false } = $$props;
   let { hr = false } = $$props;

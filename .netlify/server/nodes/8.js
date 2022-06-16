@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/Toolbar/ItemAccordion.svelte.js"));
+var module2 = __toESM(require("../entries/pages/draw/AreaMap.svelte.js"));
 const index = 8;
-const entry = "pages/draw/Toolbar/ItemAccordion.svelte-b4a916ad.js";
-const js = ["pages/draw/Toolbar/ItemAccordion.svelte-b4a916ad.js", "chunks/index-319e1e25.js", "chunks/AccordionItem-adeb3b85.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js", "chunks/index-40cf8ab4.js"];
-const css = ["assets/pages/draw/Toolbar/ItemAccordion.svelte-2ce14288.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+const entry = "pages/draw/AreaMap.svelte-91f22e81.js";
+const js = ["pages/draw/AreaMap.svelte-91f22e81.js", "chunks/index-02c5aad5.js", "chunks/AreaMap-d363a238.js", "chunks/_commonjsHelpers-db6d3250.js", "chunks/mapstore-e417bad7.js", "chunks/index-24963876.js"];
+const css = ["assets/AreaMap-f456b717.css"];

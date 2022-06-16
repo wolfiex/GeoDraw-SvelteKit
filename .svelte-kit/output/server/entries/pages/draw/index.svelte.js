@@ -1,125 +1,25 @@
-import { c as create_ssr_component, b as compute_rest_props, d as spread, e as escape_object, r as each, k as add_classes, v as validate_component, j as add_attribute, m as missing_component, f as escape_attribute_value, l as compute_slots, s as setContext, h as escape, p as createEventDispatcher, o as subscribe, t as is_promise, n as noop } from "../../../chunks/index-12fa369c.js";
-import { G as Grid } from "../../../chunks/Grid-5e1041d9.js";
-import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-a240f088.js";
+import { c as create_ssr_component, j as compute_rest_props, k as spread, l as escape_attribute_value, o as escape_object, v as validate_component, m as missing_component, e as escape, t as createEventDispatcher, p as add_classes, h as add_attribute, b as subscribe, w as is_promise, n as noop } from "../../../chunks/index-f909a211.js";
+/* empty css                            */import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js";
+import { B as Button } from "../../../chunks/Button-28b43d3f.js";
 import "flatpickr";
-import { R as Row, C as Column } from "../../../chunks/Column-5653abb6.js";
-import { C as Close20, P as PostcodeSearch } from "../../../chunks/PostcodeSearch-fa081eca.js";
+import { G as Grid } from "../../../chunks/Grid-6d898cfb.js";
+import { R as Row, C as Column } from "../../../chunks/Column-c0d99b3f.js";
+import { C as Close20 } from "../../../chunks/PostcodeSearch-760d5c5a.js";
 import DrawButtons from "./Toolbar/DrawButtons.svelte.js";
 import EditButtons from "./Toolbar/EditButtons.svelte.js";
 import ProgressButtons from "./Toolbar/ProgressButtons.svelte.js";
 import InfoBox from "./Toolbar/InfoBox.svelte.js";
+import { mapobject, selected, mapfunctions, maplayer, mapsource, query, draw_enabled, draw_type, radiusInKm } from "../../endpoints/draw/mapstore.js";
 import ItemAccordion from "./Toolbar/ItemAccordion.svelte.js";
 import AreaMap from "./AreaMap.svelte.js";
-import { mapobject, selected, mapfunctions, maplayer, mapsource, draw_enabled, draw_type, radiusInKm, query } from "../../endpoints/draw/mapstore.js";
 import "@mapbox/tilebelt";
 import "maplibre-gl";
 import "@turf/union";
-import "../../../chunks/index-34c40784.js";
-import "../../../chunks/Button-fdcb5c4f.js";
+import "@turf/dissolve";
+import "../../../chunks/index-1ceaa7e2.js";
 import "postcss";
-import "../../../chunks/AccordionItem-28d6e2a6.js";
+import "../../../chunks/AccordionItem-80204f4c.js";
 import "../../endpoints/draw/MapDraw.js";
-const BreadcrumbSkeleton = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $$restProps = compute_rest_props($$props, ["noTrailingSlash", "count"]);
-  let { noTrailingSlash = false } = $$props;
-  let { count = 3 } = $$props;
-  if ($$props.noTrailingSlash === void 0 && $$bindings.noTrailingSlash && noTrailingSlash !== void 0)
-    $$bindings.noTrailingSlash(noTrailingSlash);
-  if ($$props.count === void 0 && $$bindings.count && count !== void 0)
-    $$bindings.count(count);
-  return `
-<div${spread([escape_object($$restProps)], {
-    classes: "bx--skeleton bx--breadcrumb " + (noTrailingSlash ? "bx--breadcrumb--no-trailing-slash" : "")
-  })}>${each(Array.from({ length: count }, (_, i) => i), (item) => {
-    return `<div${add_classes("bx--breadcrumb-item".trim())}><span${add_classes("bx--link".trim())}>\xA0</span>
-    </div>`;
-  })}</div>`;
-});
-const Breadcrumb = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $$restProps = compute_rest_props($$props, ["noTrailingSlash", "skeleton"]);
-  let { noTrailingSlash = false } = $$props;
-  let { skeleton = false } = $$props;
-  if ($$props.noTrailingSlash === void 0 && $$bindings.noTrailingSlash && noTrailingSlash !== void 0)
-    $$bindings.noTrailingSlash(noTrailingSlash);
-  if ($$props.skeleton === void 0 && $$bindings.skeleton && skeleton !== void 0)
-    $$bindings.skeleton(skeleton);
-  return `
-${skeleton ? `${validate_component(BreadcrumbSkeleton, "BreadcrumbSkeleton").$$render($$result, Object.assign({ noTrailingSlash }, $$restProps), {}, {})}` : `<nav${spread([{ "aria-label": "Breadcrumb" }, escape_object($$restProps)], {})}><ol${add_classes(("bx--breadcrumb " + (noTrailingSlash ? "bx--breadcrumb--no-trailing-slash" : "")).trim())}>${slots.default ? slots.default({}) : ``}</ol></nav>`}`;
-});
-const Link = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $$restProps = compute_rest_props($$props, ["size", "href", "inline", "icon", "disabled", "visited", "ref"]);
-  let $$slots = compute_slots(slots);
-  let { size = void 0 } = $$props;
-  let { href = void 0 } = $$props;
-  let { inline = false } = $$props;
-  let { icon = void 0 } = $$props;
-  let { disabled = false } = $$props;
-  let { visited = false } = $$props;
-  let { ref = null } = $$props;
-  if ($$props.size === void 0 && $$bindings.size && size !== void 0)
-    $$bindings.size(size);
-  if ($$props.href === void 0 && $$bindings.href && href !== void 0)
-    $$bindings.href(href);
-  if ($$props.inline === void 0 && $$bindings.inline && inline !== void 0)
-    $$bindings.inline(inline);
-  if ($$props.icon === void 0 && $$bindings.icon && icon !== void 0)
-    $$bindings.icon(icon);
-  if ($$props.disabled === void 0 && $$bindings.disabled && disabled !== void 0)
-    $$bindings.disabled(disabled);
-  if ($$props.visited === void 0 && $$bindings.visited && visited !== void 0)
-    $$bindings.visited(visited);
-  if ($$props.ref === void 0 && $$bindings.ref && ref !== void 0)
-    $$bindings.ref(ref);
-  return `
-${disabled ? `<p${spread([escape_object($$restProps)], {
-    classes: "bx--link " + (disabled ? "bx--link--disabled" : "") + " " + (inline ? "bx--link--inline" : "") + " " + (visited ? "bx--link--visited" : "")
-  })}${add_attribute("this", ref, 0)}>${slots.default ? slots.default({}) : ``}
-    ${!inline && ($$slots.icon || icon) ? `<div${add_classes("bx--link__icon".trim())}>${slots.icon ? slots.icon({}) : `
-          ${validate_component(icon || missing_component, "svelte:component").$$render($$result, {}, {}, {})}
-        `}</div>` : ``}</p>` : `<a${spread([
-    {
-      rel: escape_attribute_value($$restProps.target === "_blank" ? "noopener noreferrer" : void 0)
-    },
-    { href: escape_attribute_value(href) },
-    escape_object($$restProps)
-  ], {
-    classes: "bx--link " + (disabled ? "bx--link--disabled" : "") + " " + (inline ? "bx--link--inline" : "") + " " + (visited ? "bx--link--visited" : "") + " " + (size === "sm" ? "bx--link--sm" : "") + " " + (size === "lg" ? "bx--link--lg" : "")
-  })}${add_attribute("this", ref, 0)}>${slots.default ? slots.default({}) : ``}
-    ${!inline && ($$slots.icon || icon) ? `<div${add_classes("bx--link__icon".trim())}>${slots.icon ? slots.icon({}) : `
-          ${validate_component(icon || missing_component, "svelte:component").$$render($$result, {}, {}, {})}
-        `}</div>` : ``}</a>`}`;
-});
-const BreadcrumbItem = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $$restProps = compute_rest_props($$props, ["href", "isCurrentPage"]);
-  let { href = void 0 } = $$props;
-  let { isCurrentPage = false } = $$props;
-  setContext("BreadcrumbItem", {});
-  if ($$props.href === void 0 && $$bindings.href && href !== void 0)
-    $$bindings.href(href);
-  if ($$props.isCurrentPage === void 0 && $$bindings.isCurrentPage && isCurrentPage !== void 0)
-    $$bindings.isCurrentPage(isCurrentPage);
-  return `
-<li${spread([escape_object($$restProps)], {
-    classes: "bx--breadcrumb-item " + (isCurrentPage && $$restProps["aria-current"] !== "page" ? "bx--breadcrumb-item--current" : "")
-  })}>${href ? `${validate_component(Link, "Link").$$render($$result, {
-    href,
-    "aria-current": $$restProps["aria-current"]
-  }, {}, {
-    default: () => {
-      return `${slots.default ? slots.default({
-        props: {
-          "aria-current": $$restProps["aria-current"],
-          class: "bx--link"
-        }
-      }) : ``}`;
-    }
-  })}` : `${slots.default ? slots.default({
-    props: {
-      "aria-current": $$restProps["aria-current"],
-      class: "bx--link"
-    }
-  }) : ``}`}</li>`;
-});
 const NotificationButton = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $$restProps = compute_rest_props($$props, ["notificationType", "icon", "title", "iconDescription"]);
   let { notificationType = "toast" } = $$props;
@@ -643,9 +543,9 @@ const Slider = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     <span${add_classes("bx--slider__range-label".trim())}>${escape(maxLabel || max)}</span>
     <input${add_attribute("type", hideTextInput ? "hidden" : inputType, 0)}${add_attribute("style", hideTextInput ? "display: none" : void 0, 0)} id="${"input-" + escape(id)}"${add_attribute("name", name, 0)}${add_attribute("value", value, 0)}${add_attribute("aria-labelledby", $$props["aria-label"] ? void 0 : labelId, 0)}${add_attribute("aria-label", $$props["aria-label"] || "Slider number input", 0)} ${disabled ? "disabled" : ""} ${required ? "required" : ""}${add_attribute("min", min, 0)}${add_attribute("max", max, 0)}${add_attribute("step", step, 0)}${add_attribute("data-invalid", invalid || null, 0)}${add_attribute("aria-invalid", invalid || null, 0)}${add_classes(("bx--text-input bx--slider-text-input " + (light ? "bx--text-input--light" : "") + " " + (invalid ? "bx--text-input--invalid" : "")).trim())}></div></div>`;
 });
-var index_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n:root{\n  --header-2-height:clamp(2rem, 4vh, 60px);\n  --header-1-height:clamp(1rem, 5vh, 40px);\n  --bar:#343a45\n}\n\n.icon{\n  border:1px solid rgb(113, 113, 113);\n  aspect-ratio:1/1;\n  height:auto;\n  width:var(--header-2-height) !important\n}\n\nheader.svelte-10r4fzz{\n  display:block;\n  position:fixed;\n  width:100vw;\n  margin:0 !important\n}\n\n.bx--grid{\n  left:0;\n  right:0;\n  margin-left:0;\n  margin-right:0px;\n  padding-left:0px;\n  padding-right:0px;\n  width:100vw\n}\n\n#head1{\n  width:100vw;\n  height:var(--header-1-height) !important;\n  background-color:whitesmoke;\n  margin:0\n}\n\n#head2{\n  left:0;\n  right:0;\n  margin-left:15px;\n  margin-right:15px;\n  padding-left:0px;\n  padding-right:30px;\n  width:100%;\n  background-color:var(--bar);\n  margin-bottom:1.2rem\n}\n\n.logo.svelte-10r4fzz{\n  height:calc(var(--header-1-height) * 0.7) !important;\n  width:auto\n}\n\n.bx--col{\n  padding:0 !important;\n  display:flex;\n  float:right;\n  right:0;\n  margin:auto;\n  flex-grow:3 !important;\n  text-align:right;\n  justify-content:space-between\n}\n\nsmall{\n  font:revert;\n  font-size:revert\n}\n\n.bx--btn--secondary{\n  background-color:var(--bar);\n  filter:brightness(0.85)\n}\n\nheader{\n  height:100px\n}\n\n/* purgecss end ignore */")();
+var index_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n:root{\n  --header-2-height:clamp(2rem, 4vh, 60px);\n  --header-1-height:clamp(3rem, 5vh, 40px);\n  --bar:#343a45\n}\n\n.icon{\n  border:1px solid rgb(113, 113, 113);\n  aspect-ratio:1/1;\n  height:auto;\n  width:var(--header-2-height) !important\n}\n\nheader.svelte-1tcczkv{\n  display:block;\n  position:fixed;\n  width:100vw;\n  margin:0 !important\n}\n\n.bx--grid{\n  left:0;\n  right:0;\n  margin-left:0;\n  margin-right:0px;\n  padding-left:0px;\n  padding-right:0px;\n  width:100vw\n}\n\n#head1{\n  width:100vw;\n  display:inline-block;\n  height:var(--header-1-height) !important;\n  background-color:whitesmoke;\n  margin:0\n}\n\n#head2{\n  left:0;\n  right:0;\n  margin-left:15px;\n  margin-right:15px;\n  padding-left:0px;\n  padding-right:30px;\n  width:100%;\n  background-color:var(--bar);\n  margin-bottom:1.2rem\n}\n\n.logo.svelte-1tcczkv{\n  height:calc(var(--header-1-height) * 0.9) !important;\n  width:auto\n}\n\n.bx--col{\n  padding:0 !important;\n  display:flex;\n  float:right;\n  right:0;\n  margin:auto;\n  flex-grow:3 !important;\n  text-align:right;\n  justify-content:space-between\n}\n\nsmall{\n  font:revert;\n  font-size:revert\n}\n\n.bx--btn--secondary{\n  background-color:var(--bar);\n  filter:brightness(0.85)\n}\n\nheader{\n  height:100px\n}\n\n/* purgecss end ignore */")();
 const css = {
-  code: ":root{--header-2-height:clamp(2rem, 4vh, 60px);--header-1-height:clamp(1rem, 5vh, 40px);--bar:#343a45}.icon{border:1px solid rgb(113, 113, 113);aspect-ratio:1/1;height:auto;width:var(--header-2-height) !important}header.svelte-10r4fzz{display:block;position:fixed;width:100vw;margin:0 !important}.bx--grid{left:0;right:0;margin-left:0;margin-right:0px;padding-left:0px;padding-right:0px;width:100vw}#head1{width:100vw;height:var(--header-1-height) !important;background-color:whitesmoke;margin:0}#head2{left:0;right:0;margin-left:15px;margin-right:15px;padding-left:0px;padding-right:30px;width:100%;background-color:var(--bar);margin-bottom:1.2rem}.logo.svelte-10r4fzz{height:calc(var(--header-1-height) * 0.7) !important;width:auto}.bx--col{padding:0 !important;display:flex;float:right;right:0;margin:auto;flex-grow:3 !important;text-align:right;justify-content:space-between}small{font:revert;font-size:revert}.bx--btn--secondary{background-color:var(--bar);filter:brightness(0.85)}header{height:100px}",
+  code: ":root{--header-2-height:clamp(2rem, 4vh, 60px);--header-1-height:clamp(3rem, 5vh, 40px);--bar:#343a45}.icon{border:1px solid rgb(113, 113, 113);aspect-ratio:1/1;height:auto;width:var(--header-2-height) !important}header.svelte-1tcczkv{display:block;position:fixed;width:100vw;margin:0 !important}.bx--grid{left:0;right:0;margin-left:0;margin-right:0px;padding-left:0px;padding-right:0px;width:100vw}#head1{width:100vw;display:inline-block;height:var(--header-1-height) !important;background-color:whitesmoke;margin:0}#head2{left:0;right:0;margin-left:15px;margin-right:15px;padding-left:0px;padding-right:30px;width:100%;background-color:var(--bar);margin-bottom:1.2rem}.logo.svelte-1tcczkv{height:calc(var(--header-1-height) * 0.9) !important;width:auto}.bx--col{padding:0 !important;display:flex;float:right;right:0;margin:auto;flex-grow:3 !important;text-align:right;justify-content:space-between}small{font:revert;font-size:revert}.bx--btn--secondary{background-color:var(--bar);filter:brightness(0.85)}header{height:100px}",
   map: null
 };
 const Draw = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -654,19 +554,19 @@ const Draw = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $$unsubscribe_mapfunctions;
   let $$unsubscribe_maplayer;
   let $$unsubscribe_mapsource;
+  let $query, $$unsubscribe_query;
   let $draw_enabled, $$unsubscribe_draw_enabled;
   let $draw_type, $$unsubscribe_draw_type;
   let $$unsubscribe_radiusInKm;
-  let $query, $$unsubscribe_query;
   $$unsubscribe_mapobject = subscribe(mapobject, (value) => value);
   $$unsubscribe_selected = subscribe(selected, (value) => $selected = value);
   $$unsubscribe_mapfunctions = subscribe(mapfunctions, (value) => value);
   $$unsubscribe_maplayer = subscribe(maplayer, (value) => value);
   $$unsubscribe_mapsource = subscribe(mapsource, (value) => value);
+  $$unsubscribe_query = subscribe(query, (value) => $query = value);
   $$unsubscribe_draw_enabled = subscribe(draw_enabled, (value) => $draw_enabled = value);
   $$unsubscribe_draw_type = subscribe(draw_type, (value) => $draw_type = value);
   $$unsubscribe_radiusInKm = subscribe(radiusInKm, (value) => value);
-  $$unsubscribe_query = subscribe(query, (value) => $query = value);
   let { width = "100%" } = $$props;
   let { height = "100%" } = $$props;
   if ($$props.width === void 0 && $$bindings.width && width !== void 0)
@@ -679,44 +579,31 @@ const Draw = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$unsubscribe_mapfunctions();
   $$unsubscribe_maplayer();
   $$unsubscribe_mapsource();
+  $$unsubscribe_query();
   $$unsubscribe_draw_enabled();
   $$unsubscribe_draw_type();
   $$unsubscribe_radiusInKm();
-  $$unsubscribe_query();
   return `
 <main class="${"w-screen min-h-screen flex flex-col"}"><div id="${"map"}">${validate_component(AreaMap, "AreaMap").$$render($$result, { drawing_tools: true }, {}, {})}</div>
-  <header class="${"svelte-10r4fzz"}">${validate_component(Grid, "Grid").$$render($$result, {}, {}, {
+  <header class="${"svelte-1tcczkv"}">${validate_component(Grid, "Grid").$$render($$result, {}, {}, {
     default: () => {
       return `${validate_component(Row, "Row").$$render($$result, { id: "head1" }, {}, {
         default: () => {
-          return `${validate_component(Column, "Column").$$render($$result, {}, {}, {
+          return `<div><img style="${"margin-left:10px;"}" class="${"logo svelte-1tcczkv"}" src="${"https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg"}" alt="${"Office for National Statistics logo - Homepage"}"></div>
+        
+        <div style="${"right:0;float:right;top:0;min-height:auto;position:absolute"}">${validate_component(Button, "Button").$$render($$result, { disabled: $query.hasOwnProperty("error") }, {}, {
             default: () => {
-              return `<img style="${"margin-left:10px;margin-top:4px"}" class="${"logo svelte-10r4fzz"}" src="${"https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg"}" alt="${"Office for National Statistics logo - Homepage"}">`;
+              return `Build Profile
+          `;
             }
           })}
-        ${validate_component(Column, "Column").$$render($$result, { style: "float:right;margin-right:2px" }, {}, {
+          ${validate_component(Button, "Button").$$render($$result, { kind: "secondary" }, {}, {
             default: () => {
-              return `${validate_component(Breadcrumb, "Breadcrumb").$$render($$result, {}, {}, {
-                default: () => {
-                  return `${validate_component(BreadcrumbItem, "BreadcrumbItem").$$render($$result, { href: "/draw" }, {}, {
-                    default: () => {
-                      return `Draw Area`;
-                    }
-                  })}
-            ${validate_component(BreadcrumbItem, "BreadcrumbItem").$$render($$result, { href: "/" }, {}, {
-                    default: () => {
-                      return `Save + Load Area`;
-                    }
-                  })}
-            ${validate_component(BreadcrumbItem, "BreadcrumbItem").$$render($$result, { href: "/" }, {}, {
-                    default: () => {
-                      return `Build Profile`;
-                    }
-                  })}`;
-                }
-              })}`;
+              return `Clear Existing`;
             }
-          })}`;
+          })}</div>
+        
+        `;
         }
       })}
       ${validate_component(Row, "Row").$$render($$result, {
@@ -728,15 +615,9 @@ const Draw = create_ssr_component(($$result, $$props, $$bindings, slots) => {
           return `
         ${validate_component(Column, "Column").$$render($$result, {}, {}, {
             default: () => {
-              return `${validate_component(DrawButtons, "DrawButtons").$$render($$result, {}, {}, {})}`;
-            }
-          })}${validate_component(Column, "Column").$$render($$result, {}, {}, {
-            default: () => {
-              return `${validate_component(EditButtons, "EditButtons").$$render($$result, {}, {}, {})}`;
-            }
-          })}${validate_component(Column, "Column").$$render($$result, {}, {}, {
-            default: () => {
-              return `${validate_component(PostcodeSearch, "PostcodeSearch").$$render($$result, {}, {}, {})}
+              return `${validate_component(DrawButtons, "DrawButtons").$$render($$result, {}, {}, {})}
+          ${validate_component(EditButtons, "EditButtons").$$render($$result, {}, {}, {})}
+          
           
           ${validate_component(ProgressButtons, "ProgressButtons").$$render($$result, {}, {}, {})}`;
             }
@@ -745,10 +626,6 @@ const Draw = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       })}`;
     }
   })}
-
-
-
-
 
     ${validate_component(InfoBox, "InfoBox").$$render($$result, { open: $selected.length < 2 }, {}, {
     default: () => {

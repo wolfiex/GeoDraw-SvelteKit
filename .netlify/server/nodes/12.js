@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/index.svelte.js"));
+var module2 = __toESM(require("../entries/pages/draw/Toolbar/ItemAccordion.svelte.js"));
 const index = 12;
-const entry = "pages/index.svelte-fc181453.js";
-const js = ["pages/index.svelte-fc181453.js", "chunks/index-319e1e25.js"];
-const css = [];
+const entry = "pages/draw/Toolbar/ItemAccordion.svelte-b036e128.js";
+const js = ["pages/draw/Toolbar/ItemAccordion.svelte-b036e128.js", "chunks/index-02c5aad5.js", "chunks/AccordionItem-39a32ebe.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-e39308b2.js", "chunks/index-24963876.js"];
+const css = ["assets/pages/draw/Toolbar/ItemAccordion.svelte-2ce14288.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

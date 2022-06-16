@@ -20,7 +20,7 @@ __export(stdin_exports, {
   default: () => MapStatic
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_12fa369c = require("../../../../chunks/index-12fa369c.js");
+var import_index_f909a211 = require("../../../../chunks/index-f909a211.js");
 var import_d3_geo = require("d3-geo");
 var import_d3_tile = require("d3-tile");
 var MapStatic_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n.svg-container.svelte-am2o7f,svg.svelte-am2o7f{\n  width:100%;\n  height:100%;\n  margin:0;\n  padding:0\n}\n\n/* purgecss end ignore */")();
@@ -28,7 +28,7 @@ const css = {
   code: ".svg-container.svelte-am2o7f,svg.svelte-am2o7f{width:100%;height:100%;margin:0;padding:0}",
   map: null
 };
-const MapStatic = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots) => {
+const MapStatic = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
   let _geojson;
   let projection;
   let maptile;
@@ -79,9 +79,9 @@ const MapStatic = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, s
   projection = makeProjection(width, height, _geojson);
   maptile = (0, import_d3_tile.tile)().size([width, height]).scale(projection.scale() * 2 * Math.PI).translate(projection([0, 0])).tileSize(256);
   path = (0, import_d3_geo.geoPath)(projection);
-  return `<div class="${"svg-container svelte-am2o7f"}"><svg viewBox="${"0 0 " + (0, import_index_12fa369c.h)(width) + " " + (0, import_index_12fa369c.h)(height)}" class="${"svelte-am2o7f"}"><filter id="${"desaturate"}"><feColorMatrix type="${"saturate"}"${(0, import_index_12fa369c.j)("values", saturation, 0)}></feColorMatrix></filter>${(0, import_index_12fa369c.r)(maptile().map(([x, y, z], i, { translate: [tx, ty], scale: k }) => ({ x, y, z, tx, ty, k })), (tile2) => {
-    return `<image${(0, import_index_12fa369c.j)("xlink:href", url(tile2.x, tile2.y, tile2.z), 0)}${(0, import_index_12fa369c.j)("x", Math.round((tile2.x + tile2.tx) * tile2.k), 0)}${(0, import_index_12fa369c.j)("y", Math.round((tile2.y + tile2.ty) * tile2.k), 0)}${(0, import_index_12fa369c.j)("width", tile2.k, 0)}${(0, import_index_12fa369c.j)("height", tile2.k, 0)} filter="${"url(#desaturate)"}"></image>`;
-  })}${geojson ? `${fillOpacity ? `<path${(0, import_index_12fa369c.j)("fill", color, 0)} stroke="${"none"}"${(0, import_index_12fa369c.j)("opacity", fillOpacity, 0)}${(0, import_index_12fa369c.j)("d", path(geojson), 0)}></path>` : ``}
-		<path fill="${"none"}"${(0, import_index_12fa369c.j)("stroke", color, 0)}${(0, import_index_12fa369c.j)("stroke-width", lineWidth, 0)}${(0, import_index_12fa369c.j)("d", path(geojson), 0)}></path>` : ``}</svg>
+  return `<div class="${"svg-container svelte-am2o7f"}"><svg viewBox="${"0 0 " + (0, import_index_f909a211.e)(width) + " " + (0, import_index_f909a211.e)(height)}" class="${"svelte-am2o7f"}"><filter id="${"desaturate"}"><feColorMatrix type="${"saturate"}"${(0, import_index_f909a211.h)("values", saturation, 0)}></feColorMatrix></filter>${(0, import_index_f909a211.i)(maptile().map(([x, y, z], i, { translate: [tx, ty], scale: k }) => ({ x, y, z, tx, ty, k })), (tile2) => {
+    return `<image${(0, import_index_f909a211.h)("xlink:href", url(tile2.x, tile2.y, tile2.z), 0)}${(0, import_index_f909a211.h)("x", Math.round((tile2.x + tile2.tx) * tile2.k), 0)}${(0, import_index_f909a211.h)("y", Math.round((tile2.y + tile2.ty) * tile2.k), 0)}${(0, import_index_f909a211.h)("width", tile2.k, 0)}${(0, import_index_f909a211.h)("height", tile2.k, 0)} filter="${"url(#desaturate)"}"></image>`;
+  })}${geojson ? `${fillOpacity ? `<path${(0, import_index_f909a211.h)("fill", color, 0)} stroke="${"none"}"${(0, import_index_f909a211.h)("opacity", fillOpacity, 0)}${(0, import_index_f909a211.h)("d", path(geojson), 0)}></path>` : ``}
+		<path fill="${"none"}"${(0, import_index_f909a211.h)("stroke", color, 0)}${(0, import_index_f909a211.h)("stroke-width", lineWidth, 0)}${(0, import_index_f909a211.h)("d", path(geojson), 0)}></path>` : ``}</svg>
 </div>`;
 });

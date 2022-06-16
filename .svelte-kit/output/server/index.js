@@ -29,7 +29,8 @@ var __objRest = (source, exclude) => {
     }
   return target;
 };
-import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./chunks/index-12fa369c.js";
+import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./chunks/index-f909a211.js";
+import { s as set_paths, b as base, a as assets } from "./chunks/paths-396f020f.js";
 function afterUpdate() {
 }
 const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -39,6 +40,7 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { props_0 = null } = $$props;
   let { props_1 = null } = $$props;
   let { props_2 = null } = $$props;
+  let { props_3 = null } = $$props;
   setContext("__svelte__", stores);
   afterUpdate(stores.page.notify);
   if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
@@ -53,6 +55,8 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.props_1(props_1);
   if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
     $$bindings.props_2(props_2);
+  if ($$props.props_3 === void 0 && $$bindings.props_3 && props_3 !== void 0)
+    $$bindings.props_3(props_3);
   {
     stores.page.set(page);
   }
@@ -63,7 +67,11 @@ ${components[1] ? `${validate_component(components[0] || missing_component, "sve
     default: () => {
       return `${components[2] ? `${validate_component(components[1] || missing_component, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
         default: () => {
-          return `${validate_component(components[2] || missing_component, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
+          return `${components[3] ? `${validate_component(components[2] || missing_component, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {
+            default: () => {
+              return `${validate_component(components[3] || missing_component, "svelte:component").$$render($$result, Object.assign(props_3 || {}), {}, {})}`;
+            }
+          })}` : `${validate_component(components[2] || missing_component, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`}`;
         }
       })}` : `${validate_component(components[1] || missing_component, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
     }
@@ -2229,12 +2237,6 @@ async function respond(request, options, state) {
       });
     }
   }
-}
-let base = "";
-let assets = "";
-function set_paths(paths) {
-  base = paths.base;
-  assets = paths.assets || base;
 }
 function set_prerendering(value) {
 }

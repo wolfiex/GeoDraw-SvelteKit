@@ -1,4 +1,4 @@
-import { c as create_ssr_component, h as escape, j as add_attribute, r as each } from "../../../../chunks/index-12fa369c.js";
+import { c as create_ssr_component, e as escape, h as add_attribute, i as each } from "../../../../chunks/index-f909a211.js";
 const ONSHeader = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { path = "/" } = $$props;
   let { lang = "en" } = $$props;

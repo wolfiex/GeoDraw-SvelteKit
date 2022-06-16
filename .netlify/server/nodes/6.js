@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/Toolbar/EditButtons.svelte.js"));
+var module2 = __toESM(require("../entries/pages/archive/IconBtn.svelte.js"));
 const index = 6;
-const entry = "pages/draw/Toolbar/EditButtons.svelte-d3d8cf24.js";
-const js = ["pages/draw/Toolbar/EditButtons.svelte-d3d8cf24.js", "chunks/index-319e1e25.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js", "chunks/index-40cf8ab4.js", "chunks/Button-88866843.js", "chunks/Column-5aa386c5.js", "chunks/mapstore-800f66a3.js"];
+const entry = "pages/archive/IconBtn.svelte-bc240d9b.js";
+const js = ["pages/archive/IconBtn.svelte-bc240d9b.js", "chunks/preload-helper-60cab3ee.js", "chunks/index-02c5aad5.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-e39308b2.js", "chunks/index-24963876.js", "chunks/Button-14bcc7eb.js"];
 const css = ["assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

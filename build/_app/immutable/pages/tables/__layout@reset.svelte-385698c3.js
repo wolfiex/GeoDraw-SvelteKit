@@ -1,0 +1,3 @@
+import{S as i,i as r,s as u,F as _,t as f,h as c,g as p,I as d,J as m,K as $,q as g,o as h,d as q}from"../../chunks/index-02c5aad5.js";function y(l){let s,a;const n=l[1].default,e=_(n,l,l[0],null);return{c(){e&&e.c(),s=f(`
+---`)},l(t){e&&e.l(t),s=c(t,`
+---`)},m(t,o){e&&e.m(t,o),p(t,s,o),a=!0},p(t,[o]){e&&e.p&&(!a||o&1)&&d(e,n,t,t[0],a?$(n,t[0],o,null):m(t[0]),null)},i(t){a||(g(e,t),a=!0)},o(t){h(e,t),a=!1},d(t){e&&e.d(t),t&&q(s)}}}function S(l,s,a){let{$$slots:n={},$$scope:e}=s;return l.$$set=t=>{"$$scope"in t&&a(0,e=t.$$scope)},[e,n]}class v extends i{constructor(s){super(),r(this,s,S,y,u,{})}}export{v as default};
