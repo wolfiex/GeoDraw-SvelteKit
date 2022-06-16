@@ -11,8 +11,9 @@ import {
 // import {extent} from 'd3-array';
 import {bboxToTile} from '@mapbox/tilebelt';
 import { LngLat, LngLatBounds} from 'maplibre-gl';
-import {union,simplify as tsimplify} from 'turf';
-
+// import {union,simplify as tsimplify} from 'turf';
+// turf does not compile with sveltekit
+import {default as union} from '@turf/union'
 
 var simplify = {};
 
@@ -391,6 +392,7 @@ export async function simplify_query () {
       `http://localhost:7113/encoding/${tile}.json`
     ).then (d => d.json ());
     simple.lsoa = simple.lsoa.map (d => {
+      console.log('simplify data',d)
       d[1] = new Set (d[1]);
       return d;
     });
@@ -438,9 +440,20 @@ export async function simplify_query () {
   console.log('---merge---',merge)
 
 
+  // 2732 character
 
-  return merge||{} 
+
+  return merge
 }
+
+// function sliceencode(str){
+//   const chunkSize = 10;
+// for (let i = 0; i < array.length; i += chunkSize) {
+//     const chunk = array.slice(i, i + chunkSize);
+//     // do whatever
+// }
+// }
+
 
 
 function extent(values, valueof) {

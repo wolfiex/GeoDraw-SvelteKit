@@ -2,7 +2,7 @@
   // imports
   import maplibregl from 'maplibre-gl';
   import {createEventDispatcher, onMount} from 'svelte';
-  import {writable, get} from 'svelte/store';
+  // import {writable, get} from 'svelte/store';
   import {init_draw} from './MapDraw.js';
   const dispatch = createEventDispatcher();
   import {

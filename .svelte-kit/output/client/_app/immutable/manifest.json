@@ -1,276 +1,724 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-ec576ca4.js",
+    "file": "start-a8e76e8d.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_index-40cf8ab4.js",
+      "_paths-c0fc83a9.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       ".svelte-kit/runtime/components/error.svelte",
-      "_AreaMap-73201558.js",
+      "src/routes/profile/__layout-profile.svelte",
+      "src/routes/tables/__layout-tables.svelte",
+      "_AreaMap-bc117a47.js",
       "src/routes/draw/Toolbar/DrawButtons.svelte",
       "src/routes/draw/Toolbar/EditButtons.svelte",
       "src/routes/draw/Toolbar/InfoBox.svelte",
       "src/routes/draw/Toolbar/ItemAccordion.svelte",
-      "_PostcodeSearch-d3fb74db.js",
+      "_PostcodeSearch-45164e97.js",
       "src/routes/draw/Toolbar/ProgressButtons.svelte",
       "src/routes/draw/index.svelte",
       "src/routes/index.svelte",
-      "src/routes/pbf_viewer.svelte"
+      "src/routes/lib/chart/BarChart.svelte",
+      "src/routes/lib/chart/MapStatic.svelte",
+      "src/routes/lib/chart/NumBlock.svelte",
+      "src/routes/lib/chart/ProfileChart.svelte",
+      "src/routes/lib/layout/Article.svelte",
+      "src/routes/lib/layout/Banner.svelte",
+      "src/routes/lib/layout/Cards.svelte",
+      "src/routes/lib/layout/Content.svelte",
+      "src/routes/lib/layout/Linkbox.svelte",
+      "src/routes/lib/layout/ONSFooter.svelte",
+      "src/routes/lib/layout/ONSHeader.svelte",
+      "src/routes/lib/layout/Section.svelte",
+      "src/routes/lib/layout/Titleblock.svelte",
+      "src/routes/lib/layout/partial/Breadcrumb.svelte",
+      "src/routes/lib/layout/partial/Card.svelte",
+      "src/routes/lib/layout/partial/CardFeature.svelte",
+      "src/routes/lib/layout/partial/CardSection.svelte",
+      "src/routes/lib/layout/partial/Figure.svelte",
+      "src/routes/lib/layout/partial/Headline.svelte",
+      "src/routes/lib/layout/partial/Highlighted.svelte",
+      "src/routes/lib/layout/partial/Meta.svelte",
+      "src/routes/lib/layout/partial/Navbox.svelte",
+      "src/routes/lib/layout/partial/Subhead.svelte",
+      "src/routes/lib/ui/ButtonLink.svelte",
+      "src/routes/lib/ui/Em.svelte",
+      "src/routes/lib/ui/Icon.svelte",
+      "src/routes/lib/ui/Select.svelte",
+      "src/routes/lib/ui/Toggle.svelte",
+      "src/routes/lib/ui/Warning.svelte",
+      "src/routes/pbf_viewer.svelte",
+      "src/routes/profile/index.svelte",
+      "src/routes/tables/BarChart.svelte",
+      "src/routes/tables/index.svelte"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-8d8a6d27.js",
+    "file": "pages/__layout.svelte-d59a2a81.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_Grid-702e2b09.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_Button-279064b5.js",
-      "_Column-0eebbc55.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_Grid-d185b5b4.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_Button-88866843.js",
+      "_Column-5aa386c5.js",
+      "_index-40cf8ab4.js"
     ],
     "css": [
-      "assets/pages/__layout.svelte-3f0c2303.css"
+      "assets/pages/__layout.svelte-6c7aca26.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "error.svelte-edf1ee55.js",
+    "file": "error.svelte-cccaa985.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/profile/__layout-profile.svelte": {
+    "file": "pages/profile/__layout-profile.svelte-d85da93b.js",
+    "src": "src/routes/profile/__layout-profile.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/profile/__layout-profile.svelte-2d183a43.css"
+    ]
+  },
+  "src/routes/tables/__layout-tables.svelte": {
+    "file": "pages/tables/__layout-tables.svelte-9195caef.js",
+    "src": "src/routes/tables/__layout-tables.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/profile/__layout-profile.svelte-2d183a43.css"
     ]
   },
   "src/routes/draw/Toolbar/DrawButtons.svelte": {
-    "file": "pages/draw/Toolbar/DrawButtons.svelte-bfe67e98.js",
+    "file": "pages/draw/Toolbar/DrawButtons.svelte-1a0fe638.js",
     "src": "src/routes/draw/Toolbar/DrawButtons.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_Button-279064b5.js",
-      "_Column-0eebbc55.js",
-      "_mapstore-5826eee6.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_Button-88866843.js",
+      "_Column-5aa386c5.js",
+      "_mapstore-800f66a3.js",
+      "_index-40cf8ab4.js"
     ],
     "css": [
       "assets/pages/draw/Toolbar/DrawButtons.svelte-609f1bd9.css"
     ]
   },
   "src/routes/draw/Toolbar/EditButtons.svelte": {
-    "file": "pages/draw/Toolbar/EditButtons.svelte-81524b43.js",
+    "file": "pages/draw/Toolbar/EditButtons.svelte-d3d8cf24.js",
     "src": "src/routes/draw/Toolbar/EditButtons.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_Button-279064b5.js",
-      "_Column-0eebbc55.js",
-      "_mapstore-5826eee6.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_Button-88866843.js",
+      "_Column-5aa386c5.js",
+      "_mapstore-800f66a3.js",
+      "_index-40cf8ab4.js"
     ]
   },
   "src/routes/draw/Toolbar/InfoBox.svelte": {
-    "file": "pages/draw/Toolbar/InfoBox.svelte-4e933005.js",
+    "file": "pages/draw/Toolbar/InfoBox.svelte-07f3fe93.js",
     "src": "src/routes/draw/Toolbar/InfoBox.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_index-3ae34efe.js",
-      "_AccordionItem-8d0f1b54.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js"
+      "_index-319e1e25.js",
+      "_index-40cf8ab4.js",
+      "_AccordionItem-adeb3b85.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js"
     ],
     "css": [
       "assets/pages/draw/Toolbar/InfoBox.svelte-7fe78a5a.css"
     ]
   },
   "src/routes/draw/Toolbar/ItemAccordion.svelte": {
-    "file": "pages/draw/Toolbar/ItemAccordion.svelte-695c9568.js",
+    "file": "pages/draw/Toolbar/ItemAccordion.svelte-b4a916ad.js",
     "src": "src/routes/draw/Toolbar/ItemAccordion.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_AccordionItem-8d0f1b54.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_AccordionItem-adeb3b85.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_index-40cf8ab4.js"
     ],
     "css": [
       "assets/pages/draw/Toolbar/ItemAccordion.svelte-2ce14288.css"
     ]
   },
   "src/routes/draw/Toolbar/ProgressButtons.svelte": {
-    "file": "pages/draw/Toolbar/ProgressButtons.svelte-78ef19d1.js",
+    "file": "pages/draw/Toolbar/ProgressButtons.svelte-10cb0d33.js",
     "src": "src/routes/draw/Toolbar/ProgressButtons.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_Button-279064b5.js",
-      "_Column-0eebbc55.js",
-      "__commonjsHelpers-c771f69b.js",
-      "_mapstore-5826eee6.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_Button-88866843.js",
+      "_Column-5aa386c5.js",
+      "____vite-browser-external_commonjs-proxy-931109a1.js",
+      "__commonjsHelpers-db6d3250.js",
+      "_mapstore-800f66a3.js",
+      "_index-40cf8ab4.js"
     ]
   },
   "src/routes/draw/index.svelte": {
-    "file": "pages/draw/index.svelte-84b04261.js",
+    "file": "pages/draw/index.svelte-4181e468.js",
     "src": "src/routes/draw/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_Grid-702e2b09.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_Column-0eebbc55.js",
-      "_PostcodeSearch-d3fb74db.js",
+      "_index-319e1e25.js",
+      "_Grid-d185b5b4.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_Column-5aa386c5.js",
+      "_PostcodeSearch-45164e97.js",
       "src/routes/draw/Toolbar/DrawButtons.svelte",
       "src/routes/draw/Toolbar/EditButtons.svelte",
       "src/routes/draw/Toolbar/ProgressButtons.svelte",
       "src/routes/draw/Toolbar/InfoBox.svelte",
       "src/routes/draw/Toolbar/ItemAccordion.svelte",
-      "_AreaMap-73201558.js",
-      "_mapstore-5826eee6.js",
-      "_index-3ae34efe.js",
-      "_Button-279064b5.js",
-      "__commonjsHelpers-c771f69b.js",
-      "_AccordionItem-8d0f1b54.js"
+      "_binary-e4470594.js",
+      "_AreaMap-bc117a47.js",
+      "_mapstore-800f66a3.js",
+      "_index-40cf8ab4.js",
+      "_Button-88866843.js",
+      "____vite-browser-external_commonjs-proxy-931109a1.js",
+      "__commonjsHelpers-db6d3250.js",
+      "_AccordionItem-adeb3b85.js"
     ],
     "css": [
       "assets/pages/draw/index.svelte-77ce0a3e.css"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-7fb0a00b.js",
+    "file": "pages/index.svelte-fc181453.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/chart/BarChart.svelte": {
+    "file": "pages/lib/chart/BarChart.svelte-25a49c32.js",
+    "src": "src/routes/lib/chart/BarChart.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/chart/BarChart.svelte-0b676b41.css"
+    ]
+  },
+  "src/routes/lib/chart/MapStatic.svelte": {
+    "file": "pages/lib/chart/MapStatic.svelte-c9b32e6e.js",
+    "src": "src/routes/lib/chart/MapStatic.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js",
+      "_tile-71b8674d.js"
+    ],
+    "css": [
+      "assets/pages/lib/chart/MapStatic.svelte-416ed0b0.css"
+    ]
+  },
+  "src/routes/lib/chart/NumBlock.svelte": {
+    "file": "pages/lib/chart/NumBlock.svelte-7033eb13.js",
+    "src": "src/routes/lib/chart/NumBlock.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/chart/NumBlock.svelte-ee0e45be.css"
+    ]
+  },
+  "src/routes/lib/chart/ProfileChart.svelte": {
+    "file": "pages/lib/chart/ProfileChart.svelte-91109aae.js",
+    "src": "src/routes/lib/chart/ProfileChart.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/chart/ProfileChart.svelte-cb72f24a.css"
+    ]
+  },
+  "src/routes/lib/layout/Article.svelte": {
+    "file": "pages/lib/layout/Article.svelte-966c4159.js",
+    "src": "src/routes/lib/layout/Article.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/Banner.svelte": {
+    "file": "pages/lib/layout/Banner.svelte-a4b5978a.js",
+    "src": "src/routes/lib/layout/Banner.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/Cards.svelte": {
+    "file": "pages/lib/layout/Cards.svelte-1ad70bb2.js",
+    "src": "src/routes/lib/layout/Cards.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js",
+      "_index-40cf8ab4.js"
+    ],
+    "css": [
+      "assets/pages/lib/layout/Cards.svelte-7bec561b.css"
+    ]
+  },
+  "src/routes/lib/layout/Content.svelte": {
+    "file": "pages/lib/layout/Content.svelte-2c1356ab.js",
+    "src": "src/routes/lib/layout/Content.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/Linkbox.svelte": {
+    "file": "pages/lib/layout/Linkbox.svelte-d85e5ce1.js",
+    "src": "src/routes/lib/layout/Linkbox.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/ONSFooter.svelte": {
+    "file": "pages/lib/layout/ONSFooter.svelte-7c3ae86c.js",
+    "src": "src/routes/lib/layout/ONSFooter.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/ONSHeader.svelte": {
+    "file": "pages/lib/layout/ONSHeader.svelte-3d26e406.js",
+    "src": "src/routes/lib/layout/ONSHeader.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/Section.svelte": {
+    "file": "pages/lib/layout/Section.svelte-ce147a83.js",
+    "src": "src/routes/lib/layout/Section.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/Titleblock.svelte": {
+    "file": "pages/lib/layout/Titleblock.svelte-caf60983.js",
+    "src": "src/routes/lib/layout/Titleblock.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js",
+      "src/routes/lib/layout/partial/Breadcrumb.svelte",
+      "src/routes/lib/layout/partial/Highlighted.svelte",
+      "src/routes/lib/layout/partial/Navbox.svelte",
+      "src/routes/lib/layout/partial/Meta.svelte"
+    ]
+  },
+  "src/routes/lib/layout/partial/Breadcrumb.svelte": {
+    "file": "pages/lib/layout/partial/Breadcrumb.svelte-db7eddb7.js",
+    "src": "src/routes/lib/layout/partial/Breadcrumb.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/partial/Highlighted.svelte": {
+    "file": "pages/lib/layout/partial/Highlighted.svelte-ff70d8ae.js",
+    "src": "src/routes/lib/layout/partial/Highlighted.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/partial/Navbox.svelte": {
+    "file": "pages/lib/layout/partial/Navbox.svelte-be621a6b.js",
+    "src": "src/routes/lib/layout/partial/Navbox.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/layout/partial/Navbox.svelte-d0cc3fae.css"
+    ]
+  },
+  "src/routes/lib/layout/partial/Meta.svelte": {
+    "file": "pages/lib/layout/partial/Meta.svelte-f017fbf9.js",
+    "src": "src/routes/lib/layout/partial/Meta.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/layout/partial/Card.svelte": {
+    "file": "pages/lib/layout/partial/Card.svelte-3b5236dc.js",
+    "src": "src/routes/lib/layout/partial/Card.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/layout/partial/Card.svelte-511bf1cd.css"
+    ]
+  },
+  "src/routes/lib/layout/partial/CardFeature.svelte": {
+    "file": "pages/lib/layout/partial/CardFeature.svelte-2c807199.js",
+    "src": "src/routes/lib/layout/partial/CardFeature.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/layout/partial/CardFeature.svelte-fdc24f8c.css"
+    ]
+  },
+  "src/routes/lib/layout/partial/CardSection.svelte": {
+    "file": "pages/lib/layout/partial/CardSection.svelte-cb6584bc.js",
+    "src": "src/routes/lib/layout/partial/CardSection.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/layout/partial/CardSection.svelte-174b69c8.css"
+    ]
+  },
+  "src/routes/lib/layout/partial/Figure.svelte": {
+    "file": "pages/lib/layout/partial/Figure.svelte-a1a77591.js",
+    "src": "src/routes/lib/layout/partial/Figure.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/layout/partial/Figure.svelte-263be077.css"
+    ]
+  },
+  "src/routes/lib/layout/partial/Headline.svelte": {
+    "file": "pages/lib/layout/partial/Headline.svelte-b928e6c0.js",
+    "src": "src/routes/lib/layout/partial/Headline.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/layout/partial/Headline.svelte-2e2a401c.css"
+    ]
+  },
+  "src/routes/lib/layout/partial/Subhead.svelte": {
+    "file": "pages/lib/layout/partial/Subhead.svelte-9027e5c9.js",
+    "src": "src/routes/lib/layout/partial/Subhead.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/ui/ButtonLink.svelte": {
+    "file": "pages/lib/ui/ButtonLink.svelte-65cd4a73.js",
+    "src": "src/routes/lib/ui/ButtonLink.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ]
+  },
+  "src/routes/lib/ui/Em.svelte": {
+    "file": "pages/lib/ui/Em.svelte-b63dc3d4.js",
+    "src": "src/routes/lib/ui/Em.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/ui/Em.svelte-0a94b61d.css"
+    ]
+  },
+  "src/routes/lib/ui/Icon.svelte": {
+    "file": "pages/lib/ui/Icon.svelte-36c3066e.js",
+    "src": "src/routes/lib/ui/Icon.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/ui/Icon.svelte-08257b53.css"
+    ]
+  },
+  "src/routes/lib/ui/Select.svelte": {
+    "file": "pages/lib/ui/Select.svelte-5754644a.js",
+    "src": "src/routes/lib/ui/Select.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/ui/Select.svelte-087185fb.css"
+    ]
+  },
+  "src/routes/lib/ui/Toggle.svelte": {
+    "file": "pages/lib/ui/Toggle.svelte-9775e186.js",
+    "src": "src/routes/lib/ui/Toggle.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/ui/Toggle.svelte-25c923bc.css"
+    ]
+  },
+  "src/routes/lib/ui/Warning.svelte": {
+    "file": "pages/lib/ui/Warning.svelte-85a7f2aa.js",
+    "src": "src/routes/lib/ui/Warning.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/ui/Warning.svelte-8fc698fb.css"
     ]
   },
   "src/routes/pbf_viewer.svelte": {
-    "file": "pages/pbf_viewer.svelte-5d5eec22.js",
+    "file": "pages/pbf_viewer.svelte-8c2797b5.js",
     "src": "src/routes/pbf_viewer.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
     ],
     "css": [
       "assets/pages/pbf_viewer.svelte-85a8023c.css"
     ]
   },
+  "src/routes/profile/index.svelte": {
+    "file": "pages/profile/index.svelte-8251dc3f.js",
+    "src": "src/routes/profile/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js",
+      "_paths-c0fc83a9.js",
+      "_ProfileChart.svelte_svelte_type_style_lang-4611fe7a.js",
+      "_tile-71b8674d.js",
+      "_binary-e4470594.js",
+      "_index-40cf8ab4.js"
+    ],
+    "css": [
+      "assets/pages/profile/index.svelte-dfca52dd.css"
+    ]
+  },
+  "src/routes/tables/BarChart.svelte": {
+    "file": "pages/tables/BarChart.svelte-9b5d792e.js",
+    "src": "src/routes/tables/BarChart.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js"
+    ],
+    "css": [
+      "assets/pages/lib/chart/BarChart.svelte-0b676b41.css"
+    ]
+  },
+  "src/routes/tables/index.svelte": {
+    "file": "pages/tables/index.svelte-9287b12d.js",
+    "src": "src/routes/tables/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-319e1e25.js",
+      "_ProfileChart.svelte_svelte_type_style_lang-4611fe7a.js",
+      "__commonjsHelpers-db6d3250.js",
+      "____vite-browser-external_commonjs-proxy-931109a1.js",
+      "src/routes/tables/BarChart.svelte",
+      "_index-40cf8ab4.js"
+    ],
+    "css": [
+      "assets/pages/tables/index.svelte-4024ed8c.css"
+    ]
+  },
   "src/routes/draw/AreaMap.svelte": {
-    "file": "pages/draw/AreaMap.svelte-79851054.js",
+    "file": "pages/draw/AreaMap.svelte-cf470eb5.js",
     "src": "src/routes/draw/AreaMap.svelte",
     "isEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_AreaMap-73201558.js",
-      "_mapstore-5826eee6.js",
-      "__commonjsHelpers-c771f69b.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_AreaMap-bc117a47.js",
+      "_mapstore-800f66a3.js",
+      "__commonjsHelpers-db6d3250.js",
+      "_index-40cf8ab4.js"
     ]
   },
   "src/routes/draw/Toolbar/PostcodeSearch.svelte": {
-    "file": "pages/draw/Toolbar/PostcodeSearch.svelte-9d2f32ca.js",
+    "file": "pages/draw/Toolbar/PostcodeSearch.svelte-614ab723.js",
     "src": "src/routes/draw/Toolbar/PostcodeSearch.svelte",
     "isEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_PostcodeSearch-d3fb74db.js",
-      "_Column-0eebbc55.js",
-      "_mapstore-5826eee6.js",
-      "_index-3ae34efe.js"
+      "_index-319e1e25.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_PostcodeSearch-45164e97.js",
+      "_Column-5aa386c5.js",
+      "_mapstore-800f66a3.js",
+      "_index-40cf8ab4.js"
     ]
   },
-  "_index-369e6074.js": {
-    "file": "chunks/index-369e6074.js"
+  "_index-319e1e25.js": {
+    "file": "chunks/index-319e1e25.js"
   },
-  "_index-3ae34efe.js": {
-    "file": "chunks/index-3ae34efe.js",
+  "_index-40cf8ab4.js": {
+    "file": "chunks/index-40cf8ab4.js",
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
     ]
   },
-  "_Grid-702e2b09.js": {
-    "file": "chunks/Grid-702e2b09.js",
+  "_paths-c0fc83a9.js": {
+    "file": "chunks/paths-c0fc83a9.js"
+  },
+  "_Grid-d185b5b4.js": {
+    "file": "chunks/Grid-d185b5b4.js",
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
     ],
     "css": [
       "assets/Grid-327abd4e.css"
     ]
   },
-  "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js": {
-    "file": "chunks/HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
+  "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js": {
+    "file": "chunks/HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
     "imports": [
-      "_index-3ae34efe.js"
+      "_index-40cf8ab4.js"
     ],
     "css": [
       "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"
     ]
   },
-  "_Button-279064b5.js": {
-    "file": "chunks/Button-279064b5.js",
+  "_Button-88866843.js": {
+    "file": "chunks/Button-88866843.js",
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
     ]
   },
-  "_Column-0eebbc55.js": {
-    "file": "chunks/Column-0eebbc55.js",
+  "_Column-5aa386c5.js": {
+    "file": "chunks/Column-5aa386c5.js",
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
     ]
   },
-  "_AreaMap-73201558.js": {
-    "file": "chunks/AreaMap-73201558.js",
+  "_AreaMap-bc117a47.js": {
+    "file": "chunks/AreaMap-bc117a47.js",
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "__commonjsHelpers-c771f69b.js",
-      "_mapstore-5826eee6.js"
+      "_index-319e1e25.js",
+      "__commonjsHelpers-db6d3250.js",
+      "_mapstore-800f66a3.js"
     ],
     "css": [
       "assets/AreaMap-f456b717.css"
     ]
   },
-  "_mapstore-5826eee6.js": {
-    "file": "chunks/mapstore-5826eee6.js",
+  "_mapstore-800f66a3.js": {
+    "file": "chunks/mapstore-800f66a3.js",
     "imports": [
-      "_index-3ae34efe.js"
+      "_index-40cf8ab4.js"
     ]
   },
-  "__commonjsHelpers-c771f69b.js": {
-    "file": "chunks/_commonjsHelpers-c771f69b.js"
+  "__commonjsHelpers-db6d3250.js": {
+    "file": "chunks/_commonjsHelpers-db6d3250.js"
   },
-  "_AccordionItem-8d0f1b54.js": {
-    "file": "chunks/AccordionItem-8d0f1b54.js",
+  "_AccordionItem-adeb3b85.js": {
+    "file": "chunks/AccordionItem-adeb3b85.js",
     "imports": [
-      "_index-369e6074.js"
+      "_index-319e1e25.js"
     ]
   },
-  "_PostcodeSearch-d3fb74db.js": {
-    "file": "chunks/PostcodeSearch-d3fb74db.js",
+  "_PostcodeSearch-45164e97.js": {
+    "file": "chunks/PostcodeSearch-45164e97.js",
     "isDynamicEntry": true,
     "imports": [
-      "_index-369e6074.js",
-      "_HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js",
-      "_Column-0eebbc55.js",
-      "_mapstore-5826eee6.js"
+      "_index-319e1e25.js",
+      "_HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js",
+      "_Column-5aa386c5.js",
+      "_mapstore-800f66a3.js"
+    ]
+  },
+  "____vite-browser-external_commonjs-proxy-931109a1.js": {
+    "file": "chunks/___vite-browser-external_commonjs-proxy-931109a1.js",
+    "imports": [
+      "__commonjsHelpers-db6d3250.js"
+    ]
+  },
+  "_binary-e4470594.js": {
+    "file": "chunks/binary-e4470594.js"
+  },
+  "_tile-71b8674d.js": {
+    "file": "chunks/tile-71b8674d.js"
+  },
+  "_ProfileChart.svelte_svelte_type_style_lang-4611fe7a.js": {
+    "file": "chunks/ProfileChart.svelte_svelte_type_style_lang-4611fe7a.js",
+    "imports": [
+      "_index-319e1e25.js",
+      "_index-40cf8ab4.js"
+    ],
+    "css": [
+      "assets/ProfileChart.svelte_svelte_type_style_lang-f211fff5.css"
     ]
   }
 }

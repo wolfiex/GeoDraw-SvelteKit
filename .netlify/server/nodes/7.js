@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/Toolbar/PostcodeSearch.svelte.js"));
+var module2 = __toESM(require("../entries/pages/draw/Toolbar/InfoBox.svelte.js"));
 const index = 7;
-const entry = "pages/draw/Toolbar/PostcodeSearch.svelte-9d2f32ca.js";
-const js = ["pages/draw/Toolbar/PostcodeSearch.svelte-9d2f32ca.js", "chunks/index-369e6074.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js", "chunks/index-3ae34efe.js", "chunks/PostcodeSearch-d3fb74db.js", "chunks/Column-0eebbc55.js", "chunks/mapstore-5826eee6.js"];
-const css = ["assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+const entry = "pages/draw/Toolbar/InfoBox.svelte-07f3fe93.js";
+const js = ["pages/draw/Toolbar/InfoBox.svelte-07f3fe93.js", "chunks/index-319e1e25.js", "chunks/index-40cf8ab4.js", "chunks/AccordionItem-adeb3b85.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js"];
+const css = ["assets/pages/draw/Toolbar/InfoBox.svelte-7fe78a5a.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

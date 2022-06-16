@@ -17,8 +17,9 @@
   import InfoBox from './Toolbar/InfoBox.svelte';
   import PostcodeSearch from './Toolbar/PostcodeSearch.svelte';
   import ItemAccordion from './Toolbar/ItemAccordion.svelte';
-
+  import {encode} from '../binary.js'
   let add_mode = true;
+  import {get} from 'svelte/store';
 
   import './css/mapbox-gl.css';
   let webgl_canvas;
@@ -54,6 +55,7 @@
     // zoomed,
   } from './mapstore.js';
   import {simplify_query} from './MapDraw.js';
+import { BindVertexArrayOES } from 'maplibre-gl';
   // import { ZoomHistory } from 'maplibre-gl';
 
   async function init() {
@@ -127,8 +129,7 @@
       },
     ];
 
-    function recolour() {
-      query.set(simplify_query()); // this is a promise
+    async function recolour() {
 
       const items = $selected[$selected.length - 1];
 
@@ -147,6 +148,12 @@
         // ],
         'transparent',
       ]);
+      var q = await simplify_query()
+      console.warn('---req  ', q);
+      query.set(  q )//.then(d=>d.json()).then(query.set); // this is a promise
+      console.log('---bin--', get(query), encode(get(query)));
+
+
     }
 
     // wait until the data has loaded

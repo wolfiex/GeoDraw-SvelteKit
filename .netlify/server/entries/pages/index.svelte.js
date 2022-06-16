@@ -20,12 +20,12 @@ __export(stdin_exports, {
   default: () => Routes
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_092899d0 = require("../../chunks/index-092899d0.js");
-const Heading = (0, import_index_092899d0.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_12fa369c = require("../../chunks/index-12fa369c.js");
+const Heading = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots) => {
   return `<h1 class="${"py-4 text-black text-3xl text-center font-bold"}">${slots.default ? slots.default({}) : ``}</h1>`;
 });
-const Routes = (0, import_index_092899d0.c)(($$result, $$props, $$bindings, slots) => {
-  return `${(0, import_index_092899d0.v)(Heading, "Heading").$$render($$result, {}, {}, {
+const Routes = (0, import_index_12fa369c.c)(($$result, $$props, $$bindings, slots) => {
+  return `${(0, import_index_12fa369c.v)(Heading, "Heading").$$render($$result, {}, {}, {
     default: () => {
       return `Hello, World!`;
     }

@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/Toolbar/EditButtons.svelte.js"));
+var module2 = __toESM(require("../entries/pages/draw/AreaMap.svelte.js"));
 const index = 4;
-const entry = "pages/draw/Toolbar/EditButtons.svelte-81524b43.js";
-const js = ["pages/draw/Toolbar/EditButtons.svelte-81524b43.js", "chunks/index-369e6074.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js", "chunks/index-3ae34efe.js", "chunks/Button-279064b5.js", "chunks/Column-0eebbc55.js", "chunks/mapstore-5826eee6.js"];
-const css = ["assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+const entry = "pages/draw/AreaMap.svelte-cf470eb5.js";
+const js = ["pages/draw/AreaMap.svelte-cf470eb5.js", "chunks/index-319e1e25.js", "chunks/AreaMap-bc117a47.js", "chunks/_commonjsHelpers-db6d3250.js", "chunks/mapstore-800f66a3.js", "chunks/index-40cf8ab4.js"];
+const css = ["assets/AreaMap-f456b717.css"];

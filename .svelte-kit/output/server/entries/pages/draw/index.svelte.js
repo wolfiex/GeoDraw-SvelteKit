@@ -1,8 +1,9 @@
-import { c as create_ssr_component, b as compute_rest_props, d as spread, e as escape_object, r as each, k as add_classes, v as validate_component, j as add_attribute, m as missing_component, f as escape_attribute_value, l as compute_slots, s as setContext, h as escape, p as createEventDispatcher, o as subscribe, t as is_promise, n as noop } from "../../../chunks/index-092899d0.js";
-import { G as Grid } from "../../../chunks/Grid-79c680c5.js";
-import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-01832d64.js";
-import { R as Row, C as Column } from "../../../chunks/Column-3c16437e.js";
-import { C as Close20, P as PostcodeSearch } from "../../../chunks/PostcodeSearch-c3dd7593.js";
+import { c as create_ssr_component, b as compute_rest_props, d as spread, e as escape_object, r as each, k as add_classes, v as validate_component, j as add_attribute, m as missing_component, f as escape_attribute_value, l as compute_slots, s as setContext, h as escape, p as createEventDispatcher, o as subscribe, t as is_promise, n as noop } from "../../../chunks/index-12fa369c.js";
+import { G as Grid } from "../../../chunks/Grid-5e1041d9.js";
+import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-a240f088.js";
+import "flatpickr";
+import { R as Row, C as Column } from "../../../chunks/Column-5653abb6.js";
+import { C as Close20, P as PostcodeSearch } from "../../../chunks/PostcodeSearch-fa081eca.js";
 import DrawButtons from "./Toolbar/DrawButtons.svelte.js";
 import EditButtons from "./Toolbar/EditButtons.svelte.js";
 import ProgressButtons from "./Toolbar/ProgressButtons.svelte.js";
@@ -11,11 +12,12 @@ import ItemAccordion from "./Toolbar/ItemAccordion.svelte.js";
 import AreaMap from "./AreaMap.svelte.js";
 import { mapobject, selected, mapfunctions, maplayer, mapsource, draw_enabled, draw_type, radiusInKm, query } from "../../endpoints/draw/mapstore.js";
 import "@mapbox/tilebelt";
-import "../../../chunks/index-cc46cb38.js";
-import "../../../chunks/Button-1959039d.js";
-import "postcss";
-import "../../../chunks/AccordionItem-7eda311d.js";
 import "maplibre-gl";
+import "@turf/union";
+import "../../../chunks/index-34c40784.js";
+import "../../../chunks/Button-fdcb5c4f.js";
+import "postcss";
+import "../../../chunks/AccordionItem-28d6e2a6.js";
 import "../../endpoints/draw/MapDraw.js";
 const BreadcrumbSkeleton = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $$restProps = compute_rest_props($$props, ["noTrailingSlash", "count"]);
@@ -744,6 +746,10 @@ const Draw = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     }
   })}
 
+
+
+
+
     ${validate_component(InfoBox, "InfoBox").$$render($$result, { open: $selected.length < 2 }, {}, {
     default: () => {
       return `${$draw_enabled ? `${validate_component(ToastNotification, "ToastNotification").$$render($$result, {
@@ -810,10 +816,10 @@ const Draw = create_ssr_component(($$result, $$props, $$bindings, slots) => {
             subtitle: "Compressed Selection"
           }, {}, {
             default: () => {
-              return `<small><b>MSOA: </b> <span>${escape(value.msoa.length)}</span> <br>
-              <b>LSOA: </b> <span>${escape(value.lsoa.length)}</span> <br>
-              <b>OA: </b> <span>${escape(value.oa.length)}</span> <br>
-              parent tile: ${escape(value.tile)}; # original output areas ${escape(value.original)}</small>`;
+              return `<small><b>MSOA: </b> <span>${escape(value.properties.msoa.length)}</span> <br>
+              <b>LSOA: </b> <span>${escape(value.properties.lsoa.length)}</span> <br>
+              <b>OA: </b> <span>${escape(value.properties.oa.length)}</span> <br>
+              parent tile: ${escape(value.properties.tile)}; # original output areas ${escape(value.properties.original)}</small>`;
             }
           })}` : ``}`}
       `;

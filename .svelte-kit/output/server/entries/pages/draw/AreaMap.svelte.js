@@ -1,9 +1,10 @@
-import { c as create_ssr_component, o as subscribe, p as createEventDispatcher, h as escape, j as add_attribute } from "../../../chunks/index-092899d0.js";
+import { c as create_ssr_component, o as subscribe, p as createEventDispatcher, h as escape, j as add_attribute } from "../../../chunks/index-12fa369c.js";
 import "maplibre-gl";
 import { init_draw } from "../../endpoints/draw/MapDraw.js";
 import { draw_type, mapobject, mapfunctions, maplayer, mapsource, location } from "../../endpoints/draw/mapstore.js";
 import "@mapbox/tilebelt";
-import "../../../chunks/index-cc46cb38.js";
+import "@turf/union";
+import "../../../chunks/index-34c40784.js";
 var mapboxGl = /* @__PURE__ */ (() => `/* purgecss start ignore */
 
 .mapboxgl-map{

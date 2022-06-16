@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/Toolbar/InfoBox.svelte.js"));
+var module2 = __toESM(require("../entries/pages/draw/Toolbar/DrawButtons.svelte.js"));
 const index = 5;
-const entry = "pages/draw/Toolbar/InfoBox.svelte-4e933005.js";
-const js = ["pages/draw/Toolbar/InfoBox.svelte-4e933005.js", "chunks/index-369e6074.js", "chunks/index-3ae34efe.js", "chunks/AccordionItem-8d0f1b54.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js"];
-const css = ["assets/pages/draw/Toolbar/InfoBox.svelte-7fe78a5a.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+const entry = "pages/draw/Toolbar/DrawButtons.svelte-1a0fe638.js";
+const js = ["pages/draw/Toolbar/DrawButtons.svelte-1a0fe638.js", "chunks/index-319e1e25.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-8fb05cd5.js", "chunks/index-40cf8ab4.js", "chunks/Button-88866843.js", "chunks/Column-5aa386c5.js", "chunks/mapstore-800f66a3.js"];
+const css = ["assets/pages/draw/Toolbar/DrawButtons.svelte-609f1bd9.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

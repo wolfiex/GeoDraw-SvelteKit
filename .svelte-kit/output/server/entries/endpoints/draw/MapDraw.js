@@ -1,7 +1,9 @@
-import { g as get_store_value } from "../../../chunks/index-092899d0.js";
+import { g as get_store_value } from "../../../chunks/index-12fa369c.js";
 import { draw_type, radiusInKm, draw_enabled, selected, mapobject, add_mode } from "./mapstore.js";
 import { bboxToTile } from "@mapbox/tilebelt";
-import "../../../chunks/index-cc46cb38.js";
+import "maplibre-gl";
+import union from "@turf/union";
+import "../../../chunks/index-34c40784.js";
 var simplify = {};
 let coordinates = [];
 async function init_draw() {
@@ -267,7 +269,16 @@ async function simplify_query() {
   oa = [...oa].filter((e) => !rm.has(e));
   lsoa = [...lsoa].filter((e) => !rmlsoa.has(e));
   msoa = msoa.map((d) => d[0]);
-  return { tile, msoa, oa, lsoa, original: [...last.oa].length };
+  console.warn("lsoa", tile, msoa, oa, lsoa, last.oa);
+  get_store_value(mapobject).fitBounds(bbox);
+  const oalist = [...last.oa];
+  const features = get_store_value(mapobject).queryRenderedFeatures({
+    layers: ["bounds"]
+  }).filter((d) => oalist.includes(d.properties.oa));
+  let merge = union(...features);
+  merge.properties = { tile, msoa, oa, lsoa, original: oalist.length };
+  console.log("---merge---", merge);
+  return merge || {};
 }
 function extent(values, valueof) {
   let min;

@@ -20,7 +20,7 @@ __export(stdin_exports, {
   get: () => get
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_092899d0 = require("../../../chunks/index-092899d0.js");
+var import_index_12fa369c = require("../../../chunks/index-12fa369c.js");
 async function get({ params }) {
   const { path } = params;
   console.error("testing", path, await fetch(`http://localhost:7113/4/7/4.pbf`));

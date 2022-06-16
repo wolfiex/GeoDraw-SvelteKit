@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/draw/Toolbar/DrawButtons.svelte.js';
+import * as module from '../entries/pages/tables/__layout-tables.svelte.js';
 
 export { module };
 export const index = 3;
-export const entry = 'pages/draw/Toolbar/DrawButtons.svelte-bfe67e98.js';
-export const js = ["pages/draw/Toolbar/DrawButtons.svelte-bfe67e98.js","chunks/index-369e6074.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-95a8c50c.js","chunks/index-3ae34efe.js","chunks/Button-279064b5.js","chunks/Column-0eebbc55.js","chunks/mapstore-5826eee6.js"];
-export const css = ["assets/pages/draw/Toolbar/DrawButtons.svelte-609f1bd9.css","assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+export const entry = 'pages/tables/__layout-tables.svelte-9195caef.js';
+export const js = ["pages/tables/__layout-tables.svelte-9195caef.js","chunks/index-319e1e25.js"];
+export const css = ["assets/pages/profile/__layout-profile.svelte-2d183a43.css"];
