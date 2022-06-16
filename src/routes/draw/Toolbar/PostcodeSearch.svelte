@@ -2,14 +2,13 @@
  import { Button , Grid, Column, Row,Search } from "carbon-components-svelte";
  import {mapobject} from '../mapstore.js';
 
+
 </script>
 
 
 
 <main>
-<div>
-    <Row>
-      
+
       <Search
       closeButtonLabelText="Clear search input"
       defaultValue=""
@@ -22,14 +21,11 @@
       }}
       onKeyDown={function noRefCheck(x){return [1,2,3]}}
       size="sm"
-      style="max-width:100px"
+      style="max-width:200px;min-width:100px;margin:0 auto;"
       />
-         </Row>
-         <Row>
-            <Column>.</Column>
-         </Row>
+         
 
-        </div>
+     
 </main>
 
 <style>

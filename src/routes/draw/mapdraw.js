@@ -7,6 +7,7 @@ import {
   selected,
   add_mode,
   draw_enabled,
+  query,
 } from './mapstore.js';
 // import {extent} from 'd3-array';
 import {bboxToTile} from '@mapbox/tilebelt';
@@ -14,6 +15,9 @@ import { LngLat, LngLatBounds} from 'maplibre-gl';
 // import {union,simplify as tsimplify} from 'turf';
 // turf does not compile with sveltekit
 import {default as union} from '@turf/union'
+import {default as dissolve} from '@turf/dissolve'
+
+
 
 var simplify = {};
 
@@ -333,7 +337,7 @@ function draw_polygon (e) {
       console.log ('--saving polygon', get (selected));
 
       coordinates = [];
-      clear ();
+      // clear ();
       return 1;
     }
   }
@@ -392,7 +396,7 @@ export async function simplify_query () {
       `http://localhost:7113/encoding/${tile}.json`
     ).then (d => d.json ());
     simple.lsoa = simple.lsoa.map (d => {
-      console.log('simplify data',d)
+      // console.log('simplify data',d)
       d[1] = new Set (d[1]);
       return d;
     });
@@ -426,15 +430,31 @@ export async function simplify_query () {
   
   console.warn('lsoa',tile,msoa,oa,lsoa,last.oa)
 
+  
+
 
   // return the simplified query - it would be quicker to not do this each change, but hey. 
-  get(mapobject).fitBounds(bbox)  
+  get(mapobject).fitBounds(bbox,{padding: 200,animation:false,linear:true,duration:200})
   const oalist = [...last.oa]
+
+
+  await new Promise((res) => setTimeout(res, 500));
+
+
   const features = get(mapobject).queryRenderedFeatures({
     layers: ['bounds'],
     }).filter(d=>oalist.includes(d.properties.oa))//.map(d=>d.properties.oa)
 
-  let merge = union(...features)
+  console.warn('features',features,get(mapobject).queryRenderedFeatures({
+    layers: ['bounds'],
+    }))
+
+  if (!features.length) { return false}
+
+  let merge = features[0]
+  for (let i = 1; i < features.length; i++) {
+   merge = union(merge,features[i])
+  }
 
   merge.properties = {tile, msoa, oa, lsoa, original:oalist.length}
   console.log('---merge---',merge)

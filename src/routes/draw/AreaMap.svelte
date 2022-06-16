@@ -16,7 +16,7 @@
     mapstyle,
     minzoom,
     maxzoom,
-    location,
+    // location,
     maxbounds,
     selected,
     draw_enabled,
@@ -53,7 +53,7 @@
       pitch: 10, // 30,
       center: [0, 52],
       zoom: 4,
-      hash: true, // set options in hash string
+      hash: false, // set options in hash string
     });
 
     // scale bar
@@ -120,10 +120,7 @@
 
     if (drawing_tools) await init_draw();
 
-    // move mapobject to location
-    $mapobject.fitBounds(location.bounds, {
-      padding: 20,
-    });
+
   
 
   draw_type.subscribe(() => {

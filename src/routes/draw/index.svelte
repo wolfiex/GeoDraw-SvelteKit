@@ -1,10 +1,11 @@
 <script>
-  // ONS CensusDraw Tilegen 
+  // ONS CensusDraw Tilegen
   // import './css/style.css';
   import 'carbon-components-svelte/css/g10.css';
   import {
     Grid,
     Row,
+    Button,
     Column,
     Breadcrumb,
     BreadcrumbItem,
@@ -17,10 +18,12 @@
   import InfoBox from './Toolbar/InfoBox.svelte';
   import PostcodeSearch from './Toolbar/PostcodeSearch.svelte';
   import ItemAccordion from './Toolbar/ItemAccordion.svelte';
-  import {encode} from '../binary.js'
+  import {encode, decode} from '../binary.js';
   let add_mode = true;
   import {get} from 'svelte/store';
 
+  // import { page } from '$app/stores';
+  // import { goto } from '$app/navigation';
   import './css/mapbox-gl.css';
   let webgl_canvas;
   export let width = '100%';
@@ -55,7 +58,8 @@
     // zoomed,
   } from './mapstore.js';
   import {simplify_query} from './MapDraw.js';
-import { BindVertexArrayOES } from 'maplibre-gl';
+  import {BindVertexArrayOES} from 'maplibre-gl';
+  import {goto} from '$app/navigation';
   // import { ZoomHistory } from 'maplibre-gl';
 
   async function init() {
@@ -130,7 +134,6 @@ import { BindVertexArrayOES } from 'maplibre-gl';
     ];
 
     async function recolour() {
-
       const items = $selected[$selected.length - 1];
 
       console.warn('---recolour', ...items.oa);
@@ -148,21 +151,50 @@ import { BindVertexArrayOES } from 'maplibre-gl';
         // ],
         'transparent',
       ]);
-      var q = await simplify_query()
-      console.warn('---req  ', q);
-      query.set(  q )//.then(d=>d.json()).then(query.set); // this is a promise
-      console.log('---bin--', get(query), encode(get(query)));
+      var q = await simplify_query();
+      if (q) {
+        console.warn('---req  ', q);
+        query.set(q); //.then(d=>d.json()).then(query.set); // this is a promise
+        // console.log('---bin--', get(query), encode(get(query)));
 
+        // update hash
 
+        if (items.oa.size > 0) {
+          items.oa = [...items.oa]; // we can't encode sets
+          window.location.hash = encode(items);
+          console.warn('--hashsave', items);
+        }
+      } else {
+        console.warn('---no features');
+        query.set({error: 'no features'});
+      }
     }
+
+    // console.clear();
+    console.log('cleared console from index.init()');
+    // if we have info in the hash string
 
     // wait until the data has loaded
     $mapobject.on('load', () => {
       selected.subscribe(recolour);
-    });
+      // check_existing()
+      // $mapobject.on('moveend', check_existing);
 
-    console.clear()
-    console.log('cleared console from index.init()')
+      if (window.location.hash.length > 2) {
+        var hash = window.location.hash.substring(1);
+        var q = decode(hash);
+        q.oa = new Set(q.oa);
+        selected.set([q]);
+        // $mapobject.fitBounds([q.lng[0], q.lat[0], q.lng[1], q.lat[1]],padding: {top: 10, bottom:25, left: 15, right: 5});
+        console.warn('--hashload', q);
+      } else {
+        // move mapobject to location
+        $mapobject.fitBounds(location.bounds, {
+          padding: 20,
+          linear: true,
+        });
+      }
+    });
   } //endinit
 
   onMount(init);
@@ -176,21 +208,41 @@ import { BindVertexArrayOES } from 'maplibre-gl';
   <header>
     <Grid>
       <Row id="head1">
-        <Column
-          ><img
-            style="margin-left:10px;margin-top:4px"
+        <div>
+          <img
+            style="margin-left:10px;"
             class="logo"
             src="https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg"
             alt="Office for National Statistics logo - Homepage"
           />
-        </Column>
-        <Column style="float:right;margin-right:2px">
-          <Breadcrumb>
+        </div>
+        <!-- <Column style="float:right;margin-right:2px"> -->
+        <div
+          style="right:0;float:right;top:0;min-height:auto;position:absolute"
+        >
+          <Button
+            disabled={$query.hasOwnProperty("error")}
+            on:click={() => {
+              goto('/build#' + encode(get(query)), {replaceState: false});
+            }}
+          >
+            Build Profile
+          </Button>
+          <Button
+            kind="secondary"
+            on:click={function clear() {
+              selected.set([{oa: new Set(), lat: [], lng: []}]);
+              query.set({error: false});
+              window.location.hash = 'null';
+            }}>Clear Existing</Button
+          >
+        </div>
+        <!-- <Breadcrumb>
             <BreadcrumbItem href="/draw">Draw Area</BreadcrumbItem>
             <BreadcrumbItem href="/" >Save + Load Area</BreadcrumbItem>
             <BreadcrumbItem href="/">Build Profile</BreadcrumbItem>
-          </Breadcrumb>
-        </Column>
+          </Breadcrumb> -->
+        <!-- </Column> -->
       </Row>
       <Row
         style="background-color:#13518d;height:calc(.085*var(--header-1-height));margin-bottom:0px;"
@@ -200,19 +252,15 @@ import { BindVertexArrayOES } from 'maplibre-gl';
         <!-- <Column></Column> -->
         <Column>
           <DrawButtons />
-        </Column><Column>
           <EditButtons />
-        </Column><Column>
-          <PostcodeSearch />
+          
           <!-- </Column><Column> -->
           <ProgressButtons />
         </Column>
+        
       </Row>
+      
     </Grid>
-
-
-
-
 
     <InfoBox open={$selected.length < 2}>
       {#if $draw_enabled}
@@ -275,7 +323,8 @@ import { BindVertexArrayOES } from 'maplibre-gl';
               <b> MSOA: </b> <span>{value.properties.msoa.length}</span> <br />
               <b> LSOA: </b> <span>{value.properties.lsoa.length}</span> <br />
               <b> OA: </b> <span>{value.properties.oa.length}</span> <br />
-              parent tile: {value.properties.tile}; # original output areas {value.properties.original}
+              parent tile: {value.properties.tile}; # original output areas {value
+                .properties.original}
             </small>
           </ItemAccordion>
         {/if}
@@ -287,7 +336,7 @@ import { BindVertexArrayOES } from 'maplibre-gl';
 <style>
   :root {
     --header-2-height: clamp(2rem, 4vh, 60px);
-    --header-1-height: clamp(1rem, 5vh, 40px);
+    --header-1-height: clamp(3rem, 5vh, 40px);
     --bar: #343a45;
     /* --second-color: #ff7; */
   }
@@ -320,6 +369,7 @@ import { BindVertexArrayOES } from 'maplibre-gl';
   }
   :global(#head1) {
     width: 100vw;
+    display: inline-block;
     height: var(--header-1-height) !important;
     background-color: whitesmoke;
     margin: 0;
@@ -338,7 +388,7 @@ import { BindVertexArrayOES } from 'maplibre-gl';
     margin-bottom: 1.2rem;
   }
   .logo {
-    height: calc(var(--header-1-height) * 0.7) !important;
+    height: calc(var(--header-1-height) * 0.9) !important;
     width: auto;
   }
 
@@ -363,7 +413,7 @@ import { BindVertexArrayOES } from 'maplibre-gl';
     filter: brightness(0.85);
   }
 
-  :global(header){
+  :global(header) {
     height: 100px;
   }
 </style>

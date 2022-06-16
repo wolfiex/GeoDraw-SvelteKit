@@ -25,6 +25,7 @@ onMount(async ()=>{
         }
     );
     map.addLayer(CyclOSM);
+    map.on('load',()=>update_map(minimap))
 
 })
 
@@ -44,7 +45,7 @@ function update_map(coordinates){
 
     })
     geo.addTo(map);
-    map.fitBounds(geo.getBounds(), { padding: [50, 50] });
+    map.fitBounds(geo.getBounds(), { padding: [14, 14] });
     }
 
 $: update_map(minimap)
