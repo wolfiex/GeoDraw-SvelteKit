@@ -1,9 +1,7 @@
 import { g as get_store_value } from "../../../chunks/index-f909a211.js";
 import { draw_type, radiusInKm, draw_enabled, selected, mapobject, add_mode } from "./mapstore.js";
 import { bboxToTile } from "@mapbox/tilebelt";
-import "maplibre-gl";
 import union from "@turf/union";
-import "@turf/dissolve";
 import "../../../chunks/index-1ceaa7e2.js";
 var simplify = {};
 let coordinates = [];

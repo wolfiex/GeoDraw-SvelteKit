@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/ui/Warning.svelte.js';
+import * as module from '../entries/pages/pbf_viewer.svelte.js';
 
 export { module };
 export const index = 46;
-export const entry = 'pages/lib/ui/Warning.svelte-f87a0a41.js';
-export const js = ["pages/lib/ui/Warning.svelte-f87a0a41.js","chunks/index-02c5aad5.js"];
-export const css = ["assets/ONSFooter-87ea6b05.css"];
+export const entry = 'pages/pbf_viewer.svelte-f5357261.js';
+export const js = ["pages/pbf_viewer.svelte-f5357261.js","chunks/index-6473bae0.js"];
+export const css = ["assets/pages/pbf_viewer.svelte-85a8023c.css"];

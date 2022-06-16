@@ -312,17 +312,6 @@
       "assets/entries/pages/lib/chart/BarChart.svelte-bfe100d4.css"
     ]
   },
-  "src/routes/lib/chart/MapStatic.svelte": {
-    "file": "entries/pages/lib/chart/MapStatic.svelte.js",
-    "src": "src/routes/lib/chart/MapStatic.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-f909a211.js"
-    ],
-    "css": [
-      "assets/entries/pages/lib/chart/MapStatic.svelte-1be29810.css"
-    ]
-  },
   "src/routes/lib/chart/NumBlock.svelte": {
     "file": "entries/pages/lib/chart/NumBlock.svelte.js",
     "src": "src/routes/lib/chart/NumBlock.svelte",

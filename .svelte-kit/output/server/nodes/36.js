@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/layout/partial/Headline.svelte.js';
+import * as module from '../entries/pages/lib/layout/partial/Highlighted.svelte.js';
 
 export { module };
 export const index = 36;
-export const entry = 'pages/lib/layout/partial/Headline.svelte-37f6f60d.js';
-export const js = ["pages/lib/layout/partial/Headline.svelte-37f6f60d.js","chunks/index-02c5aad5.js"];
-export const css = ["assets/pages/lib/layout/partial/Headline.svelte-2e2a401c.css"];
+export const entry = 'pages/lib/layout/partial/Highlighted.svelte-e8f2f01e.js';
+export const js = ["pages/lib/layout/partial/Highlighted.svelte-e8f2f01e.js","chunks/index-6473bae0.js"];
+export const css = [];

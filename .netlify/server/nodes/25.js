@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/lib/layout/Content.svelte.js"));
+var module2 = __toESM(require("../entries/pages/lib/layout/Linkbox.svelte.js"));
 const index = 25;
-const entry = "pages/lib/layout/Content.svelte-6ef8e3fd.js";
-const js = ["pages/lib/layout/Content.svelte-6ef8e3fd.js", "chunks/index-02c5aad5.js"];
+const entry = "pages/lib/layout/Linkbox.svelte-5ba79312.js";
+const js = ["pages/lib/layout/Linkbox.svelte-5ba79312.js", "chunks/index-6473bae0.js"];
 const css = [];

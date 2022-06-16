@@ -4,7 +4,6 @@ import { init_draw } from "../../endpoints/draw/MapDraw.js";
 import { draw_type, mapobject, mapfunctions, maplayer, mapsource } from "../../endpoints/draw/mapstore.js";
 import "@mapbox/tilebelt";
 import "@turf/union";
-import "@turf/dissolve";
 import "../../../chunks/index-1ceaa7e2.js";
 var mapboxGl = /* @__PURE__ */ (() => `/* purgecss start ignore */
 

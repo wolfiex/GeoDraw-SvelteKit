@@ -11,11 +11,9 @@ import {
 } from './mapstore.js';
 // import {extent} from 'd3-array';
 import {bboxToTile} from '@mapbox/tilebelt';
-import { LngLat, LngLatBounds} from 'maplibre-gl';
-// import {union,simplify as tsimplify} from 'turf';
+// import { LngLat, LngLatBounds} from 'maplibre-gl';
 // turf does not compile with sveltekit
 import {default as union} from '@turf/union'
-import {default as dissolve} from '@turf/dissolve'
 
 
 

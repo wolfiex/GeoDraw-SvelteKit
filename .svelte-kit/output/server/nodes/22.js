@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/layout/Article.svelte.js';
+import * as module from '../entries/pages/lib/layout/Banner.svelte.js';
 
 export { module };
 export const index = 22;
-export const entry = 'pages/lib/layout/Article.svelte-01eccda3.js';
-export const js = ["pages/lib/layout/Article.svelte-01eccda3.js","chunks/index-02c5aad5.js"];
+export const entry = 'pages/lib/layout/Banner.svelte-e77beb2e.js';
+export const js = ["pages/lib/layout/Banner.svelte-e77beb2e.js","chunks/index-6473bae0.js"];
 export const css = [];

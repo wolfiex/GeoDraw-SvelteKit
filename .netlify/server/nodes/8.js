@@ -29,6 +29,6 @@ __export(stdin_exports, {
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/draw/AreaMap.svelte.js"));
 const index = 8;
-const entry = "pages/draw/AreaMap.svelte-91f22e81.js";
-const js = ["pages/draw/AreaMap.svelte-91f22e81.js", "chunks/index-02c5aad5.js", "chunks/AreaMap-d363a238.js", "chunks/_commonjsHelpers-db6d3250.js", "chunks/mapstore-e417bad7.js", "chunks/index-24963876.js"];
+const entry = "pages/draw/AreaMap.svelte-65d52205.js";
+const js = ["pages/draw/AreaMap.svelte-65d52205.js", "chunks/index-6473bae0.js", "chunks/AreaMap-3638296b.js", "chunks/_commonjsHelpers-db6d3250.js", "chunks/mapstore-3657ee1d.js", "chunks/index-43f63480.js"];
 const css = ["assets/AreaMap-f456b717.css"];

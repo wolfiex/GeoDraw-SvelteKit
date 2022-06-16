@@ -13,9 +13,8 @@ import { mapobject, selected, mapfunctions, maplayer, mapsource, query, draw_ena
 import ItemAccordion from "./Toolbar/ItemAccordion.svelte.js";
 import AreaMap from "./AreaMap.svelte.js";
 import "@mapbox/tilebelt";
-import "maplibre-gl";
 import "@turf/union";
-import "@turf/dissolve";
+import "maplibre-gl";
 import "../../../chunks/index-1ceaa7e2.js";
 import "postcss";
 import "../../../chunks/AccordionItem-80204f4c.js";

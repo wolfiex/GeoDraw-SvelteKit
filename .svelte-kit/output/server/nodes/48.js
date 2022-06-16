@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/tables/BarChart.svelte.js';
+import * as module from '../entries/pages/tables/MapAreas.svelte.js';
 
 export { module };
 export const index = 48;
-export const entry = 'pages/tables/BarChart.svelte-e79556fa.js';
-export const js = ["pages/tables/BarChart.svelte-e79556fa.js","chunks/index-02c5aad5.js"];
-export const css = ["assets/pages/lib/chart/BarChart.svelte-0b676b41.css"];
+export const entry = 'pages/tables/MapAreas.svelte-7b408da0.js';
+export const js = ["pages/tables/MapAreas.svelte-7b408da0.js","chunks/preload-helper-60cab3ee.js","chunks/index-6473bae0.js"];
+export const css = ["assets/pages/tables/MapAreas.svelte-692a9784.css"];

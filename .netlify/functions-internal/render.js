@@ -5,7 +5,7 @@ exports.handler = init({
 	assets: new Set([".DS_Store","css/.DS_Store","css/style-omt.json","data/nomis_tables.json","favicon.ico","nest/.DS_Store","nest/robot.txt","robots.txt"]),
 	mimeTypes: {".json":"application/json",".ico":"image/vnd.microsoft.icon",".txt":"text/plain"},
 	_: {
-		entry: {"file":"start-0e136dab.js","js":["start-0e136dab.js","chunks/index-02c5aad5.js","chunks/index-24963876.js","chunks/paths-c0fc83a9.js","chunks/preload-helper-60cab3ee.js","chunks/singletons-d1fb5791.js"],"css":[]},
+		entry: {"file":"start-e0152a3f.js","js":["start-e0152a3f.js","chunks/index-6473bae0.js","chunks/index-43f63480.js","chunks/paths-c0fc83a9.js","chunks/preload-helper-60cab3ee.js","chunks/singletons-d1fb5791.js"],"css":[]},
 		nodes: [
 			() => Promise.resolve().then(() => require('../server/nodes/0.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/1.js')),
@@ -15,14 +15,14 @@ exports.handler = init({
 			() => Promise.resolve().then(() => require('../server/nodes/7.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/4.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/15.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/47.js')),
+			() => Promise.resolve().then(() => require('../server/nodes/46.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/5.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/50.js')),
+			() => Promise.resolve().then(() => require('../server/nodes/49.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/6.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/8.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/16.js')),
+			() => Promise.resolve().then(() => require('../server/nodes/47.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/48.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/49.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/9.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/10.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/11.js')),
@@ -41,13 +41,13 @@ exports.handler = init({
 			() => Promise.resolve().then(() => require('../server/nodes/27.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/28.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/29.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/30.js')),
+			() => Promise.resolve().then(() => require('../server/nodes/40.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/41.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/42.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/43.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/44.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/45.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/46.js')),
+			() => Promise.resolve().then(() => require('../server/nodes/30.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/31.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/32.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/33.js')),
@@ -56,8 +56,7 @@ exports.handler = init({
 			() => Promise.resolve().then(() => require('../server/nodes/36.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/37.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/38.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/39.js')),
-			() => Promise.resolve().then(() => require('../server/nodes/40.js'))
+			() => Promise.resolve().then(() => require('../server/nodes/39.js'))
 		],
 		routes: [
 			{
@@ -297,24 +296,13 @@ exports.handler = init({
 			},
 			{
 				type: 'page',
-				id: "lib/chart/MapStatic",
-				pattern: /^\/lib\/chart\/MapStatic\/?$/,
-				names: [],
-				types: [],
-				path: "/lib/chart/MapStatic",
-				shadow: null,
-				a: [0,23],
-				b: [1]
-			},
-			{
-				type: 'page',
 				id: "lib/chart/NumBlock",
 				pattern: /^\/lib\/chart\/NumBlock\/?$/,
 				names: [],
 				types: [],
 				path: "/lib/chart/NumBlock",
 				shadow: null,
-				a: [0,24],
+				a: [0,23],
 				b: [1]
 			},
 			{
@@ -325,7 +313,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/chart/ProfileChart",
 				shadow: null,
-				a: [0,25],
+				a: [0,24],
 				b: [1]
 			},
 			{
@@ -336,7 +324,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/Article",
 				shadow: null,
-				a: [0,26],
+				a: [0,25],
 				b: [1]
 			},
 			{
@@ -347,7 +335,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/Banner",
 				shadow: null,
-				a: [0,27],
+				a: [0,26],
 				b: [1]
 			},
 			{
@@ -358,7 +346,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/Cards",
 				shadow: null,
-				a: [0,28],
+				a: [0,27],
 				b: [1]
 			},
 			{
@@ -369,7 +357,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/Content",
 				shadow: null,
-				a: [0,29],
+				a: [0,28],
 				b: [1]
 			},
 			{
@@ -380,7 +368,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/Linkbox",
 				shadow: null,
-				a: [0,30],
+				a: [0,29],
 				b: [1]
 			},
 			{
@@ -391,7 +379,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/ONSFooter",
 				shadow: null,
-				a: [0,31],
+				a: [0,30],
 				b: [1]
 			},
 			{
@@ -402,7 +390,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/ONSHeader",
 				shadow: null,
-				a: [0,32],
+				a: [0,31],
 				b: [1]
 			},
 			{
@@ -413,7 +401,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/Section",
 				shadow: null,
-				a: [0,33],
+				a: [0,32],
 				b: [1]
 			},
 			{
@@ -424,7 +412,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/Titleblock",
 				shadow: null,
-				a: [0,34],
+				a: [0,33],
 				b: [1]
 			},
 			{
@@ -435,7 +423,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/ui/ButtonLink",
 				shadow: null,
-				a: [0,35],
+				a: [0,34],
 				b: [1]
 			},
 			{
@@ -446,7 +434,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/ui/Em",
 				shadow: null,
-				a: [0,36],
+				a: [0,35],
 				b: [1]
 			},
 			{
@@ -457,7 +445,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/ui/Icon",
 				shadow: null,
-				a: [0,37],
+				a: [0,36],
 				b: [1]
 			},
 			{
@@ -468,7 +456,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/ui/Select",
 				shadow: null,
-				a: [0,38],
+				a: [0,37],
 				b: [1]
 			},
 			{
@@ -479,7 +467,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/ui/Toggle",
 				shadow: null,
-				a: [0,39],
+				a: [0,38],
 				b: [1]
 			},
 			{
@@ -490,7 +478,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/ui/Warning",
 				shadow: null,
-				a: [0,40],
+				a: [0,39],
 				b: [1]
 			},
 			{
@@ -501,7 +489,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Breadcrumb",
 				shadow: null,
-				a: [0,41],
+				a: [0,40],
 				b: [1]
 			},
 			{
@@ -512,7 +500,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Card",
 				shadow: null,
-				a: [0,42],
+				a: [0,41],
 				b: [1]
 			},
 			{
@@ -523,7 +511,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/CardFeature",
 				shadow: null,
-				a: [0,43],
+				a: [0,42],
 				b: [1]
 			},
 			{
@@ -534,7 +522,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/CardSection",
 				shadow: null,
-				a: [0,44],
+				a: [0,43],
 				b: [1]
 			},
 			{
@@ -545,7 +533,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Figure",
 				shadow: null,
-				a: [0,45],
+				a: [0,44],
 				b: [1]
 			},
 			{
@@ -556,7 +544,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Headline",
 				shadow: null,
-				a: [0,46],
+				a: [0,45],
 				b: [1]
 			},
 			{
@@ -567,7 +555,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Highlighted",
 				shadow: null,
-				a: [0,47],
+				a: [0,46],
 				b: [1]
 			},
 			{
@@ -578,7 +566,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Meta",
 				shadow: null,
-				a: [0,48],
+				a: [0,47],
 				b: [1]
 			},
 			{
@@ -589,7 +577,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Navbox",
 				shadow: null,
-				a: [0,49],
+				a: [0,48],
 				b: [1]
 			},
 			{
@@ -600,7 +588,7 @@ exports.handler = init({
 				types: [],
 				path: "/lib/layout/partial/Subhead",
 				shadow: null,
-				a: [0,50],
+				a: [0,49],
 				b: [1]
 			},
 			{
