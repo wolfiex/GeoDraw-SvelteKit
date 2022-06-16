@@ -20,14 +20,14 @@ __export(stdin_exports, {
   default: () => Cards
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../../../chunks/index-f909a211.js");
-var import_index_1ceaa7e2 = require("../../../../chunks/index-1ceaa7e2.js");
+var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
+var import_index_4d87e63a = require("../../../../chunks/index-4d87e63a.js");
 var Cards_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nh2.svelte-4xzjby{\n  display:inline-block\n}\n\n.tiles-grid.svelte-4xzjby{\n  display:grid;\n  width:100%;\n  justify-content:stretch;\n  grid-auto-flow:row dense;\n  margin:8px 0\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: "h2.svelte-4xzjby{display:inline-block}.tiles-grid.svelte-4xzjby{display:grid;width:100%;justify-content:stretch;grid-auto-flow:row dense;margin:8px 0}",
   map: null
 };
-const Cards = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+const Cards = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let columns;
   let { title = null } = $$props;
   let { colwidth = "medium" } = $$props;
@@ -38,8 +38,8 @@ const Cards = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots
     wide: { w: 380, c: 2 },
     full: { w: "100%", c: 1 }
   };
-  const cols = (0, import_index_1ceaa7e2.w)(defs[colwidth].c);
-  (0, import_index_f909a211.s)("tiles", { cols });
+  const cols = (0, import_index_4d87e63a.w)(defs[colwidth].c);
+  (0, import_index_c9602e46.s)("tiles", { cols });
   if ($$props.title === void 0 && $$bindings.title && title !== void 0)
     $$bindings.title(title);
   if ($$props.colwidth === void 0 && $$bindings.colwidth && colwidth !== void 0)
@@ -51,9 +51,9 @@ const Cards = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots
   {
     cols.set(columns);
   }
-  return `<div class="${"tiles"}">${title ? `<h2 class="${"svelte-4xzjby"}">${(0, import_index_f909a211.e)(title)}</h2>
+  return `<div class="${"tiles"}">${title ? `<h2 class="${"svelte-4xzjby"}">${(0, import_index_c9602e46.e)(title)}</h2>
   ${slots.meta ? slots.meta({}) : ``}` : ``}
-  <div class="${"tiles-grid margin-bottom svelte-4xzjby"}"${(0, import_index_f909a211.f)({
+  <div class="${"tiles-grid margin-bottom svelte-4xzjby"}"${(0, import_index_c9602e46.f)({
     "grid-template-columns": `repeat(${colwidth == "full" ? "1fr" : "auto-fit, minmax(min(" + defs[colwidth].w + "px, 100%), 1fr))"}`,
     "grid-gap": `${gridgap}px`
   })}>${slots.default ? slots.default({}) : ``}</div>

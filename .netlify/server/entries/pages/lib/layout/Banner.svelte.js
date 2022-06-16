@@ -20,8 +20,8 @@ __export(stdin_exports, {
   default: () => Banner
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../../../chunks/index-f909a211.js");
-const Banner = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
+const Banner = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let { title = "Banner title" } = $$props;
   let { label = "This is a description of the link" } = $$props;
   let { url = "/" } = $$props;
@@ -31,7 +31,7 @@ const Banner = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slot
     $$bindings.label(label);
   if ($$props.url === void 0 && $$bindings.url && url !== void 0)
     $$bindings.url(url);
-  return `<section class="${"background--pineapple-yellow wrapper banner__bottom-shadow margin-top-sm--3 margin-top-md--3 margin-top-lg--3 margin-bottom--3 js-hover-click"}" style="${"position: relative;"}"><div class="${"col-wrap"}"><a${(0, import_index_f909a211.h)("href", url, 0)}><div class="${"col"}"><h1 class="${"banner__heading margin-top--1 font-weight-700 font-size--h2 adjust-font-size--30"}">${(0, import_index_f909a211.e)(title)}</h1>
-        <p class="${"underline-link banner__link banner__body margin-top--0 margin-bottom--1"}">${(0, import_index_f909a211.e)(label)}</p></div>
+  return `<section class="${"background--pineapple-yellow wrapper banner__bottom-shadow margin-top-sm--3 margin-top-md--3 margin-top-lg--3 margin-bottom--3 js-hover-click"}" style="${"position: relative;"}"><div class="${"col-wrap"}"><a${(0, import_index_c9602e46.h)("href", url, 0)}><div class="${"col"}"><h1 class="${"banner__heading margin-top--1 font-weight-700 font-size--h2 adjust-font-size--30"}">${(0, import_index_c9602e46.e)(title)}</h1>
+        <p class="${"underline-link banner__link banner__body margin-top--0 margin-bottom--1"}">${(0, import_index_c9602e46.e)(label)}</p></div>
       <span class="${"box__clickable"}"></span></a></div></section>`;
 });

@@ -23,8 +23,8 @@ __export(stdin_exports, {
   default: () => Tables
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../../chunks/index-f909a211.js");
-var import_index_1ceaa7e2 = require("../../../chunks/index-1ceaa7e2.js");
+var import_index_c9602e46 = require("../../../chunks/index-c9602e46.js");
+var import_index_4d87e63a = require("../../../chunks/index-4d87e63a.js");
 var dfd = __toESM(require("danfojs"));
 var import_BarChart_svelte = __toESM(require("./BarChart.svelte.js"));
 var import_MapAreas_svelte = __toESM(require("./MapAreas.svelte.js"));
@@ -33,7 +33,7 @@ const css$2 = {
   code: "h2.svelte-4xzjby{display:inline-block}.tiles-grid.svelte-4xzjby{display:grid;width:100%;justify-content:stretch;grid-auto-flow:row dense;margin:8px 0}",
   map: null
 };
-const Cards = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+const Cards = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let columns;
   let { title = null } = $$props;
   let { colwidth = "medium" } = $$props;
@@ -44,8 +44,8 @@ const Cards = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots
     wide: { w: 380, c: 2 },
     full: { w: "100%", c: 1 }
   };
-  const cols = (0, import_index_1ceaa7e2.w)(defs[colwidth].c);
-  (0, import_index_f909a211.s)("tiles", { cols });
+  const cols = (0, import_index_4d87e63a.w)(defs[colwidth].c);
+  (0, import_index_c9602e46.s)("tiles", { cols });
   if ($$props.title === void 0 && $$bindings.title && title !== void 0)
     $$bindings.title(title);
   if ($$props.colwidth === void 0 && $$bindings.colwidth && colwidth !== void 0)
@@ -57,9 +57,9 @@ const Cards = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots
   {
     cols.set(columns);
   }
-  return `<div class="${"tiles"}">${title ? `<h2 class="${"svelte-4xzjby"}">${(0, import_index_f909a211.e)(title)}</h2>
+  return `<div class="${"tiles"}">${title ? `<h2 class="${"svelte-4xzjby"}">${(0, import_index_c9602e46.e)(title)}</h2>
   ${slots.meta ? slots.meta({}) : ``}` : ``}
-  <div class="${"tiles-grid margin-bottom svelte-4xzjby"}"${(0, import_index_f909a211.f)({
+  <div class="${"tiles-grid margin-bottom svelte-4xzjby"}"${(0, import_index_c9602e46.f)({
     "grid-template-columns": `repeat(${colwidth == "full" ? "1fr" : "auto-fit, minmax(min(" + defs[colwidth].w + "px, 100%), 1fr))"}`,
     "grid-gap": `${gridgap}px`
   })}>${slots.default ? slots.default({}) : ``}</div>
@@ -70,15 +70,15 @@ const css$1 = {
   code: "h3.svelte-1krn9ab{font-size:1.3rem;font-weight:bold}.blank.svelte-1krn9ab{padding:0;line-height:1}.tile.svelte-1krn9ab,.blank.svelte-1krn9ab{color:black;margin:4px 0 0 !important}",
   map: null
 };
-const Card = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+const Card = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let $cols, $$unsubscribe_cols;
   let { colspan = 1 } = $$props;
   let { rowspan = 1 } = $$props;
   let { title = null } = $$props;
   let { links = null } = $$props;
   let { blank = false } = $$props;
-  const { cols } = (0, import_index_f909a211.d)("tiles");
-  $$unsubscribe_cols = (0, import_index_f909a211.b)(cols, (value) => $cols = value);
+  const { cols } = (0, import_index_c9602e46.d)("tiles");
+  $$unsubscribe_cols = (0, import_index_c9602e46.b)(cols, (value) => $cols = value);
   if ($$props.colspan === void 0 && $$bindings.colspan && colspan !== void 0)
     $$bindings.colspan(colspan);
   if ($$props.rowspan === void 0 && $$bindings.rowspan && rowspan !== void 0)
@@ -92,15 +92,15 @@ const Card = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots)
   $$result.css.add(css$1);
   $$unsubscribe_cols();
   return `<article class="${[
-    (0, import_index_f909a211.e)((0, import_index_f909a211.r)(!blank ? "tile tile__content" : "")) + " svelte-1krn9ab",
+    (0, import_index_c9602e46.e)((0, import_index_c9602e46.j)(!blank ? "tile tile__content" : "")) + " svelte-1krn9ab",
     blank ? "blank" : ""
-  ].join(" ").trim()}"${(0, import_index_f909a211.f)({
+  ].join(" ").trim()}"${(0, import_index_c9602e46.f)({
     "grid-column": `span ${colspan == 1 ? 1 : colspan > $cols ? $cols : colspan}`,
     "grid-row": `span ${rowspan}`
-  })}>${title ? `<header class="${"margin-top--1"}"><h3 class="${"margin-top--0 margin-right--0 margin-bottom--0 margin-left--0 svelte-1krn9ab"}">${(0, import_index_f909a211.e)(title)}</h3></header>` : ``}
+  })}>${title ? `<header class="${"margin-top--1"}"><h3 class="${"margin-top--0 margin-right--0 margin-bottom--0 margin-left--0 svelte-1krn9ab"}">${(0, import_index_c9602e46.e)(title)}</h3></header>` : ``}
   ${slots.default ? slots.default({}) : ``}
-  ${links && links[0] ? `<div class="${"margin-top--2"}">${(0, import_index_f909a211.i)(links, (link) => {
-    return `<a${(0, import_index_f909a211.h)("href", link.url, 0)} class="${"tile__link"}"${(0, import_index_f909a211.h)("aria-label", link.label, 0)}${(0, import_index_f909a211.h)("data-gtm-label", link.label, 0)}>${(0, import_index_f909a211.e)(link.label)}
+  ${links && links[0] ? `<div class="${"margin-top--2"}">${(0, import_index_c9602e46.i)(links, (link) => {
+    return `<a${(0, import_index_c9602e46.h)("href", link.url, 0)} class="${"tile__link"}"${(0, import_index_c9602e46.h)("aria-label", link.label, 0)}${(0, import_index_c9602e46.h)("data-gtm-label", link.label, 0)}>${(0, import_index_c9602e46.e)(link.label)}
     </a>`;
   })}</div>` : ``}
 </article>`;
@@ -111,7 +111,7 @@ const css = {
   map: null
 };
 const name = "Custom Area Tables";
-const Tables = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+const Tables = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let cache = {};
   let areas = "";
   var newdata = { tables: [] };
@@ -158,23 +158,23 @@ const Tables = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slot
   {
     console.log(newdata);
   }
-  return `<h1 class="${"svelte-nzgl4g"}">${(0, import_index_f909a211.e)(name)}</h1>
-${(0, import_index_f909a211.v)(Cards, "Cards").$$render($$result, {}, {}, {
+  return `<h1 class="${"svelte-nzgl4g"}">${(0, import_index_c9602e46.e)(name)}</h1>
+${(0, import_index_c9602e46.v)(Cards, "Cards").$$render($$result, {}, {}, {
     default: () => {
-      return `${(0, import_index_f909a211.v)(Card, "Card").$$render($$result, { title: "Area map" }, {}, {
+      return `${(0, import_index_c9602e46.v)(Card, "Card").$$render($$result, { title: "Area map" }, {}, {
         default: () => {
-          return `${(0, import_index_f909a211.v)(import_MapAreas_svelte.default, "MapAreas").$$render($$result, { minimap: coordinates }, {}, {})}`;
+          return `${(0, import_index_c9602e46.v)(import_MapAreas_svelte.default, "MapAreas").$$render($$result, { minimap: coordinates }, {}, {})}`;
         }
       })}
 
-  ${(0, import_index_f909a211.v)(Card, "Card").$$render($$result, { title: "Selected Areas" }, {}, {
+  ${(0, import_index_c9602e46.v)(Card, "Card").$$render($$result, { title: "Selected Areas" }, {}, {
         default: () => {
           return `This section outlines all the different areas codes which have been combined
     to produce the following report.
     <br><br>
-    ${(0, import_index_f909a211.i)(items(compressed), (item) => {
-            return `<h4 style="${"display:inline"}"><b class="${"svelte-nzgl4g"}">${(0, import_index_f909a211.e)(item[0].toUpperCase())}</b>:</h4>
-      <codes class="${"svelte-nzgl4g"}">${(0, import_index_f909a211.e)(item[1].join(", "))}</codes>
+    ${(0, import_index_c9602e46.i)(items(compressed), (item) => {
+            return `<h4 style="${"display:inline"}"><b class="${"svelte-nzgl4g"}">${(0, import_index_c9602e46.e)(item[0].toUpperCase())}</b>:</h4>
+      <codes class="${"svelte-nzgl4g"}">${(0, import_index_c9602e46.e)(item[1].join(", "))}</codes>
       <br><br>`;
           })}`;
         }
@@ -183,25 +183,25 @@ ${(0, import_index_f909a211.v)(Cards, "Cards").$$render($$result, {}, {}, {
 
 
   ${function(__value) {
-        if ((0, import_index_f909a211.w)(__value)) {
-          __value.then(null, import_index_f909a211.n);
+        if ((0, import_index_c9602e46.w)(__value)) {
+          __value.then(null, import_index_c9602e46.n);
           return ``;
         }
         return function(tables) {
           return `
 
-  ${(0, import_index_f909a211.v)(Card, "Card").$$render($$result, { title: "Embed Url" }, {}, {
+  ${(0, import_index_c9602e46.v)(Card, "Card").$$render($$result, { title: "Embed Url" }, {}, {
             default: () => {
               return `<code>Click here to copy the embed url to your clipboard: <br>
-      ${(0, import_index_f909a211.e)(JSON.stringify(tables).length)}</code>`;
+      ${(0, import_index_c9602e46.e)(JSON.stringify(tables).length)}</code>`;
             }
           })}
-    ${(0, import_index_f909a211.i)(tables, (tab) => {
-            return `${(0, import_index_f909a211.v)(Card, "Card").$$render($$result, { title: tab.name }, {}, {
+    ${(0, import_index_c9602e46.i)(tables, (tab) => {
+            return `${(0, import_index_c9602e46.v)(Card, "Card").$$render($$result, { title: tab.name }, {}, {
               default: () => {
                 return `
 
-        ${(0, import_index_f909a211.v)(import_BarChart_svelte.default, "BarChart").$$render($$result, {
+        ${(0, import_index_c9602e46.v)(import_BarChart_svelte.default, "BarChart").$$render($$result, {
                   xKey: "pc",
                   yKey: "column",
                   zKey: "z",

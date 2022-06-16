@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/ui/Em.svelte.js';
+import * as module from '../entries/pages/lib/ui/Icon.svelte.js';
 
 export { module };
 export const index = 41;
-export const entry = 'pages/lib/ui/Em.svelte-26181fa1.js';
-export const js = ["pages/lib/ui/Em.svelte-26181fa1.js","chunks/index-6473bae0.js"];
-export const css = ["assets/pages/lib/ui/Em.svelte-0a94b61d.css"];
+export const entry = 'pages/lib/ui/Icon.svelte-b0d81193.js';
+export const js = ["pages/lib/ui/Icon.svelte-b0d81193.js","chunks/index-7c3c6a44.js"];
+export const css = ["assets/pages/lib/ui/Icon.svelte-08257b53.css"];

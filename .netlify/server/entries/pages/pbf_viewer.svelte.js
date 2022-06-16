@@ -20,15 +20,15 @@ __export(stdin_exports, {
   default: () => Pbf_viewer
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../chunks/index-f909a211.js");
+var import_index_c9602e46 = require("../../chunks/index-c9602e46.js");
 var pbf_viewer_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nmain.svelte-1c7d7h3{\n  display:flex;\n  position:relative;\n  padding:100px\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: "main.svelte-1c7d7h3{display:flex;position:relative;padding:100px}",
   map: null
 };
-const Pbf_viewer = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+const Pbf_viewer = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<main class="${"svelte-1c7d7h3"}">${hash ? `<h1>Tile: ${(0, import_index_f909a211.e)(hash)}</h1>` : ``}
+  return `<main class="${"svelte-1c7d7h3"}">${hash ? `<h1>Tile: ${(0, import_index_c9602e46.e)(hash)}</h1>` : ``}
 
 
 </main>`;

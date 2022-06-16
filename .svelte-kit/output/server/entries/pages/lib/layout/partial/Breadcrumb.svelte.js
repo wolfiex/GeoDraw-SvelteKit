@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape, i as each, h as add_attribute } from "../../../../../chunks/index-f909a211.js";
+import { c as create_ssr_component, e as escape, i as each, h as add_attribute } from "../../../../../chunks/index-c9602e46.js";
 const Breadcrumb = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { links = [] } = $$props;
   let { mode = "neutral" } = $$props;

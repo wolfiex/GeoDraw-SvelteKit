@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/draw/old_layout.svelte.js';
+import * as module from '../entries/pages/index.svelte.js';
 
 export { module };
 export const index = 16;
-export const entry = 'pages/draw/old_layout.svelte-a8366099.js';
-export const js = ["pages/draw/old_layout.svelte-a8366099.js","chunks/index-6473bae0.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-951fb88f.js","chunks/index-43f63480.js","chunks/Button-d2ff493b.js","chunks/Grid-c4fea0dc.js","chunks/Column-00fbdc06.js"];
-export const css = ["assets/pages/draw/old_layout.svelte-6283f141.css","assets/style-69f0818d.css","assets/g10-6c42276b.css","assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+export const entry = 'pages/index.svelte-bc41f251.js';
+export const js = ["pages/index.svelte-bc41f251.js","chunks/index-7c3c6a44.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-e29deeda.js","chunks/index-802cfd86.js","chunks/Button-e51b3d9a.js"];
+export const css = ["assets/pages/index.svelte-804c5e2c.css","assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

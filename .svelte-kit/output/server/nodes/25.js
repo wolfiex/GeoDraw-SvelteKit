@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/layout/Linkbox.svelte.js';
+import * as module from '../entries/pages/lib/layout/ONSFooter.svelte.js';
 
 export { module };
 export const index = 25;
-export const entry = 'pages/lib/layout/Linkbox.svelte-5ba79312.js';
-export const js = ["pages/lib/layout/Linkbox.svelte-5ba79312.js","chunks/index-6473bae0.js"];
+export const entry = 'pages/lib/layout/ONSFooter.svelte-0f6117c2.js';
+export const js = ["pages/lib/layout/ONSFooter.svelte-0f6117c2.js","chunks/index-7c3c6a44.js"];
 export const css = [];

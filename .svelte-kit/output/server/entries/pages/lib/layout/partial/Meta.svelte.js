@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape } from "../../../../../chunks/index-f909a211.js";
+import { c as create_ssr_component, e as escape } from "../../../../../chunks/index-c9602e46.js";
 const Meta = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { background = "grey" } = $$props;
   let { label = "Last updated" } = $$props;

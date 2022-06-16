@@ -20,17 +20,17 @@ __export(stdin_exports, {
   default: () => ItemAccordion
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../../../chunks/index-f909a211.js");
-var import_AccordionItem_80204f4c = require("../../../../chunks/AccordionItem-80204f4c.js");
-var import_HeaderSearch_svelte_svelte_type_style_lang_c0700dd8 = require("../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-c0700dd8.js");
+var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
+var import_AccordionItem_65b11b1c = require("../../../../chunks/AccordionItem-65b11b1c.js");
+var import_HeaderSearch_svelte_svelte_type_style_lang_c241fd09 = require("../../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-c241fd09.js");
 var import_flatpickr = require("flatpickr");
-var import_index_1ceaa7e2 = require("../../../../chunks/index-1ceaa7e2.js");
+var import_index_4d87e63a = require("../../../../chunks/index-4d87e63a.js");
 var ItemAccordion_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n.bx--accordion__content p{\n  width:100%\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: ".bx--accordion__content p{width:100%\n  }",
   map: null
 };
-const ItemAccordion = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+const ItemAccordion = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let { title = "Custom Profile (Info)" } = $$props;
   let { subtitle = " " } = $$props;
   let { open = true } = $$props;
@@ -41,10 +41,10 @@ const ItemAccordion = (0, import_index_f909a211.c)(($$result, $$props, $$binding
   if ($$props.open === void 0 && $$bindings.open && open !== void 0)
     $$bindings.open(open);
   $$result.css.add(css);
-  return `${(0, import_index_f909a211.v)(import_AccordionItem_80204f4c.A, "AccordionItem").$$render($$result, { open }, {}, {
+  return `${(0, import_index_c9602e46.v)(import_AccordionItem_65b11b1c.A, "AccordionItem").$$render($$result, { open }, {}, {
     title: () => {
-      return `<h4>${(0, import_index_f909a211.e)(title)}</h4>
-      <h7><b>${(0, import_index_f909a211.e)(subtitle)}</b></h7>
+      return `<h4>${(0, import_index_c9602e46.e)(title)}</h4>
+      <h7><b>${(0, import_index_c9602e46.e)(subtitle)}</b></h7>
       `;
     },
     default: () => {

@@ -20,10 +20,10 @@ __export(stdin_exports, {
   default: () => Subhead
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../../../../chunks/index-f909a211.js");
-const Subhead = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
-  let { mode = (0, import_index_f909a211.d)("mode") } = $$props;
+var import_index_c9602e46 = require("../../../../../chunks/index-c9602e46.js");
+const Subhead = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+  let { mode = (0, import_index_c9602e46.d)("mode") } = $$props;
   if ($$props.mode === void 0 && $$bindings.mode && mode !== void 0)
     $$bindings.mode(mode);
-  return `<p${(0, import_index_f909a211.h)("class", mode == "neutral" ? "page-neutral-intro__content" : "page-intro__content", 0)}>${slots.default ? slots.default({}) : ``}</p>`;
+  return `<p${(0, import_index_c9602e46.h)("class", mode == "neutral" ? "page-neutral-intro__content" : "page-intro__content", 0)}>${slots.default ? slots.default({}) : ``}</p>`;
 });

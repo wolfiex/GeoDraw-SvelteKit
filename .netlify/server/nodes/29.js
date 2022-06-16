@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/lib/layout/Titleblock.svelte.js"));
+var module2 = __toESM(require("../entries/pages/lib/layout/partial/Breadcrumb.svelte.js"));
 const index = 29;
-const entry = "pages/lib/layout/Titleblock.svelte-4611214b.js";
-const js = ["pages/lib/layout/Titleblock.svelte-4611214b.js", "chunks/index-6473bae0.js", "pages/lib/layout/partial/Breadcrumb.svelte-befdf435.js", "pages/lib/layout/partial/Highlighted.svelte-e8f2f01e.js", "pages/lib/layout/partial/Navbox.svelte-74f46e10.js", "pages/lib/layout/partial/Meta.svelte-55c92c20.js"];
-const css = ["assets/pages/lib/layout/partial/Navbox.svelte-d0cc3fae.css"];
+const entry = "pages/lib/layout/partial/Breadcrumb.svelte-d331e697.js";
+const js = ["pages/lib/layout/partial/Breadcrumb.svelte-d331e697.js", "chunks/index-7c3c6a44.js"];
+const css = [];

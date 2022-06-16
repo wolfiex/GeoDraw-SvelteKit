@@ -20,8 +20,8 @@ __export(stdin_exports, {
   default: () => Section
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../../../chunks/index-f909a211.js");
-const Section = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
+const Section = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let { backlink = false } = $$props;
   let { hr = false } = $$props;
   let { id = null } = $$props;
@@ -31,7 +31,7 @@ const Section = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slo
     $$bindings.hr(hr);
   if ($$props.id === void 0 && $$bindings.id && id !== void 0)
     $$bindings.id(id);
-  return `<div${(0, import_index_f909a211.h)("id", id, 0)} class="${"section__content--markdown section__content--markdown--neutral-article"}"><section>${slots.default ? slots.default({}) : ``}
+  return `<div${(0, import_index_c9602e46.h)("id", id, 0)} class="${"section__content--markdown section__content--markdown--neutral-article"}"><section>${slots.default ? slots.default({}) : ``}
 		${backlink ? `<p><a href="${"#top"}">\u2191 Back to the top</a></p>` : ``}
 		${hr ? `<hr style="${"border: 0; height: 0; border-top: 1px solid #808080;"}">` : ``}</section></div>`;
 });

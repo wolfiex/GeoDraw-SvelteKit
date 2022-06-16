@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/lib/chart/BarChart.svelte.js"));
+var module2 = __toESM(require("../entries/pages/lib/chart/NumBlock.svelte.js"));
 const index = 18;
-const entry = "pages/lib/chart/BarChart.svelte-a4f6aaef.js";
-const js = ["pages/lib/chart/BarChart.svelte-a4f6aaef.js", "chunks/index-6473bae0.js"];
-const css = ["assets/pages/tables/BarChart.svelte-c2dd5a29.css"];
+const entry = "pages/lib/chart/NumBlock.svelte-3bfb3440.js";
+const js = ["pages/lib/chart/NumBlock.svelte-3bfb3440.js", "chunks/index-7c3c6a44.js"];
+const css = ["assets/pages/lib/chart/NumBlock.svelte-ee0e45be.css"];

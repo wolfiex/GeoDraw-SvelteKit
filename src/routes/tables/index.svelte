@@ -1,5 +1,11 @@
+<LibLoader url="https://cdn.jsdelivr.net/npm/danfojs@1.1.0/lib/bundle.min.js" />
+
 
 <script>
+  import LibLoader from '../LibLoader.svelte'
+
+
+  
   import '../app.css';
   // import {page} from '$app/stores';
   import {onMount} from 'svelte';
@@ -10,7 +16,8 @@
   // import MapStatic from '$lib/chart/MapStatic.svelte';
   // import BarChart from '$lib/chart/BarChart.svelte';
   // import ProfileChart from '$lib/chart/ProfileChart.svelte';
-  import * as dfd from 'danfojs';
+  //import * as dfd from '';//'danfojs';
+  
   import BarChart from './BarChart.svelte';
   import MapAreas from './MapAreas.svelte';
 
@@ -101,6 +108,7 @@
 
   onMount(() => {
     window.addEventListener('message', new_event, false);
+    console.log(window.dfd)
   });
 
   $: console.log(newdata);

@@ -1,6 +1,6 @@
-import { c as create_ssr_component, b as subscribe, s as setContext, e as escape, v as validate_component } from "../../../chunks/index-f909a211.js";
+import { c as create_ssr_component, b as subscribe, s as setContext, e as escape, v as validate_component } from "../../../chunks/index-c9602e46.js";
 import { a as assets } from "../../../chunks/paths-396f020f.js";
-import { t as themes, W as Warning, O as ONSHeader, a as ONSFooter, p as page } from "../../../chunks/ONSFooter-222593b3.js";
+import { t as themes, W as Warning, O as ONSHeader, a as ONSFooter, p as page } from "../../../chunks/ONSFooter-bc9c1a7b.js";
 let theme = "light";
 const _layout_reset = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $page, $$unsubscribe_page;

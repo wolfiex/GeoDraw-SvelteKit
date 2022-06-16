@@ -20,13 +20,13 @@ __export(stdin_exports, {
   default: () => CardFeature
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_f909a211 = require("../../../../../chunks/index-f909a211.js");
+var import_index_c9602e46 = require("../../../../../chunks/index-c9602e46.js");
 var CardFeature_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n.tile.svelte-1krn9ab{\n  color:black;\n  margin:4px 0 0 !important\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: ".tile.svelte-1krn9ab{color:black;margin:4px 0 0 !important}",
   map: null
 };
-const CardFeature = (0, import_index_f909a211.c)(($$result, $$props, $$bindings, slots) => {
+const CardFeature = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
   let $cols, $$unsubscribe_cols;
   let { colspan = 1 } = $$props;
   let { rowspan = 1 } = $$props;
@@ -34,8 +34,8 @@ const CardFeature = (0, import_index_f909a211.c)(($$result, $$props, $$bindings,
   let { url = "https://www.ons.gov.uk/help/localstatistics" } = $$props;
   let { description = "Where to find statistics covering specific areas" } = $$props;
   let { image = "https://static.ons.gov.uk/images/cf4ffa0c-d7ea-43a9-85a4-03ea05bbaaaf/original/local-statistics.png" } = $$props;
-  const { cols } = (0, import_index_f909a211.d)("tiles");
-  $$unsubscribe_cols = (0, import_index_f909a211.b)(cols, (value) => $cols = value);
+  const { cols } = (0, import_index_c9602e46.d)("tiles");
+  $$unsubscribe_cols = (0, import_index_c9602e46.b)(cols, (value) => $cols = value);
   if ($$props.colspan === void 0 && $$bindings.colspan && colspan !== void 0)
     $$bindings.colspan(colspan);
   if ($$props.rowspan === void 0 && $$bindings.rowspan && rowspan !== void 0)
@@ -50,11 +50,11 @@ const CardFeature = (0, import_index_f909a211.c)(($$result, $$props, $$bindings,
     $$bindings.image(image);
   $$result.css.add(css);
   $$unsubscribe_cols();
-  return `<article class="${"tile tile__highlighted-content svelte-1krn9ab"}"${(0, import_index_f909a211.f)({
+  return `<article class="${"tile tile__highlighted-content svelte-1krn9ab"}"${(0, import_index_c9602e46.f)({
     "grid-column": `span ${colspan == 1 ? 1 : colspan > $cols ? $cols : colspan}`,
     "grid-row": `span ${rowspan}`
-  })}><div class="${"tile__highlighted-content-image-container"}"><img class="${"tile__highlighted-content-image"}"${(0, import_index_f909a211.h)("src", image, 0)} alt="${""}"></div>
-  <h2 class="${"margin-top--0 margin-bottom--0"}"><a class="${"margin-left--0 tile__link tile__link--highlighted-content-title font-size--24"}"${(0, import_index_f909a211.h)("href", url, 0)} data-gtm-group="${"in-focus"}" data-gtm-group-position="${"1"}">${(0, import_index_f909a211.e)(title)}</a></h2>
-  <p class="${"tile__text-description margin-top--0 margin-bottom--0"}">${(0, import_index_f909a211.e)(description)}</p>
+  })}><div class="${"tile__highlighted-content-image-container"}"><img class="${"tile__highlighted-content-image"}"${(0, import_index_c9602e46.h)("src", image, 0)} alt="${""}"></div>
+  <h2 class="${"margin-top--0 margin-bottom--0"}"><a class="${"margin-left--0 tile__link tile__link--highlighted-content-title font-size--24"}"${(0, import_index_c9602e46.h)("href", url, 0)} data-gtm-group="${"in-focus"}" data-gtm-group-position="${"1"}">${(0, import_index_c9602e46.e)(title)}</a></h2>
+  <p class="${"tile__text-description margin-top--0 margin-bottom--0"}">${(0, import_index_c9602e46.e)(description)}</p>
 </article>`;
 });

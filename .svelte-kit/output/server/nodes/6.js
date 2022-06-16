@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/archive/IconBtn.svelte.js';
+import * as module from '../entries/pages/build/index.svelte.js';
 
 export { module };
 export const index = 6;
-export const entry = 'pages/archive/IconBtn.svelte-ef22ee6e.js';
-export const js = ["pages/archive/IconBtn.svelte-ef22ee6e.js","chunks/preload-helper-60cab3ee.js","chunks/index-6473bae0.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-951fb88f.js","chunks/index-43f63480.js","chunks/Button-d2ff493b.js"];
-export const css = ["assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+export const entry = 'pages/build/index.svelte-92a95a83.js';
+export const js = ["pages/build/index.svelte-92a95a83.js","chunks/index-7c3c6a44.js","chunks/paths-c0fc83a9.js","chunks/binary-e4470594.js"];
+export const css = ["assets/pages/build/index.svelte-bdba71cc.css","assets/app-e3c48b63.css"];

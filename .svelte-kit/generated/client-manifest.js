@@ -7,7 +7,7 @@ export const components = [
 	() => import("../../src/routes/build/__layout@reset.svelte"),
 	() => import("../../src/routes/draw/__layout@reset.svelte"),
 	() => import("../../src/routes/tables/__layout@reset.svelte"),
-	() => import("../../src/routes/archive/IconBtn.svelte"),
+	() => import("../../src/routes/LibLoader.svelte"),
 	() => import("../../src/routes/build/index.svelte"),
 	() => import("../../src/routes/draw/AreaMap.svelte"),
 	() => import("../../src/routes/draw/Toolbar/DrawButtons.svelte"),
@@ -55,11 +55,11 @@ export const components = [
 
 export const dictionary = {
 	"": [[0, 17], [1]],
+	"LibLoader": [[0, 6], [1]],
 	"build": [[2, 3, 7], [1]],
 	"draw": [[2, 4, 15], [1]],
 	"pbf_viewer": [[0, 46], [1]],
 	"tables": [[2, 5, 49], [1]],
-	"archive/IconBtn": [[0, 6], [1]],
 	"draw/AreaMap": [[2, 4, 8], [1]],
 	"draw/old_layout": [[2, 4, 16], [1]],
 	"tables/BarChart": [[2, 5, 47], [1]],

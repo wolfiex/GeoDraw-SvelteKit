@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/old_layout.svelte.js"));
+var module2 = __toESM(require("../entries/pages/index.svelte.js"));
 const index = 16;
-const entry = "pages/draw/old_layout.svelte-a8366099.js";
-const js = ["pages/draw/old_layout.svelte-a8366099.js", "chunks/index-6473bae0.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-951fb88f.js", "chunks/index-43f63480.js", "chunks/Button-d2ff493b.js", "chunks/Grid-c4fea0dc.js", "chunks/Column-00fbdc06.js"];
-const css = ["assets/pages/draw/old_layout.svelte-6283f141.css", "assets/style-69f0818d.css", "assets/g10-6c42276b.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+const entry = "pages/index.svelte-bc41f251.js";
+const js = ["pages/index.svelte-bc41f251.js", "chunks/index-7c3c6a44.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-e29deeda.js", "chunks/index-802cfd86.js", "chunks/Button-e51b3d9a.js"];
+const css = ["assets/pages/index.svelte-804c5e2c.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

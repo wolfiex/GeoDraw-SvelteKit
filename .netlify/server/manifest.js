@@ -28,30 +28,30 @@ const manifest = {
   assets: /* @__PURE__ */ new Set([".DS_Store", "css/.DS_Store", "css/style-omt.json", "data/nomis_tables.json", "favicon.ico", "nest/.DS_Store", "nest/robot.txt", "robots.txt"]),
   mimeTypes: { ".json": "application/json", ".ico": "image/vnd.microsoft.icon", ".txt": "text/plain" },
   _: {
-    entry: { "file": "start-38b78bb9.js", "js": ["start-38b78bb9.js", "chunks/index-6473bae0.js", "chunks/index-43f63480.js", "chunks/paths-c0fc83a9.js", "chunks/preload-helper-60cab3ee.js", "chunks/singletons-d1fb5791.js"], "css": [] },
+    entry: { "file": "start-e6d47be1.js", "js": ["start-e6d47be1.js", "chunks/index-7c3c6a44.js", "chunks/index-802cfd86.js", "chunks/paths-c0fc83a9.js", "chunks/preload-helper-60cab3ee.js", "chunks/singletons-d1fb5791.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/17.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/16.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/2.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/3.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/7.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/6.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/4.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/14.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/45.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/5.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/48.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/7.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/15.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/46.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/5.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/49.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/6.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/8.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/16.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/47.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/48.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/8.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/9.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/10.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/11.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/12.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/13.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/14.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/17.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/18.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/19.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/20.js"))),
@@ -63,13 +63,13 @@ const manifest = {
       () => Promise.resolve().then(() => __toESM(require("./nodes/26.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/27.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/28.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/29.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/39.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/40.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/41.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/42.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/43.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/44.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/45.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/29.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/30.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/31.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/32.js"))),
@@ -78,8 +78,7 @@ const manifest = {
       () => Promise.resolve().then(() => __toESM(require("./nodes/35.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/36.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/37.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/38.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/39.js")))
+      () => Promise.resolve().then(() => __toESM(require("./nodes/38.js")))
     ],
     routes: [
       {
@@ -187,24 +186,13 @@ const manifest = {
       },
       {
         type: "page",
-        id: "archive/IconBtn",
-        pattern: /^\/archive\/IconBtn\/?$/,
-        names: [],
-        types: [],
-        path: "/archive/IconBtn",
-        shadow: null,
-        a: [0, 11],
-        b: [1]
-      },
-      {
-        type: "page",
         id: "draw/AreaMap",
         pattern: /^\/draw\/AreaMap\/?$/,
         names: [],
         types: [],
         path: "/draw/AreaMap",
         shadow: null,
-        a: [3, 6, 12],
+        a: [3, 6, 11],
         b: [1]
       },
       {
@@ -215,7 +203,7 @@ const manifest = {
         types: [],
         path: "/draw/old_layout",
         shadow: null,
-        a: [3, 6, 13],
+        a: [3, 6, 12],
         b: [1]
       },
       {
@@ -226,7 +214,7 @@ const manifest = {
         types: [],
         path: "/tables/BarChart",
         shadow: null,
-        a: [3, 9, 14],
+        a: [3, 9, 13],
         b: [1]
       },
       {
@@ -237,7 +225,7 @@ const manifest = {
         types: [],
         path: "/tables/MapAreas",
         shadow: null,
-        a: [3, 9, 15],
+        a: [3, 9, 14],
         b: [1]
       },
       {
@@ -248,7 +236,7 @@ const manifest = {
         types: [],
         path: "/draw/Toolbar/DrawButtons",
         shadow: null,
-        a: [3, 6, 16],
+        a: [3, 6, 15],
         b: [1]
       },
       {
@@ -259,7 +247,7 @@ const manifest = {
         types: [],
         path: "/draw/Toolbar/EditButtons",
         shadow: null,
-        a: [3, 6, 17],
+        a: [3, 6, 16],
         b: [1]
       },
       {
@@ -270,7 +258,7 @@ const manifest = {
         types: [],
         path: "/draw/Toolbar/InfoBox",
         shadow: null,
-        a: [3, 6, 18],
+        a: [3, 6, 17],
         b: [1]
       },
       {
@@ -281,7 +269,7 @@ const manifest = {
         types: [],
         path: "/draw/Toolbar/ItemAccordion",
         shadow: null,
-        a: [3, 6, 19],
+        a: [3, 6, 18],
         b: [1]
       },
       {
@@ -292,7 +280,7 @@ const manifest = {
         types: [],
         path: "/draw/Toolbar/PostcodeSearch",
         shadow: null,
-        a: [3, 6, 20],
+        a: [3, 6, 19],
         b: [1]
       },
       {
@@ -303,7 +291,7 @@ const manifest = {
         types: [],
         path: "/draw/Toolbar/ProgressButtons",
         shadow: null,
-        a: [3, 6, 21],
+        a: [3, 6, 20],
         b: [1]
       },
       {
@@ -314,7 +302,7 @@ const manifest = {
         types: [],
         path: "/lib/chart/BarChart",
         shadow: null,
-        a: [0, 22],
+        a: [0, 21],
         b: [1]
       },
       {
@@ -325,7 +313,7 @@ const manifest = {
         types: [],
         path: "/lib/chart/NumBlock",
         shadow: null,
-        a: [0, 23],
+        a: [0, 22],
         b: [1]
       },
       {
@@ -336,7 +324,7 @@ const manifest = {
         types: [],
         path: "/lib/chart/ProfileChart",
         shadow: null,
-        a: [0, 24],
+        a: [0, 23],
         b: [1]
       },
       {
@@ -347,7 +335,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/Article",
         shadow: null,
-        a: [0, 25],
+        a: [0, 24],
         b: [1]
       },
       {
@@ -358,7 +346,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/Banner",
         shadow: null,
-        a: [0, 26],
+        a: [0, 25],
         b: [1]
       },
       {
@@ -369,7 +357,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/Cards",
         shadow: null,
-        a: [0, 27],
+        a: [0, 26],
         b: [1]
       },
       {
@@ -380,7 +368,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/Content",
         shadow: null,
-        a: [0, 28],
+        a: [0, 27],
         b: [1]
       },
       {
@@ -391,7 +379,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/Linkbox",
         shadow: null,
-        a: [0, 29],
+        a: [0, 28],
         b: [1]
       },
       {
@@ -402,7 +390,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/ONSFooter",
         shadow: null,
-        a: [0, 30],
+        a: [0, 29],
         b: [1]
       },
       {
@@ -413,7 +401,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/ONSHeader",
         shadow: null,
-        a: [0, 31],
+        a: [0, 30],
         b: [1]
       },
       {
@@ -424,7 +412,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/Section",
         shadow: null,
-        a: [0, 32],
+        a: [0, 31],
         b: [1]
       },
       {
@@ -435,7 +423,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/Titleblock",
         shadow: null,
-        a: [0, 33],
+        a: [0, 32],
         b: [1]
       },
       {
@@ -446,7 +434,7 @@ const manifest = {
         types: [],
         path: "/lib/ui/ButtonLink",
         shadow: null,
-        a: [0, 34],
+        a: [0, 33],
         b: [1]
       },
       {
@@ -457,7 +445,7 @@ const manifest = {
         types: [],
         path: "/lib/ui/Em",
         shadow: null,
-        a: [0, 35],
+        a: [0, 34],
         b: [1]
       },
       {
@@ -468,7 +456,7 @@ const manifest = {
         types: [],
         path: "/lib/ui/Icon",
         shadow: null,
-        a: [0, 36],
+        a: [0, 35],
         b: [1]
       },
       {
@@ -479,7 +467,7 @@ const manifest = {
         types: [],
         path: "/lib/ui/Select",
         shadow: null,
-        a: [0, 37],
+        a: [0, 36],
         b: [1]
       },
       {
@@ -490,7 +478,7 @@ const manifest = {
         types: [],
         path: "/lib/ui/Toggle",
         shadow: null,
-        a: [0, 38],
+        a: [0, 37],
         b: [1]
       },
       {
@@ -501,7 +489,7 @@ const manifest = {
         types: [],
         path: "/lib/ui/Warning",
         shadow: null,
-        a: [0, 39],
+        a: [0, 38],
         b: [1]
       },
       {
@@ -512,7 +500,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Breadcrumb",
         shadow: null,
-        a: [0, 40],
+        a: [0, 39],
         b: [1]
       },
       {
@@ -523,7 +511,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Card",
         shadow: null,
-        a: [0, 41],
+        a: [0, 40],
         b: [1]
       },
       {
@@ -534,7 +522,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/CardFeature",
         shadow: null,
-        a: [0, 42],
+        a: [0, 41],
         b: [1]
       },
       {
@@ -545,7 +533,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/CardSection",
         shadow: null,
-        a: [0, 43],
+        a: [0, 42],
         b: [1]
       },
       {
@@ -556,7 +544,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Figure",
         shadow: null,
-        a: [0, 44],
+        a: [0, 43],
         b: [1]
       },
       {
@@ -567,7 +555,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Headline",
         shadow: null,
-        a: [0, 45],
+        a: [0, 44],
         b: [1]
       },
       {
@@ -578,7 +566,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Highlighted",
         shadow: null,
-        a: [0, 46],
+        a: [0, 45],
         b: [1]
       },
       {
@@ -589,7 +577,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Meta",
         shadow: null,
-        a: [0, 47],
+        a: [0, 46],
         b: [1]
       },
       {
@@ -600,7 +588,7 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Navbox",
         shadow: null,
-        a: [0, 48],
+        a: [0, 47],
         b: [1]
       },
       {
@@ -611,24 +599,8 @@ const manifest = {
         types: [],
         path: "/lib/layout/partial/Subhead",
         shadow: null,
-        a: [0, 49],
+        a: [0, 48],
         b: [1]
-      },
-      {
-        type: "endpoint",
-        id: "archive/test2/[z]-[x]-[y].pbf",
-        pattern: /^\/archive\/test2\/([^/]+?)-([^/]+?)-([^/]+?)\.pbf$/,
-        names: ["z", "x", "y"],
-        types: [null, null, null],
-        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/archive/test2/_z_-_x_-_y_.pbf.js")))
-      },
-      {
-        type: "endpoint",
-        id: "archive/test/[...path]",
-        pattern: /^\/archive\/test(?:\/(.*))?\/?$/,
-        names: ["path"],
-        types: [null],
-        load: () => Promise.resolve().then(() => __toESM(require("./entries/endpoints/archive/test/_...path_.js")))
       },
       {
         type: "endpoint",
