@@ -31,4 +31,4 @@ var module2 = __toESM(require("../entries/pages/tables/BarChart.svelte.js"));
 const index = 47;
 const entry = "pages/tables/BarChart.svelte-c0ac14c6.js";
 const js = ["pages/tables/BarChart.svelte-c0ac14c6.js", "chunks/index-6473bae0.js"];
-const css = ["assets/pages/lib/chart/BarChart.svelte-0b676b41.css"];
+const css = ["assets/pages/tables/BarChart.svelte-c2dd5a29.css"];

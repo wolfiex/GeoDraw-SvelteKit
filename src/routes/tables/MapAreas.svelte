@@ -26,6 +26,7 @@ onMount(async ()=>{
     );
     map.addLayer(CyclOSM);
     map.on('load',()=>update_map(minimap))
+    mymap.whenReady(()=>update_map(minimap));
 
 })
 

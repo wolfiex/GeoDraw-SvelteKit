@@ -1,6 +1,6 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "start-e0152a3f.js",
+    "file": "start-38b78bb9.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
@@ -314,7 +314,7 @@
       "_index-6473bae0.js"
     ],
     "css": [
-      "assets/pages/lib/chart/BarChart.svelte-0b676b41.css"
+      "assets/pages/tables/BarChart.svelte-c2dd5a29.css"
     ]
   },
   "src/routes/lib/chart/NumBlock.svelte": {
@@ -628,11 +628,11 @@
       "_index-6473bae0.js"
     ],
     "css": [
-      "assets/pages/lib/chart/BarChart.svelte-0b676b41.css"
+      "assets/pages/tables/BarChart.svelte-c2dd5a29.css"
     ]
   },
   "src/routes/tables/MapAreas.svelte": {
-    "file": "pages/tables/MapAreas.svelte-7b408da0.js",
+    "file": "pages/tables/MapAreas.svelte-0d57757c.js",
     "src": "src/routes/tables/MapAreas.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
@@ -648,7 +648,7 @@
     ]
   },
   "src/routes/tables/index.svelte": {
-    "file": "pages/tables/index.svelte-23e2e42c.js",
+    "file": "pages/tables/index.svelte-911946e6.js",
     "src": "src/routes/tables/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
