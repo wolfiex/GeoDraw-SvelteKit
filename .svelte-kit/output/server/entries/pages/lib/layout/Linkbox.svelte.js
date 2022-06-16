@@ -1,4 +1,4 @@
-import { c as create_ssr_component, h as add_attribute, e as escape, i as each } from "../../../../chunks/index-c9602e46.js";
+import { c as create_ssr_component, h as add_attribute, e as escape, i as each } from "../../../../chunks/index-e390a0ae.js";
 const Linkbox = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { mode = "default" } = $$props;
   let { title = "Related links" } = $$props;

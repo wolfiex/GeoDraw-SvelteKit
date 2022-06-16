@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/draw/Toolbar/InfoBox.svelte.js';
+import * as module from '../entries/pages/draw/Toolbar/EditButtons.svelte.js';
 
 export { module };
 export const index = 10;
-export const entry = 'pages/draw/Toolbar/InfoBox.svelte-af3900f7.js';
-export const js = ["pages/draw/Toolbar/InfoBox.svelte-af3900f7.js","chunks/index-7c3c6a44.js","chunks/index-802cfd86.js","chunks/AccordionItem-eb990d19.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-e29deeda.js"];
-export const css = ["assets/pages/draw/Toolbar/InfoBox.svelte-7fe78a5a.css","assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+export const entry = 'pages/draw/Toolbar/EditButtons.svelte-c25f0991.js';
+export const js = ["pages/draw/Toolbar/EditButtons.svelte-c25f0991.js","chunks/index-ba5e9c90.js","chunks/HeaderSearch.svelte_svelte_type_style_lang-8d8ce70a.js","chunks/index-11581b04.js","chunks/Button-64b9839f.js","chunks/Column-81f654e9.js","chunks/mapstore-4cd67937.js"];
+export const css = ["assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

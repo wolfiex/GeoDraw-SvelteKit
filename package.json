@@ -4,7 +4,8 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
-		"start": "svelte-kit preview"
+		"start": "svelte-kit preview",
+		"deploy": "netlify build && netlify deploy -p "
 	},
 	"devDependencies": {
 		"@netlify/functions": "^1.0.0",

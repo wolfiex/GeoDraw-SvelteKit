@@ -20,8 +20,8 @@ __export(stdin_exports, {
   default: () => ONSHeader
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
-const ONSHeader = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
+const ONSHeader = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { path = "/" } = $$props;
   let { lang = "en" } = $$props;
   let { baseurl = "//www.ons.gov.uk" } = $$props;
@@ -268,42 +268,42 @@ const ONSHeader = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, s
     $$bindings.lang(lang);
   if ($$props.baseurl === void 0 && $$bindings.baseurl && baseurl !== void 0)
     $$bindings.baseurl(baseurl);
-  return `<header><a class="${"skiplink"}" href="${"#main"}" tabindex="${"0"}">${(0, import_index_c9602e46.e)(i18n("Skip to main content", lang))}</a>
-	<div id="${"pagePath"}" class="${"hide"}">${(0, import_index_c9602e46.e)(path)}</div>
-	<div class="${"wrapper"}"><div class="${"header col-wrap"}"><div class="${"col col--lg-one-third col--md-one-third"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/"}"><img class="${"logo"}" src="${"https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg"}"${(0, import_index_c9602e46.h)("alt", i18n("Office for National Statistics logo - Homepage", lang), 0)}></a></div>
+  return `<header><a class="${"skiplink"}" href="${"#main"}" tabindex="${"0"}">${(0, import_index_e390a0ae.e)(i18n("Skip to main content", lang))}</a>
+	<div id="${"pagePath"}" class="${"hide"}">${(0, import_index_e390a0ae.e)(path)}</div>
+	<div class="${"wrapper"}"><div class="${"header col-wrap"}"><div class="${"col col--lg-one-third col--md-one-third"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/"}"><img class="${"logo"}" src="${"https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg"}"${(0, import_index_e390a0ae.h)("alt", i18n("Office for National Statistics logo - Homepage", lang), 0)}></a></div>
 			<div class="${"col col--lg-two-thirds col--md-two-thirds hide--sm print--hide language--js__container"}"><div class="${"language"}">${lang == "en" ? `<span>English (EN) | </span>
-					<a href="${"//cy.ons.gov.uk" + (0, import_index_c9602e46.e)(path)}" class="${"language__link"}" lang="${"cy"}">Cymraeg (CY)</a>` : `<a href="${"//www.ons.gov.uk" + (0, import_index_c9602e46.e)(path)}" class="${"language__link"}" lang="${"en"}">English (EN)</a>
+					<a href="${"//cy.ons.gov.uk" + (0, import_index_e390a0ae.e)(path)}" class="${"language__link"}" lang="${"cy"}">Cymraeg (CY)</a>` : `<a href="${"//www.ons.gov.uk" + (0, import_index_e390a0ae.e)(path)}" class="${"language__link"}" lang="${"en"}">English (EN)</a>
 					<span>| Cymraeg (EN)</span>`}</div></div>
-			<div class="${"secondary-nav col col--lg-two-thirds col--md-two-thirds print--hide"}"><ul class="${"secondary-nav__list js-nav-clone__list"}">${(0, import_index_c9602e46.i)(menu.filter((d) => d.secondary), (item) => {
-    return `<li class="${"secondary-nav__item"}"><a class="${"secondary-nav__link js-nav-clone__link"}" href="${(0, import_index_c9602e46.e)(baseurl) + (0, import_index_c9602e46.e)(item.url)}">${(0, import_index_c9602e46.e)(item["label_" + lang])}</a>
+			<div class="${"secondary-nav col col--lg-two-thirds col--md-two-thirds print--hide"}"><ul class="${"secondary-nav__list js-nav-clone__list"}">${(0, import_index_e390a0ae.i)(menu.filter((d) => d.secondary), (item) => {
+    return `<li class="${"secondary-nav__item"}"><a class="${"secondary-nav__link js-nav-clone__link"}" href="${(0, import_index_e390a0ae.e)(baseurl) + (0, import_index_e390a0ae.e)(item.url)}">${(0, import_index_e390a0ae.e)(item["label_" + lang])}</a>
 					</li>`;
   })}</ul></div></div></div>
-	<div class="${"primary-nav print--hide"}"><nav aria-label="${"Header links"}"><ul class="${"nav--controls"}"><li class="${["nav--controls__item", ""].join(" ").trim()}"><a href="${"#nav-primary"}" id="${"menu-toggle"}" aria-controls="${"nav-primary"}"${(0, import_index_c9602e46.h)("aria-expanded", menuExpanded, 0)} class="${"nav--controls__menu"}"><span class="${"nav--controls__text"}">${(0, import_index_c9602e46.e)(i18n("Menu", lang))}</span></a></li>
-				<li class="${["nav--controls__item", ""].join(" ").trim()}"><a href="${"#nav-search"}" id="${"search-toggle"}" aria-controls="${"nav-search"}"${(0, import_index_c9602e46.h)("aria-expanded", searchExpanded, 0)} class="${"nav--controls__search"}"><span class="${"nav--controls__text"}">${(0, import_index_c9602e46.e)(i18n("Search", lang))}</span></a></li></ul>
-			<ul class="${["wrapper primary-nav__list", "nav-main--hidden"].join(" ").trim()}" id="${"nav-primary"}"${(0, import_index_c9602e46.h)("aria-expanded", menuExpanded, 0)}><li class="${"primary-nav__item js-nav"}"><a class="${"primary-nav__link col col--md-7 col--lg-9"}" href="${(0, import_index_c9602e46.e)(baseurl) + "/"}" style="${"color: #e5e6e7"}">${(0, import_index_c9602e46.e)(i18n("Home", lang))}</a></li>
-				${(0, import_index_c9602e46.i)([
+	<div class="${"primary-nav print--hide"}"><nav aria-label="${"Header links"}"><ul class="${"nav--controls"}"><li class="${["nav--controls__item", ""].join(" ").trim()}"><a href="${"#nav-primary"}" id="${"menu-toggle"}" aria-controls="${"nav-primary"}"${(0, import_index_e390a0ae.h)("aria-expanded", menuExpanded, 0)} class="${"nav--controls__menu"}"><span class="${"nav--controls__text"}">${(0, import_index_e390a0ae.e)(i18n("Menu", lang))}</span></a></li>
+				<li class="${["nav--controls__item", ""].join(" ").trim()}"><a href="${"#nav-search"}" id="${"search-toggle"}" aria-controls="${"nav-search"}"${(0, import_index_e390a0ae.h)("aria-expanded", searchExpanded, 0)} class="${"nav--controls__search"}"><span class="${"nav--controls__text"}">${(0, import_index_e390a0ae.e)(i18n("Search", lang))}</span></a></li></ul>
+			<ul class="${["wrapper primary-nav__list", "nav-main--hidden"].join(" ").trim()}" id="${"nav-primary"}"${(0, import_index_e390a0ae.h)("aria-expanded", menuExpanded, 0)}><li class="${"primary-nav__item js-nav"}"><a class="${"primary-nav__link col col--md-7 col--lg-9"}" href="${(0, import_index_e390a0ae.e)(baseurl) + "/"}" style="${"color: #e5e6e7"}">${(0, import_index_e390a0ae.e)(i18n("Home", lang))}</a></li>
+				${(0, import_index_e390a0ae.i)([
     ...menu.filter((d) => d.children).sort((a, b) => a["label_" + lang].localeCompare(b["label_" + lang])),
     ...menu.filter((d) => !d.children)
   ], (item, i) => {
     return `${item.children ? `<li class="${[
       "primary-nav__item js-nav js-expandable",
       item.expanded ? "js-expandable-active" : ""
-    ].join(" ").trim()}"><a class="${"primary-nav__link col col--md-8 col--lg-10"}" href="${(0, import_index_c9602e46.e)(baseurl) + (0, import_index_c9602e46.e)(item.url)}" aria-expanded="${"false"}" aria-label="${(0, import_index_c9602e46.e)(item["label_" + lang]) + " sub menu"}"><span aria-hidden="${"true"}" class="${"expansion-indicator"}"></span>
-					<span class="${"submenu-title"}">${(0, import_index_c9602e46.e)(item["label_" + lang])}
+    ].join(" ").trim()}"><a class="${"primary-nav__link col col--md-8 col--lg-10"}" href="${(0, import_index_e390a0ae.e)(baseurl) + (0, import_index_e390a0ae.e)(item.url)}" aria-expanded="${"false"}" aria-label="${(0, import_index_e390a0ae.e)(item["label_" + lang]) + " sub menu"}"><span aria-hidden="${"true"}" class="${"expansion-indicator"}"></span>
+					<span class="${"submenu-title"}">${(0, import_index_e390a0ae.e)(item["label_" + lang])}
 					</span></a>
 					<ul class="${[
       "primary-nav__child-list col col--md-16 col--lg-20 js-expandable__content jsEnhance",
       !item.expanded ? "js-nav-hidden" : ""
-    ].join(" ").trim()}"${(0, import_index_c9602e46.h)("aria-expanded", item.expanded, 0)} aria-label="${"submenu"}"><li class="${"primary-nav__child-item js-expandable__child hide--md"}"><a class="${"primary-nav__child-link"}" tabindex="${"-1"}" href="${(0, import_index_c9602e46.e)(baseurl) + (0, import_index_c9602e46.e)(item.url)}">${(0, import_index_c9602e46.e)(item["label_" + lang])}</a></li>
-						${(0, import_index_c9602e46.i)([...item.children].sort((a, b) => a["label_" + lang].localeCompare(b["label_" + lang])), (child) => {
-      return `<li class="${"primary-nav__child-item js-expandable__child"}"><a class="${"primary-nav__child-link"}" tabindex="${"-1"}" href="${(0, import_index_c9602e46.e)(baseurl) + (0, import_index_c9602e46.e)(child.url)}">${(0, import_index_c9602e46.e)(child["label_" + lang])}</a>
+    ].join(" ").trim()}"${(0, import_index_e390a0ae.h)("aria-expanded", item.expanded, 0)} aria-label="${"submenu"}"><li class="${"primary-nav__child-item js-expandable__child hide--md"}"><a class="${"primary-nav__child-link"}" tabindex="${"-1"}" href="${(0, import_index_e390a0ae.e)(baseurl) + (0, import_index_e390a0ae.e)(item.url)}">${(0, import_index_e390a0ae.e)(item["label_" + lang])}</a></li>
+						${(0, import_index_e390a0ae.i)([...item.children].sort((a, b) => a["label_" + lang].localeCompare(b["label_" + lang])), (child) => {
+      return `<li class="${"primary-nav__child-item js-expandable__child"}"><a class="${"primary-nav__child-link"}" tabindex="${"-1"}" href="${(0, import_index_e390a0ae.e)(baseurl) + (0, import_index_e390a0ae.e)(child.url)}">${(0, import_index_e390a0ae.e)(child["label_" + lang])}</a>
 						</li>`;
     })}</ul>
-				</li>` : `<li class="${["primary-nav__item js-nav", item.secondary ? "hide--md" : ""].join(" ").trim()}"><a class="${"primary-nav__link col col--md-8 col--lg-10"}" href="${(0, import_index_c9602e46.e)(baseurl) + (0, import_index_c9602e46.e)(item.url)}">${(0, import_index_c9602e46.e)(item["label_" + lang])}</a>
+				</li>` : `<li class="${["primary-nav__item js-nav", item.secondary ? "hide--md" : ""].join(" ").trim()}"><a class="${"primary-nav__link col col--md-8 col--lg-10"}" href="${(0, import_index_e390a0ae.e)(baseurl) + (0, import_index_e390a0ae.e)(item.url)}">${(0, import_index_e390a0ae.e)(item["label_" + lang])}</a>
 				</li>`}`;
   })}
 				<li class="${"hide--md primary-nav__language"}">${lang == "en" ? `<span>English (EN) | </span>
-					<a href="${"//cy.ons.gov.uk" + (0, import_index_c9602e46.e)(path)}" class="${"language__link"}" lang="${"cy"}">Cymraeg (CY)</a>` : `<a href="${"//www.ons.gov.uk" + (0, import_index_c9602e46.e)(path)}" class="${"language__link"}" lang="${"en"}">English (EN)</a>
+					<a href="${"//cy.ons.gov.uk" + (0, import_index_e390a0ae.e)(path)}" class="${"language__link"}" lang="${"cy"}">Cymraeg (CY)</a>` : `<a href="${"//www.ons.gov.uk" + (0, import_index_e390a0ae.e)(path)}" class="${"language__link"}" lang="${"en"}">English (EN)</a>
 					<span>| Cymraeg (EN)</span>`}</li></ul></nav></div>
 
 	</header>`;

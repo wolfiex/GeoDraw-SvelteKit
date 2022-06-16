@@ -23,12 +23,12 @@ __export(stdin_exports, {
   default: () => Titleblock
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
+var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
 var import_Breadcrumb_svelte = __toESM(require("./partial/Breadcrumb.svelte.js"));
 var import_Highlighted_svelte = __toESM(require("./partial/Highlighted.svelte.js"));
 var import_Navbox_svelte = __toESM(require("./partial/Navbox.svelte.js"));
 var import_Meta_svelte = __toESM(require("./partial/Meta.svelte.js"));
-const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Titleblock = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { mode = "neutral" } = $$props;
   let { background = "grey" } = $$props;
   let { breadcrumb = null } = $$props;
@@ -37,8 +37,8 @@ const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, 
   let { date = null } = $$props;
   let { updated = null } = $$props;
   let { hr = true } = $$props;
-  (0, import_index_c9602e46.s)("mode", mode);
-  (0, import_index_c9602e46.s)("background", background);
+  (0, import_index_e390a0ae.s)("mode", mode);
+  (0, import_index_e390a0ae.s)("background", background);
   if ($$props.mode === void 0 && $$bindings.mode && mode !== void 0)
     $$bindings.mode(mode);
   if ($$props.background === void 0 && $$bindings.background && background !== void 0)
@@ -55,7 +55,7 @@ const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, 
     $$bindings.updated(updated);
   if ($$props.hr === void 0 && $$bindings.hr && hr !== void 0)
     $$bindings.hr(hr);
-  return `<div class="${"page-neutral-intro " + (0, import_index_c9602e46.e)(background == "grey" ? "background--gallery" : "")}"><div class="${"wrapper"}"><div class="${"col-wrap"}"><div class="${"col"}">${breadcrumb ? `${(0, import_index_c9602e46.v)(import_Breadcrumb_svelte.default, "Breadcrumb").$$render($$result, {
+  return `<div class="${"page-neutral-intro " + (0, import_index_e390a0ae.e)(background == "grey" ? "background--gallery" : "")}"><div class="${"wrapper"}"><div class="${"col-wrap"}"><div class="${"col"}">${breadcrumb ? `${(0, import_index_e390a0ae.v)(import_Breadcrumb_svelte.default, "Breadcrumb").$$render($$result, {
     links: breadcrumb,
     mode: background == "none" ? "neutral" : mode
   }, {}, {})}` : ``}
@@ -63,11 +63,11 @@ const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, 
     "col col--md-47",
     (highlighted ? "col--lg-38" : "") + " " + (!highlighted ? "col--lg-48" : "")
   ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}
-					${date ? `<p class="${"page-neutral-intro__meta margin-top--0 margin-bottom--3"}">${(0, import_index_c9602e46.e)(date)}</p>` : ``}
-					${contents ? `${(0, import_index_c9602e46.v)(import_Navbox_svelte.default, "Navbox").$$render($$result, { links: contents, title: "Contents" }, {}, {})}` : ``}</div>
-				${highlighted ? `${(0, import_index_c9602e46.v)(import_Highlighted_svelte.default, "Highlighted").$$render($$result, { links: highlighted }, {}, {})}` : ``}</div></div></div>
+					${date ? `<p class="${"page-neutral-intro__meta margin-top--0 margin-bottom--3"}">${(0, import_index_e390a0ae.e)(date)}</p>` : ``}
+					${contents ? `${(0, import_index_e390a0ae.v)(import_Navbox_svelte.default, "Navbox").$$render($$result, { links: contents, title: "Contents" }, {}, {})}` : ``}</div>
+				${highlighted ? `${(0, import_index_e390a0ae.v)(import_Highlighted_svelte.default, "Highlighted").$$render($$result, { links: highlighted }, {}, {})}` : ``}</div></div></div>
 	${slots.meta ? slots.meta({}) : ``}
-	${updated ? `${(0, import_index_c9602e46.v)(import_Meta_svelte.default, "Meta").$$render($$result, {
+	${updated ? `${(0, import_index_e390a0ae.v)(import_Meta_svelte.default, "Meta").$$render($$result, {
     label: "Last updated",
     value: updated,
     background

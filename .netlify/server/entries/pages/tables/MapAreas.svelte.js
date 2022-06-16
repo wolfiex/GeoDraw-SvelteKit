@@ -20,7 +20,7 @@ __export(stdin_exports, {
   default: () => MapAreas
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../chunks/index-c9602e46.js");
+var import_index_e390a0ae = require("../../../chunks/index-e390a0ae.js");
 var leaflet = /* @__PURE__ */ (() => `/* purgecss start ignore */
 
 /* required styles */
@@ -775,7 +775,7 @@ const css = {
   code: "@import 'https://unpkg.com/leaflet@1.8.0/dist/leaflet.css';#lmap.svelte-hs5vhq{display:inline-block;position:relative}",
   map: null
 };
-const MapAreas = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const MapAreas = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { height = "400px" } = $$props;
   let { minimap } = $$props;
   let map = false;
@@ -800,5 +800,5 @@ const MapAreas = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, sl
   {
     update_map(minimap);
   }
-  return `<main><div id="${"lmap"}" style="${"height:" + (0, import_index_c9602e46.e)(height) + "; width:100%"}" class="${"svelte-hs5vhq"}"></div></main>`;
+  return `<main><div id="${"lmap"}" style="${"height:" + (0, import_index_e390a0ae.e)(height) + "; width:100%"}" class="${"svelte-hs5vhq"}"></div></main>`;
 });

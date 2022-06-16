@@ -20,30 +20,30 @@ __export(stdin_exports, {
   default: () => _layout_reset
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../chunks/index-c9602e46.js");
+var import_index_e390a0ae = require("../../../chunks/index-e390a0ae.js");
 var import_paths_396f020f = require("../../../chunks/paths-396f020f.js");
-var import_ONSFooter_bc9c1a7b = require("../../../chunks/ONSFooter-bc9c1a7b.js");
+var import_ONSFooter_58cc53c8 = require("../../../chunks/ONSFooter-58cc53c8.js");
 let theme = "light";
-const _layout_reset = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const _layout_reset = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let $page, $$unsubscribe_page;
-  $$unsubscribe_page = (0, import_index_c9602e46.b)(import_ONSFooter_bc9c1a7b.p, (value) => $page = value);
+  $$unsubscribe_page = (0, import_index_e390a0ae.b)(import_ONSFooter_58cc53c8.p, (value) => $page = value);
   let path = $page.url.pathname;
   let lang = $page.url.hostname.split(".")[0] == "cy" ? "cy" : "en";
   let baseurl = lang == "cy" ? "//cy.ons.gov.uk" : "//www.ons.gov.uk";
-  (0, import_index_c9602e46.s)("theme", import_ONSFooter_bc9c1a7b.t[theme]);
+  (0, import_index_e390a0ae.s)("theme", import_ONSFooter_58cc53c8.t[theme]);
   $$unsubscribe_page();
-  return `${$$result.head += `<link rel="${"icon"}" href="${(0, import_index_c9602e46.e)(import_paths_396f020f.a) + "/favicon.ico"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:type"}" content="${"website"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:url"}" content="${(0, import_index_c9602e46.e)(import_paths_396f020f.a) + "/"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:image"}" content="${(0, import_index_c9602e46.e)(import_paths_396f020f.a) + "/img/og.png"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:image:type"}" content="${"image/png"}" data-svelte="svelte-1ttl8ld">`, ""}
+  return `${$$result.head += `<link rel="${"icon"}" href="${(0, import_index_e390a0ae.e)(import_paths_396f020f.a) + "/favicon.ico"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:type"}" content="${"website"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:url"}" content="${(0, import_index_e390a0ae.e)(import_paths_396f020f.a) + "/"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:image"}" content="${(0, import_index_e390a0ae.e)(import_paths_396f020f.a) + "/img/og.png"}" data-svelte="svelte-1ttl8ld"><meta property="${"og:image:type"}" content="${"image/png"}" data-svelte="svelte-1ttl8ld">`, ""}
 
-${(0, import_index_c9602e46.v)(import_ONSFooter_bc9c1a7b.W, "Warning").$$render($$result, {}, {}, {
+${(0, import_index_e390a0ae.v)(import_ONSFooter_58cc53c8.W, "Warning").$$render($$result, {}, {}, {
     default: () => {
       return `WARNING! This is a prototype. Data likely to contain inaccuracies.
 `;
     }
   })}
 
-${(0, import_index_c9602e46.v)(import_ONSFooter_bc9c1a7b.O, "ONSHeader").$$render($$result, { baseurl, path, lang }, {}, {})}
+${(0, import_index_e390a0ae.v)(import_ONSFooter_58cc53c8.O, "ONSHeader").$$render($$result, { baseurl, path, lang }, {}, {})}
 
 <main id="${"main"}" tabindex="${"-1"}">${slots.default ? slots.default({}) : ``}</main>
 
-${(0, import_index_c9602e46.v)(import_ONSFooter_bc9c1a7b.a, "ONSFooter").$$render($$result, { baseurl, lang }, {}, {})}`;
+${(0, import_index_e390a0ae.v)(import_ONSFooter_58cc53c8.a, "ONSFooter").$$render($$result, { baseurl, lang }, {}, {})}`;
 });

@@ -3,7 +3,7 @@
 
 <script>
   import LibLoader from '../LibLoader.svelte'
-
+// reducing svelte bundle size by using third party loaders for scripts... 
 
   
   import '../app.css';

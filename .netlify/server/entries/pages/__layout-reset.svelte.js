@@ -20,13 +20,13 @@ __export(stdin_exports, {
   default: () => _layout_reset
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../chunks/index-c9602e46.js");
+var import_index_e390a0ae = require("../../chunks/index-e390a0ae.js");
 var __layoutReset_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nbody,main.svelte-5evocz{\n  margin:0 !important;\n  padding:0 !important;\n  left:0 !important;\n  top:0 !important\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: "body,main.svelte-5evocz{margin:0 !important;padding:0 !important;left:0 !important;top:0 !important}",
   map: null
 };
-const _layout_reset = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const _layout_reset = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
   return `<main id="${"main"}" class="${"reset svelte-5evocz"}">${slots.default ? slots.default({}) : ``}
 </main>`;

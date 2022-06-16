@@ -20,8 +20,8 @@ __export(stdin_exports, {
   default: () => Meta
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../../../chunks/index-c9602e46.js");
-const Meta = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_e390a0ae = require("../../../../../chunks/index-e390a0ae.js");
+const Meta = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { background = "grey" } = $$props;
   let { label = "Last updated" } = $$props;
   let { value = "date" } = $$props;
@@ -31,6 +31,6 @@ const Meta = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots)
     $$bindings.label(label);
   if ($$props.value === void 0 && $$bindings.value && value !== void 0)
     $$bindings.value(value);
-  return `<div class="${["meta-wrap--thin", background == "grey" ? "meta-wrap" : ""].join(" ").trim()}"><div class="${"wrapper"}"><dl class="${"col-wrap"}"><div class="${"col padding-left--0 meta__item meta__item--no-border"}"><dt class="${"meta__term inline"}">${(0, import_index_c9602e46.e)(label)}:</dt>
+  return `<div class="${["meta-wrap--thin", background == "grey" ? "meta-wrap" : ""].join(" ").trim()}"><div class="${"wrapper"}"><dl class="${"col-wrap"}"><div class="${"col padding-left--0 meta__item meta__item--no-border"}"><dt class="${"meta__term inline"}">${(0, import_index_e390a0ae.e)(label)}:</dt>
 				<dd class="${"inline"}"><!-- HTML_TAG_START -->${value}<!-- HTML_TAG_END --></dd></div></dl></div></div>`;
 });

@@ -20,8 +20,8 @@ __export(stdin_exports, {
   default: () => ONSFooter
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
-const ONSFooter = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
+const ONSFooter = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { lang = "en" } = $$props;
   let { baseurl = "//www.ons.gov.uk" } = $$props;
   const texts = {
@@ -52,24 +52,24 @@ const ONSFooter = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, s
     $$bindings.lang(lang);
   if ($$props.baseurl === void 0 && $$bindings.baseurl && baseurl !== void 0)
     $$bindings.baseurl(baseurl);
-  return `<footer class="${"print--hide margin-top--4"}"><h2 class="${"visuallyhidden"}">${(0, import_index_c9602e46.e)(i18n("Footer links", lang))}</h2>
-	<div class="${"footer"}"><div class="${"wrapper"}"><nav aria-label="${"Footer links"}"><div class="${"footer-nav col-wrap"}"><div class="${"col col--lg-one-third col--md-one-third"}"><h3 class="${"footer-nav__heading"}">${(0, import_index_c9602e46.e)(i18n("Help", lang))}</h3>
-						<ul class="${"footer-nav__list"}"><li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/help/accessibility"}">${(0, import_index_c9602e46.e)(i18n("Accessibility", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/cookies"}">${(0, import_index_c9602e46.e)(i18n("Cookies", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/help/privacynotice"}">${(0, import_index_c9602e46.e)(i18n("Privacy", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/help/termsandconditions"}">${(0, import_index_c9602e46.e)(i18n("Terms and conditions", lang))}</a></li></ul></div>
-					<div class="${"col col--lg-one-third col--md-one-third"}"><h3 class="${"footer-nav__heading"}">${(0, import_index_c9602e46.e)(i18n("About ONS", lang))}</h3>
-						<ul class="${"footer-nav__list"}"><li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/aboutus/whatwedo"}">${(0, import_index_c9602e46.e)(i18n("What we do", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/aboutus/careers"}">${(0, import_index_c9602e46.e)(i18n("Careers", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/aboutus/contactus"}">${(0, import_index_c9602e46.e)(i18n("Contact us", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${(0, import_index_c9602e46.e)(baseurl) + "/aboutus/transparencyandgovernance/freedomofinformationfoi"}">${(0, import_index_c9602e46.e)(i18n("Freedom of Information", lang))}</a></li></ul></div>
-					<div class="${"col col--lg-one-third col--md-one-third"}"><h3 class="${"footer-nav__heading"}">${(0, import_index_c9602e46.e)(i18n("Connect with us", lang))}</h3>
-						<ul class="${"footer-nav__list"}"><li class="${"footer-nav__item"}"><a href="${"https://twitter.com/ONS"}">${(0, import_index_c9602e46.e)(i18n("Twitter", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${"https://www.facebook.com/ONS"}">${(0, import_index_c9602e46.e)(i18n("Facebook", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${"https://www.linkedin.com/company/office-for-national-statistics"}">${(0, import_index_c9602e46.e)(i18n("LinkedIn", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${"https://consultations.ons.gov.uk/"}">${(0, import_index_c9602e46.e)(i18n("Consultations", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${"https://www.statsusernet.org.uk/login"}">${(0, import_index_c9602e46.e)(i18n("Discussion forums", lang))}</a></li>
-							<li class="${"footer-nav__item"}"><a href="${"https://public.govdelivery.com/accounts/UKONS/subscribers/new"}">${(0, import_index_c9602e46.e)(i18n("Email alerts", lang))}</a></li></ul></div></div></nav></div>
+  return `<footer class="${"print--hide margin-top--4"}"><h2 class="${"visuallyhidden"}">${(0, import_index_e390a0ae.e)(i18n("Footer links", lang))}</h2>
+	<div class="${"footer"}"><div class="${"wrapper"}"><nav aria-label="${"Footer links"}"><div class="${"footer-nav col-wrap"}"><div class="${"col col--lg-one-third col--md-one-third"}"><h3 class="${"footer-nav__heading"}">${(0, import_index_e390a0ae.e)(i18n("Help", lang))}</h3>
+						<ul class="${"footer-nav__list"}"><li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/help/accessibility"}">${(0, import_index_e390a0ae.e)(i18n("Accessibility", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/cookies"}">${(0, import_index_e390a0ae.e)(i18n("Cookies", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/help/privacynotice"}">${(0, import_index_e390a0ae.e)(i18n("Privacy", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/help/termsandconditions"}">${(0, import_index_e390a0ae.e)(i18n("Terms and conditions", lang))}</a></li></ul></div>
+					<div class="${"col col--lg-one-third col--md-one-third"}"><h3 class="${"footer-nav__heading"}">${(0, import_index_e390a0ae.e)(i18n("About ONS", lang))}</h3>
+						<ul class="${"footer-nav__list"}"><li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/aboutus/whatwedo"}">${(0, import_index_e390a0ae.e)(i18n("What we do", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/aboutus/careers"}">${(0, import_index_e390a0ae.e)(i18n("Careers", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/aboutus/contactus"}">${(0, import_index_e390a0ae.e)(i18n("Contact us", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${(0, import_index_e390a0ae.e)(baseurl) + "/aboutus/transparencyandgovernance/freedomofinformationfoi"}">${(0, import_index_e390a0ae.e)(i18n("Freedom of Information", lang))}</a></li></ul></div>
+					<div class="${"col col--lg-one-third col--md-one-third"}"><h3 class="${"footer-nav__heading"}">${(0, import_index_e390a0ae.e)(i18n("Connect with us", lang))}</h3>
+						<ul class="${"footer-nav__list"}"><li class="${"footer-nav__item"}"><a href="${"https://twitter.com/ONS"}">${(0, import_index_e390a0ae.e)(i18n("Twitter", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${"https://www.facebook.com/ONS"}">${(0, import_index_e390a0ae.e)(i18n("Facebook", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${"https://www.linkedin.com/company/office-for-national-statistics"}">${(0, import_index_e390a0ae.e)(i18n("LinkedIn", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${"https://consultations.ons.gov.uk/"}">${(0, import_index_e390a0ae.e)(i18n("Consultations", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${"https://www.statsusernet.org.uk/login"}">${(0, import_index_e390a0ae.e)(i18n("Discussion forums", lang))}</a></li>
+							<li class="${"footer-nav__item"}"><a href="${"https://public.govdelivery.com/accounts/UKONS/subscribers/new"}">${(0, import_index_e390a0ae.e)(i18n("Email alerts", lang))}</a></li></ul></div></div></nav></div>
 		<div class="${"wrapper"}"><div class="${"footer-license"}"><img class="${"footer-license__img"}" alt="${"OGL"}" width="${"60"}" src="${"https://cdn.ons.gov.uk/assets/images/logo-ogl-footer.svg"}">
 				<p class="${"footer-license__text margin-left-sm--0"}"><!-- HTML_TAG_START -->${i18n("All content is available under the <a href='http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'>Open Government Licence v3.0</a>, except where otherwise stated", lang)}<!-- HTML_TAG_END --></p></div></div></div></footer>`;
 });

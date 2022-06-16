@@ -20,16 +20,16 @@ __export(stdin_exports, {
   default: () => Breadcrumb
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../../../chunks/index-c9602e46.js");
-const Breadcrumb = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_e390a0ae = require("../../../../../chunks/index-e390a0ae.js");
+const Breadcrumb = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { links = [] } = $$props;
   let { mode = "neutral" } = $$props;
   if ($$props.links === void 0 && $$bindings.links && links !== void 0)
     $$bindings.links(links);
   if ($$props.mode === void 0 && $$bindings.mode && mode !== void 0)
     $$bindings.mode(mode);
-  return `<nav aria-label="${"Breadcrumbs"}"><div class="${(0, import_index_c9602e46.e)(mode == "neutral" ? "breadcrumb-neutral" : "breadcrumb") + " print--hide"}"><ol class="${"breadcrumb__list"}">${(0, import_index_c9602e46.i)(links, (link) => {
-    return `<li class="${"breadcrumb__item"}">${link.url ? `<a class="${"breadcrumb__link"}"${(0, import_index_c9602e46.h)("href", link.url, 0)}>${(0, import_index_c9602e46.e)(link.label)}</a>` : `${(0, import_index_c9602e46.e)(link.label)}`}
+  return `<nav aria-label="${"Breadcrumbs"}"><div class="${(0, import_index_e390a0ae.e)(mode == "neutral" ? "breadcrumb-neutral" : "breadcrumb") + " print--hide"}"><ol class="${"breadcrumb__list"}">${(0, import_index_e390a0ae.i)(links, (link) => {
+    return `<li class="${"breadcrumb__item"}">${link.url ? `<a class="${"breadcrumb__link"}"${(0, import_index_e390a0ae.h)("href", link.url, 0)}>${(0, import_index_e390a0ae.e)(link.label)}</a>` : `${(0, import_index_e390a0ae.e)(link.label)}`}
 			</li>`;
   })}</ol></div></nav>`;
 });

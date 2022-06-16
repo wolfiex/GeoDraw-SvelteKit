@@ -23,14 +23,14 @@ __export(stdin_exports, {
   default: () => Em
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../../chunks/index-c9602e46.js");
+var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
 var import_parse_color = __toESM(require("parse-color"));
 var Em_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n.em.svelte-s1t2y4{\n  padding:1px 4px 1px 4px;\n  font-weight:bold\n}\n\n.nowrap.svelte-s1t2y4{\n  white-space:nowrap\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: ".em.svelte-s1t2y4{padding:1px 4px 1px 4px;font-weight:bold}.nowrap.svelte-s1t2y4{white-space:nowrap}",
   map: null
 };
-const Em = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Em = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let rgb;
   let { color = "lightgrey" } = $$props;
   let { nowrap = true } = $$props;
@@ -50,6 +50,6 @@ const Em = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) =
       text = textColor(rgb);
     }
   }
-  return `<span class="${["em svelte-s1t2y4", nowrap ? "nowrap" : ""].join(" ").trim()}" style="${"background-color: " + (0, import_index_c9602e46.e)(color) + "; color: " + (0, import_index_c9602e46.e)(text) + ";"}" role="${"presentation"}">${slots.default ? slots.default({}) : ``}
+  return `<span class="${["em svelte-s1t2y4", nowrap ? "nowrap" : ""].join(" ").trim()}" style="${"background-color: " + (0, import_index_e390a0ae.e)(color) + "; color: " + (0, import_index_e390a0ae.e)(text) + ";"}" role="${"presentation"}">${slots.default ? slots.default({}) : ``}
 </span>`;
 });

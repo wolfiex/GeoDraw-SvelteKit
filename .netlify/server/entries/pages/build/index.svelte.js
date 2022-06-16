@@ -20,7 +20,7 @@ __export(stdin_exports, {
   default: () => Build
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_c9602e46 = require("../../../chunks/index-c9602e46.js");
+var import_index_e390a0ae = require("../../../chunks/index-e390a0ae.js");
 var import_paths_396f020f = require("../../../chunks/paths-396f020f.js");
 let datasets = {
   "KS106EW": {
@@ -4554,28 +4554,28 @@ let datasets = {
     "code": "nm_1331_1"
   }
 };
-const Breadcrumb = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Breadcrumb = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { links = [] } = $$props;
   let { mode = "neutral" } = $$props;
   if ($$props.links === void 0 && $$bindings.links && links !== void 0)
     $$bindings.links(links);
   if ($$props.mode === void 0 && $$bindings.mode && mode !== void 0)
     $$bindings.mode(mode);
-  return `<nav aria-label="${"Breadcrumbs"}"><div class="${(0, import_index_c9602e46.e)(mode == "neutral" ? "breadcrumb-neutral" : "breadcrumb") + " print--hide"}"><ol class="${"breadcrumb__list"}">${(0, import_index_c9602e46.i)(links, (link) => {
-    return `<li class="${"breadcrumb__item"}">${link.url ? `<a class="${"breadcrumb__link"}"${(0, import_index_c9602e46.h)("href", link.url, 0)}>${(0, import_index_c9602e46.e)(link.label)}</a>` : `${(0, import_index_c9602e46.e)(link.label)}`}
+  return `<nav aria-label="${"Breadcrumbs"}"><div class="${(0, import_index_e390a0ae.e)(mode == "neutral" ? "breadcrumb-neutral" : "breadcrumb") + " print--hide"}"><ol class="${"breadcrumb__list"}">${(0, import_index_e390a0ae.i)(links, (link) => {
+    return `<li class="${"breadcrumb__item"}">${link.url ? `<a class="${"breadcrumb__link"}"${(0, import_index_e390a0ae.h)("href", link.url, 0)}>${(0, import_index_e390a0ae.e)(link.label)}</a>` : `${(0, import_index_e390a0ae.e)(link.label)}`}
 			</li>`;
   })}</ol></div></nav>`;
 });
-const Highlighted = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Highlighted = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { title = "Highlighted content" } = $$props;
   let { links = [] } = $$props;
   if ($$props.title === void 0 && $$bindings.title && title !== void 0)
     $$bindings.title(title);
   if ($$props.links === void 0 && $$bindings.links && links !== void 0)
     $$bindings.links(links);
-  return `<div class="${"nav-secondary--border-left-lg col col--md-47 col--lg-19 col--lg-offset-2 padding-left margin-top-lg--3"}"><h2 class="${"margin-top-lg--1"}">${(0, import_index_c9602e46.e)(title)}</h2>
-	<ul class="${"list--neutral margin-top--negative-one-fix"}">${(0, import_index_c9602e46.i)(links, (link) => {
-    return `<li><a${(0, import_index_c9602e46.h)("href", link.url, 0)}${(0, import_index_c9602e46.h)("data-gtm-title", link.label, 0)} data-gtm-type="${"highlighted-links"}">${(0, import_index_c9602e46.e)(link.label)}</a>
+  return `<div class="${"nav-secondary--border-left-lg col col--md-47 col--lg-19 col--lg-offset-2 padding-left margin-top-lg--3"}"><h2 class="${"margin-top-lg--1"}">${(0, import_index_e390a0ae.e)(title)}</h2>
+	<ul class="${"list--neutral margin-top--negative-one-fix"}">${(0, import_index_e390a0ae.i)(links, (link) => {
+    return `<li><a${(0, import_index_e390a0ae.h)("href", link.url, 0)}${(0, import_index_e390a0ae.h)("data-gtm-title", link.label, 0)} data-gtm-type="${"highlighted-links"}">${(0, import_index_e390a0ae.e)(link.label)}</a>
 		</li>`;
   })}</ul></div>`;
 });
@@ -4584,7 +4584,7 @@ const css$3 = {
   code: '.ons-toc.svelte-1dyzlhu{box-sizing:border-box;display:block;overflow-wrap:break-word;margin-top:24px}.ons-toc__title.svelte-1dyzlhu{font-size:16px !important;display:block;font-weight:600;margin-block-end:18px;margin-block-start:0;margin-inline-end:0;margin-inline-start:0;margin:0 0 18px 0;padding:0}.ons-list.svelte-1dyzlhu{display:block;list-style-image:none;list-style-position:outside;list-style-type:none;margin-block-end:27px;margin-block-start:0;margin:0 0 27px 0;margin-inline-end:0;margin-inline-start:0;padding:0;padding-inline-start:0}.ons-list__item.svelte-1dyzlhu{display:list-item;margin:0 0 9px 25px;padding:0;position:relative;font-size:16px !important}.ons-list__item.svelte-1dyzlhu::before{border-top-style:solid;border-top-width:1px;content:"";display:block;height:1px;left:0;margin-left:-25px;position:absolute;top:14px;width:15px}',
   map: null
 };
-const Navbox = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Navbox = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { title = null } = $$props;
   let { links = [] } = $$props;
   if ($$props.title === void 0 && $$bindings.title && title !== void 0)
@@ -4592,14 +4592,14 @@ const Navbox = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slot
   if ($$props.links === void 0 && $$bindings.links && links !== void 0)
     $$bindings.links(links);
   $$result.css.add(css$3);
-  return `<nav class="${"ons-toc svelte-1dyzlhu"}" aria-label="${"Pages in this section"}">${title ? `<h2 class="${"ons-toc__title ons-u-fs-r--b ons-u-mb-s svelte-1dyzlhu"}">${(0, import_index_c9602e46.e)(title)}</h2>` : ``}
-	<ol class="${"ons-list ons-u-mb-m ons-list--dashed svelte-1dyzlhu"}">${(0, import_index_c9602e46.i)(links, (link) => {
-    return `${link.url ? `<li class="${"ons-list__item svelte-1dyzlhu"}"><a${(0, import_index_c9602e46.h)("href", link.url, 0)} class="${"ons-list__link"}">${(0, import_index_c9602e46.e)(link.label)}</a>
-		</li>` : `<li class="${"ons-list__item svelte-1dyzlhu"}" aria-current="${"true"}">${(0, import_index_c9602e46.e)(link.label)}</li>`}`;
+  return `<nav class="${"ons-toc svelte-1dyzlhu"}" aria-label="${"Pages in this section"}">${title ? `<h2 class="${"ons-toc__title ons-u-fs-r--b ons-u-mb-s svelte-1dyzlhu"}">${(0, import_index_e390a0ae.e)(title)}</h2>` : ``}
+	<ol class="${"ons-list ons-u-mb-m ons-list--dashed svelte-1dyzlhu"}">${(0, import_index_e390a0ae.i)(links, (link) => {
+    return `${link.url ? `<li class="${"ons-list__item svelte-1dyzlhu"}"><a${(0, import_index_e390a0ae.h)("href", link.url, 0)} class="${"ons-list__link"}">${(0, import_index_e390a0ae.e)(link.label)}</a>
+		</li>` : `<li class="${"ons-list__item svelte-1dyzlhu"}" aria-current="${"true"}">${(0, import_index_e390a0ae.e)(link.label)}</li>`}`;
   })}</ol>
 </nav>`;
 });
-const Meta = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Meta = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { background = "grey" } = $$props;
   let { label = "Last updated" } = $$props;
   let { value = "date" } = $$props;
@@ -4609,10 +4609,10 @@ const Meta = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots)
     $$bindings.label(label);
   if ($$props.value === void 0 && $$bindings.value && value !== void 0)
     $$bindings.value(value);
-  return `<div class="${["meta-wrap--thin", background == "grey" ? "meta-wrap" : ""].join(" ").trim()}"><div class="${"wrapper"}"><dl class="${"col-wrap"}"><div class="${"col padding-left--0 meta__item meta__item--no-border"}"><dt class="${"meta__term inline"}">${(0, import_index_c9602e46.e)(label)}:</dt>
+  return `<div class="${["meta-wrap--thin", background == "grey" ? "meta-wrap" : ""].join(" ").trim()}"><div class="${"wrapper"}"><dl class="${"col-wrap"}"><div class="${"col padding-left--0 meta__item meta__item--no-border"}"><dt class="${"meta__term inline"}">${(0, import_index_e390a0ae.e)(label)}:</dt>
 				<dd class="${"inline"}"><!-- HTML_TAG_START -->${value}<!-- HTML_TAG_END --></dd></div></dl></div></div>`;
 });
-const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Titleblock = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { mode = "neutral" } = $$props;
   let { background = "grey" } = $$props;
   let { breadcrumb = null } = $$props;
@@ -4621,8 +4621,8 @@ const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, 
   let { date = null } = $$props;
   let { updated = null } = $$props;
   let { hr = true } = $$props;
-  (0, import_index_c9602e46.s)("mode", mode);
-  (0, import_index_c9602e46.s)("background", background);
+  (0, import_index_e390a0ae.s)("mode", mode);
+  (0, import_index_e390a0ae.s)("background", background);
   if ($$props.mode === void 0 && $$bindings.mode && mode !== void 0)
     $$bindings.mode(mode);
   if ($$props.background === void 0 && $$bindings.background && background !== void 0)
@@ -4639,7 +4639,7 @@ const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, 
     $$bindings.updated(updated);
   if ($$props.hr === void 0 && $$bindings.hr && hr !== void 0)
     $$bindings.hr(hr);
-  return `<div class="${"page-neutral-intro " + (0, import_index_c9602e46.e)(background == "grey" ? "background--gallery" : "")}"><div class="${"wrapper"}"><div class="${"col-wrap"}"><div class="${"col"}">${breadcrumb ? `${(0, import_index_c9602e46.v)(Breadcrumb, "Breadcrumb").$$render($$result, {
+  return `<div class="${"page-neutral-intro " + (0, import_index_e390a0ae.e)(background == "grey" ? "background--gallery" : "")}"><div class="${"wrapper"}"><div class="${"col-wrap"}"><div class="${"col"}">${breadcrumb ? `${(0, import_index_e390a0ae.v)(Breadcrumb, "Breadcrumb").$$render($$result, {
     links: breadcrumb,
     mode: background == "none" ? "neutral" : mode
   }, {}, {})}` : ``}
@@ -4647,11 +4647,11 @@ const Titleblock = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, 
     "col col--md-47",
     (highlighted ? "col--lg-38" : "") + " " + (!highlighted ? "col--lg-48" : "")
   ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}
-					${date ? `<p class="${"page-neutral-intro__meta margin-top--0 margin-bottom--3"}">${(0, import_index_c9602e46.e)(date)}</p>` : ``}
-					${contents ? `${(0, import_index_c9602e46.v)(Navbox, "Navbox").$$render($$result, { links: contents, title: "Contents" }, {}, {})}` : ``}</div>
-				${highlighted ? `${(0, import_index_c9602e46.v)(Highlighted, "Highlighted").$$render($$result, { links: highlighted }, {}, {})}` : ``}</div></div></div>
+					${date ? `<p class="${"page-neutral-intro__meta margin-top--0 margin-bottom--3"}">${(0, import_index_e390a0ae.e)(date)}</p>` : ``}
+					${contents ? `${(0, import_index_e390a0ae.v)(Navbox, "Navbox").$$render($$result, { links: contents, title: "Contents" }, {}, {})}` : ``}</div>
+				${highlighted ? `${(0, import_index_e390a0ae.v)(Highlighted, "Highlighted").$$render($$result, { links: highlighted }, {}, {})}` : ``}</div></div></div>
 	${slots.meta ? slots.meta({}) : ``}
-	${updated ? `${(0, import_index_c9602e46.v)(Meta, "Meta").$$render($$result, {
+	${updated ? `${(0, import_index_e390a0ae.v)(Meta, "Meta").$$render($$result, {
     label: "Last updated",
     value: updated,
     background
@@ -4663,21 +4663,21 @@ const css$2 = {
   code: "h1.svelte-m86ur0{line-height:1}",
   map: null
 };
-const Headline = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
-  let { mode = (0, import_index_c9602e46.d)("mode") } = $$props;
+const Headline = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+  let { mode = (0, import_index_e390a0ae.d)("mode") } = $$props;
   if ($$props.mode === void 0 && $$bindings.mode && mode !== void 0)
     $$bindings.mode(mode);
   $$result.css.add(css$2);
-  return `<h1 class="${(0, import_index_c9602e46.e)((0, import_index_c9602e46.j)(mode == "neutral" ? "page-neutral-intro__title" : "page-intro__title")) + " svelte-m86ur0"}">${slots.default ? slots.default({}) : ``}
+  return `<h1 class="${(0, import_index_e390a0ae.e)((0, import_index_e390a0ae.k)(mode == "neutral" ? "page-neutral-intro__title" : "page-intro__title")) + " svelte-m86ur0"}">${slots.default ? slots.default({}) : ``}
 </h1>`;
 });
-const Subhead = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
-  let { mode = (0, import_index_c9602e46.d)("mode") } = $$props;
+const Subhead = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+  let { mode = (0, import_index_e390a0ae.d)("mode") } = $$props;
   if ($$props.mode === void 0 && $$bindings.mode && mode !== void 0)
     $$bindings.mode(mode);
-  return `<p${(0, import_index_c9602e46.h)("class", mode == "neutral" ? "page-neutral-intro__content" : "page-intro__content", 0)}>${slots.default ? slots.default({}) : ``}</p>`;
+  return `<p${(0, import_index_e390a0ae.h)("class", mode == "neutral" ? "page-neutral-intro__content" : "page-intro__content", 0)}>${slots.default ? slots.default({}) : ``}</p>`;
 });
-const Content = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Content = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   return `<div class="${"page-content margin-bottom--2"}"><div class="${"wrapper"}">${slots.default ? slots.default({}) : ``}</div></div>`;
 });
 var Icon_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nsvg.svelte-1ior0zp{\n  width:1rem;\n  height:1rem;\n  fill:currentColor;\n  transition:all 0.3s ease-out;\n  overflow:visible\n}\n\n/* purgecss end ignore */")();
@@ -4685,7 +4685,7 @@ const css$1 = {
   code: "svg.svelte-1ior0zp{width:1rem;height:1rem;fill:currentColor;transition:all 0.3s ease-out;overflow:visible}",
   map: null
 };
-const Icon = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Icon = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let { name = "close" } = $$props;
   const paths = {
     close: "M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
@@ -4693,7 +4693,7 @@ const Icon = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots)
   if ($$props.name === void 0 && $$bindings.name && name !== void 0)
     $$bindings.name(name);
   $$result.css.add(css$1);
-  return `<svg viewBox="${"0 0 24 24"}" fill-rule="${"evenodd"}" clip-rule="${"evenodd"}" class="${"svelte-1ior0zp"}"><path${(0, import_index_c9602e46.h)("d", paths[name], 0)}></path></svg>`;
+  return `<svg viewBox="${"0 0 24 24"}" fill-rule="${"evenodd"}" clip-rule="${"evenodd"}" class="${"svelte-1ior0zp"}"><path${(0, import_index_e390a0ae.h)("d", paths[name], 0)}></path></svg>`;
 });
 var index_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\niframe.svelte-1eb19zo{\n  width:100%;\n  height:100vh\n}\n\n#profile.svelte-1eb19zo{\n  width:100%;\n  border:1px solid #aaa\n}\n\n.btn.svelte-1eb19zo{\n  margin:4px 4px 0 0;\n  border:2px solid black;\n  border-radius:3px;\n  font-size:0.9rem;\n  padding:3px 6px;\n  vertical-align:baseline\n}\n\n.btn-selected.svelte-1eb19zo{\n  background-color:black;\n  color:white\n}\n\n/* purgecss end ignore */")();
 const css = {
@@ -4701,7 +4701,7 @@ const css = {
   map: null
 };
 const ptitle = "Custom Drawn Areas";
-const Build = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots) => {
+const Build = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
   let iframe;
   let dataset_keys = Object.keys(datasets);
   dataset_keys = dataset_keys.filter((key) => !/UK\]| - | by |\[[^K]|WA\]/.test(datasets[key].name));
@@ -4709,24 +4709,24 @@ const Build = (0, import_index_c9602e46.c)(($$result, $$props, $$bindings, slots
   $$result.css.add(css);
   return `${$$result.head += `${$$result.title = `<title>Embeddable profile demo</title>`, ""}<meta property="${"og:title"}" content="${"Embeddable profile demo"}" data-svelte="svelte-9t1mvn"><meta property="${"og:description"}" content="${"This is a description of the page."}" data-svelte="svelte-9t1mvn"><meta name="${"description"}" content="${"This is a description of the page."}" data-svelte="svelte-9t1mvn">`, ""}
 
-${(0, import_index_c9602e46.v)(Titleblock, "Titleblock").$$render($$result, {
+${(0, import_index_e390a0ae.v)(Titleblock, "Titleblock").$$render($$result, {
     mode: "page",
     breadcrumb: [{ label: "Home", url: `${import_paths_396f020f.a}/` }, { label: ptitle }]
   }, {}, {
     default: () => {
-      return `${(0, import_index_c9602e46.v)(Headline, "Headline").$$render($$result, {}, {}, {
+      return `${(0, import_index_e390a0ae.v)(Headline, "Headline").$$render($$result, {}, {}, {
         default: () => {
-          return `${(0, import_index_c9602e46.e)(ptitle)}`;
+          return `${(0, import_index_e390a0ae.e)(ptitle)}`;
         }
       })}
-  ${(0, import_index_c9602e46.v)(Subhead, "Subhead").$$render($$result, {}, {}, {
+  ${(0, import_index_e390a0ae.v)(Subhead, "Subhead").$$render($$result, {}, {}, {
         default: () => {
-          return `<div class="${"margin-top--2"}">${(0, import_index_c9602e46.i)(dataset_keys, (key) => {
+          return `<div class="${"margin-top--2"}">${(0, import_index_e390a0ae.i)(dataset_keys, (key) => {
             return `<button class="${[
               "btn svelte-1eb19zo",
               selected_keys.includes(key) ? "btn-selected" : ""
-            ].join(" ").trim()}">${(0, import_index_c9602e46.e)(datasets[key].name)}
-          ${selected_keys.includes(key) ? `${(0, import_index_c9602e46.v)(Icon, "Icon").$$render($$result, { name: "close" }, {}, {})}` : ``}
+            ].join(" ").trim()}">${(0, import_index_e390a0ae.e)(datasets[key].name)}
+          ${selected_keys.includes(key) ? `${(0, import_index_e390a0ae.v)(Icon, "Icon").$$render($$result, { name: "close" }, {}, {})}` : ``}
         </button>`;
           })}</div>`;
         }
@@ -4734,9 +4734,9 @@ ${(0, import_index_c9602e46.v)(Titleblock, "Titleblock").$$render($$result, {
     }
   })}
 
-${(0, import_index_c9602e46.v)(Content, "Content").$$render($$result, {}, {}, {
+${(0, import_index_e390a0ae.v)(Content, "Content").$$render($$result, {}, {}, {
     default: () => {
-      return `<iframe id="${"ifr"}" class="${"svelte-1eb19zo"}"${(0, import_index_c9602e46.h)("this", iframe, 0)}></iframe>
+      return `<iframe id="${"ifr"}" class="${"svelte-1eb19zo"}"${(0, import_index_e390a0ae.h)("this", iframe, 0)}></iframe>
   <div id="${"profile"}" class="${"margin-top--3 svelte-1eb19zo"}"></div>
 
   `;

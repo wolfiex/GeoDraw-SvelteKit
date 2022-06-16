@@ -1,6 +1,6 @@
-import { c as create_ssr_component, s as setContext, e as escape, f as add_styles, d as getContext, b as subscribe, j as null_to_empty, i as each, h as add_attribute, v as validate_component, w as is_promise, n as noop } from "../../../chunks/index-c9602e46.js";
-/* empty css                            */import { w as writable } from "../../../chunks/index-4d87e63a.js";
-import * as dfd from "danfojs";
+import { c as create_ssr_component, s as setContext, e as escape, f as add_styles, d as getContext, b as subscribe, k as null_to_empty, i as each, h as add_attribute, v as validate_component, w as is_promise, n as noop } from "../../../chunks/index-e390a0ae.js";
+import LibLoader from "../LibLoader.svelte.js";
+/* empty css                            */import { w as writable } from "../../../chunks/index-a92659a3.js";
 import BarChart from "./BarChart.svelte.js";
 import MapAreas from "./MapAreas.svelte.js";
 var Cards_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nh2.svelte-4xzjby{\n  display:inline-block\n}\n\n.tiles-grid.svelte-4xzjby{\n  display:grid;\n  width:100%;\n  justify-content:stretch;\n  grid-auto-flow:row dense;\n  margin:8px 0\n}\n\n/* purgecss end ignore */")();
@@ -133,7 +133,22 @@ const Tables = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   {
     console.log(newdata);
   }
-  return `<h1 class="${"svelte-nzgl4g"}">${escape(name)}</h1>
+  return `${validate_component(LibLoader, "LibLoader").$$render($$result, {
+    url: "https://cdn.jsdelivr.net/npm/danfojs@1.1.0/lib/bundle.min.js"
+  }, {}, {})}
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 class="${"svelte-nzgl4g"}">${escape(name)}</h1>
 ${validate_component(Cards, "Cards").$$render($$result, {}, {}, {
     default: () => {
       return `${validate_component(Card, "Card").$$render($$result, { title: "Area map" }, {}, {

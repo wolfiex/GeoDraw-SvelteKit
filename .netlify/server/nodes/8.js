@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/Toolbar/DrawButtons.svelte.js"));
+var module2 = __toESM(require("../entries/pages/draw/AreaMap.svelte.js"));
 const index = 8;
-const entry = "pages/draw/Toolbar/DrawButtons.svelte-9b96fbfe.js";
-const js = ["pages/draw/Toolbar/DrawButtons.svelte-9b96fbfe.js", "chunks/index-7c3c6a44.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-e29deeda.js", "chunks/index-802cfd86.js", "chunks/Button-e51b3d9a.js", "chunks/Column-0f094680.js", "chunks/mapstore-a25a1044.js"];
-const css = ["assets/pages/draw/Toolbar/DrawButtons.svelte-609f1bd9.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+const entry = "pages/draw/AreaMap.svelte-f04ea3ef.js";
+const js = ["pages/draw/AreaMap.svelte-f04ea3ef.js", "chunks/index-ba5e9c90.js", "chunks/AreaMap-5bb92964.js", "chunks/_commonjsHelpers-c771f69b.js", "chunks/mapstore-4cd67937.js", "chunks/index-11581b04.js"];
+const css = ["assets/AreaMap-f456b717.css"];
