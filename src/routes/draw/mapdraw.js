@@ -8,6 +8,7 @@ import {
   add_mode,
   draw_enabled,
   query,
+  server,
 } from './mapstore.js';
 // import {extent} from 'd3-array';
 import {bboxToTile} from '@mapbox/tilebelt';
@@ -391,7 +392,7 @@ export async function simplify_query () {
     var simple = simplify[tile];
   } else {
     var simple = await fetch (
-      `http://localhost:7113/encoding/${tile}.json`
+      `${server}/encoding/${tile}.json`
     ).then (d => d.json ());
     simple.lsoa = simple.lsoa.map (d => {
       // console.log('simplify data',d)

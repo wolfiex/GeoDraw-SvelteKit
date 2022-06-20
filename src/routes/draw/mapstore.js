@@ -41,12 +41,17 @@ export let location = {
         [-5.816, 49.864],
         [1.863, 55.872]
     ], // England & Wales bounding box
+
 };
 export let maxbounds = null;
 [
     [-9, 47],
     [5, 57]
 ];
+
+export const server = 'https://onsvisual.github.io/ONS_CensusDraw_TileGen/geodraw_tileset'
+
+//http://localhost:7113
 export const mapstyle = `/css/style-omt.json`
 // `https://bothness.github.io/ons-basemaps/data/style-omt.json`
 //'https://api.mapbox.com/styles/v1/carbondesignsystem/ck7c8ce1y05h61ipb2fixfe76?access_token=pk.eyJ1IjoibWJvc3RvY2siLCJhIjoiY2s5ZWRqb2w1MDBnYjNmbzcxb2xxaGZjeSJ9.ZOeAUq-8dsbN7zqgG7vkdQ'

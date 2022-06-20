@@ -54,6 +54,7 @@
     radiusInKm,
     selected,
     query,
+    server,
     // level,
     // zoomed,
   } from './mapstore.js';
@@ -73,7 +74,7 @@
         type: 'vector',
         tiles: [
           // `${window.location.origin}/cors_endpoint/{z}/{x}/{y}.pbf`
-          `http://localhost:7113/{z}/{x}/{y}.pbf`,
+          `${server}/{z}/{x}/{y}.pbf`,
           // `${window.location.origin}/LSOA/{z}/{x}/{y}.pbf`,
           // `https://wolfiex.github.io/ONS_Maptiles/LSOA/{z}/{x}/{y}.pbf`,
         ],

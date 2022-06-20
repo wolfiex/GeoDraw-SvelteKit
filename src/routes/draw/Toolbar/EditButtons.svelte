@@ -22,7 +22,7 @@
     <Row>
       <Column>
         <Button
-          style="margin-left:0px"
+          style="margin-left:0px;width:auto"
           {disabled}
           on:click={() => {
             add_mode.set(!get(add_mode));
