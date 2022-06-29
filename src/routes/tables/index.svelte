@@ -2,6 +2,8 @@
 
 
 <script>
+  
+
   import LibLoader from '../LibLoader.svelte'
 // reducing svelte bundle size by using third party loaders for scripts... 
 
@@ -20,6 +22,9 @@
   
   import BarChart from './BarChart.svelte';
   import MapAreas from './MapAreas.svelte';
+
+  import {default as tabledict} from '../util/custom_profiles_tables.json';
+  console.error(tabledict)
 
   const name = 'Custom Area Tables';
 
@@ -52,13 +57,14 @@
 
   async function get_data(data) {
     var tbls = data.tables.map(async function (table) {
+      console.log('---',table)
 
-      if (table.code in cache) {
-        return cache[table.code];
+      if (table['Nomis table'] in cache) {
+        return cache[table['Nomis table']];
       } else {
         return await dfd
           .readCSV(
-            `${table.download}?date=latest&geography=MAKE|MyCustomArea|${areas},K04000001&rural_urban=0&measures=20100&select=geography_name,cell_name,obs_value`
+            `https://www.nomisweb.co.uk/api/v01/dataset/${table['Nomis table'].toLowerCase()}.bulk.csv?date=latest&geography=MAKE|MyCustomArea|${areas},K04000001&rural_urban=0&measures=20100&select=geography_name,cell_name,obs_value`
           )
           .then((d) => d.setIndex({column: 'geography'}))
           .then((de) => {
@@ -95,8 +101,8 @@
               }
             });
 
-            cache[table.code] = {name: table.name, data: lists};
-            return cache[table.code];
+            cache[table['Nomis table']] = {name: table['Table name'], data: lists};
+            return cache[table['Nomis table']];
           });
       }
     });
@@ -107,6 +113,7 @@
   //////////
 
   onMount(() => {
+    
     window.addEventListener('message', new_event, false);
     console.log(window.dfd)
   });

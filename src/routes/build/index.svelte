@@ -9,7 +9,7 @@
 
   // name dict for buttons
   // import { datasets } from "$lib/config";
-  import {datasets} from '$lib/table_select';
+  // import {datasets} from '$lib/table_select';
 
   import Titleblock from '$lib/layout/Titleblock.svelte';
   import Headline from '$lib/layout/partial/Headline.svelte';
@@ -24,6 +24,10 @@
   let polygon;
   let data;
 
+
+  import {default as datasets} from '../util/custom_profiles_tables.json';  
+  console.error(datasets)
+
   let dataset_keys = Object.keys(datasets);
 
   dataset_keys = dataset_keys.filter(
@@ -33,7 +37,7 @@
   // console.error(dataset_keys);
 
   // keys hilighted
-  let selected_keys = ['KS101EW']; //['KS106EW', 'KS102EW', 'KS404EW', 'KS405EW'];
+  let selected_keys = []//['KS101EW']; //['KS106EW', 'KS102EW', 'KS404EW', 'KS405EW'];
 
   function send_data() {
     if (!iframe) return;
@@ -55,6 +59,12 @@
       JSON.stringify(senddata),
       window.location.origin
     );
+
+    setTimeout(() => {
+      resizeIframe(iframe)//this
+      console.log('resize iframe')
+    }, 800);
+
   }
 
   onMount(() => {
@@ -75,6 +85,12 @@
   });
 
   $: send_data(compressed);
+
+
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 20 + 'px';
+  }
+
 </script>
 
 <svelte:head>
@@ -105,7 +121,7 @@
             send_data();
           }}
         >
-          {datasets[key].name}
+          {datasets[key]['Table name']}
           {#if selected_keys.includes(key)}<Icon name="close" />{/if}
         </button>
       {/each}
@@ -118,6 +134,7 @@
     id="ifr"
     bind:this={iframe}
     on:load={() => setTimeout(send_data, 800)}
+    frameBorder=".8"
   />
   <div id="profile" class="margin-top--3" />
 
