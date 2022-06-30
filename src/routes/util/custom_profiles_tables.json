@@ -38,8 +38,8 @@
         "Table name": "Median age",
         "Source table": "KS102EW",
         "Nomis table": "NM_145_1",
-        "Cell no": 18.0,
-        "Cell name": "Median age",
+        "Cell no": [18.0],
+        "Cell name": ["Median age"],
         "Unit": "years"
     },
     "NM_522_1": {

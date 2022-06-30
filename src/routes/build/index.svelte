@@ -26,7 +26,7 @@
 
 
   import {default as datasets} from '../util/custom_profiles_tables.json';  
-  console.error(datasets)
+  // console.error(datasets)
 
   let dataset_keys = Object.keys(datasets);
 

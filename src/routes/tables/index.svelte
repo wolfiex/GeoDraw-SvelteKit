@@ -1,13 +1,7 @@
-<LibLoader url="https://cdn.jsdelivr.net/npm/danfojs@1.1.0/lib/bundle.min.js" />
-
-
 <script>
-  
+  import LibLoader from '../LibLoader.svelte';
+  // reducing svelte bundle size by using third party loaders for scripts...
 
-  import LibLoader from '../LibLoader.svelte'
-// reducing svelte bundle size by using third party loaders for scripts... 
-
-  
   import '../app.css';
   // import {page} from '$app/stores';
   import {onMount} from 'svelte';
@@ -19,12 +13,16 @@
   // import BarChart from '$lib/chart/BarChart.svelte';
   // import ProfileChart from '$lib/chart/ProfileChart.svelte';
   //import * as dfd from '';//'danfojs';
-  
+
   import BarChart from './BarChart.svelte';
   import MapAreas from './MapAreas.svelte';
 
+  // the string matching algorighm
+
+  // console.log()
+
+  // the table
   import {default as tabledict} from '../util/custom_profiles_tables.json';
-  console.error(tabledict)
 
   const name = 'Custom Area Tables';
 
@@ -41,7 +39,6 @@
     // if (event.origin !== "http://ons.visual")
     //   return;
     var data = JSON.parse(event.data);
-    // console.log('data-tb', data);
 
     // if we are using the same areas, we can cache the tables
     if (areas != data.areas) {
@@ -54,41 +51,86 @@
     newdata = data;
   }
 
-
   async function get_data(data) {
     var tbls = data.tables.map(async function (table) {
-      console.log('---',table)
+      console.log('---', table);
 
       if (table['Nomis table'] in cache) {
         return cache[table['Nomis table']];
       } else {
         return await dfd
           .readCSV(
-            `https://www.nomisweb.co.uk/api/v01/dataset/${table['Nomis table'].toLowerCase()}.bulk.csv?date=latest&geography=MAKE|MyCustomArea|${areas},K04000001&rural_urban=0&measures=20100&select=geography_name,cell_name,obs_value`
+            `https://www.nomisweb.co.uk/api/v01/dataset/${table[
+              'Nomis table'
+            ].toLowerCase()}.bulk.csv?date=latest&geography=MAKE|MyCustomArea|${areas},K04000001&rural_urban=0&measures=20100&select=geography_name,cell_name,obs_value`
           )
+          // .then(d=>{console.log('ed',d.print(),d);return d})
           .then((d) => d.setIndex({column: 'geography'}))
           .then((de) => {
             var mappings = {};
             var cols = de.columns.filter((d) => d.includes(':'));
             cols.forEach((d, i) => {
-              mappings[d] = /:(.+);/.exec(d)[1];
+              mappings[d] = d.replaceAll(/[\:\;]/g, ' ');
+              ///:\s*(.+);/.exec(d)[1];
             });
+
             return de
               .loc({rows: de.index.filter((d) => d), columns: cols})
               .rename(mappings, {inplace: false});
           })
-          .then((df) => {
-            var cols = df.$columns.filter(
+          .then((df_old) => {
+            // mandatory cleanup
+            var cols = df_old.$columns.filter(
               (d) =>
                 !(
-                  d.includes('count') ||
-                  d.includes('All usual') ||
-                  (d.match(/\;/g) || []).length === 1 ||
-                  d.includes('sum')
+                  (
+                    d.includes('count') ||
+                    d.includes('All') ||
+                    (d.match(/\;/g) || []).length === 1 ||
+                    d.includes('sum') ||
+                    d.includes('Total')
+                  )
+                  // d.includes('Mean')
                 )
             );
 
-            df = df.loc({columns: cols});
+            df_old = df_old.loc({columns: cols});
+
+            // add headers to hash search algorithm
+            const matches = table['Cell name'].map((d) => {
+              var match = new Minhash();
+              d.match(/\w+/g).forEach((e) => match.update(e));
+              return [d, match];
+            });
+
+            // name cleanup
+            let colmap = new Map();
+            df_old.$columns.forEach((m) => {
+              const m0 = new Minhash();
+              m.match(/\w+/g).forEach((e) => m0.update(e));
+              var last = 0;
+              var keep = m;
+
+              for (const mx of matches) {
+                var j = m0.jaccard(mx[1]);
+                if (j > last) {
+                  last = j;
+                  keep = mx[0];
+                }
+              }
+              // create a hierarchical map
+              colmap.set([keep, [m, ...(colmap.get(keep) || [])]]);
+            });
+
+            // rebuild with grouped data
+            let df = {};
+            colmap.forEach((_, item) => {
+              var [key, value] = item;
+              df[key] = df_old.loc({columns: value}).sum({axis: 0}).$data;
+            });
+
+            df = new dfd.DataFrame(df);
+
             var pc = df.div(df.sum(), {axis: 0});
             var lists = [];
             dfd.toJSON(pc, {format: 'columns'}).forEach((dict, i) => {
@@ -101,7 +143,10 @@
               }
             });
 
-            cache[table['Nomis table']] = {name: table['Table name'], data: lists};
+            cache[table['Nomis table']] = {
+              name: table['Table name'],
+              data: lists,
+            };
             return cache[table['Nomis table']];
           });
       }
@@ -113,21 +158,18 @@
   //////////
 
   onMount(() => {
-    
     window.addEventListener('message', new_event, false);
-    console.log(window.dfd)
   });
 
   $: console.log(newdata);
 </script>
 
+<LibLoader url="https://cdn.jsdelivr.net/npm/danfojs@1.1.0/lib/bundle.min.js" />
+<LibLoader url="https://rawgit.com/duhaime/minhash/master/minhash.min.js" />
 
-
-
-
-
-
-
+<svelte:head>
+  <!-- <script src='' /> -->
+</svelte:head>
 
 <h1>{name}</h1>
 <Cards>
@@ -146,17 +188,19 @@
     {/each}
   </Card>
 
-
-
   {#await get_data(newdata) then tables}
-
-  <Card title={'Embed Url'} >
-    <code on:click={()=>{navigator.clipboard.writeText(JSON.stringify(tables));console.table(tables);console.log('data copied to clipboard')}}>
-      Click here to copy the embed url to your clipboard: <br />
-      {JSON.stringify(tables).length}
-      
-    </code>
-  </Card>
+    <Card title={'Embed Url'}>
+      <code
+        on:click={() => {
+          navigator.clipboard.writeText(JSON.stringify(tables));
+          console.table(tables);
+          console.log('data copied to clipboard');
+        }}
+      >
+        Click here to copy the embed url to your clipboard: <br />
+        {JSON.stringify(tables).length}
+      </code>
+    </Card>
     {#each tables as tab}
       <Card title={tab.name}>
         <!-- <svelte:component this={charts[tab.meta.chart]} data={tab.data} suffix={tab.meta.unit} format={format(tab.meta.format)}/> -->
