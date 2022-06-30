@@ -16,15 +16,22 @@
 
   import BarChart from './BarChart.svelte';
   import MapAreas from './MapAreas.svelte';
+  import {Button, ButtonSet, TextInput, Toggle} from 'carbon-components-svelte';
+  import 'carbon-components-svelte/css/white.css';
 
   // the string matching algorighm
 
   // console.log()
 
   // the table
-  import {default as tabledict} from '../util/custom_profiles_tables.json';
+  import {encode} from '../binary.js';
 
-  const name = 'Custom Area Tables';
+  let url = '';
+
+  let areaname = 'Custom Area Tables';
+  let includecodes = false;
+  let includemap = false;
+  let embed_data = {};
 
   let cache = {};
   let areas = '';
@@ -53,7 +60,7 @@
 
   async function get_data(data) {
     var tbls = data.tables.map(async function (table) {
-      console.log('---', table);
+      // console.log('---', table);
 
       if (table['Nomis table'] in cache) {
         return cache[table['Nomis table']];
@@ -78,6 +85,8 @@
               .loc({rows: de.index.filter((d) => d), columns: cols})
               .rename(mappings, {inplace: false});
           })
+
+          
           .then((df_old) => {
             // mandatory cleanup
             var cols = df_old.$columns.filter(
@@ -95,6 +104,7 @@
             );
 
             df_old = df_old.loc({columns: cols});
+
 
             // add headers to hash search algorithm
             const matches = table['Cell name'].map((d) => {
@@ -126,34 +136,78 @@
             let df = {};
             colmap.forEach((_, item) => {
               var [key, value] = item;
-              df[key] = df_old.loc({columns: value}).sum({axis: 0}).$data;
+              df[key] = df_old.loc({columns: value}).sum({axis: 1}).$data;
             });
+
+            
 
             df = new dfd.DataFrame(df);
 
+
+            df.print()
+
+            console.log(df,df_old)
+
             var pc = df.div(df.sum(), {axis: 0});
+
             var lists = [];
-            dfd.toJSON(pc, {format: 'columns'}).forEach((dict, i) => {
-              for (var key in dict) {
-                lists.push({
-                  z: ['CustomArea', 'England and Wales'][i],
-                  pc: dict[key],
-                  column: key,
-                });
-              }
-            });
+            let keepcol = table['Cell name'].filter((d) =>
+              df.$columns.includes(d)
+            );
+            // columns to plot (must appear in both nomis and datasheet. )
+            dfd
+              .toJSON(pc.loc({columns: keepcol}), {format: 'columns'})
+              .forEach((dict, i) => {
+                for (var key in dict) {
+                  lists.push({
+                    z: ['CustomArea', 'England and Wales'][i],
+                    pc: dict[key],
+                    column: key,
+                  });
+                }
+              });
 
             cache[table['Nomis table']] = {
               name: table['Table name'],
               data: lists,
+              embed: {
+                nid: table['Nomis table'],
+                did: keepcol.map((d) => table['Cell name'].indexOf(d)),
+                data: new Uint16Array(lists.map((d) => d.pc * 10000)),
+              },
             };
             return cache[table['Nomis table']];
           });
       }
     });
     // console.error('444', await Promise.all(tbls));
-    return Promise.all(tbls); // no need to await as svelte sorts this out for us
+    return Promise.all(tbls).then(async (tables) => {
+      // update the embed cells with a new url
+      embed_data = await tables.map((d) => d.embed);
+      update_url()
+      return tables;
+    })
   }
+
+  function update_url() {
+    console.clear()
+    if (!embed_data.length) return
+
+    let edata = {
+      data: embed_data,
+      coordinates: includemap ? newdata.polygon.geometry.coordinates : false,
+      compressed: includecodes ? newdata.compressed : false,
+      name: areaname
+    }
+    console.log('encoded', edata);
+
+    let hashstr = encode(edata);
+    console.log(hashstr);
+
+    url = `${window.location.origin}/embed#${hashstr}`;
+  }
+
+  // $: update_url()
 
   //////////
 
@@ -171,7 +225,7 @@
   <!-- <script src='' /> -->
 </svelte:head>
 
-<h1>{name}</h1>
+<h1>{areaname}</h1>
 <Cards>
   <Card title={'Area map'}>
     <MapAreas minimap={coordinates} />
@@ -189,18 +243,58 @@
   </Card>
 
   {#await get_data(newdata) then tables}
-    <Card title={'Embed Url'}>
-      <code
-        on:click={() => {
-          navigator.clipboard.writeText(JSON.stringify(tables));
-          console.table(tables);
-          console.log('data copied to clipboard');
-        }}
-      >
-        Click here to copy the embed url to your clipboard: <br />
-        {JSON.stringify(tables).length}
+
+  <Card title={'Embed Custom Profile'}>
+    <br />
+    {#if url}
+      <code>
+        Embedding URL length: <br />
+        {url.length}
       </code>
-    </Card>
+      <br /><br />
+      <TextInput
+        labelText="Area Name"
+        placeholder="Loading ..."
+        bind:value={areaname}
+        on:change={update_url}
+      />
+      <br />
+
+      <span class = 'radio'>
+        <Toggle
+          bind:toggled={includecodes}
+          on:change={update_url}
+          size="sm"
+        />Include Codes</span
+      >
+
+      <span class='radio'>
+        <Toggle bind:toggled={includemap} on:change={update_url} size="sm" /> Include
+        Map
+      </span>
+
+      <br />
+
+      <ButtonSet stacked id="bset">
+        <Button kind="primary" href={url}>Open Embed Url</Button>
+
+        <Button
+          kind="secondary"
+          on:click={() => {
+            navigator.clipboard.writeText(url);
+            // console.table(tables);
+            console.log('data copied to clipboard');
+          }}
+        >
+          Copyto Clipboard
+        </Button>
+
+        <Button kind="sucess">Download Data</Button>
+      </ButtonSet>
+    {/if}
+  </Card>
+
+
     {#each tables as tab}
       <Card title={tab.name}>
         <!-- <svelte:component this={charts[tab.meta.chart]} data={tab.data} suffix={tab.meta.unit} format={format(tab.meta.format)}/> -->
@@ -232,5 +326,29 @@
 
   b {
     font-weight: bold;
+  }
+
+  :global(#bset > *) {
+    width: 100%;
+    margin: 4px;
+
+    padding: auto;
+    left: auto;
+    right: auto;
+    display: inline-flex;
+    position: flex;
+  }
+
+  :global(span.bx--toggle__switch) {
+    display: block;
+    margin: auto !important;
+  }
+  :global(span.radio) {
+    display: block;
+    vertical-align: middle;
+    top: -0;
+    float: end;
+    margin: 0.05em;
+    padding: 5px;
   }
 </style>

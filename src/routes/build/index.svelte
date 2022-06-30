@@ -37,7 +37,7 @@
   // console.error(dataset_keys);
 
   // keys hilighted
-  let selected_keys = []//['KS101EW']; //['KS106EW', 'KS102EW', 'KS404EW', 'KS405EW'];
+  let selected_keys = ['NM_531_1']//['KS101EW']; //['KS106EW', 'KS102EW', 'KS404EW', 'KS405EW'];
 
   function send_data() {
     if (!iframe) return;
