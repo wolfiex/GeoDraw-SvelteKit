@@ -173,9 +173,10 @@
               embed: {
                 nid: table['Nomis table'],
                 did: keepcol.map((d) => table['Cell name'].indexOf(d)),
-                data: new Uint16Array(lists.map((d) => d.pc * 10000)),
+                data: [...new Uint16Array(lists.map((d) => d.pc * 10000))],
               },
             };
+            console.error('talbe'), cache[table['Nomis table']]
             return cache[table['Nomis table']];
           });
       }
@@ -189,14 +190,17 @@
     })
   }
 
-  function update_url() {
-    console.clear()
-    if (!embed_data.length) return
+  async function update_url() {
+    // console.clear()
+    if (!embed_data.length) return 0
+
+    let c = includemap ? newdata.polygon.geometry.coordinates : false
+    let s = includecodes ? newdata.compressed : false
 
     let edata = {
       data: embed_data,
-      coordinates: includemap ? newdata.polygon.geometry.coordinates : false,
-      compressed: includecodes ? newdata.compressed : false,
+      coordinates: c,
+      compressed: s,
       name: areaname
     }
     console.log('encoded', edata);
@@ -204,10 +208,11 @@
     let hashstr = encode(edata);
     console.log(hashstr);
 
+    // console.log(JSON.parse(coordinates))
     url = `${window.location.origin}/embed#${hashstr}`;
   }
 
-  // $: update_url()
+  $: update_url(includemap,includecodes)
 
   //////////
 
@@ -215,7 +220,7 @@
     window.addEventListener('message', new_event, false);
   });
 
-  $: console.log(newdata);
+  // $: console.log(newdata);
 </script>
 
 <LibLoader url="https://cdn.jsdelivr.net/npm/danfojs@1.1.0/lib/bundle.min.js" />
@@ -263,20 +268,19 @@
       <span class = 'radio'>
         <Toggle
           bind:toggled={includecodes}
-          on:change={update_url}
           size="sm"
         />Include Codes</span
       >
 
       <span class='radio'>
-        <Toggle bind:toggled={includemap} on:change={update_url} size="sm" /> Include
+        <Toggle bind:toggled={includemap} size="sm" /> Include
         Map
       </span>
 
       <br />
 
       <ButtonSet stacked id="bset">
-        <Button kind="primary" href={url}>Open Embed Url</Button>
+        <Button kind="primary" on:click={window.parent.location.href = url}>Open Embed Url</Button>
 
         <Button
           kind="secondary"
@@ -298,6 +302,7 @@
     {#each tables as tab}
       <Card title={tab.name}>
         <!-- <svelte:component this={charts[tab.meta.chart]} data={tab.data} suffix={tab.meta.unit} format={format(tab.meta.format)}/> -->
+        <!-- {JSON.stringify(tab.data)} -->
 
         <BarChart xKey="pc" yKey="column" zKey="z" data={tab.data} />
       </Card>

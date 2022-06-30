@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 
 export let height = '400px'
 export let minimap;
-let map= false;
+let map = false;
 
 onMount(async ()=>{
    
@@ -24,23 +24,36 @@ onMount(async ()=>{
             attribution: '<a href="https://github.com/cyclosm/cyclosm-cartocss-style/releases" title="CyclOSM - Open Bicycle render">CyclOSM</a> | <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | Office for National Statistics UK'
         }
     );
+
+    
     map.addLayer(CyclOSM);
-    map.on('load',()=>update_map(minimap))
-    mymap.whenReady(()=>update_map(minimap));
+    // console.log('aa')
+    await map.on('load',()=>update_map(minimap));
+    // console.log('aa')
+    // map.on('loading',()=>setTimeout(update_map(minimap),1000))
+    // await mymap.whenReady(()=>update_map(minimap));
+
+    // console.log('mmm',miniap)
+    update_map(minimap)
 
 })
 
 
 function update_map(coordinates){
+
+    console.log('dd',  coordinates.length, typeof coordinates,(typeof coordinates === 'string' || coordinates instanceof String) )
     if (coordinates.length<1 | !map){
+        console.log(map)
         return; 
     }
 
     if (typeof coordinates === 'string' || coordinates instanceof String){
-    var geojson = JSON.parse(coordinates);}else{
+    var geojson = JSON.parse(coordinates);console.log('yay?',geojson)}else{
         var geojson = coordinates;
     }
 
+
+    console.error('ggg',geojson)
     var geo = L.geoJSON(geojson, {
         style:{color: "red"}
 

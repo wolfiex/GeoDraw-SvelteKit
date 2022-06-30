@@ -1,7 +1,7 @@
 <script>
   import 'carbon-components-svelte/css/white.css';
   import {Button} from 'carbon-components-svelte';
-  import {hash, drawhash} from './examplehash.js';
+  import {hash, drawhash, embedurl} from './examplehash.js';
   import Select from '$lib/ui/Select.svelte'
 import { onMount } from 'svelte';
 import { base } from "$app/paths";
@@ -101,7 +101,7 @@ onMount(async ()=>
 
 <Button href="/draw{drawhash}">draw</Button>
 <Button kind="secondary" href="/build{hash}">build</Button>
-
+<Button kind="tertiary" href="/embed{embedurl}">Embeded URL</Button>
 <style>
   a {
     color: aliceblue;
