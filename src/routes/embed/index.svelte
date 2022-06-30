@@ -25,7 +25,7 @@
 
   onMount(() => {
     newdata = decode(window.location.hash.slice(1));
-    geojson = JSON.stringify({"type":"Feature","geometry":{"type":"Polygon","coordinates":newdata.coordinates}})
+    if (newdata.coordinates) geojson = JSON.stringify({"type":"Feature","geometry":{"type":"Polygon","coordinates":newdata.coordinates}})
 
 
     areaname = newdata.name;
