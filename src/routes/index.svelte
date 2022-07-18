@@ -3,6 +3,7 @@
   import {Button} from 'carbon-components-svelte';
   import {hash, drawhash, embedurl} from './examplehash.js';
   import Select from '$lib/ui/Select.svelte'
+  import OpenGraph from './OpenGraph.svelte';
 import { onMount } from 'svelte';
 import { base } from "$app/paths";
 import {csv} from 'd3'
@@ -86,7 +87,7 @@ onMount(async ()=>
 </script>
 
 <br /><br />
-
+<OpenGraph print=true/>
 <Select
   items={places}
   mode="search"

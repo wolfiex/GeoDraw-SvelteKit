@@ -20,10 +20,10 @@ __export(stdin_exports, {
   default: () => ButtonLink
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
-const ButtonLink = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_0029e4b6 = require("../../../../chunks/index-0029e4b6.js");
+const ButtonLink = (0, import_index_0029e4b6.c)(($$result, $$props, $$bindings, slots) => {
   let { url = "/" } = $$props;
   if ($$props.url === void 0 && $$bindings.url && url !== void 0)
     $$bindings.url(url);
-  return `<a class="${"btn btn--primary btn--full-width width-md--40 margin-bottom--2"}"${(0, import_index_e390a0ae.h)("href", url, 0)}>${slots.default ? slots.default({}) : ``}</a>`;
+  return `<a class="${"btn btn--primary btn--full-width width-md--40 margin-bottom--2"}"${(0, import_index_0029e4b6.i)("href", url, 0)}>${slots.default ? slots.default({}) : ``}</a>`;
 });

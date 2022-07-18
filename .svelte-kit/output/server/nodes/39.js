@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/layout/partial/Subhead.svelte.js';
+import * as module from '../entries/pages/share/LinkPreview.svelte.js';
 
 export { module };
 export const index = 39;
-export const entry = 'pages/lib/layout/partial/Subhead.svelte-24ebd523.js';
-export const js = ["pages/lib/layout/partial/Subhead.svelte-24ebd523.js","chunks/index-ba5e9c90.js"];
-export const css = [];
+export const entry = 'pages/share/LinkPreview.svelte-3eb6a5be.js';
+export const js = ["pages/share/LinkPreview.svelte-3eb6a5be.js","chunks/index-c4b4a3b1.js"];
+export const css = ["assets/pages/share/LinkPreview.svelte-d9669a51.css"];

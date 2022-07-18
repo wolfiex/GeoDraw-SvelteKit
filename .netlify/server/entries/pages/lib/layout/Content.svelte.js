@@ -20,7 +20,7 @@ __export(stdin_exports, {
   default: () => Content
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
-const Content = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_0029e4b6 = require("../../../../chunks/index-0029e4b6.js");
+const Content = (0, import_index_0029e4b6.c)(($$result, $$props, $$bindings, slots) => {
   return `<div class="${"page-content margin-bottom--2"}"><div class="${"wrapper"}">${slots.default ? slots.default({}) : ``}</div></div>`;
 });

@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/ui/Em.svelte.js';
+import * as module from '../entries/pages/tables/MapAreas.svelte.js';
 
 export { module };
 export const index = 41;
-export const entry = 'pages/lib/ui/Em.svelte-4c9906bf.js';
-export const js = ["pages/lib/ui/Em.svelte-4c9906bf.js","chunks/index-ba5e9c90.js"];
-export const css = ["assets/pages/lib/ui/Em.svelte-0a94b61d.css"];
+export const entry = 'pages/tables/MapAreas.svelte-83361f9b.js';
+export const js = ["pages/tables/MapAreas.svelte-83361f9b.js","chunks/preload-helper-60cab3ee.js","chunks/index-c4b4a3b1.js"];
+export const css = ["assets/pages/tables/MapAreas.svelte-692a9784.css"];

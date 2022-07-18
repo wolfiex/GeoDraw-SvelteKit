@@ -1,11 +1,11 @@
 <script>
-  import {Button, Grid, Column, Row} from 'carbon-components-svelte';
+  import {Button, ButtonSet} from 'carbon-components-svelte';
   import {draw_type, draw_enabled} from '../mapstore.js';
 
   import {onMount} from 'svelte';
 
   // export let selected = 'Move';
-  export let disabled = false;
+let disabled = false;
 
   function buttonclick(e) {
     return function () {
@@ -28,11 +28,8 @@
   });
 </script>
 
-<main>
-  <div>
-    <Row>
-      <Column>
-        <!-- &nspar; -->
+
+<ButtonSet>
 
         <Button
           id="move"
@@ -108,13 +105,8 @@
            </svg
           >
         </Button>
-      </Column>
-    </Row>
-    <Row>
-      <Column>Draw Tools</Column>
-    </Row>
-  </div>
-</main>
+      </ButtonSet>
+
 
 <style>
   :global(.selected) {

@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape } from "../../../../chunks/index-e390a0ae.js";
+import { c as create_ssr_component, f as escape } from "../../../../chunks/index-0029e4b6.js";
 var NumBlock_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n.num-big.svelte-19zwnt3.svelte-19zwnt3{\n  display:block;\n  font-size:3rem;\n  font-weight:bold;\n  line-height:1.2\n}\n\n.num-suffix.svelte-19zwnt3.svelte-19zwnt3{\n  display:block;\n  max-width:100%;\n  margin-left:2px\n}\n\n.num-desc.svelte-19zwnt3.svelte-19zwnt3{\n  display:block;\n  margin-top:10px;\n  color:#666\n}\n\n.num-desc.svelte-19zwnt3>mark.svelte-19zwnt3{\n  background-color:lightgrey;\n  font-weight:bold;\n  padding:0 3px\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: ".num-big.svelte-19zwnt3.svelte-19zwnt3{display:block;font-size:3rem;font-weight:bold;line-height:1.2}.num-suffix.svelte-19zwnt3.svelte-19zwnt3{display:block;max-width:100%;margin-left:2px}.num-desc.svelte-19zwnt3.svelte-19zwnt3{display:block;margin-top:10px;color:#666}.num-desc.svelte-19zwnt3>mark.svelte-19zwnt3{background-color:lightgrey;font-weight:bold;padding:0 3px}",

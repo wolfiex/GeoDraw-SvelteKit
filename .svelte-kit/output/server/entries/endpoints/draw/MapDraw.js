@@ -1,8 +1,8 @@
-import { g as get_store_value } from "../../../chunks/index-e390a0ae.js";
-import { draw_type, radiusInKm, draw_enabled, selected, mapobject, add_mode } from "./mapstore.js";
+import { g as get_store_value } from "../../../chunks/index-0029e4b6.js";
+import { draw_type, radiusInKm, draw_enabled, selected, mapobject, server, add_mode } from "./mapstore.js";
 import { bboxToTile } from "@mapbox/tilebelt";
 import union from "@turf/union";
-import "../../../chunks/index-a92659a3.js";
+import "../../../chunks/index-7e61ccad.js";
 var simplify = {};
 let coordinates = [];
 async function init_draw() {
@@ -234,7 +234,7 @@ async function simplify_query() {
   if (simplify[tile]) {
     var simple = simplify[tile];
   } else {
-    var simple = await fetch(`http://localhost:7113/encoding/${tile}.json`).then((d) => d.json());
+    var simple = await fetch(`${server}/encoding/${tile}.json`).then((d) => d.json());
     simple.lsoa = simple.lsoa.map((d) => {
       d[1] = new Set(d[1]);
       return d;

@@ -1,10 +1,79 @@
-import { c as create_ssr_component, v as validate_component } from "../../../chunks/index-e390a0ae.js";
-/* empty css                              *//* empty css                            */import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-4a3c8574.js";
-import { B as Button } from "../../../chunks/Button-b480e50a.js";
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+import { c as create_ssr_component, l as compute_rest_props, o as spread, q as escape_object, v as validate_component } from "../../../chunks/index-0029e4b6.js";
+/* empty css                              *//* empty css                            */import "../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-2747ef20.js";
+import { B as Button } from "../../../chunks/Button-a63d0e2e.js";
 import "flatpickr";
-import { G as Grid } from "../../../chunks/Grid-73568902.js";
-import { R as Row, C as Column } from "../../../chunks/Column-294c0149.js";
-import "../../../chunks/index-a92659a3.js";
+import { R as Row, C as Column } from "../../../chunks/Column-dcda07a5.js";
+import "../../../chunks/index-7e61ccad.js";
+const Grid = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let props;
+  let $$restProps = compute_rest_props($$props, [
+    "as",
+    "condensed",
+    "narrow",
+    "fullWidth",
+    "noGutter",
+    "noGutterLeft",
+    "noGutterRight",
+    "padding"
+  ]);
+  let { as = false } = $$props;
+  let { condensed = false } = $$props;
+  let { narrow = false } = $$props;
+  let { fullWidth = false } = $$props;
+  let { noGutter = false } = $$props;
+  let { noGutterLeft = false } = $$props;
+  let { noGutterRight = false } = $$props;
+  let { padding = false } = $$props;
+  if ($$props.as === void 0 && $$bindings.as && as !== void 0)
+    $$bindings.as(as);
+  if ($$props.condensed === void 0 && $$bindings.condensed && condensed !== void 0)
+    $$bindings.condensed(condensed);
+  if ($$props.narrow === void 0 && $$bindings.narrow && narrow !== void 0)
+    $$bindings.narrow(narrow);
+  if ($$props.fullWidth === void 0 && $$bindings.fullWidth && fullWidth !== void 0)
+    $$bindings.fullWidth(fullWidth);
+  if ($$props.noGutter === void 0 && $$bindings.noGutter && noGutter !== void 0)
+    $$bindings.noGutter(noGutter);
+  if ($$props.noGutterLeft === void 0 && $$bindings.noGutterLeft && noGutterLeft !== void 0)
+    $$bindings.noGutterLeft(noGutterLeft);
+  if ($$props.noGutterRight === void 0 && $$bindings.noGutterRight && noGutterRight !== void 0)
+    $$bindings.noGutterRight(noGutterRight);
+  if ($$props.padding === void 0 && $$bindings.padding && padding !== void 0)
+    $$bindings.padding(padding);
+  props = __spreadProps(__spreadValues({}, $$restProps), {
+    class: [
+      $$restProps.class,
+      "bx--grid",
+      condensed && "bx--grid--condensed",
+      narrow && "bx--grid--narrow",
+      fullWidth && "bx--grid--full-width",
+      noGutter && "bx--no-gutter",
+      noGutterLeft && "bx--no-gutter--left",
+      noGutterRight && "bx--no-gutter--right",
+      padding && "bx--row-padding"
+    ].filter(Boolean).join(" ")
+  });
+  return `${as ? `${slots.default ? slots.default({ props }) : ``}` : `<div${spread([escape_object(props)], {})}>${slots.default ? slots.default({}) : ``}</div>`}`;
+});
 var old_layout_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n:root{\n  --header-2-height:clamp(2rem,4vh,60px);\n  --header-1-height:clamp(1rem,5vh,40px)\n}\n\n.icon{\n  border:2px solid rgb(89, 89, 89);\n  aspect-ratio:1/1;\n  height:auto;\n  width:var(--header-2-height)!important\n}\n\nheader.svelte-1mbzvnp{\n  display:block;\n  position:fixed;\n  width:100vw;\n  margin:0!important\n}\n\n.bx--grid{\n  left:0;\n  right:0;\n  margin-left:0;\n  margin-right:0px;\n  padding-left:0px;\n  padding-right:0px;\n  width:100vw\n}\n\n#head1{\n  width:100vw;\n  height:var(--header-1-height)!important;\n  background-color:whitesmoke;\n  margin:0\n}\n\n#head2{\n  width:100vw;\n  height:var(--header-2-height)!important;\n  background-color:#323132\n        ;\n  margin:0\n}\n\n.logo.svelte-1mbzvnp{\n  height:calc(var(--header-1-height)*.8)!important;\n  width:auto\n}\n\n.bx--col{\n  padding:0!important;\n  display:flex;\n  flex-grow:5!important\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: ":root{--header-2-height:clamp(2rem,4vh,60px);--header-1-height:clamp(1rem,5vh,40px)}.icon{border:2px solid rgb(89, 89, 89);aspect-ratio:1/1;height:auto;width:var(--header-2-height)!important}header.svelte-1mbzvnp{display:block;position:fixed;width:100vw;margin:0!important}.bx--grid{left:0;right:0;margin-left:0;margin-right:0px;padding-left:0px;padding-right:0px;width:100vw}#head1{width:100vw;height:var(--header-1-height)!important;background-color:whitesmoke;margin:0}#head2{width:100vw;height:var(--header-2-height)!important;background-color:#323132\n        ;margin:0}.logo.svelte-1mbzvnp{height:calc(var(--header-1-height)*.8)!important;width:auto}.bx--col{padding:0!important;display:flex;flex-grow:5!important}",

@@ -3,7 +3,7 @@
   import LibLoader from '../LibLoader.svelte';
   // reducing svelte bundle size by using third party loaders for scripts...
 
-  import '../app.css';
+  // import '../app.css';
   import {onMount} from 'svelte';
   import Cards from '$lib/layout/Cards.svelte';
   import Card from '$lib/layout/partial/Card.svelte';

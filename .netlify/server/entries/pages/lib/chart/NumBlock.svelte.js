@@ -20,13 +20,13 @@ __export(stdin_exports, {
   default: () => NumBlock
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
+var import_index_0029e4b6 = require("../../../../chunks/index-0029e4b6.js");
 var NumBlock_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n.num-big.svelte-19zwnt3.svelte-19zwnt3{\n  display:block;\n  font-size:3rem;\n  font-weight:bold;\n  line-height:1.2\n}\n\n.num-suffix.svelte-19zwnt3.svelte-19zwnt3{\n  display:block;\n  max-width:100%;\n  margin-left:2px\n}\n\n.num-desc.svelte-19zwnt3.svelte-19zwnt3{\n  display:block;\n  margin-top:10px;\n  color:#666\n}\n\n.num-desc.svelte-19zwnt3>mark.svelte-19zwnt3{\n  background-color:lightgrey;\n  font-weight:bold;\n  padding:0 3px\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: ".num-big.svelte-19zwnt3.svelte-19zwnt3{display:block;font-size:3rem;font-weight:bold;line-height:1.2}.num-suffix.svelte-19zwnt3.svelte-19zwnt3{display:block;max-width:100%;margin-left:2px}.num-desc.svelte-19zwnt3.svelte-19zwnt3{display:block;margin-top:10px;color:#666}.num-desc.svelte-19zwnt3>mark.svelte-19zwnt3{background-color:lightgrey;font-weight:bold;padding:0 3px}",
   map: null
 };
-const NumBlock = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+const NumBlock = (0, import_index_0029e4b6.c)(($$result, $$props, $$bindings, slots) => {
   let { data } = $$props;
   let { suffix = "" } = $$props;
   let { xKey = "value" } = $$props;
@@ -43,9 +43,9 @@ const NumBlock = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, sl
   if ($$props.format === void 0 && $$bindings.format && format !== void 0)
     $$bindings.format(format);
   $$result.css.add(css);
-  return `<div class="${"num-big svelte-19zwnt3"}">${(0, import_index_e390a0ae.e)(format(data[0][xKey]))}</div>
-<div class="${"num-suffix svelte-19zwnt3"}">${(0, import_index_e390a0ae.e)(suffix)}</div>
-<div class="${"num-desc svelte-19zwnt3"}"><mark class="${"svelte-19zwnt3"}">${(0, import_index_e390a0ae.e)(format(data[1][xKey]))}</mark> 
-  for ${(0, import_index_e390a0ae.e)(data[1][zKey])}
+  return `<div class="${"num-big svelte-19zwnt3"}">${(0, import_index_0029e4b6.f)(format(data[0][xKey]))}</div>
+<div class="${"num-suffix svelte-19zwnt3"}">${(0, import_index_0029e4b6.f)(suffix)}</div>
+<div class="${"num-desc svelte-19zwnt3"}"><mark class="${"svelte-19zwnt3"}">${(0, import_index_0029e4b6.f)(format(data[1][xKey]))}</mark> 
+  for ${(0, import_index_0029e4b6.f)(data[1][zKey])}
 </div>`;
 });

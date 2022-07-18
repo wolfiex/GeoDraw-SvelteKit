@@ -30,7 +30,7 @@
   const mapboxgl = maplibregl;
   //styling
   // import 'mapbox-gl/dist/mapbox-gl-draw.css'
-  import './css/mapbox-gl.css';
+  // import './css/mapbox-gl.css';
 
   let webgl_canvas;
 
@@ -160,10 +160,5 @@
 </main>
 
 <style lang="scss">
-  main {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: auto;
-  }
+
 </style>

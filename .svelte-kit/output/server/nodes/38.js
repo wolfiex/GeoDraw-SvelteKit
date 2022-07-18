@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/lib/layout/partial/Navbox.svelte.js';
+import * as module from '../entries/pages/pbf_viewer.svelte.js';
 
 export { module };
 export const index = 38;
-export const entry = 'pages/lib/layout/partial/Navbox.svelte-d8578365.js';
-export const js = ["pages/lib/layout/partial/Navbox.svelte-d8578365.js","chunks/index-ba5e9c90.js"];
-export const css = ["assets/pages/lib/layout/partial/Navbox.svelte-d0cc3fae.css"];
+export const entry = 'pages/pbf_viewer.svelte-293d5e62.js';
+export const js = ["pages/pbf_viewer.svelte-293d5e62.js","chunks/index-c4b4a3b1.js"];
+export const css = ["assets/pages/pbf_viewer.svelte-85a8023c.css"];

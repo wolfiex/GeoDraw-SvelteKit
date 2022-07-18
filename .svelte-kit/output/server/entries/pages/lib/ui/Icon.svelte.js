@@ -1,4 +1,4 @@
-import { c as create_ssr_component, h as add_attribute } from "../../../../chunks/index-e390a0ae.js";
+import { c as create_ssr_component, i as add_attribute } from "../../../../chunks/index-0029e4b6.js";
 var Icon_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nsvg.svelte-1ior0zp{\n  width:1rem;\n  height:1rem;\n  fill:currentColor;\n  transition:all 0.3s ease-out;\n  overflow:visible\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: "svg.svelte-1ior0zp{width:1rem;height:1rem;fill:currentColor;transition:all 0.3s ease-out;overflow:visible}",

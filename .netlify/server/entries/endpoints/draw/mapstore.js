@@ -34,26 +34,27 @@ __export(stdin_exports, {
   query: () => query,
   radiusInKm: () => radiusInKm,
   selected: () => selected,
+  server: () => server,
   store1: () => store1,
   store2: () => store2,
   store3: () => store3
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_a92659a3 = require("../../../chunks/index-a92659a3.js");
-var import_index_e390a0ae = require("../../../chunks/index-e390a0ae.js");
-const draw_type = (0, import_index_a92659a3.w)(void 0);
-const selected = (0, import_index_a92659a3.w)([{ oa: /* @__PURE__ */ new Set(), lat: [], lng: [] }]);
-const mapsource = (0, import_index_a92659a3.w)({});
-const maplayer = (0, import_index_a92659a3.w)([]);
-const mapfunctions = (0, import_index_a92659a3.w)([]);
-const mapobject = (0, import_index_a92659a3.w)(void 0);
-let add_mode = (0, import_index_a92659a3.w)(true);
-let draw_enabled = (0, import_index_a92659a3.w)(false);
-let query = (0, import_index_a92659a3.w)({ error: false });
-const radiusInKm = (0, import_index_a92659a3.w)(5);
-const store1 = (0, import_index_a92659a3.w)({});
-const store2 = (0, import_index_a92659a3.w)({});
-const store3 = (0, import_index_a92659a3.w)({});
+var import_index_7e61ccad = require("../../../chunks/index-7e61ccad.js");
+var import_index_0029e4b6 = require("../../../chunks/index-0029e4b6.js");
+const draw_type = (0, import_index_7e61ccad.w)(void 0);
+const selected = (0, import_index_7e61ccad.w)([{ oa: /* @__PURE__ */ new Set(), lat: [], lng: [] }]);
+const mapsource = (0, import_index_7e61ccad.w)({});
+const maplayer = (0, import_index_7e61ccad.w)([]);
+const mapfunctions = (0, import_index_7e61ccad.w)([]);
+const mapobject = (0, import_index_7e61ccad.w)(void 0);
+let add_mode = (0, import_index_7e61ccad.w)(true);
+let draw_enabled = (0, import_index_7e61ccad.w)(false);
+let query = (0, import_index_7e61ccad.w)({ error: false });
+const radiusInKm = (0, import_index_7e61ccad.w)(5);
+const store1 = (0, import_index_7e61ccad.w)({});
+const store2 = (0, import_index_7e61ccad.w)({});
+const store3 = (0, import_index_7e61ccad.w)({});
 let minzoom = 4;
 let maxzoom = 14;
 let drawtools = true;
@@ -64,6 +65,7 @@ let location = {
   ]
 };
 let maxbounds = null;
+const server = "https://onsvisual.github.io/ONS_CensusDraw_TileGen/geodraw_tileset";
 const mapstyle = `/css/style-omt.json`;
 function c2bbox(lat, lng) {
   var min_coords = [

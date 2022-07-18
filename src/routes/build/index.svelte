@@ -3,7 +3,7 @@
 </script>
 
 <script>
-  import '../app.css';
+  // import '../app.css';
   import {onMount} from 'svelte';
   import {assets} from '$app/paths';
 
@@ -33,8 +33,6 @@
   dataset_keys = dataset_keys.filter(
     (key) => !/UK\]| - | by |\[[^K]|WA\]/.test(datasets[key].name)
   ); // strip non k tables, welsh only, and bivariate tables
-
-  // console.error(dataset_keys);
 
   // keys hilighted
   let selected_keys = ['NM_531_1']//['KS101EW']; //['KS106EW', 'KS102EW', 'KS404EW', 'KS405EW'];

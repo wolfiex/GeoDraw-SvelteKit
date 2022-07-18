@@ -1,5 +1,5 @@
 <script>
-  import {Button, Column, Row} from 'carbon-components-svelte';
+  import {Button, ButtonSet} from 'carbon-components-svelte';
   import {draw_type, add_mode, selected} from '../mapstore.js';
   import {writable, get} from 'svelte/store';
   import {onMount} from 'svelte/internal';
@@ -17,10 +17,8 @@
   onMount(init);
 </script>
 
-<main>
-  <div>
-    <Row>
-      <Column>
+
+   <ButtonSet>
         <Button
           style="margin-left:0px;width:auto"
           {disabled}
@@ -83,13 +81,8 @@
             /></svg
           >
         </Button>
-      </Column>
-    </Row>
-    <Row>
-      <Column>Edit Selection</Column>
-    </Row>
-  </div>
-</main>
+</ButtonSet>
+
 
 <style>
   svg path {

@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/draw/Toolbar/ItemAccordion.svelte.js"));
+var module2 = __toESM(require("../entries/pages/draw/Toolbar/InfoBox.svelte.js"));
 const index = 12;
-const entry = "pages/draw/Toolbar/ItemAccordion.svelte-f5076738.js";
-const js = ["pages/draw/Toolbar/ItemAccordion.svelte-f5076738.js", "chunks/index-ba5e9c90.js", "chunks/AccordionItem-292fec71.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-8d8ce70a.js", "chunks/index-11581b04.js"];
-const css = ["assets/pages/draw/Toolbar/ItemAccordion.svelte-2ce14288.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];
+const entry = "pages/draw/Toolbar/InfoBox.svelte-db11f701.js";
+const js = ["pages/draw/Toolbar/InfoBox.svelte-db11f701.js", "chunks/index-c4b4a3b1.js", "chunks/index-49558f13.js", "chunks/AccordionItem-187f5fbc.js", "chunks/HeaderSearch.svelte_svelte_type_style_lang-0c1a5ac3.js"];
+const css = ["assets/pages/draw/Toolbar/InfoBox.svelte-7fe78a5a.css", "assets/HeaderSearch.svelte_svelte_type_style_lang-efe44a13.css"];

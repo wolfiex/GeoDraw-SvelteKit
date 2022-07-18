@@ -20,8 +20,8 @@ __export(stdin_exports, {
   default: () => Linkbox
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
-const Linkbox = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+var import_index_0029e4b6 = require("../../../../chunks/index-0029e4b6.js");
+const Linkbox = (0, import_index_0029e4b6.c)(($$result, $$props, $$bindings, slots) => {
   let { mode = "default" } = $$props;
   let { title = "Related links" } = $$props;
   let { id = null } = $$props;
@@ -34,18 +34,18 @@ const Linkbox = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slo
     $$bindings.id(id);
   if ($$props.links === void 0 && $$bindings.links && links !== void 0)
     $$bindings.links(links);
-  return `${mode == "neutral" ? `<div${(0, import_index_e390a0ae.h)("id", id, 0)} class="${"section__content--markdown section__content--markdown--neutral-article"}"><section>${title ? `<h2>${(0, import_index_e390a0ae.e)(title)}</h2>` : ``}
-    <div class="${"markdown-box-container"}">${(0, import_index_e390a0ae.i)(links, (link) => {
-    return `<p><a${(0, import_index_e390a0ae.h)("href", link.url, 0)}>${(0, import_index_e390a0ae.e)(link.label)}</a>
-        <br>${(0, import_index_e390a0ae.e)(link.type)} | ${(0, import_index_e390a0ae.e)(link.meta)}
-        <br>${(0, import_index_e390a0ae.e)(link.description)}
+  return `${mode == "neutral" ? `<div${(0, import_index_0029e4b6.i)("id", id, 0)} class="${"section__content--markdown section__content--markdown--neutral-article"}"><section>${title ? `<h2>${(0, import_index_0029e4b6.f)(title)}</h2>` : ``}
+    <div class="${"markdown-box-container"}">${(0, import_index_0029e4b6.j)(links, (link) => {
+    return `<p><a${(0, import_index_0029e4b6.i)("href", link.url, 0)}>${(0, import_index_0029e4b6.f)(link.label)}</a>
+        <br>${(0, import_index_0029e4b6.f)(link.type)} | ${(0, import_index_0029e4b6.f)(link.meta)}
+        <br>${(0, import_index_0029e4b6.f)(link.description)}
       </p>`;
-  })}</div></section></div>` : `<div${(0, import_index_e390a0ae.h)("id", id, 0)} class="${"tile-neutral width-md--40 margin-bottom--2"}">${title ? `<h2 class="${"tile-neutral__heading"}">${(0, import_index_e390a0ae.e)(title)}</h2>` : ``}
-  <ul class="${"list--neutral margin-bottom--0"}">${(0, import_index_e390a0ae.i)(links, (link) => {
+  })}</div></section></div>` : `<div${(0, import_index_0029e4b6.i)("id", id, 0)} class="${"tile-neutral width-md--40 margin-bottom--2"}">${title ? `<h2 class="${"tile-neutral__heading"}">${(0, import_index_0029e4b6.f)(title)}</h2>` : ``}
+  <ul class="${"list--neutral margin-bottom--0"}">${(0, import_index_0029e4b6.j)(links, (link) => {
     return `<li class="${"margin-bottom--3"}"><a href="${"/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregisteredweeklyinenglandandwalesprovisional/weekending25february2022"}" class="${"tile-neutral-content__title underline-link"}">Deaths registered weekly in England and Wales, provisional</a>
-    <p class="${"tile-neutral-content__meta"}">${(0, import_index_e390a0ae.e)(link.type)}
-      <span class="${"text--aluminium"}">|</span> ${(0, import_index_e390a0ae.e)(link.meta)}</p>
-    <p class="${"tile-neutral-content__description margin-top--0 margin-bottom--0 "}">${(0, import_index_e390a0ae.e)(link.description)}</p>
+    <p class="${"tile-neutral-content__meta"}">${(0, import_index_0029e4b6.f)(link.type)}
+      <span class="${"text--aluminium"}">|</span> ${(0, import_index_0029e4b6.f)(link.meta)}</p>
+    <p class="${"tile-neutral-content__description margin-top--0 margin-bottom--0 "}">${(0, import_index_0029e4b6.f)(link.description)}</p>
     </li>`;
   })}</ul></div>`}`;
 });

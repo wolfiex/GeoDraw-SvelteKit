@@ -9,7 +9,6 @@
     </strong>
   </div>
 </aside>
-<div class="spacer" style:height="{height ? height: 40}px"/>
 
 <style>
   .warning {
@@ -23,7 +22,8 @@
     padding: 8px 0;
     font-size: 1em;
   }
-  .spacer {
-    display: block;
+  :global(.spacer) {
+    /* display: block; */
+    display: none;
   }
 </style>

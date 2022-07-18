@@ -20,13 +20,13 @@ __export(stdin_exports, {
   default: () => Icon
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e390a0ae = require("../../../../chunks/index-e390a0ae.js");
+var import_index_0029e4b6 = require("../../../../chunks/index-0029e4b6.js");
 var Icon_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\nsvg.svelte-1ior0zp{\n  width:1rem;\n  height:1rem;\n  fill:currentColor;\n  transition:all 0.3s ease-out;\n  overflow:visible\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: "svg.svelte-1ior0zp{width:1rem;height:1rem;fill:currentColor;transition:all 0.3s ease-out;overflow:visible}",
   map: null
 };
-const Icon = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+const Icon = (0, import_index_0029e4b6.c)(($$result, $$props, $$bindings, slots) => {
   let { name = "close" } = $$props;
   const paths = {
     close: "M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
@@ -34,5 +34,5 @@ const Icon = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots)
   if ($$props.name === void 0 && $$bindings.name && name !== void 0)
     $$bindings.name(name);
   $$result.css.add(css);
-  return `<svg viewBox="${"0 0 24 24"}" fill-rule="${"evenodd"}" clip-rule="${"evenodd"}" class="${"svelte-1ior0zp"}"><path${(0, import_index_e390a0ae.h)("d", paths[name], 0)}></path></svg>`;
+  return `<svg viewBox="${"0 0 24 24"}" fill-rule="${"evenodd"}" clip-rule="${"evenodd"}" class="${"svelte-1ior0zp"}"><path${(0, import_index_0029e4b6.i)("d", paths[name], 0)}></path></svg>`;
 });

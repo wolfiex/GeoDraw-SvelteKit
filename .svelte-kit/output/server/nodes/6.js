@@ -1,7 +1,7 @@
-import * as module from '../entries/pages/LibLoader.svelte.js';
+import * as module from '../entries/pages/OpenGraph.svelte.js';
 
 export { module };
 export const index = 6;
-export const entry = 'pages/LibLoader.svelte-c905c808.js';
-export const js = ["pages/LibLoader.svelte-c905c808.js","chunks/index-ba5e9c90.js"];
+export const entry = 'pages/OpenGraph.svelte-957b0773.js';
+export const js = ["pages/OpenGraph.svelte-957b0773.js","chunks/index-c4b4a3b1.js"];
 export const css = [];

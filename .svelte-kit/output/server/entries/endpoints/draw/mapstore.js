@@ -1,5 +1,5 @@
-import { w as writable } from "../../../chunks/index-a92659a3.js";
-import "../../../chunks/index-e390a0ae.js";
+import { w as writable } from "../../../chunks/index-7e61ccad.js";
+import "../../../chunks/index-0029e4b6.js";
 const draw_type = writable(void 0);
 const selected = writable([{ oa: /* @__PURE__ */ new Set(), lat: [], lng: [] }]);
 const mapsource = writable({});
@@ -23,6 +23,7 @@ let location = {
   ]
 };
 let maxbounds = null;
+const server = "https://onsvisual.github.io/ONS_CensusDraw_TileGen/geodraw_tileset";
 const mapstyle = `/css/style-omt.json`;
 function c2bbox(lat, lng) {
   var min_coords = [
@@ -35,4 +36,4 @@ function c2bbox(lat, lng) {
   ];
   return [min_coords, max_coords];
 }
-export { add_mode, c2bbox, draw_enabled, draw_type, drawtools, location, mapfunctions, maplayer, mapobject, mapsource, mapstyle, maxbounds, maxzoom, minzoom, query, radiusInKm, selected, store1, store2, store3 };
+export { add_mode, c2bbox, draw_enabled, draw_type, drawtools, location, mapfunctions, maplayer, mapobject, mapsource, mapstyle, maxbounds, maxzoom, minzoom, query, radiusInKm, selected, server, store1, store2, store3 };

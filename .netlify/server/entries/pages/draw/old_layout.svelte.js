@@ -20,37 +20,106 @@ __export(stdin_exports, {
   default: () => Old_layout
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e390a0ae = require("../../../chunks/index-e390a0ae.js");
-var import_HeaderSearch_svelte_svelte_type_style_lang_4a3c8574 = require("../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-4a3c8574.js");
-var import_Button_b480e50a = require("../../../chunks/Button-b480e50a.js");
+var import_index_0029e4b6 = require("../../../chunks/index-0029e4b6.js");
+var import_HeaderSearch_svelte_svelte_type_style_lang_2747ef20 = require("../../../chunks/HeaderSearch.svelte_svelte_type_style_lang-2747ef20.js");
+var import_Button_a63d0e2e = require("../../../chunks/Button-a63d0e2e.js");
 var import_flatpickr = require("flatpickr");
-var import_Grid_73568902 = require("../../../chunks/Grid-73568902.js");
-var import_Column_294c0149 = require("../../../chunks/Column-294c0149.js");
-var import_index_a92659a3 = require("../../../chunks/index-a92659a3.js");
+var import_Column_dcda07a5 = require("../../../chunks/Column-dcda07a5.js");
+var import_index_7e61ccad = require("../../../chunks/index-7e61ccad.js");
+var __defProp2 = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp2 = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp2.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+const Grid = (0, import_index_0029e4b6.c)(($$result, $$props, $$bindings, slots) => {
+  let props;
+  let $$restProps = (0, import_index_0029e4b6.l)($$props, [
+    "as",
+    "condensed",
+    "narrow",
+    "fullWidth",
+    "noGutter",
+    "noGutterLeft",
+    "noGutterRight",
+    "padding"
+  ]);
+  let { as = false } = $$props;
+  let { condensed = false } = $$props;
+  let { narrow = false } = $$props;
+  let { fullWidth = false } = $$props;
+  let { noGutter = false } = $$props;
+  let { noGutterLeft = false } = $$props;
+  let { noGutterRight = false } = $$props;
+  let { padding = false } = $$props;
+  if ($$props.as === void 0 && $$bindings.as && as !== void 0)
+    $$bindings.as(as);
+  if ($$props.condensed === void 0 && $$bindings.condensed && condensed !== void 0)
+    $$bindings.condensed(condensed);
+  if ($$props.narrow === void 0 && $$bindings.narrow && narrow !== void 0)
+    $$bindings.narrow(narrow);
+  if ($$props.fullWidth === void 0 && $$bindings.fullWidth && fullWidth !== void 0)
+    $$bindings.fullWidth(fullWidth);
+  if ($$props.noGutter === void 0 && $$bindings.noGutter && noGutter !== void 0)
+    $$bindings.noGutter(noGutter);
+  if ($$props.noGutterLeft === void 0 && $$bindings.noGutterLeft && noGutterLeft !== void 0)
+    $$bindings.noGutterLeft(noGutterLeft);
+  if ($$props.noGutterRight === void 0 && $$bindings.noGutterRight && noGutterRight !== void 0)
+    $$bindings.noGutterRight(noGutterRight);
+  if ($$props.padding === void 0 && $$bindings.padding && padding !== void 0)
+    $$bindings.padding(padding);
+  props = __spreadProps(__spreadValues({}, $$restProps), {
+    class: [
+      $$restProps.class,
+      "bx--grid",
+      condensed && "bx--grid--condensed",
+      narrow && "bx--grid--narrow",
+      fullWidth && "bx--grid--full-width",
+      noGutter && "bx--no-gutter",
+      noGutterLeft && "bx--no-gutter--left",
+      noGutterRight && "bx--no-gutter--right",
+      padding && "bx--row-padding"
+    ].filter(Boolean).join(" ")
+  });
+  return `${as ? `${slots.default ? slots.default({ props }) : ``}` : `<div${(0, import_index_0029e4b6.o)([(0, import_index_0029e4b6.q)(props)], {})}>${slots.default ? slots.default({}) : ``}</div>`}`;
+});
 var old_layout_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "/* purgecss start ignore */\n\n:root{\n  --header-2-height:clamp(2rem,4vh,60px);\n  --header-1-height:clamp(1rem,5vh,40px)\n}\n\n.icon{\n  border:2px solid rgb(89, 89, 89);\n  aspect-ratio:1/1;\n  height:auto;\n  width:var(--header-2-height)!important\n}\n\nheader.svelte-1mbzvnp{\n  display:block;\n  position:fixed;\n  width:100vw;\n  margin:0!important\n}\n\n.bx--grid{\n  left:0;\n  right:0;\n  margin-left:0;\n  margin-right:0px;\n  padding-left:0px;\n  padding-right:0px;\n  width:100vw\n}\n\n#head1{\n  width:100vw;\n  height:var(--header-1-height)!important;\n  background-color:whitesmoke;\n  margin:0\n}\n\n#head2{\n  width:100vw;\n  height:var(--header-2-height)!important;\n  background-color:#323132\n        ;\n  margin:0\n}\n\n.logo.svelte-1mbzvnp{\n  height:calc(var(--header-1-height)*.8)!important;\n  width:auto\n}\n\n.bx--col{\n  padding:0!important;\n  display:flex;\n  flex-grow:5!important\n}\n\n/* purgecss end ignore */")();
 const css = {
   code: ":root{--header-2-height:clamp(2rem,4vh,60px);--header-1-height:clamp(1rem,5vh,40px)}.icon{border:2px solid rgb(89, 89, 89);aspect-ratio:1/1;height:auto;width:var(--header-2-height)!important}header.svelte-1mbzvnp{display:block;position:fixed;width:100vw;margin:0!important}.bx--grid{left:0;right:0;margin-left:0;margin-right:0px;padding-left:0px;padding-right:0px;width:100vw}#head1{width:100vw;height:var(--header-1-height)!important;background-color:whitesmoke;margin:0}#head2{width:100vw;height:var(--header-2-height)!important;background-color:#323132\n        ;margin:0}.logo.svelte-1mbzvnp{height:calc(var(--header-1-height)*.8)!important;width:auto}.bx--col{padding:0!important;display:flex;flex-grow:5!important}",
   map: null
 };
-const Old_layout = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, slots) => {
+const Old_layout = (0, import_index_0029e4b6.c)(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `<main class="${"w-screen min-h-screen flex flex-col"}"><header class="${"svelte-1mbzvnp"}">${(0, import_index_e390a0ae.v)(import_Grid_73568902.G, "Grid").$$render($$result, {}, {}, {
+  return `<main class="${"w-screen min-h-screen flex flex-col"}"><header class="${"svelte-1mbzvnp"}">${(0, import_index_0029e4b6.v)(Grid, "Grid").$$render($$result, {}, {}, {
     default: () => {
-      return `${(0, import_index_e390a0ae.v)(import_Column_294c0149.R, "Row").$$render($$result, { id: "head1" }, {}, {
+      return `${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.R, "Row").$$render($$result, { id: "head1" }, {}, {
         default: () => {
-          return `${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {
+          return `${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {
             default: () => {
               return `<img style="${"margin-left:10px;margin-top:4px"}" class="${"logo svelte-1mbzvnp"}" src="${"https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg"}" alt="${"Office for National Statistics logo - Homepage"}">`;
             }
           })}`;
         }
       })}
-        ${(0, import_index_e390a0ae.v)(import_Column_294c0149.R, "Row").$$render($$result, { id: "head2" }, {}, {
+        ${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.R, "Row").$$render($$result, { id: "head2" }, {}, {
         default: () => {
-          return `${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {
+          return `${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {
             default: () => {
               return `
-            ${(0, import_index_e390a0ae.v)(import_Button_b480e50a.B, "Button").$$render($$result, {
+            ${(0, import_index_0029e4b6.v)(import_Button_a63d0e2e.B, "Button").$$render($$result, {
                 style: "margin-left:0px",
                 class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
               }, {}, {
@@ -60,7 +129,7 @@ const Old_layout = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, 
                 }
               })}            
  
-          ${(0, import_index_e390a0ae.v)(import_Button_b480e50a.B, "Button").$$render($$result, {
+          ${(0, import_index_0029e4b6.v)(import_Button_a63d0e2e.B, "Button").$$render($$result, {
                 class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
               }, {}, {
                 default: () => {
@@ -70,7 +139,7 @@ const Old_layout = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, 
               })}     
         
         
-        ${(0, import_index_e390a0ae.v)(import_Button_b480e50a.B, "Button").$$render($$result, {
+        ${(0, import_index_0029e4b6.v)(import_Button_a63d0e2e.B, "Button").$$render($$result, {
                 class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
               }, {}, {
                 default: () => {
@@ -82,9 +151,9 @@ const Old_layout = (0, import_index_e390a0ae.c)(($$result, $$props, $$bindings, 
           })}
       \u2226
 
-${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {
+${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {
             default: () => {
-              return `${(0, import_index_e390a0ae.v)(import_Button_b480e50a.B, "Button").$$render($$result, {
+              return `${(0, import_index_0029e4b6.v)(import_Button_a63d0e2e.B, "Button").$$render($$result, {
                 style: "margin-left:0px",
                 class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
               }, {}, {
@@ -94,7 +163,7 @@ ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$re
                 }
               })}  
 
-    ${(0, import_index_e390a0ae.v)(import_Button_b480e50a.B, "Button").$$render($$result, {
+    ${(0, import_index_0029e4b6.v)(import_Button_a63d0e2e.B, "Button").$$render($$result, {
                 style: "margin-left:0px",
                 class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
               }, {}, {
@@ -106,9 +175,9 @@ ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$re
             }
           })}
 
-${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, { style: "flex-grow:0!important;" }, {}, {
+${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, { style: "flex-grow:0!important;" }, {}, {
             default: () => {
-              return `${(0, import_index_e390a0ae.v)(import_Button_b480e50a.B, "Button").$$render($$result, {
+              return `${(0, import_index_0029e4b6.v)(import_Button_a63d0e2e.B, "Button").$$render($$result, {
                 style: "margin-left:0px",
                 class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
               }, {}, {
@@ -118,7 +187,7 @@ ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$re
                 }
               })}     
     
-    ${(0, import_index_e390a0ae.v)(import_Button_b480e50a.B, "Button").$$render($$result, {
+    ${(0, import_index_0029e4b6.v)(import_Button_a63d0e2e.B, "Button").$$render($$result, {
                 style: "margin-left:0px",
                 class: "bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon"
               }, {}, {
@@ -134,23 +203,23 @@ ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$re
         }
       })}
        
-        ${(0, import_index_e390a0ae.v)(import_Column_294c0149.R, "Row").$$render($$result, { style: "float:inline-right" }, {}, {
+        ${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.R, "Row").$$render($$result, { style: "float:inline-right" }, {}, {
         default: () => {
           return `
             
-            ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {
+            ${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {
             default: () => {
               return `Draw Tools`;
             }
           })}
-            ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {})}
-            ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {
+            ${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {})}
+            ${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {
             default: () => {
               return `Edit Selection`;
             }
           })}
-            ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {})}
-            ${(0, import_index_e390a0ae.v)(import_Column_294c0149.C, "Column").$$render($$result, {}, {}, {
+            ${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {})}
+            ${(0, import_index_0029e4b6.v)(import_Column_dcda07a5.C, "Column").$$render($$result, {}, {}, {
             default: () => {
               return `Build / Load `;
             }

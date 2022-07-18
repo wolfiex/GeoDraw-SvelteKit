@@ -27,8 +27,8 @@ __export(stdin_exports, {
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/LibLoader.svelte.js"));
+var module2 = __toESM(require("../entries/pages/OpenGraph.svelte.js"));
 const index = 6;
-const entry = "pages/LibLoader.svelte-c905c808.js";
-const js = ["pages/LibLoader.svelte-c905c808.js", "chunks/index-ba5e9c90.js"];
+const entry = "pages/OpenGraph.svelte-957b0773.js";
+const js = ["pages/OpenGraph.svelte-957b0773.js", "chunks/index-c4b4a3b1.js"];
 const css = [];

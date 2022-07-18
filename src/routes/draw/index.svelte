@@ -1,6 +1,5 @@
 <script>
   // ONS CensusDraw Tilegen
-  // import './css/style.css';
   import 'carbon-components-svelte/css/g10.css';
   import {
     Grid,
@@ -18,7 +17,7 @@
   import InfoBox from './Toolbar/InfoBox.svelte';
   import PostcodeSearch from './Toolbar/PostcodeSearch.svelte';
   import ItemAccordion from './Toolbar/ItemAccordion.svelte';
-  import {encode, decode} from '../binary.js';
+  // import {encode, decode} from '../binary.js';
   let add_mode = true;
   import {get} from 'svelte/store';
 
@@ -26,8 +25,8 @@
   // import { goto } from '$app/navigation';
   import './css/mapbox-gl.css';
   let webgl_canvas;
-  export let width = '100%';
-  export let height = '100%';
+  let width = '100%';
+  let height = '100%';
   //   let pending = new Set([]);
   let error = false;
   let speak = false;
@@ -55,8 +54,6 @@
     selected,
     query,
     server,
-    // level,
-    // zoomed,
   } from './mapstore.js';
   import {simplify_query} from './MapDraw.js';
   import {BindVertexArrayOES} from 'maplibre-gl';
@@ -72,16 +69,9 @@
     $mapsource = {
       area: {
         type: 'vector',
-        tiles: [
-          // `${window.location.origin}/cors_endpoint/{z}/{x}/{y}.pbf`
-          `${server}/{z}/{x}/{y}.pbf`,
-          // `${window.location.origin}/LSOA/{z}/{x}/{y}.pbf`,
-          // `https://wolfiex.github.io/ONS_Maptiles/LSOA/{z}/{x}/{y}.pbf`,
-        ],
+        tiles: [`${server}/{z}/{x}/{y}.pbf`],
       },
     };
-
-    console.warn('mapsource', $mapsource);
 
     $maplayer = [
       {
@@ -110,6 +100,8 @@
       },
     ];
 
+    /// Read out area names
+
     if ('SpeechSynthesisUtterance' in window) {
       var msg = new SpeechSynthesisUtterance();
       console.error(
@@ -133,6 +125,7 @@
         },
       },
     ];
+    /// end read out areas
 
     async function recolour() {
       const items = $selected[$selected.length - 1];
@@ -143,27 +136,17 @@
         ['get', 'oa'],
         ['literal', ...items.oa],
         'orange',
-        // [
-        // 	"match",
-        // 	["get", areatype],
-        // 	["literal", ...$selected],
-        // 	"green",
-        // 	"transparent",
-        // ],
         'transparent',
       ]);
       var q = await simplify_query();
       if (q) {
         console.warn('---req  ', q);
-        query.set(q); //.then(d=>d.json()).then(query.set); // this is a promise
-        // console.log('---bin--', get(query), encode(get(query)));
-
+        query.set(q);
         // update hash
-
         if (items.oa.size > 0) {
           items.oa = [...items.oa]; // we can't encode sets
-          window.location.hash = encode(items);
-          console.warn('--hashsave', items);
+          localStorage.setItem('draw_data', JSON.stringify(items));
+          // window.location.hash = encode(items);
         }
       } else {
         console.warn('---no features');
@@ -172,21 +155,18 @@
     }
 
     // console.clear();
-    console.log('cleared console from index.init()');
-    // if we have info in the hash string
+    // console.log('cleared console from index.init()');
 
-    // wait until the data has loaded
     $mapobject.on('load', () => {
       selected.subscribe(recolour);
-      // check_existing()
-      // $mapobject.on('moveend', check_existing);
+      // if (window.location.hash.length > 2) {
+      // var hash = window.location.hash.substring(1);
+      // var q = decode(hash);
+      if (localStorage.getItem('draw_data') || false) {
+        var q = JSON.parse(localStorage.getItem('draw_data'));
 
-      if (window.location.hash.length > 2) {
-        var hash = window.location.hash.substring(1);
-        var q = decode(hash);
         q.oa = new Set(q.oa);
         selected.set([q]);
-        // $mapobject.fitBounds([q.lng[0], q.lat[0], q.lng[1], q.lat[1]],padding: {top: 10, bottom:25, left: 15, right: 5});
         console.warn('--hashload', q);
       } else {
         // move mapobject to location
@@ -201,209 +181,147 @@
   onMount(init);
 </script>
 
+<!--  -->
+<!--  -->
+
+<!--  -->
+<!--  -->
 <!-- on:coordinate_change={update_area} /> -->
 <main class="w-screen min-h-screen flex flex-col">
+ 
+  <drawheader>
+    <DrawButtons />
+
+   
+    <EditButtons />
+
+    <Button
+      id='buildprofile'
+      disabled={$query.hasOwnProperty('error')}
+      on:click={() => {
+        // + encode(get(query))
+        localStorage.setItem('build_data', JSON.stringify(get(query)));
+        goto('/build', {replaceState: false});
+      }}
+    >
+      Build Profile
+    </Button>
+    <Button
+      kind="warning"
+      class="bx--btn bx--btn--secondary bx--btn--icon-only bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--bottom bx--tooltip--align-center bx--btn--sm icon trash"
+     
+      on:click={function clear() {
+        selected.set([{oa: new Set(), lat: [], lng: []}]);
+        query.set({error: false});
+        localStorage.clear();
+      }}
+    >
+      <span class="bx--assistive-text">Clear All</span>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24 "
+        xmlns="http://www.w3.org/2000/svg"
+      >
+      <path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+      </svg></Button
+    >
+ 
+  </drawheader>
+
+  {#if $draw_type === 'radius'}
+  <div id="slider">
+  <Slider
+    ariaLabelInput="Radius Selection (km)"
+    labelText="Radius Selection (km)"
+    max={30}
+    min={0.2}
+    step={0.2}
+    stepMuliplier={4}
+    value={5}
+    on:change={function (value) {
+      console.log('slider value', value.detail);
+      $radiusInKm = value.detail;
+    }}
+  />
+</div>
+
+  {/if}
   <div id="map">
     <AreaMap drawing_tools={true} />
   </div>
-  <header>
-    <Grid>
-      <Row id="head1">
-        <div>
-          <img
-            style="margin-left:10px;"
-            class="logo"
-            src="https://cdn.ons.gov.uk/assets/images/ons-logo/v2/ons-logo.svg"
-            alt="Office for National Statistics logo - Homepage"
-          />
-        </div>
-        <!-- <Column style="float:right;margin-right:2px"> -->
-        <div
-          style="right:0;float:right;top:0;min-height:auto;position:absolute"
-        >
-          <Button
-            disabled={$query.hasOwnProperty("error")}
-            on:click={() => {
-              goto('/build#' + encode(get(query)), {replaceState: false});
-            }}
-          >
-            Build Profile
-          </Button>
-          <Button
-            kind="secondary"
-            on:click={function clear() {
-              selected.set([{oa: new Set(), lat: [], lng: []}]);
-              query.set({error: false});
-              window.location.hash = 'null';
-            }}>Clear Existing</Button
-          >
-        </div>
-        <!-- <Breadcrumb>
-            <BreadcrumbItem href="/draw">Draw Area</BreadcrumbItem>
-            <BreadcrumbItem href="/" >Save + Load Area</BreadcrumbItem>
-            <BreadcrumbItem href="/">Build Profile</BreadcrumbItem>
-          </Breadcrumb> -->
-        <!-- </Column> -->
-      </Row>
-      <Row
-        style="background-color:#13518d;height:calc(.085*var(--header-1-height));margin-bottom:0px;"
-      />
-
-      <Row id="head2">
-        <!-- <Column></Column> -->
-        <Column>
-          <DrawButtons />
-          <EditButtons />
-          
-          <!-- </Column><Column> -->
-          <ProgressButtons />
-        </Column>
-        
-      </Row>
-      
-    </Grid>
-
-    <InfoBox open={$selected.length < 2}>
-      {#if $draw_enabled}
-        <ToastNotification
-          style="width:100%"
-          hideCloseButton
-          kind="warning"
-          title="Zoom in to begin drawing. "
-          subtitle="The map needs to be at least on zoom level 9 to begin drawing. "
-          caption=""
-        />
-      {:else if $draw_type === 'radius'}
-        <ItemAccordion title="Draw Area" subtitle="Distance Selection Tool">
-          <Slider
-            ariaLabelInput="Radius Selection (km)"
-            id="slider"
-            labelText="Radius Selection (km)"
-            max={30}
-            min={0.2}
-            step={0.2}
-            stepMuliplier={4}
-            value={5}
-            on:change={function (value) {
-              console.log('slider value', value.detail);
-              $radiusInKm = value.detail;
-            }}
-          />
-
-          <p>
-            Move the slider below to select the radius you are interested in,
-            and then click to select an area.
-          </p>
-          <br />
-        </ItemAccordion>
-      {:else if $draw_type === 'click'}
-        <ItemAccordion title="Draw Area" subtitle="Click Selection">
-          <p>Click on any areas you are interested in.</p>
-        </ItemAccordion>
-      {:else if $draw_type === 'poly'}
-        <ItemAccordion title="Draw Area" subtitle="Polygon Selection">
-          <p>
-            Click on each corner of the shape you want to build, and then back
-            onto the first vertex to select.
-          </p>
-        </ItemAccordion>
-      {/if}
-
-      {#await $query then value}
-        {#if value.error != null}
-          <ToastNotification
-            style="width:100%"
-            hideCloseButton
-            kind="error"
-            subtitle={value.error_title}
-            caption={value.error}
-          />
-        {:else if value.oa}
-          <ItemAccordion title="" subtitle="Compressed Selection">
-            <small>
-              <b> MSOA: </b> <span>{value.properties.msoa.length}</span> <br />
-              <b> LSOA: </b> <span>{value.properties.lsoa.length}</span> <br />
-              <b> OA: </b> <span>{value.properties.oa.length}</span> <br />
-              parent tile: {value.properties.tile}; # original output areas {value
-                .properties.original}
-            </small>
-          </ItemAccordion>
-        {/if}
-      {/await}
-    </InfoBox>
-  </header>
 </main>
 
+
+
 <style>
-  :root {
-    --header-2-height: clamp(2rem, 4vh, 60px);
-    --header-1-height: clamp(3rem, 5vh, 40px);
+  :root {;
+    --header-2-height:2.5em;
     --bar: #343a45;
+    --header-1-height: clamp(2em, 5vh, 3em);
     /* --second-color: #ff7; */
   }
-  #toggle {
-    height: calc(var(--header-2-height) / 2) !important;
+
+  #map{
+    z-index: -1;
+    position:absolute;
+    display: block;
+    width:100vw!important;
+    height: 50vh!important;
+    left:0;
+    top:0;
+    margin:0;
+    padding:0;
+    /* filter:invert(1); */
   }
 
+
+  :global(.bx--btn, .bx--btn-set){
+    height:var(--header-1-height)!important;
+    display: inline-flex!important;
+    min-height: 1em!important;
+    max-height:  var(--header-2-height)!important;
+    margin:auto;
+
+  }
+
+  :global(.bx--btn--disabled ){
+    display:none!important;
+  }
   :global(.icon) {
     border: 1px solid rgb(113, 113, 113);
     /* margin-left:-1.5px; */
     aspect-ratio: 1/1;
-    height: auto;
+    height: var(--header-2-height)!important;
     width: var(--header-2-height) !important;
+    bottom:0;
+    margin:auto;
   }
-  header {
-    /* position:absolute; */
-    display: block;
-    position: fixed;
-    width: 100vw;
-    margin: 0 !important;
-  }
-  :global(.bx--grid) {
+
+  :global(drawheader) {
     left: 0;
     right: 0;
     margin-left: 0;
     margin-right: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    width: 100vw;
-  }
-  :global(#head1) {
-    width: 100vw;
-    display: inline-block;
-    height: var(--header-1-height) !important;
-    background-color: whitesmoke;
-    margin: 0;
-  }
-  :global(#head2) {
-    left: 0;
-    right: 0;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-left: 0px;
-    padding-right: 30px;
-    width: 100%;
-    /* height: var(--header-2-height) !important; */
-    background-color: var(--bar);
-    /* margin: 0; */
-    margin-bottom: 1.2rem;
-  }
-  .logo {
-    height: calc(var(--header-1-height) * 0.9) !important;
-    width: auto;
-  }
-
-  :global(.bx--col) {
-    /* margin:auto; */
-    padding: 0 !important;
-    display: flex;
-    float: right;
-    right: 0;
-    margin: auto;
-    flex-grow: 3 !important;
-    text-align: right;
+    padding:0!important;
+    padding-top:var(--header-1-height)!important;
+    width: 100vw!important;
+    /* height: var(--header-2-height)!important; */
+    float:left !important;
+    display:flex-block!important;
+    width:100vw!important;
     justify-content: space-between;
+    /* justify-content: center; */
+    
+    background-color: var(--bar);
+    white-space: nowrap!important;
   }
+ 
+  /* :global(.bx--col) {
+    width: 100%;
+    padding:0!important;
+  }
+  */
 
   :global(small) {
     font: revert;
@@ -414,7 +332,25 @@
     filter: brightness(0.85);
   }
 
-  :global(header) {
-    height: 100px;
-  }
+:global(.trash){background-color:red;
+color:white;float:right;right:0;margin-left:auto;}
+
+:global(#buildprofile){
+  display:flex;
+  justify-content: space-around;
+  align-self: center;
+  float:none!important;
+ 
+  border-radius: 5px;
+  /* height:calc(0.9*var(--header-2-height))!important; */
+  margin:auto!important;
+  /* padding:auto; */
+}
+#slider{
+  position: absolute;
+  top: calc(var(--header-1-height)*2);
+  z-index: 9999;
+  left:5px;
+  backdrop-filter: blur(5px);
+}
 </style>
