@@ -1,16 +1,14 @@
 <script context="module">
-  const ptitle = 'Custom Drawn Areas';
 </script>
 
 <script>
-  // import '../app.css';
   import {onMount} from 'svelte';
   import {assets} from '$app/paths';
 
   // name dict for buttons
   // import { datasets } from "$lib/config";
   // import {datasets} from '$lib/table_select';
-
+  import 'carbon-components-svelte/css/white.css';
   import Titleblock from '$lib/layout/Titleblock.svelte';
   import Headline from '$lib/layout/partial/Headline.svelte';
   import Subhead from '$lib/layout/partial/Subhead.svelte';
@@ -66,7 +64,8 @@
   }
 
   onMount(() => {
-    data = decode(window.location.hash.slice(1));
+    // data = decode(window.location.hash.slice(1));
+    data = JSON.parse(localStorage.getItem('build_data'))
     // console.log('tables',data)
 
     compressed = {
@@ -101,11 +100,9 @@
   <meta name="description" content="This is a description of the page." />
 </svelte:head>
 
-<Titleblock
-  mode="page"
-  breadcrumb={[{label: 'Home', url: `${assets}/`}, {label: ptitle}]}
->
-  <Headline>{ptitle}</Headline>
+<div class="spacer s-SSDLp9VwXNH0" style="height: 5em;"></div>
+<h1> Embeddable Builder</h1><br>
+<h4> 1. Select tables:</h4><br>
   <Subhead>
     <div class="margin-top--2">
       {#each dataset_keys as key}
@@ -124,10 +121,11 @@
         </button>
       {/each}
     </div>
-  </Subhead>
-</Titleblock>
-
+  </Subhead><br>
+  
 <Content>
+  <br>
+  <h4> 2. Configure:</h4>
   <iframe
     id="ifr"
     bind:this={iframe}

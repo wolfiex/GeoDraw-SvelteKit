@@ -27,9 +27,9 @@
 
   let url = '';
 
-  let areaname = 'Custom Area Tables';
+  let areaname = 'My Custom Area (Tables)';
   let includecodes = false;
-  let includemap = false;
+  let includemap = true;
   let embed_data = {};
 
   let cache = {};
@@ -229,26 +229,16 @@
   <!-- <script src='' /> -->
 </svelte:head>
 
-<h1>{areaname}</h1>
+
+
+
+
+
+  
+
+  <div id='settings'>
 <Cards>
-  <Card title={'Area map'}>
-    <MapAreas minimap={coordinates} />
-  </Card>
-
-  <Card title={'Selected Areas'}>
-    This section outlines all the different areas codes which have been combined
-    to produce the following report.
-    <br /><br />
-    {#each items(compressed) as item}
-      <h4 style="display:inline"><b>{item[0].toUpperCase()}</b>:</h4>
-      <codes>{item[1].join(', ')}</codes>
-      <br /><br />
-    {/each}
-  </Card>
-
-  {#await get_data(newdata) then tables}
-
-  <Card title={'Embed Custom Profile'}>
+    <Card title={'Embed Custom Profile'}>
     <br />
     {#if url}
       <code>
@@ -264,12 +254,12 @@
       />
       <br />
 
-      <span class = 'radio'>
+      <!-- <span class = 'radio'>
         <Toggle
           bind:toggled={includecodes}
           size="sm"
         />Include Codes</span
-      >
+      > -->
 
       <span class='radio'>
         <Toggle bind:toggled={includemap} size="sm" /> Include
@@ -278,25 +268,61 @@
 
       <br />
 
-      <ButtonSet stacked id="bset">
-        <Button kind="primary" on:click={window.parent.location.href = url}>Open Embed Url</Button>
 
-        <Button
-          kind="secondary"
-          on:click={() => {
-            navigator.clipboard.writeText(url);
-            // console.table(tables);
-            console.log('data copied to clipboard');
-          }}
-        >
-          Copyto Clipboard
-        </Button>
-
-        <Button kind="sucess">Download Data</Button>
-      </ButtonSet>
     {/if}
-  </Card>
+    </Card>
+    <Card title={'Selected Areas'}>
+      This section outlines all the different areas codes which have been combined
+      to produce the following report.
+      <br /><br />
+      {#each items(compressed) as item}
+        <p style="display:inline"><b>{item[0].toUpperCase()} ({item[1].length})</b>:</p>
+       <div class='code truncate' onclick={function(){console.log(this);this.classList.Toggle("truncate")}}>{item[1].join(', ')}</div>
+        <br />
+      {/each}
+    </Card>
+ 
+  <Card>
+    <ButtonSet stacked id="bset">
+      <Button kind="primary" on:click={window.parent.location.href = url}>Generate Embed Url</Button>
 
+      <Button
+        kind="secondary"
+        on:click={() => {
+          navigator.clipboard.writeText(url);
+          // console.table(tables);
+          console.log('data copied to clipboard');
+        }}
+      >
+        Copy Selected Areas (for use in NOMIS or GIS)
+      </Button>
+
+      <Button kind="sucess">Download Data</Button>
+    </ButtonSet>
+  </Card>
+</Cards>
+
+    </div>
+
+
+<br><br>
+<h4>3. Preview:</h4>
+<br>
+{#await get_data(newdata) then tables}
+<h1>{areaname}</h1>
+<Cards>
+  
+  {#if includemap}
+    <Card title={'Area map'}>
+      <MapAreas minimap={coordinates} />
+    </Card>
+    {/if}
+    
+    {#if includecodes}
+
+    {/if}
+
+  
 
     {#each tables as tab}
       <Card title={tab.name}>
@@ -306,10 +332,9 @@
         <BarChart xKey="pc" yKey="column" zKey="z" data={tab.data} />
       </Card>
     {/each}
-  {/await}
-  <br />
-</Cards>
 
+  <br />
+</Cards>  {/await}
 <!-- <span class="footnote">Source: Census 2011 data. Office for National Statistics | <a href="{dataURL(tables)}" download="{name}.csv">Download the data</a> | <a href="{assets}" target="_blank">Build your own profile</a></span> -->
 
 <!-- {/if} -->
@@ -323,10 +348,21 @@
     margin-bottom: -20px;
   }
 
-  codes {
+  .code{
+    font-size: x-small;
+    color:rgb(10, 33, 52);
     inline-size: 150px;
     overflow-wrap: break-word;
   }
+
+  .code.truncate {
+    width:100%;
+    white-space: nowrap;
+  overflow-x: scroll;
+  text-overflow:scroll;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+}
 
   b {
     font-weight: bold;
@@ -335,10 +371,11 @@
   :global(#bset > *) {
     width: 100%;
     margin: 4px;
-
+    
+    float:right;
     padding: auto;
-    left: auto;
-    right: auto;
+    margin-left: auto;
+    margin-right: auto;
     display: inline-flex;
     position: flex;
   }
@@ -354,5 +391,13 @@
     float: end;
     margin: 0.05em;
     padding: 5px;
+  }
+
+  #settings{
+    padding:20px;
+    margin:auto!important;
+    background-color: rgb(222, 221, 221);
+    justify-content: space-around;
+    border-radius: 10px;
   }
 </style>
