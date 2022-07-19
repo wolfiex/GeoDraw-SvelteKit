@@ -14,7 +14,7 @@
   import DrawButtons from './Toolbar/DrawButtons.svelte';
   import EditButtons from './Toolbar/EditButtons.svelte';
   import ProgressButtons from './Toolbar/ProgressButtons.svelte';
-  import InfoBox from './Toolbar/InfoBox.svelte';
+  // import InfoBox from './Toolbar/InfoBox.svelte';
   import PostcodeSearch from './Toolbar/PostcodeSearch.svelte';
   import ItemAccordion from './Toolbar/ItemAccordion.svelte';
   // import {encode, decode} from '../binary.js';
