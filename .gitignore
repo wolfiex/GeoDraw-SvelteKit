@@ -1,5 +1,6 @@
-./sk-build-profile
-./sk-build-profile/*
+.svelte-kit/
+build/
+archive/
 
 # Logs
 logs
@@ -107,4 +108,4 @@ dist
 .tern-port
 
 # Local Netlify folder
-.netlify
+.netlify/
