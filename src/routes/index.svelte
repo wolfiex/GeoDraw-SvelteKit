@@ -1,9 +1,9 @@
 <script>
   import 'carbon-components-svelte/css/white.css';
   import {Button} from 'carbon-components-svelte';
-  import {hash, drawhash, embedurl} from './examplehash.js';
+  import {hash, drawhash, embedurl} from '$lib/examplehash.js';
   import Select from '$lib/ui/Select.svelte'
-  import OpenGraph from './OpenGraph.svelte';
+  import OpenGraph from '$lib/OpenGraph.svelte';
 import { onMount } from 'svelte';
 import { base } from "$app/paths";
 import {csv} from 'd3'

@@ -1,5 +1,5 @@
 <script>
-  import LibLoader from '../LibLoader.svelte';
+  import LibLoader from '$lib/LibLoader.svelte';
   // reducing svelte bundle size by using third party loaders for scripts...
 
   // import {page} from '$app/stores';
@@ -13,8 +13,8 @@
   // import ProfileChart from '$lib/chart/ProfileChart.svelte';
   //import * as dfd from '';//'danfojs';
 
-  import BarChart from './BarChart.svelte';
-  import MapAreas from './MapAreas.svelte';
+  import BarChart from '$lib/tables/BarChart.svelte';
+  import MapAreas from '$lib/tables/MapAreas.svelte';
   import {Button, ButtonSet, TextInput, Toggle} from 'carbon-components-svelte';
   import 'carbon-components-svelte/css/white.css';
 
@@ -23,7 +23,7 @@
   // console.log()
 
   // the table
-  import {encode} from '../binary.js';
+  import {encode} from '$lib/binary.js';
 
   let url = '';
 
