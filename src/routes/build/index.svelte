@@ -15,7 +15,7 @@
   import Content from '$lib/layout/Content.svelte';
   import Icon from '$lib/ui/Icon.svelte';
 
-  import {decode} from '../binary.js';
+  import {decode} from '$lib/binary.js';
 
   let iframe;
   let compressed;
@@ -23,7 +23,7 @@
   let data;
 
 
-  import {default as datasets} from '../util/custom_profiles_tables.json';  
+  import {default as datasets} from '$lib/util/custom_profiles_tables.json';  
   // console.error(datasets)
 
   let dataset_keys = Object.keys(datasets);

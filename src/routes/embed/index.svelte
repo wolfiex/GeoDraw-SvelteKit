@@ -1,16 +1,16 @@
 
 <script>
-  import LibLoader from '../LibLoader.svelte';
+  import LibLoader from '$lib/LibLoader.svelte';
   // reducing svelte bundle size by using third party loaders for scripts...
 
   // import '../app.css';
   import {onMount} from 'svelte';
   import Cards from '$lib/layout/Cards.svelte';
   import Card from '$lib/layout/partial/Card.svelte';
-  import BarChart from '../tables/BarChart.svelte';
-  import MapAreas from '../tables/MapAreas.svelte';
-  import {default as datasets} from '../util/custom_profiles_tables.json';
-  import {decode} from '../binary.js';
+  import BarChart from '$lib/tables/BarChart.svelte';
+  import MapAreas from '$lib/tables/MapAreas.svelte';
+  import {default as datasets} from '$lib/util/custom_profiles_tables.json';
+  import {decode} from '$lib/binary.js';
 
   let areaname = '';
   var newdata;

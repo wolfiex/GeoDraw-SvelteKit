@@ -1,18 +1,17 @@
 <script>
-  let height;
+  export let height;
 </script>
 
-<aside role="alert" class="warning" bind:clientHeight={height}>
+<aside role="alert" class="warning-msg" bind:clientHeight={height}>
   <div class="wrapper middle">
     <strong>
       <slot/>
     </strong>
   </div>
 </aside>
-<div class="spacer" style:height="{height ? height: 40}px"/>
 
 <style>
-  .warning {
+  .warning-msg {
     position: fixed;
     z-index: 100;
     top: 0;
@@ -23,7 +22,8 @@
     padding: 8px 0;
     font-size: 1em;
   }
-  .spacer {
-    display: block;
+  :global(.spacer) {
+    /* display: block; */
+    display: none;
   }
 </style>

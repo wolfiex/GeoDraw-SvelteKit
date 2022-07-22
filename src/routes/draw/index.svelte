@@ -11,19 +11,19 @@
     ToastNotification,
   } from 'carbon-components-svelte';
   import {Slider} from 'carbon-components-svelte';
-  import DrawButtons from './Toolbar/DrawButtons.svelte';
-  import EditButtons from './Toolbar/EditButtons.svelte';
-  import ProgressButtons from './Toolbar/ProgressButtons.svelte';
+  import DrawButtons from '$lib/draw/Toolbar/DrawButtons.svelte';
+  import EditButtons from '$lib/draw/Toolbar/EditButtons.svelte';
+  import ProgressButtons from '$lib/draw//Toolbar/ProgressButtons.svelte';
   // import InfoBox from './Toolbar/InfoBox.svelte';
-  import PostcodeSearch from './Toolbar/PostcodeSearch.svelte';
-  import ItemAccordion from './Toolbar/ItemAccordion.svelte';
+  import PostcodeSearch from '$lib/draw//Toolbar/PostcodeSearch.svelte';
+  import ItemAccordion from '$lib/draw//Toolbar/ItemAccordion.svelte';
   // import {encode, decode} from '../binary.js';
   let add_mode = true;
   import {get} from 'svelte/store';
 
   // import { page } from '$app/stores';
   // import { goto } from '$app/navigation';
-  import './css/mapbox-gl.css';
+  import '$lib/draw/css/mapbox-gl.css';
   let webgl_canvas;
   let width = '100%';
   let height = '100%';
@@ -32,7 +32,7 @@
   let speak = false;
 
   // import { default as mapboxgl } from "./mapbox-gl.js";
-  import {default as AreaMap} from './AreaMap.svelte';
+  import {default as AreaMap} from '$lib/draw/AreaMap.svelte';
   // import mapboxgl, {Popup} from 'mapbox-gl';
   import {onMount} from 'svelte';
   // import {writable, get} from 'svelte/store';
@@ -54,8 +54,8 @@
     selected,
     query,
     server,
-  } from './mapstore.js';
-  import {simplify_query} from './MapDraw.js';
+  } from '$lib/draw/mapstore.js';
+  import {simplify_query} from '$lib/draw/MapDraw.js';
   import {BindVertexArrayOES} from 'maplibre-gl';
   import {goto} from '$app/navigation';
   // import { ZoomHistory } from 'maplibre-gl';
