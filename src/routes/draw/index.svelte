@@ -255,6 +255,9 @@
 
 
 <style>
+  main {
+    position: relative;
+  }
   :root {;
     --header-2-height:2.5em;
     --bar: #343a45;
@@ -304,7 +307,7 @@
     margin-left: 0;
     margin-right: 0px;
     padding:0!important;
-    padding-top:var(--header-1-height)!important;
+    /* padding-top:var(--header-1-height)!important; */
     width: 100vw!important;
     /* height: var(--header-2-height)!important; */
     float:left !important;
@@ -348,8 +351,8 @@ color:white;float:right;right:0;margin-left:auto;}
 }
 #slider{
   position: absolute;
-  top: calc(var(--header-1-height)*2);
   z-index: 9999;
+  top: 20px;
   left:5px;
   backdrop-filter: blur(5px);
 }
