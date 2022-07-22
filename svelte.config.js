@@ -2,16 +2,23 @@
 // import adapter from '@sveltejs/adapter-static';
 import adapter from '@sveltejs/adapter-netlify';
 const production = process.env.NODE_ENV === 'production';
+import preprocess from 'svelte-preprocess';
+
 
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// options passed to svelte.compile (https://svelte.dev/docs#svelte_compile)
-	compilerOptions:null,//{format:'cjs'},
+	compilerOptions:{hydratable:false},//{format:'cjs'},
+	preprocess: preprocess(),
+	// preprocess: null
 
 	// an array of file extensions that should be treated as Svelte components
 	extensions: ['.svelte'],
+
 	kit: {
+		
+
 		adapter: adapter(),
 		// amp: false,
 		// edge: false,
@@ -25,8 +32,9 @@ const config = {
 			serviceWorker: 'src/service-worker',
 			template: 'src/app.html'
 		},
-		floc: true,
-		// hydrate: true,
+		// floc: true,
+		// browser:{hydrate: false},
+		// hydrate:false,
 		paths: {
 			assets: '',
 			base: ''
@@ -42,11 +50,11 @@ const config = {
 		// },
 		// router: true,
 		// ssr: true,
-		vite: () => ({server: {
-			watch: {
-				   ignored: ['**/static/**']		// undocumented in vite
-				 }}
-			})
+		// vite: () => ({server: {
+		// 	watch: {
+		// 		   ignored: ['**/static/**']		// undocumented in vite
+		// 		 }}
+		// 	})
 		},
 
 		// paths: {
@@ -55,7 +63,7 @@ const config = {
 		// trailingSlash: 'always',
 
 	// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
-	preprocess: null
+	
 };
 
 // https://github.com/sveltejs/kit/issues/1278
