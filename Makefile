@@ -10,7 +10,9 @@ install:
 
 
 doc:
-	jsdoc -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r .
+	touch build/docs/test
+	rm -r build/docs/*
+	jsdoc -c ./jsdoc.conf.json -t ./node_modules/ink-docstrap/template -R README.md -r src/ -d build/docs && open build/docs
 
 check:
 	yarn check --verify-tree

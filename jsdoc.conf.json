@@ -2,7 +2,17 @@
   "tags": {
     "allowUnknownTags": true
   },
-  "plugins": ["plugins/markdown"],
+  "source": {
+    "includePattern": ".+\\.(js(doc|x)|svelte)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "access": "all"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "jsdocsvelte"
+  ],
   "templates": {
     "logoFile": "",
     "cleverLinks": false,

@@ -1,0 +1,29 @@
+exports.handlers = {
+    beforeParse: function(e) {
+        var extraDoc = [
+            '/**',
+            ' * Documentation by D. Ellis',
+            ' * @memberof Office Of National Statistics',
+            ' * @function',
+            ' */'
+        ];
+        
+
+        e.source = e.source.replace(/#|\n/,' ')
+
+        // console.log(e.source)
+
+        const re = /<script>([^<]+)<\/script>/ig;
+
+        const jscode = [...e.source.matchAll(re)].map(d=>d[1])
+
+
+        // console.error(jscode)
+        console.log(e.filename)
+
+        e.source = jscode.join('\n')// + extraDoc.join('\n');
+        // return e;
+        console.error(e.source)
+
+    }
+};
